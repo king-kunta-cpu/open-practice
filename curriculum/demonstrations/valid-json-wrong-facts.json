@@ -1,0 +1,49 @@
+{
+  "id": "demo-json",
+  "slug": "valid-json-wrong-facts",
+  "title": "JSON can parse perfectly and still invent a fact",
+  "summary": "A three-book exercise separating syntax, field rules and source truth\u2014with an unknown year deliberately filled in.",
+  "activity": "json-data",
+  "blocks": [
+    {
+      "text": "A successful parser is not a truth detector. Here is a small learn-by-doing exercise you can run without uploading any personal data. The books below are fictional. The faulty output is deliberately constructed to illustrate a failure mode; it is not a measured result from a particular model."
+    },
+    {
+      "heading": "1. Keep the source beside the output",
+      "text": "Paper Signals \u2014 A. Dube \u2014 2021 \u2014 rating 4. Quiet Circuits \u2014 T. Moyo \u2014 2023 \u2014 rating 5. Small Useful Things \u2014 N. Rao \u2014 year unknown \u2014 rating 3. The contract is exactly three records with lowercase title, author, year and rating keys. Year is an integer or null; rating is an integer from 1 to 5."
+    },
+    {
+      "heading": "2. Inspect this constructed failure",
+      "code": "[\n  {\n    \"title\": \"Paper Signals\",\n    \"author\": \"A. Dube\",\n    \"year\": 2021,\n    \"rating\": 4\n  },\n  {\n    \"title\": \"Quiet Circuits\",\n    \"author\": \"T. Moyo\",\n    \"year\": 2023,\n    \"rating\": 5\n  },\n  {\n    \"title\": \"Small Useful Things\",\n    \"author\": \"N. Rao\",\n    \"year\": 2020,\n    \"rating\": 3\n  }\n]"
+    },
+    {
+      "text": "The array is valid JSON. It also has the requested fields, integer years and ratings within range. Yet the final year, 2020, is invented: the source says unknown. A shape validator can accept this while the factual comparison fails."
+    },
+    {
+      "heading": "3. Run three separate checks",
+      "list": [
+        "Syntax: does JSON.parse accept the string? A trailing comma should fail here.",
+        "Shape: are there three records, the exact keys and the correct types/ranges? A rating of 9 should fail here.",
+        "Source truth: do the values match the fictional input? An invented but well-typed year fails here."
+      ]
+    },
+    {
+      "heading": "4. Correct the missing value",
+      "code": "[\n  {\n    \"title\": \"Paper Signals\",\n    \"author\": \"A. Dube\",\n    \"year\": 2021,\n    \"rating\": 4\n  },\n  {\n    \"title\": \"Quiet Circuits\",\n    \"author\": \"T. Moyo\",\n    \"year\": 2023,\n    \"rating\": 5\n  },\n  {\n    \"title\": \"Small Useful Things\",\n    \"author\": \"N. Rao\",\n    \"year\": null,\n    \"rating\": 3\n  }\n]"
+    },
+    {
+      "text": "Null is not a claim that the book has no publication year. It records that the year is missing in the supplied source. If the real task needs the year, flag it for verification instead of silently filling it."
+    },
+    {
+      "heading": "5. Try a constrained prompt",
+      "code": "Convert only the three supplied fictional book records to a JSON array. Use exactly title, author, year and rating. Preserve unknown year as null. Do not add authors, titles or dates. Return JSON only. After generation, I will separately check syntax, shape and each value against the source."
+    },
+    {
+      "text": "Now change one thing at a time: add a trailing comma, make rating a string, use rating 9, or replace null with a plausible year. Write down which check should catch each change. A polished output is a starting point, not evidence that it is correct."
+    },
+    {
+      "heading": "Practice, not a product pitch",
+      "text": "I maintain Open Practice, an independent, non-accredited collection of practical AI activities. The complete exercise includes a fictional fixture, a local JSON checker, editable notes and an offline export. Learning materials are free; optional hosted AI tools have their own limits. You can inspect the reference manually without an AI account."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+import {equal,digest,randomToken} from '../accounts/api.mjs';
+import {smtpMail} from './smtp.mjs';
+export const outreachSchema=`CREATE TABLE IF NOT EXISTS outreach_leads (domain TEXT PRIMARY KEY, organisation TEXT NOT NULL, source TEXT NOT NULL, email_hash TEXT UNIQUE, email TEXT, unsubscribe_hash TEXT UNIQUE, status TEXT NOT NULL, detail TEXT NOT NULL, updated_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS outreach_runs (day TEXT PRIMARY KEY, created_at INTEGER NOT NULL, result TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS outreach_discovery (url TEXT PRIMARY KEY, title TEXT NOT NULL, found_at INTEGER NOT NULL);\n`;
+export const pilotPool=[
+ {domain:'impacthubharare.net',organisation:'Impact Hub Harare',path:'/contact-us/',relevance:'your community and entrepreneurship work in Harare'},
+ {domain:'uncommon.org',organisation:'Uncommon.org',path:'/contact',relevance:'your adult technology bootcamp programme'},
+ {domain:'bongohive.co.zm',organisation:'BongoHive',path:'/get-in-touch/',relevance:'your entrepreneurship and Data & AI work'}
+];
+const BASE='https://open-practice.zlnew.workers.dev',reply=(body,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'}});
+const agent='OpenPracticePilot/0.9 (+https://open-practice.zlnew.workers.dev/facilitators.html)';
+export const relevantResearch=title=>/digital|skills|technolog|community|innovation|hub|entrepreneur|bootcamp|training|librar/i.test(title);
+export function contactAddress(html,domain){
+ // Public organisational role inboxes only: never infer or extract personal contacts.
+ const allowed=new Set(['hello','info','contact','partnerships','community','programmes','programs','events','enquiries']);
+ return [...html.toLowerCase().matchAll(/\b([a-z0-9._%+-]+)@([a-z0-9.-]+\.[a-z]{2,})\b/g)].map(m=>[m[1],m[2]]).find(([local,host])=>allowed.has(local)&&host===domain)?.join('@')||null;
+}
+export function robotsAllow(text,path){
+ const groups=[];let agents=[],rules=[];
+ const flush=()=>{if(agents.length)groups.push({agents,rules});agents=[];rules=[]};
+ for(const raw of text.split(/\r?\n/)){const m=raw.split('#')[0].trim().match(/^([^:]+):\s*(.*)$/);if(!m)continue;const key=m[1].toLowerCase(),value=m[2].trim();if(key==='user-agent'){if(rules.length)flush();agents.push(value.toLowerCase())}else if(key==='disallow'||key==='allow')rules.push({key,value})}flush();
+ for(const group of groups)if(group.agents.some(a=>a==='*'||a.includes('openpracticepilot')))for(const rule of group.rules){if(rule.key!=='disallow'||!rule.value)continue;const pattern=rule.value.replace(/\$$/,'').replace(/[.+?^${}()|[\]\\]/g,'\\$&').replace(/\*/g,'.*');if(new RegExp('^'+pattern).test(path))return false}return true;
+}
+async function pageFetch(url,domain,fetcher=fetch){
+ for(let i=0;i<3;i++){
+  const u=new URL(url);if(u.protocol!=='https:'||![domain,'www.'+domain].includes(u.hostname)||u.port||u.username||u.password)throw Error('source_not_allowed');
+  const r=await fetcher(u,{redirect:'manual',headers:{'User-Agent':agent},signal:AbortSignal.timeout(10000)});
+  if([301,302,307,308].includes(r.status)){url=new URL(r.headers.get('location'),u).href;continue}
+  if(!r.ok&&r.status!==404)throw Error('source_unavailable');
+  if(Number(r.headers.get('content-length'))>1000000)throw Error('source_too_large');
+  // Stream a strict response bound; a misleading/missing Content-Length cannot bypass it.
+  if(!r.body)return {status:r.status,text:'',url:u.href};const reader=r.body.getReader(),parts=[];let length=0;
+  try{while(true){const c=await reader.read();if(c.done)break;length+=c.value.length;if(length>1000000)throw Error('source_too_large');parts.push(c.value)}}finally{await reader.cancel().catch(()=>{})}
+  const bytes=new Uint8Array(length);let offset=0;for(const part of parts){bytes.set(part,offset);offset+=part.length}return {status:r.status,text:new TextDecoder().decode(bytes),url:u.href};
+ }throw Error('too_many_redirects');
+}
+export function invitation(lead,optout){return {subject:'Free practical AI taster for your adult community?',text:`Hello ${lead.organisation} team,\n\nI run Open Practice, an independent, non-accredited collection of free practical AI learning materials. I noticed ${lead.relevance}. Could a small, optional 60-minute taster for adults complement an existing session?\n\nThe kit uses fictional inputs to test an editor, inspect JSON and measure colour contrast. It offers manual fixtures: no paid AI plan, account signup, public sharing or mailing-list enrolment is required. A 60-minute taster is not completion of the approximately 120-minute starter. This is an invitation, not a claim of partnership or pilot results.\n\nThe free kit and instructions: ${BASE}/facilitators.html?src=facilitator\nA useful example: ${BASE}/demonstrations/valid-json-wrong-facts.html?src=facilitator\n\nIf useful, would your team consider the kit and suggest an appropriate adult cohort, facilitator and date? There are no automatic follow-ups. If this is not relevant, no reply is needed. You can suppress further invitations here: ${optout}\n\nOpen Practice\nReply directly to this email with any questions.\n\nYour public organisational inbox was found at ${lead.source}. No personal contact list or tracking pixel is used.`}}
+async function discover(db,fetcher){
+ // Search results create a research queue only. New domains cannot become send targets automatically.
+ try{
+  const q=['\"digital skills\" \"Zimbabwe\" community training contact','\"Zambia\" entrepreneurship hub community contact','\"Zimbabwe\" adult technology bootcamp contact'][Math.floor(Date.now()/86400000)%3];
+  const r=await fetcher('https://www.bing.com/search?format=rss&q='+encodeURIComponent(q),{headers:{'User-Agent':agent},signal:AbortSignal.timeout(10000)});if(!r.ok||Number(r.headers.get('content-length'))>100000)return;
+  const reader=r.body?.getReader();if(!reader)return;let xml='',size=0;try{while(true){const c=await reader.read();if(c.done)break;size+=c.value.length;if(size>100000)throw Error('search_too_large');xml+=new TextDecoder().decode(c.value)}}finally{await reader.cancel().catch(()=>{})}
+  const decode=s=>s.replaceAll('&amp;','&').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&quot;','"').replaceAll('&#39;',"'");
+  for(const item of [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].slice(0,5)){const url=decode(item[1].match(/<link>([^<]+)<\/link>/)?.[1]||''),title=decode(item[1].match(/<title>([^<]+)<\/title>/)?.[1]||'').slice(0,200);try{const u=new URL(url);if(u.protocol!=='https:'||url.length>1000||u.username||u.password||!relevantResearch(title))continue;await db.prepare('INSERT OR IGNORE INTO outreach_discovery (url,title,found_at) VALUES (?,?,?)').bind(url,title,Date.now()).run()}catch{}}
+  await db.prepare('DELETE FROM outreach_discovery WHERE found_at < ?').bind(Date.now()-90*86400000).run();
+ }catch{} // Search outages never broaden the send pool or block learning.
+}
+export async function runOutreach(env,{fetcher=fetch,mail=smtpMail,now=Date.now()}={}){
+ const db=env.DB;if(!db)return {result:'storage_unavailable'};
+ if(env.OUTREACH_ENABLED!=='true')return {result:'disabled'};
+ const day=new Date(now).toISOString().slice(0,10);
+ // Atomic SQLite claim prevents simultaneous cron/admin sends and caps attempts at one/day.
+ const claim=await db.prepare('INSERT OR IGNORE INTO outreach_runs (day,created_at,result) VALUES (?,?,?)').bind(day,now,'running').run();if(!claim.meta?.changes)return {result:'daily_limit'};
+ let result='no_eligible_contacts';
+ try{
+  await discover(db,fetcher);
+  await db.prepare('UPDATE outreach_leads SET email=NULL WHERE updated_at < ?').bind(now-90*86400000).run();
+  const paused=await db.prepare("SELECT domain FROM outreach_leads WHERE status IN ('sending','delivery_unknown','transport_blocked') LIMIT 1").first();if(paused){result='paused_transport_or_uncertain_delivery';return {result}}
+  for(const lead of pilotPool){
+   const prior=await db.prepare('SELECT status FROM outreach_leads WHERE domain=?').bind(lead.domain).first();if(prior&&prior.status!=='eligible')continue;
+   let contact;try{
+    const robots=await pageFetch('https://'+lead.domain+'/robots.txt',lead.domain,fetcher);if(robots.status!==404&&!robotsAllow(robots.text,lead.path))continue;
+    contact=await pageFetch('https://'+lead.domain+lead.path,lead.domain,fetcher);if(contact.status!==200)continue;
+   }catch{continue}
+   const email=contactAddress(contact.text,lead.domain);if(!email)continue;
+   const token=randomToken(),emailHash=await digest(email),unsubscribeHash=await digest(token),id=randomToken();
+   if(env.OUTREACH_SEND_ENABLED!=='true'){
+    await db.prepare('INSERT OR IGNORE INTO outreach_leads (domain,organisation,source,email_hash,email,status,detail,updated_at) VALUES (?,?,?,?,?,?,?,?)').bind(lead.domain,lead.organisation,contact.url,emailHash,email,'eligible','Official source and role inbox found; not contacted. Sender disabled.',now).run();result='research_only_sender_disabled';continue;
+   }
+   if(prior?.status==='eligible')await db.prepare("UPDATE outreach_leads SET status='sending',unsubscribe_hash=?,email=?,updated_at=? WHERE domain=? AND status='eligible'").bind(unsubscribeHash,email,now,lead.domain).run();
+   await db.prepare('INSERT OR IGNORE INTO outreach_leads (domain,organisation,source,email_hash,email,unsubscribe_hash,status,detail,updated_at) VALUES (?,?,?,?,?,?,?,?,?)').bind(lead.domain,lead.organisation,contact.url,emailHash,email,unsubscribeHash,'sending','One pilot invitation; no follow-up sequence.',now).run();
+   // Re-read ownership after insert; only the successfully inserted send claim can proceed.
+   const owned=await db.prepare('SELECT * FROM outreach_leads WHERE domain=?').bind(lead.domain).first();if(owned?.unsubscribe_hash!==unsubscribeHash)continue;
+   try{
+    await mail(env,{to:email,id,...invitation({...lead,source:contact.url},BASE+'/api/outreach/unsubscribe?t='+token)});
+    result='smtp_accepted';await db.prepare("UPDATE outreach_leads SET status=?,email=NULL,detail=?,updated_at=? WHERE domain=? AND status='sending'").bind(result,'SMTP accepted; delivery, reply and pilot are not confirmed.',now,lead.domain).run();
+   }catch(error){result=error.uncertain?'delivery_unknown':error.code==='recipient_rejected'?'recipient_rejected':'transport_blocked';await db.prepare("UPDATE outreach_leads SET status=?,email=NULL,detail=?,updated_at=? WHERE domain=? AND status='sending'").bind(result,['sender_authentication_failed','sender_not_configured','transport_timeout','transport_closed','transport_unavailable','recipient_rejected'].includes(error.code)?error.code:'mail_failed',now,lead.domain).run()}
+   return {result,organisation:lead.organisation};
+  }
+  return {result};
+ }finally{await db.prepare('UPDATE outreach_runs SET result=? WHERE day=?').bind(result,day).run()}
+}
+export async function outreachAPI(request,env){
+ const url=new URL(request.url),db=env.DB;if(!db)return reply({error:'Storage unavailable.'},503);
+ if(url.pathname==='/api/outreach/unsubscribe'){
+  if(request.method!=='GET')return reply({error:'GET required.'},405);
+  const token=url.searchParams.get('t')||'';if(!/^[a-f0-9]{64}$/.test(token))return reply({error:'Invalid opt-out link.'},400);
+  await db.prepare('UPDATE outreach_leads SET status=?,email=NULL,detail=?,updated_at=? WHERE unsubscribe_hash=?').bind('suppressed','Opted out. Hash retained only to prevent recontact.',Date.now(),await digest(token)).run();return new Response('You will not receive further Open Practice pilot invitations. No login is needed.',{headers:{'Content-Type':'text/plain; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'no-referrer'}});
+ }
+ if(!env.GROWTH_ADMIN_KEY||!equal(request.headers.get('Authorization')?.replace(/^Bearer /,'')||'',env.GROWTH_ADMIN_KEY))return reply({error:'Operator authorization required.'},401);
+ if(request.method==='GET'&&url.pathname==='/api/outreach/summary'){
+  const [leads,runs,research]=await Promise.all([db.prepare('SELECT organisation,domain,source,status,detail,updated_at FROM outreach_leads ORDER BY updated_at DESC').all(),db.prepare('SELECT * FROM outreach_runs ORDER BY day DESC LIMIT 30').all(),db.prepare('SELECT * FROM outreach_discovery ORDER BY found_at DESC LIMIT 50').all()]);return reply({enabled:env.OUTREACH_ENABLED==='true',sendingEnabled:env.OUTREACH_SEND_ENABLED==='true',limits:'One attempt/day, three approved organisations total, one message/domain, no follow-ups. New search results are research-only.',leads:leads.results,runs:runs.results,research:research.results.filter(x=>relevantResearch(x.title))});
+ }
+ if(request.method==='POST'&&url.pathname==='/api/outreach/test-sender'){
+  try{return reply(await (env.SEND_MAIL||smtpMail)(env,null))}catch(error){return reply({authenticated:false,sent:false,error:error.code||'transport_unavailable'},502)}
+ }
+ if(request.method==='POST'&&url.pathname==='/api/outreach/run')return reply(await runOutreach(env));
+ return reply({error:'Unknown operator operation.'},404);
+}

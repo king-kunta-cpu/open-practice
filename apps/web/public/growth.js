@@ -1,0 +1,22 @@
+const events=new Set(['page_view','activity_started','artifact_saved','self_reviewed','share_created','referral_opened','challenge_started','challenge_completed','return_7d']);
+const sources=new Set(['direct','devto','mastodon','blogger','bluesky','nostr','facilitator','share','challenge','other']);const sent=new Set();
+const get=k=>{try{return localStorage.getItem(k)}catch{return null}},put=(k,v)=>{try{localStorage.setItem(k,v);return true}catch{return false}},remove=k=>{try{localStorage.removeItem(k)}catch{}};
+const source=()=>{const q=new URL(location.href).searchParams.get('src');return sources.has(q)?q:'direct'};
+const context=()=>document.body.dataset.growthActivity||new URL(location.href).searchParams.get('activity')||location.pathname.split('/').pop()?.replace('.html','')||'home';
+export async function growthEvent(event,activity=context()){
+ if(get('op-growth-consent')!=='yes'||navigator.globalPrivacyControl===true||!events.has(event)||!/^[a-z0-9-]{1,60}$/.test(activity))return;
+ const visitor=get('op-growth-visitor');if(!/^[a-f0-9]{32}$/.test(visitor||''))return;
+ const key=event+':'+activity+':'+Math.floor(Date.now()/86400000);if(sent.has(key))return;sent.add(key);
+ try{const r=await fetch('/api/growth/event',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({visitor,event,activity,source:sources.has(get('op-growth-source'))?get('op-growth-source'):'direct',consent:true}),keepalive:true});if(!r.ok)sent.delete(key)}catch{sent.delete(key)}
+}
+function recordVisit(){growthEvent('page_view');if(source()==='share')growthEvent('referral_opened');const first=Number(get('op-growth-first-day')),day=Math.floor(Date.now()/86400000);if(first&&day>first&&day-first<=7)growthEvent('return_7d','site')}
+const make=(tag,text)=>{const e=document.createElement(tag);if(text)e.textContent=text;return e};
+const box=make('details');box.className='growth-consent';box.id='optional-analytics';const summary=make('summary');const note=make('p','Optional first-party counts help us see visits → practice → saved artifacts. Off by default. No advertising trackers, names, excerpts or full referrer URLs are sent. A random browser ID is retained with events for up to 90 days. These counts do not represent all visitors.');
+const yes=make('button','Allow optional counts'),no=make('button','Keep counts off'),erase=make('button','Delete my optional analytics data'),status=make('p');status.setAttribute('role','status');const link=make('a','Privacy details');link.href='/privacy.html#optional-growth';box.append(summary,note,yes,no,erase,status,link);(document.querySelector('main')||document.body).append(box);
+function update(){summary.textContent='Optional visit analytics: '+(get('op-growth-consent')==='yes'?'on':'off');erase.hidden=!get('op-growth-visitor');yes.disabled=navigator.globalPrivacyControl===true;if(yes.disabled)status.textContent='Global Privacy Control is enabled; optional counts stay off.'}
+yes.onclick=()=>{if(navigator.globalPrivacyControl===true)return;if(!get('op-growth-visitor')){if(!put('op-growth-visitor',crypto.randomUUID().replaceAll('-',''))){status.textContent='Browser storage unavailable; optional counts remain off.';return}put('op-growth-source',source());put('op-growth-first-day',String(Math.floor(Date.now()/86400000)))}put('op-growth-consent','yes');status.textContent='Optional counts enabled. No project content is sent.';update();recordVisit();window.dispatchEvent(new Event('op-growth-enabled'))};
+no.onclick=()=>{put('op-growth-consent','no');status.textContent='Optional counts off. Previously recorded data remains until deletion or expiry.';update()};
+erase.onclick=async()=>{put('op-growth-consent','no');const visitor=get('op-growth-visitor');if(!visitor)return;erase.disabled=true;try{const r=await fetch('/api/growth/erase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({visitor})});if(!r.ok)throw Error();for(const key of ['visitor','source','first-day'])remove('op-growth-'+key);sent.clear();status.textContent='Optional analytics data deleted. Counts stay off.'}catch{status.textContent='Deletion could not be confirmed. Counts are off; retry deletion when connected.'}finally{erase.disabled=false;update()}};
+for(const a of document.querySelectorAll('a[data-carry-source]')){const url=new URL(a.href);if(source()!=='direct')url.searchParams.set('src',source());a.href=url.href}
+update();recordVisit();
+window.addEventListener('storage',e=>{if(e.key==='op-growth-consent')update()});

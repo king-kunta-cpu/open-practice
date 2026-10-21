@@ -127,3 +127,13 @@ Ten new original AI-generated editorial illustrations and matching self-containe
 The final ten original AI-generated editorial illustrations and matching self-contained guides cover Markdown structure, regex testing, validated JSON, SQL reference totals, API success/failure paths, visual prompt chaining, negative-space composition, storyboard continuity, measured contrast and synthetic focus groups. **All 50 standalone activity covers and all 50 illustrated guides are now refreshed. No activity artwork remains pending.** The minimalist composition deliberately preserves negative space, using a subject-aware crop and shorter shade behind the caption.
 
 68 automated tests cover all fifty artwork records, embedded cover/guide images, the negative-space caption treatment, offline behavior and existing account/curriculum functionality. Native static assets stay on the same Worker; learner IDs, saved work, database bindings and company tutor credentials are unchanged.
+
+## Discover, practice and facilitate (0.9.0)
+
+- [50 illustrated, readable activity guides](https://open-practice.zlnew.workers.dev/practice.html)
+- [Three-activity starter challenge](https://open-practice.zlnew.workers.dev/starter.html) (120 estimated minutes)
+- [Adult facilitator taster kit](https://open-practice.zlnew.workers.dev/facilitators.html) (60-minute taster, not full completion)
+- [Useful worked demonstrations](https://open-practice.zlnew.workers.dev/demonstrations.html)
+- [Alternate HTTPS reading/download mirror](https://king-kunta-cpu.github.io/open-practice/) — explicitly not an account/cloud-saving host
+
+Consent-first funnel counts are off by default. Sharing is optional and local. The existing daily Worker schedule performs bounded research; invitation sending remains disabled until Gmail authentication succeeds. The three-organisation pilot has strict caps, public role contacts only, opt-out and no automatic follow-ups. Research results and SMTP acceptance are never represented as learner outcomes. See [operator instructions](docs/acquisition-operations.md).
