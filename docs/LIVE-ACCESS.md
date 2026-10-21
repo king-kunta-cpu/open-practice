@@ -19,3 +19,7 @@ The previous public address now redirects to the current hostname. The retired r
 - Groq: https://console.groq.com/
 
 No default administrator account/password exists. Content is managed in the repository. Credentials are managed in the hosting secret manager, never committed or added to downloads. Rotate the GitHub and Cloudflare tokens exposed in conversation after verification. Email magic-link login remains unimplemented; no verified sender/domain/service is configured.
+
+## Tool field desk
+
+The illustrated external-tools directory is at `/tools.html`. It links into the existing evidence/account/offline activity workflows; external accounts remain learner-owned and access/paid-feature caveats are shown on every card.

@@ -62,3 +62,12 @@ No accreditation, audited-security status, guaranteed provider budget, email-lin
 The activity Chromium suite visits all 50 detailed views and confirms that their guides load. It exercises catalogue pagination/search/category filters; explicit manual/hosted/design route labels; local evidence/self-review; offline HTML download/edit/reopen and JSON reimport; regex, JSON, contrast and script-disabled HTML tools; temporary-account activity save/restore; dashboard activity records; and 360/390/768/1024px layouts. A long-account-name overflow found in the first run was corrected with wrapping before the passing run. Temporary accounts are deleted. The existing foundation browser suite also passes with the 31-item library.
 
 Timing and independent subject-matter review remain pending. No paid tool access, custom model training, image generation entitlement, real-user research, accessibility certification or professional advice is implied by reading an activity. Learner-recorded completion is not independently verified.
+
+
+## Tool field desk / 0.8.1
+
+The 0.8.0 studio was published and its all-50 activity suite plus foundation suite passed on the live host. GitHub CI passed for `efa4c303ef9e`.
+
+The 0.8.1 tool directory adds ten provider options with official access-reference links, four track filters and two access labels, reusing existing illustrated exercises rather than inventing independent mastery claims. It does not save keys or add provider bindings. The free-tier label is not a guarantee of model/feature/region availability. Canva editing alone is explicitly design-only; a Zapier manual handoff is not an automated AI run. The source list's local-training/simulation recommendations are replaced and Lobe's maintenance status is disclosed.
+
+Local verification: 61 automated tests; ten challenge inputs/prompts/guides and related covers; directory search/track/access/reset/empty state; clipboard failure fallback; linked evidence workspace; account dialog; 360/390/768/1024px responsive layouts. No new account/workspace schema or database migration is needed.

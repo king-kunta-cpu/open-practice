@@ -88,3 +88,11 @@ The public and learner interfaces now follow the requested reference’s actual 
 
 ## Verification / 0.8.0
 57 automated tests pass. The new browser suite visits all 50 detailed activities, checks cover/guide loading, search/filter, evidence recording, offline edit/reopen/import, verification tools, activity account save/restore, dashboard visibility and responsive layouts. The existing foundation suite remains passing. See `docs/VERIFICATION.md` for the final production status.
+
+## Tool field desk / 0.8.1
+
+Visit `/tools.html` for ten external practice options linked to existing illustrated activity workspaces. Search by skill, filter by track or access route, inspect a fictional input and copy the activity prompt. Notes, tests, self-review, explicit account save/restore and standalone HTML export remain in the linked activity workspace; opening an external tool never records completion.
+
+The directory is plain HTML/CSS/JavaScript plus `tools.json`, in this same repository and Worker. No React, Tailwind CDN, new backend, key collection or local-model runtime is introduced. Groq, AI Studio and Workers AI replace local training/simulation and unmaintained Lobe recommendations. Provider access is distinguished from learning-material access: free tiers/allocations have limits; Spaces, Canva AI and Zapier AI are conditional. No paid entitlement or commercial media license is promised.
+
+61 automated tests pass. `scripts/tools-browser-check.mjs` checks all ten tool assignments, guide/cover loading, search/filters/empty state/reset, clipboard-denial fallback, linked workspace, account dialog and four responsive widths. Use `PREVIEW_URL` and `QA_DIR` as in the activity browser suite. The existing activity/foundation browser suites remain applicable.
