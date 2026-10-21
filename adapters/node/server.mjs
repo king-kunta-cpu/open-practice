@@ -28,5 +28,5 @@ http.createServer(async(req,res)=>{try{
  }
  const path=resolve(root,'.'+decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname));
  if(!path.startsWith(root)){res.writeHead(403);res.end();return}
- const data=await readFile(path);res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.csv':'text/csv','.md':'text/plain'})[extname(path)]||'text/plain');res.setHeader('X-Content-Type-Options','nosniff');res.end(data);
+ const data=await readFile(path);res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.csv':'text/csv','.md':'text/plain','.webp':'image/webp','.png':'image/png'})[extname(path)]||'text/plain');res.setHeader('X-Content-Type-Options','nosniff');res.end(data);
 }catch{res.writeHead(404);res.end('Not found')}}).listen(Number(process.env.PORT)||3001,'0.0.0.0',()=>console.log('Open Practice ready; configured port '+(process.env.PORT||3001)));

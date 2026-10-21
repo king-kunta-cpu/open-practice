@@ -33,7 +33,7 @@ migrations/              Portable account schema
 config/                  Blank environment template
 scripts/                 Generated-asset builder and basic secret scan
 .github/workflows/       Read-only tests on push, PR and weekly schedule
- test/                   22 automated tests (all run on Node 22)
+ test/                   25 automated tests (all run on Node 22)
  docs/                   Deployment, migration, security, live access and verification
 Dockerfile               Node hosting alternative; persist /app/data
 ```
@@ -61,10 +61,15 @@ See docs/DEPLOY.md and docs/MIGRATION.md. Run `node scripts/build-inline-assets.
 Adult accounts only, with recovery codes and no email reset. No accreditation, verified assessment, admin analytics dashboard, automatic news ingestion, autonomous publication, OAuth, or automatic background sync. Cloud saves are explicit and local/cloud conflict handling is visible. There is no automatic operator-wide database export tool yet; learner account export is implemented. Complete backup/restore rehearsal, private support, security review, stronger abuse controls and provider budgets before scaling.
 
 ## Verification
-22 tests pass on Node 22. Live HTTP checks covered account creation, sessions, cloud persistence, stale-write rejection, event export, sign-out, sign-in, recovery, learner-owned Groq inference, and deletion. Real Chromium checks covered registration, cloud save, offline HTML edit/download/reopen, library/news rendering and mobile overflow. Temporary test accounts were deleted. See docs/VERIFICATION.md.
+25 tests pass on Node 22. Live HTTP checks covered account creation, sessions, cloud persistence, stale-write rejection, event export, sign-out, sign-in, recovery, learner-owned Groq inference, and deletion. Real Chromium checks covered registration, cloud save, offline HTML edit/download/reopen, library/news rendering and mobile overflow. Temporary test accounts were deleted. See docs/VERIFICATION.md.
 
 ## Licensing and tooling
 Code: MIT. Original lessons and library materials: CC BY 4.0. Third-party models/services have their own terms. All app runtime code is dependency-free; Wrangler is external deployment tooling, not in the runtime dependency graph. Audit and pin your chosen deployment CLI before authenticated production use; the initial Wrangler toolchain audit reported development dependency advisories, so it was removed from app dependencies. This is not certification that external tooling is vulnerability-free.
 
 ## Dashboard and account bugfix
 Use https://open-practice-school.zlnew.workers.dev/dashboard.html . Empty accounts now show starter courses and a clear no-saves state instead of silently returning from Load cloud work. Normal sign-in opens the dashboard. Recovery-code replacement is available under Account after confirming the current password, and revokes existing sessions. Email magic-link login is not configured; it requires an approved sender/domain and transactional email delivery. Never email passwords.
+
+## Brass & Circuit identity
+The school now uses the selected book/circuit/gear logo, aged brass and oxidised teal on workshop ink, parchment reading surfaces, system serif/monospaced typography, technical-plate imagery and a ledger-style workshop index. The identity covers public pages, dashboards, dialogs and offline HTML exports. Assets live in `apps/web/public/brand/`; transparent PNG masters and an offline brand guide live in `branding/`.
+
+No external graphics/font/animation libraries were added. The public homepage makes no third-party browser requests during the verified unauthenticated load. Main public pages have a restrictive same-origin script policy; downloaded HTML workspaces remain standalone and interactive. This does not upgrade pilot authentication to audited production status.

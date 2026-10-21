@@ -12,7 +12,11 @@ export default {async scheduled(event,env){const db=database(env);if(db)await db
  if(path.startsWith('/api/account/')||path==='/api/workspaces'||path==='/api/events')return await accountAPI(request,env);
  if(path==='/api/practice')return await practiceAPI(request,env);
  }catch{return new Response(JSON.stringify({error:'Request could not be processed.'}),{status:400,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}})}
- if(!new URL(request.url).pathname.startsWith('/api/'))return env.ASSETS.fetch(request);
+ if(!new URL(request.url).pathname.startsWith('/api/')){
+ const response=await env.ASSETS.fetch(request);const output=new Response(response.body,response);output.headers.set('Referrer-Policy','strict-origin-when-cross-origin');output.headers.set('X-Content-Type-Options','nosniff');output.headers.set('Permissions-Policy','camera=(), microphone=(), geolocation=()');
+ if(path==='/'||(/^\/[^/]+\.html$/.test(path)))output.headers.set('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'");
+ return output;
+ }
  const api=createAPI({loadCourses:async req=>(await env.ASSETS.fetch(new Request(new URL('/courses.json',req.url)))).json(),limit:env.TUTOR_LIMITER?async req=>(await env.TUTOR_LIMITER.limit({key:req.headers.get('CF-Connecting-IP')||'unknown'})).success:null});
  return api(request,env);
 }};

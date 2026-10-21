@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import staticAssets from '../adapters/cloudflare/static.mjs';
+import worker from '../adapters/cloudflare/worker.mjs';
+test('generated brand images survive binary Worker packaging',async()=>{for(const name of ['open-practice-lockup.webp','favicon.png']){const path='/brand/'+name;const response=await staticAssets.fetch(new Request('https://school.test'+path));assert.equal(response.status,200);assert.deepEqual(Buffer.from(await response.arrayBuffer()),await readFile(new URL('../apps/web/public'+path,import.meta.url)));assert.ok(response.headers.get('Content-Type').startsWith('image/'))}});
+test('public pages use restrictive script policy without breaking downloadable starter code',async()=>{const r=await worker.fetch(new Request('https://school.test/'),{});assert.ok(r.headers.get('Content-Security-Policy').includes("script-src 'self'"));assert.ok(r.headers.get('Content-Security-Policy').includes("object-src 'none'"));const starter=await worker.fetch(new Request('https://school.test/resources/quote-calculator.html'),{});assert.equal(starter.headers.get('Content-Security-Policy'),null)});
+test('branding requires no external font or animation libraries',async()=>{const css=await readFile(new URL('../apps/web/public/style.css',import.meta.url),'utf8');assert.ok(!css.includes('@import'));assert.ok(!css.includes('@font-face'));const svg=await readFile(new URL('../apps/web/public/brand/practice-engine.svg',import.meta.url),'utf8');assert.ok(svg.includes('data:image/webp;base64,'));assert.ok(css.includes('prefers-reduced-motion'));assert.ok(Buffer.byteLength(css)<25000)});
