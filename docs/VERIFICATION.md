@@ -26,3 +26,8 @@ Verified against the live Worker on 2026-10-21.
 - No uncaught browser JavaScript errors.
 
 Test accounts were deleted. No API keys were committed. Google Gemini and learner Cloudflare adapters are implemented but have not had authenticated end-to-end inference tests; no suitable learner credentials were supplied for them. Learner Groq was verified. These checks are not a penetration test, load test, data-restoration drill, or child-safety review.
+
+## Dashboard bugfix release
+The old Load cloud work button returned silently for an empty account and used a blocking confirmation/reload path for saved accounts. It now opens a dedicated dashboard with explicit loading, empty, error and retry states; browser/cloud course cards; and explicit cloud-copy restore. Normal sign-in redirects to the dashboard. Registration/recovery retains the one-time code until the learner chooses to continue. Recovery-code replacement requires the current password and revokes existing sessions before issuing a new session. Additional automated coverage verifies rotation and the empty-state/timeout paths.
+
+Dashboard release Chromium verification: a new empty account opened the dashboard with all six courses; saved work appeared after sign-out/sign-in; recovery replacement succeeded; the temporary account was deleted. No browser JavaScript errors. The Node 22 run now passes 22 tests.

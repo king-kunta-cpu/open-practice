@@ -16,7 +16,7 @@ export async function accountAPI(request,env){
  if(!['GET','POST','PUT','DELETE'].includes(request.method))return reply({error:'Method not allowed'},405);
  if(request.method!=='GET'&&request.headers.get('origin')!==new URL(request.url).origin)return reply({error:'Same-origin requests only'},403);
  if(request.method!=='GET'){
-  const limiter=['/api/account/register','/api/account/login','/api/account/recover'].includes(path)?env.AUTH_LIMITER:env.LEARNING_LIMITER;
+  const limiter=['/api/account/register','/api/account/login','/api/account/recover','/api/account/rotate-recovery','/api/account/delete'].includes(path)?env.AUTH_LIMITER:env.LEARNING_LIMITER;
   if(!limiter)return reply({error:'Safety limits not configured'},503);
   const ok=await limiter.limit({key:'account:'+ (request.headers.get('CF-Connecting-IP')||'unknown')});if(!ok.success)return reply({error:'Too many requests. Wait a minute.'},429);
  }
@@ -48,6 +48,12 @@ export async function accountAPI(request,env){
  if(!user)return reply({error:'Sign in first'},401);
  if(path==='/api/account/logout'&&request.method==='POST'){
   const token=request.headers.get('cookie')?.match(/__Host-op_session=([a-f0-9]{64})/)?.[1];if(token)await db.prepare('DELETE FROM sessions WHERE token_hash = ?').bind(await digest(token)).run();return reply({ok:true},200,{'Set-Cookie':'__Host-op_session=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0'});
+ }
+ if(path==='/api/account/rotate-recovery'&&request.method==='POST'){
+  const b=await readJSON(request,4000);const row=await db.prepare('SELECT * FROM learners WHERE id = ?').bind(user.id).first();
+  if(typeof b.password!=='string'||b.password.length>128||!equal(await passwordHash(b.password,row.salt),row.password_hash))return reply({error:'Current password required'},401);
+  const recovery=randomToken();await db.batch([db.prepare('UPDATE learners SET recovery_hash = ? WHERE id = ?').bind(await digest(recovery),user.id),db.prepare('DELETE FROM sessions WHERE learner_id = ?').bind(user.id)]);
+  return reply({recoveryCode:recovery},200,{'Set-Cookie':await session(db,user)});
  }
  if(path==='/api/account/export'&&request.method==='GET'){
   const workspaces=await db.prepare('SELECT course_id,content,updated_at FROM workspaces WHERE learner_id = ?').bind(user.id).all();const events=await db.prepare('SELECT event,course_id,created_at FROM learning_events WHERE learner_id = ? ORDER BY created_at DESC LIMIT 10000').bind(user.id).all();return reply({learner:{username:user.username},workspaces:workspaces.results,events:events.results});
