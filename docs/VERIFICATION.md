@@ -34,3 +34,6 @@ Dashboard release Chromium verification: a new empty account opened the dashboar
 
 ## Brass & Circuit redesign verification
 25 Node 22 tests pass. Binary logo/favicon responses match the original bytes after Worker packaging. Main pages have a same-origin script policy; downloadable starter HTML retains its own working inline script. Chromium reran account creation/deletion, dashboard loading, cloud saves and recovery rotation, plus offline edit/save/reopen. Library and news render correctly, and the 390px mobile viewport has no horizontal overflow. A fresh production homepage load made zero third-party browser requests and had no failed assets; logo loading was verified. The hero's embedded SVG emblem needs no external image fetch.
+
+## Collection command-center release
+28 Node 22 tests pass. Chromium verifies previous/next selection, mini-manual selection, ArrowLeft/ArrowRight/Home/End controls, mobile horizontal drag/swipe, selected-item tracking, the new offline download action, and font loading. Public pages have no horizontal overflow at 390px. Account registration, saved-work retrieval, recovery replacement, deletion and offline edit/download/reopen were rerun successfully; temporary test accounts were removed. The six covers are original school diagrams; no reference-site media or tracking/urgency scripts were copied.
