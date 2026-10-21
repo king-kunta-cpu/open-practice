@@ -13,6 +13,7 @@
     "check": "npm test && node scripts/check-secrets.mjs",
     "deploy": "npx wrangler@latest deploy --config adapters/cloudflare/wrangler.jsonc",
     "build:assets": "python3 scripts/build-curriculum.py && node scripts/build-offline-assets.mjs && node scripts/build-inline-assets.mjs",
-    "build:curriculum": "python3 scripts/build-curriculum.py"
+    "build:curriculum": "python3 scripts/build-curriculum.py",
+    "deploy:fresh": "npx wrangler@latest deploy --config adapters/cloudflare/wrangler.fresh-install.jsonc"
   }
 }

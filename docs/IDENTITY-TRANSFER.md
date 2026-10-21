@@ -1,6 +1,13 @@
 # Preserve accounts during the identity transfer
 
-**Not executed for 0.6.0.** These are operator steps, not evidence of a completed migration. Do not point production at a fresh database and assume existing learners have moved.
+**Completed for 0.7.0 on 21 October 2026.** The procedure below is retained for future migrations. This execution first rehearsed a transfer using disposable SQLite Workers and verified an identical namespace ID and retained row. The disposable Workers were removed afterward.
+
+The production transfer preserved namespace `b7fb9758b24b45c38f9ce58bdadde3aa` and the original object selector. A protected, temporary operator endpoint produced an AES-256-GCM encrypted snapshot before migration; it was removed immediately after capture. The ciphertext is outside the source bundle, and its recovery key is held as the destination Worker secret `RECOVERY_SNAPSHOT_KEY`. Never publish this key or commit a decrypted snapshot. The snapshot includes credentials/session data and must be treated as a sensitive recovery artifact, even though encrypted. A full restore drill of this snapshot remains outstanding.
+
+Existing-account login, identical saved-work retrieval, stale-write rejection, live Groq inference and production browser/offline checks passed. The migration-proof account was deleted. The retired source is now only a redirect, with no database/secret binding or cron. The remote repository was renamed rather than duplicated.
+
+## Procedure for a future transfer
+Do not point production at a fresh database and assume existing learners have moved.
 
 1. Authenticate with narrowly scoped, rotated deployment credentials. Confirm the actual current source Worker name in the account; supply it as `SOURCE_WORKER` through the environment rather than hardcoding it in current source.
 2. Obtain the source settings and its `LEARNER_DB` namespace. List the namespace objects and confirm the original object ID. Earlier inspection found one object; recheck immediately before deployment. Preserve the namespace and original object ID in private operational records. Do not call `idFromName` with a new name for existing data.
@@ -15,4 +22,4 @@
 
 Cloudflare reference: https://developers.cloudflare.com/durable-objects/reference/durable-object-class-migrations-legacy/
 
-The standard committed Wrangler configuration is for **fresh installations only**. It deliberately contains no deployment token or production object ID.
+The main Wrangler configuration now preserves this production installation. Use the separate `wrangler.fresh-install.jsonc` only for a genuine new installation. Neither configuration contains secret values.

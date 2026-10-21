@@ -1,18 +1,20 @@
-# Access and release state
+# Live access — 0.7.0 / 21 October 2026
 
-## Current release
-Version 0.7.0 is built and tested in the workspace. A local preview is available through the running preview server. No production transfer, repository rename or external push was completed for this release because deployment credentials are not available in the current environment.
+- Platform: https://open-practice.zlnew.workers.dev
+- My learning: https://open-practice.zlnew.workers.dev/dashboard.html
+- Curriculum: https://open-practice.zlnew.workers.dev/curriculum.html
+- Library: https://open-practice.zlnew.workers.dev/library.html
+- News: https://open-practice.zlnew.workers.dev/news.html
+- Privacy: https://open-practice.zlnew.workers.dev/privacy.html
+- Repository: https://github.com/king-kunta-cpu/open-practice
 
-## Intended identity destinations — not confirmed live
-- Platform target: `https://open-practice.zlnew.workers.dev`
-- Repository target: `https://github.com/king-kunta-cpu/open-practice`
-- Paths: `/curriculum.html`, `/dashboard.html`, `/library.html`, `/news.html`, `/privacy.html`.
+The existing repository was renamed, not duplicated. The existing learner namespace/object were preserved during the Worker transfer. An account created before transfer signed in on the new host and retrieved the same notes and progress. A stale update was rejected with HTTP 409. The company tutor returned an actual Groq response. Daily retention cleanup is configured at 03:00 UTC.
 
-The previous production hostname/repository remain unchanged. Their identifiers are intentionally not repeated in the active source. Follow `IDENTITY-TRANSFER.md` to preserve existing accounts before changing public destinations. A different hostname requires learners to sign in again; cookies must not be copied between hosts.
+The previous public address now redirects to the current hostname. The retired redirect has no database or tutor-secret binding and no scheduled task. The original host's sessions are not copied: sign in again. Account-saved work remains available; origin-local drafts do not automatically transfer. Restore an exported per-path progress JSON when needed. No whole-account automatic bulk import is claimed.
 
 ## Operator access
-- Source hosting: https://github.com/login
-- Hosting/storage: https://dash.cloudflare.com/
+- GitHub: https://github.com/login
+- Cloudflare: https://dash.cloudflare.com/
 - Groq: https://console.groq.com/
 
-No default administrator password exists. Content is managed in this repository. Provider credentials and deployment tokens belong in the hosting secret manager or an authenticated CLI, never source, chat or learner notes. Rotate credentials previously exposed in conversation. Email-link login remains unimplemented pending a verified sender/domain/service.
+No default administrator account/password exists. Content is managed in the repository. Credentials are managed in the hosting secret manager, never committed or added to downloads. Rotate the GitHub and Cloudflare tokens exposed in conversation after verification. Email magic-link login remains unimplemented; no verified sender/domain/service is configured.

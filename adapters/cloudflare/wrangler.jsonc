@@ -39,13 +39,13 @@
     }
   ],
   "vars": {
-    "AI_ENABLED": "false",
+    "AI_ENABLED": "true",
     "AI_PROVIDER_ORDER": "groq,cloudflare,pollinations",
-    "GROQ_MODEL": "",
+    "GROQ_MODEL": "openai/gpt-oss-20b",
     "CLOUDFLARE_MODEL": "",
     "POLLINATIONS_MODEL": "",
-    "APPROVED_MODELS": "",
-    "DB_OBJECT_ID": ""
+    "APPROVED_MODELS": "groq:openai/gpt-oss-20b",
+    "DB_OBJECT_ID": "f115804ba08ae5a0d76f801dee718c06cb6b32fe509c5a3051358a5e2f02a80b"
   },
   "durable_objects": {
     "bindings": [
@@ -57,10 +57,7 @@
   },
   "migrations": [
     {
-      "tag": "v1-learners",
-      "new_sqlite_classes": [
-        "LearnerDatabase"
-      ]
+      "tag": "v1-account-transfer"
     }
   ],
   "triggers": {

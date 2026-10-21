@@ -1,6 +1,8 @@
-# Verification — 0.6.0 / 2026-10-21
+# Verification — 0.7.0 / 2026-10-21
 
-## Current release: local, not production
+**Current status: deployed to https://open-practice.zlnew.workers.dev.** The final automated suite has 45 passing tests; the production browser suite also passes. Earlier local-only sections below are retained as a chronological record. The production-deployment section contains the final migration evidence.
+
+## Earlier local verification phase
 38 automated tests pass under Node 22 with no skips. Chromium checks use the local Node preview, not the production Worker. External namespace transfer, remote repository rename/push and production deployment have **not** been executed for this release.
 
 ## Automated checks
@@ -40,3 +42,16 @@ Start the Node server, install Playwright in a separate QA environment, then run
 44 automated tests pass. The reference page’s actual CSS was inspected for its cream, burgundy, terracotta and gold palette, serif headings, rounded cards and cover/detail layout. Public and learner pages were rebuilt locally in that format. Additional Chromium checks verify public collection arrows, six selectors, Home/End keyboard navigation, course entry, cream background, native serif heading, account-dialog theme, and seven public/learner routes at 360, 390, 768 and 1024px without horizontal overflow. Existing offline download/edit/reopen/import and final-activity account save/delete checks pass under the new theme. Screenshots were visually inspected; a collapsed catalogue-card column found during inspection was fixed before the final run.
 
 No external push, hostname transfer, account-store migration or production deployment was performed. The running preview is the current verified build.
+
+## Production deployment / 21 October 2026
+The 0.7.0 release is now live at https://open-practice.zlnew.workers.dev. The previous local-only notes above describe earlier verification stages, not the final deployment status.
+
+- Rehearsed cross-Worker SQLite transfer on disposable Workers; identical namespace ID and retained row verified. Test Workers were then removed.
+- Captured an encrypted, transaction-consistent snapshot of account/session/workspace/event tables before transfer. Recovery material is kept out of source and release ZIPs; a complete snapshot-restore rehearsal is still pending.
+- Production namespace and original object ID preserved. Pre-transfer login and exact workspace retrieval succeeded on the new host, including the final expanded-activity note. No replacement account was used as a substitute.
+- Stale saved-work update correctly returned 409. The company tutor returned an actual Groq response using its privately transferred credential.
+- Temporary migration-proof account deleted. The former address redirects, and its Worker has no database/secret binding or cron. Destination retention cron runs daily at 03:00 UTC.
+- The maintained Chromium suite passed against the real production hostname: public collection, curriculum, rich activities/review/rubric, native offline edit/download/reopen, JSON reimport, library count, dynamic dashboard, local tools, account save/retrieve/delete and mobile layout. A QA race was corrected by waiting for the activity UI before setting a file input; no application import defect was found.
+- Existing remote repository renamed to `king-kunta-cpu/open-practice`; no second source repository was created.
+
+No accreditation, audited-security status, guaranteed provider budget, email-link sender or complete operator restore drill is claimed.

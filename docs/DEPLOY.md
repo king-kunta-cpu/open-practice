@@ -18,15 +18,15 @@ Replace example account/repository names. Use SSH or a credential manager, not a
 
 ## Existing deployment: stop and read first
 
-For an identity/Worker rename, follow `IDENTITY-TRANSFER.md`, not the fresh-install command below. This release has not been deployed externally. Build content with `npm run build:assets` before either deployment path.
+For an identity/Worker rename, follow `IDENTITY-TRANSFER.md`, not the fresh-install command below. This release is deployed; the existing account namespace/object are preserved. Build content with `npm run build:assets` before either deployment path.
 
-## 2. Fresh installation: deploy to Cloudflare with AI off
+## 2. Fresh installation only: deploy to Cloudflare with AI off
 
 ```sh
 npm install
 npx wrangler@latest login
 npm run check
-npm run deploy
+npm run deploy:fresh
 ```
 The included lockfile should be kept in the repository. After initial installation, use `npm ci`. Review the example rate-limiter namespace 1001 for your account. Worker free-plan limits and AI free allowances are separate. Validate the current platform configuration before public launch.
 
@@ -78,3 +78,6 @@ Deploying this configuration to a new Cloudflare account creates a fresh databas
 Native Node accounts require Node 22.13+ and a persistent SQLite file, default `data/learners.sqlite`. Mount a persistent Docker volume at `/app/data`; do not bake database files into images. Use HTTPS and set `PUBLIC_ORIGIN` to the exact public origin. Secure session cookies require a secure context. In-memory rate limits are single-instance pilot controls, not scalable distributed protection.
 
 Account permissions are self-service only: no public admin export endpoint or default admin password exists. Library and News Drops are edited through the Git repository. News entries require a date, source links and editorial review.
+
+## Update this existing production installation
+Use the main `adapters/cloudflare/wrangler.jsonc` with `npm run deploy` after reviewing/pinning deployment tooling, building assets and passing checks. Preserve `DB_OBJECT_ID` and the completed `v1-account-transfer` tag. This is not the fresh-install path. Cloudflare retains the secrets separately. Do not enable an unapproved model or replace the existing database selector.

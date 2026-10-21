@@ -51,10 +51,18 @@ scripts/                 Content/assets builders, transfer preparation, secret s
 branding/                Original artwork and licensed display font
 ```
 
-## Release status
-This 0.7.0 release is built and verified locally. The renamed public hostname and repository are **deployment targets, not confirmed live URLs**. The existing deployment is unchanged until authenticated transfer is completed. See `docs/LIVE-ACCESS.md` and `docs/IDENTITY-TRANSFER.md` before deploying: a fresh namespace would not contain existing accounts.
+## Live release / 0.7.0
+- Platform: https://open-practice.zlnew.workers.dev
+- My learning: https://open-practice.zlnew.workers.dev/dashboard.html
+- Curriculum: https://open-practice.zlnew.workers.dev/curriculum.html
+- Library: https://open-practice.zlnew.workers.dev/library.html
+- Repository: https://github.com/king-kunta-cpu/open-practice
 
-New-installation defaults keep AI off and use a fresh named database object. Existing installations must transfer their Durable Object namespace and preserve the original object ID. Do not deploy new-installation defaults over an existing account system.
+The editorial-collection interface and expanded curriculum are deployed. The existing Durable Object namespace was transferred without changing its ID or original database object selector. A pre-transfer account and saved workspace were successfully retrieved on the new hostname. The previous address redirects; sign in again on the new hostname because sessions are host-scoped. Existing browser-local drafts on the former origin do not automatically move; cloud-saved work is retained. Keep exported files if you still have unsynced local work.
+
+`adapters/cloudflare/wrangler.jsonc` is now the production configuration. It preserves the original object selector and completed migration tag. **Do not replace it with fresh-install defaults on this deployment.** A separate `wrangler.fresh-install.jsonc` keeps company AI off and creates a new store for a genuinely new installation in another account. Use `npm run deploy:fresh` only for that case. Secrets remain in Cloudflare, not source.
+
+See `docs/LIVE-ACCESS.md`, `docs/VERIFICATION.md` and `docs/IDENTITY-TRANSFER.md` for deployment evidence and remaining gates.
 
 ## Pilot boundaries
 No accreditation, verified assessment, automatic background sync, autonomous publishing, OAuth, payment checkout or admin analytics dashboard. Before wider launch: security review, backup/restore rehearsal, stronger abuse limits, budget controls and independent content review. Prior production account/provider checks do not establish that this release is deployed.
@@ -65,4 +73,4 @@ Code: MIT. Original learning/library material: CC BY 4.0. Archivo Black: include
 ## Editorial Collection interface / 0.7.0
 The public and learner interfaces now follow the requested reference’s actual cream/burgundy format: #FDF7EE canvas, #7C1F16 serif headings, #A8321F terracotta actions, white rounded cards, miniature cover selectors and a two-column collection browser. Native Georgia and Arial replace the heavy dark interface. The theme covers the homepage, dashboard, lessons, reviews/rubrics, account dialogs, curriculum, library/news, practice labs and standalone offline exports. No fabricated reader statistics, urgency, reviews, advertisements or reference-site content were copied.
 
-44 automated tests and local Chromium checks cover the curriculum, retained account/offline functionality, new public collection interactions and responsive layouts. External production transfer/deployment remains pending authenticated access.
+45 automated tests and local/production Chromium checks cover the curriculum, retained account/offline functionality, new public collection interactions and responsive layouts. Production transfer and deployment are verified; see the live release section above.
