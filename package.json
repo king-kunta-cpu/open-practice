@@ -1,6 +1,6 @@
 {
   "name": "open-practice",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -12,8 +12,8 @@
     "test": "node --test test/*.test.mjs",
     "check": "npm test && node scripts/check-secrets.mjs",
     "deploy": "npx wrangler@latest deploy --config adapters/cloudflare/wrangler.jsonc",
-    "build:assets": "python3 scripts/build-curriculum.py && python3 scripts/build-activities.py && python3 scripts/build-growth.py && node scripts/build-offline-assets.mjs && node scripts/build-inline-assets.mjs",
-    "build:curriculum": "python3 scripts/build-curriculum.py && python3 scripts/build-activities.py && python3 scripts/build-growth.py",
+    "build:assets": "python3 scripts/build-curriculum.py && python3 scripts/build-path-covers.py && python3 scripts/build-activities.py && python3 scripts/build-growth.py && node scripts/build-offline-assets.mjs && node scripts/build-inline-assets.mjs",
+    "build:curriculum": "python3 scripts/build-curriculum.py && python3 scripts/build-path-covers.py && python3 scripts/build-activities.py && python3 scripts/build-growth.py",
     "deploy:fresh": "npx wrangler@latest deploy --config adapters/cloudflare/wrangler.fresh-install.jsonc",
     "build:activities": "python3 scripts/build-activities.py",
     "build:growth": "python3 scripts/build-growth.py"
