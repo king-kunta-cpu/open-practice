@@ -33,3 +33,8 @@ The activity catalogue `/activities.html` now contains refreshed artwork for act
 ## Artwork batch 3 / 0.8.4
 
 Activities 01–30 have refreshed artwork and illustrated guides. Activities 31–50 remain pending. Examples: `/activities.html?activity=visual-priority`, `/activities.html?activity=concept-map` and `/activities.html?activity=automation-blueprint`.
+
+
+## Artwork batch 4 / 0.8.5
+
+Activities 01–40 have refreshed artwork and illustrated guides. Activities 41–50 remain pending. Examples: `/activities.html?activity=connection-graph`, `/activities.html?activity=source-verifier` and `/activities.html?activity=paper-decoder`.

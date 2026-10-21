@@ -113,3 +113,10 @@ To preserve image quality while keeping the deployed Worker small, public files 
 Ten new original AI-generated editorial illustrations and matching self-contained visual guides now cover reasoning checks, prompt frameworks, concept maps, feedback classification, résumé evidence, simulated interviews, visual priorities, outpainting, controlled automation and jargon translation. Total refreshed: **30 covers and 30 guides**. Remaining: **20 covers and guides, activities 31–50**. The gallery, tool directory, dashboard and downloadable collection packs reuse the updated art without changing activity IDs or saved work.
 
 67 automated tests pass, including the exact artwork-batch scope, offline embedding and production module budget. Production retains the existing native same-Worker static-assets binding, original database namespace/object selector and existing secrets. No runtime, schema or infrastructure changes are needed for this batch.
+
+
+## Artwork refresh / 0.8.5 — activities 31–40
+
+Ten new original AI-generated editorial illustrations and matching self-contained guides now cover cross-topic connections, source verification, framing audits, email-thread actions, paper interpretation, audience rewrites, skeptical FAQs, plain language, fair mock interviews and contract questions. Total refreshed: **40 covers and 40 guides**. Remaining: **10 covers and guides, activities 41–50**. The updated artwork flows into the gallery, directory, dashboard and downloadable packs without changing activity IDs or learner workspaces.
+
+67 automated tests cover artwork scope, offline embedding, existing learning features and production packaging. This artwork-only batch retains native static assets on the same Worker and requires no database, runtime or infrastructure changes.
