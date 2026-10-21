@@ -104,3 +104,10 @@ Ten new original AI-generated editorial illustrations and matching self-containe
 Ten new original AI-generated editorial illustrations and matching self-contained guides now cover cross-topic connections, source verification, framing audits, email-thread actions, paper interpretation, audience rewrites, skeptical FAQs, plain language, fair mock interviews and contract questions. Total refreshed: **40 covers and 40 guides**. Remaining: **10 covers and guides, activities 41–50**. The updated artwork flows into the gallery, directory, dashboard and downloadable packs without changing activity IDs or learner workspaces.
 
 67 automated tests cover artwork scope, offline embedding, existing learning features and production packaging. This artwork-only batch retains native static assets on the same Worker and requires no database, runtime or infrastructure changes.
+
+
+## Artwork refresh complete / 0.8.6 — activities 41–50
+
+The final ten original AI-generated editorial illustrations and matching self-contained guides cover Markdown structure, regex testing, validated JSON, SQL reference totals, API success/failure paths, visual prompt chaining, negative-space composition, storyboard continuity, measured contrast and synthetic focus groups. **All 50 standalone activity covers and all 50 illustrated guides are now refreshed. No activity artwork remains pending.** The minimalist composition deliberately preserves negative space, using a subject-aware crop and shorter shade behind the caption.
+
+68 automated tests cover all fifty artwork records, embedded cover/guide images, the negative-space caption treatment, offline behavior and existing account/curriculum functionality. Native static assets stay on the same Worker; learner IDs, saved work, database bindings and company tutor credentials are unchanged.

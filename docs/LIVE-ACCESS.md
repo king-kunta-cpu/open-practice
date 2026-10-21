@@ -38,3 +38,8 @@ Activities 01–30 have refreshed artwork and illustrated guides. Activities 31�
 ## Artwork batch 4 / 0.8.5
 
 Activities 01–40 have refreshed artwork and illustrated guides. Activities 41–50 remain pending. Examples: `/activities.html?activity=connection-graph`, `/activities.html?activity=source-verifier` and `/activities.html?activity=paper-decoder`.
+
+
+## Artwork complete / 0.8.6
+
+All 50 standalone activities have refreshed artwork and illustrated guides. Examples from the final batch: `/activities.html?activity=visual-prompt-chain`, `/activities.html?activity=storyboard-continuity` and `/activities.html?activity=contrast-check`. The complete set is available through `/activities.html` and the matching collection ZIPs; no activity artwork remains pending.
