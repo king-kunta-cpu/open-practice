@@ -52,7 +52,7 @@ branding/                Original artwork and licensed display font
 ```
 
 ## Release status
-This 0.6.0 release is built and verified locally. The renamed public hostname and repository are **deployment targets, not confirmed live URLs**. The existing deployment is unchanged until authenticated transfer is completed. See `docs/LIVE-ACCESS.md` and `docs/IDENTITY-TRANSFER.md` before deploying: a fresh namespace would not contain existing accounts.
+This 0.7.0 release is built and verified locally. The renamed public hostname and repository are **deployment targets, not confirmed live URLs**. The existing deployment is unchanged until authenticated transfer is completed. See `docs/LIVE-ACCESS.md` and `docs/IDENTITY-TRANSFER.md` before deploying: a fresh namespace would not contain existing accounts.
 
 New-installation defaults keep AI off and use a fresh named database object. Existing installations must transfer their Durable Object namespace and preserve the original object ID. Do not deploy new-installation defaults over an existing account system.
 
@@ -61,3 +61,8 @@ No accreditation, verified assessment, automatic background sync, autonomous pub
 
 ## Licensing
 Code: MIT. Original learning/library material: CC BY 4.0. Archivo Black: included, unchanged SIL Open Font License. Third-party services have separate terms. No legal clearance, professional status or vulnerability-free certification is claimed. See `docs/OPERATING-NOTES.md`, `docs/SECURITY.md` and `docs/MONETISATION.md`.
+
+## Editorial Collection interface / 0.7.0
+The public and learner interfaces now follow the requested reference’s actual cream/burgundy format: #FDF7EE canvas, #7C1F16 serif headings, #A8321F terracotta actions, white rounded cards, miniature cover selectors and a two-column collection browser. Native Georgia and Arial replace the heavy dark interface. The theme covers the homepage, dashboard, lessons, reviews/rubrics, account dialogs, curriculum, library/news, practice labs and standalone offline exports. No fabricated reader statistics, urgency, reviews, advertisements or reference-site content were copied.
+
+44 automated tests and local Chromium checks cover the curriculum, retained account/offline functionality, new public collection interactions and responsive layouts. External production transfer/deployment remains pending authenticated access.

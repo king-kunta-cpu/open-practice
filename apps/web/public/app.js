@@ -1,3 +1,4 @@
+import {mountCollection} from './collection.js';
 import {normaliseRecord,assessmentPassed,capstonePassed,renderLesson,renderAssessment,renderRubric,questions} from './learning.js';
 import {getLearner,saveCloud,track,call} from './learner.js';
 import {workspaceHTML} from './offline.js';
@@ -31,6 +32,7 @@ let enabled=false;try{const status=await(await fetch('/api/status')).json();enab
 $('#ask button').disabled=!enabled;$('#question-input').disabled=!enabled;if(!enabled)$('#answer').textContent='Cloud tutoring is disabled or not configured. Use the lesson and build challenge; no generated answer is being simulated.';
 $('#ask').onsubmit=async e=>{e.preventDefault();if(!current||!enabled)return;const b=$('#ask button');b.disabled=true;$('#answer').textContent='Asking the cloud tutor…';try{const r=await fetch('/api/tutor',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({course:current.id,lesson:step,question:$('#question-input').value})});const data=await r.json();$('#answer').textContent=data.text?data.text+'\n\nAI-generated · '+data.provider+' / '+data.model+' · Verify important claims.':data.error}catch{$('#answer').textContent='Connection failed. You can keep working through the lesson.'}finally{b.disabled=false}};
 render();
+mountCollection(courses,{onOpen:open,onDownload:c=>{download(c.id+'-workspace.html',workspaceHTML(c,record(c)),'text/html');track('workspace_downloaded',c.id)}});
 
 $('#cloud-save').onclick=async()=>{if(!current)return;saveNotes();try{await saveCloud(current.id,record(current));$('#workspace-status').textContent='Saved to your account. Other devices can load it from the Account menu.'}catch(e){$('#workspace-status').textContent=e.message}};
 $('#html-save').onclick=()=>{if(!current)return;saveNotes();download(current.id+'-workspace.html',workspaceHTML(current,record(current)),'text/html');track('workspace_downloaded',current.id);$('#workspace-status').textContent='HTML workspace downloaded. Open it offline and download updated copies to preserve edits.'};

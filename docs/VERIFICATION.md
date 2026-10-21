@@ -35,3 +35,8 @@ Independent subject-matter review, learner-tested timing, full backup/restore re
 
 ## Optional browser runner
 Start the Node server, install Playwright in a separate QA environment, then run `PREVIEW_URL=http://127.0.0.1:3001 node scripts/browser-check.mjs`. If Playwright is not installed in the repository, set `PLAYWRIGHT_MODULE` to its module path. `QA_DIR` selects an output directory; otherwise temporary OS storage is used. Playwright is test tooling, not a runtime dependency.
+
+## Editorial Collection / 0.7.0
+44 automated tests pass. The reference page’s actual CSS was inspected for its cream, burgundy, terracotta and gold palette, serif headings, rounded cards and cover/detail layout. Public and learner pages were rebuilt locally in that format. Additional Chromium checks verify public collection arrows, six selectors, Home/End keyboard navigation, course entry, cream background, native serif heading, account-dialog theme, and seven public/learner routes at 360, 390, 768 and 1024px without horizontal overflow. Existing offline download/edit/reopen/import and final-activity account save/delete checks pass under the new theme. Screenshots were visually inspected; a collapsed catalogue-card column found during inspection was fixed before the final run.
+
+No external push, hostname transfer, account-store migration or production deployment was performed. The running preview is the current verified build.

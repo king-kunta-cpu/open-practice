@@ -1,7 +1,7 @@
 # Access and release state
 
 ## Current release
-Version 0.6.0 is built and tested in the workspace. A local preview is available through the running preview server. No production transfer, repository rename or external push was completed for this release because deployment credentials are not available in the current environment.
+Version 0.7.0 is built and tested in the workspace. A local preview is available through the running preview server. No production transfer, repository rename or external push was completed for this release because deployment credentials are not available in the current environment.
 
 ## Intended identity destinations — not confirmed live
 - Platform target: `https://open-practice.zlnew.workers.dev`

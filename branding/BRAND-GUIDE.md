@@ -1,59 +1,35 @@
-# Open Practice — Brass & Circuit
+# Open Practice — Editorial Collection
 
 ## Identity
-**Name:** Open Practice
-**Descriptor:** Practical AI Engineering
-**Signature:** Human ingenuity. Machine intelligence.
-**Promise:** Learn freely. Build honestly. Keep what you make.
+Open Practice / Practical AI Engineering. Free, independent, non-degree and non-accredited practical learning.
 
-An independent, non-accredited platform for useful AI practice. A maker's workshop, a technical library, and a platform—not a SaaS product or credential factory.
-
-## Mark
-The selected AI-generated logo combines an open book, a circuit, and a brass gear ring. The book stands for open learning, the circuit for applied AI, and the ring for making, iteration, and human workmanship.
-
-- `open-practice-lockup.png`: transparent full lockup, for dark backgrounds.
-- `open-practice-emblem.png`: transparent emblem, for dark backgrounds.
-- Optimised WebP and favicon versions live in `apps/web/public/brand/`.
-- Original selected generated image is supplied in the downloadable brand kit.
-
-Maintain clear space approximately one quarter of the emblem width. Do not stretch, add glow effects, rotate the complete lockup, or place it on busy photographs. At small sizes use the emblem instead of reducing the entire lockup beyond legibility. These are raster artwork assets, not a claimed vector master. Trademark/uniqueness clearance has not been performed.
+## Visual direction
+Warm cream canvas, burgundy serif headings, terracotta calls to action, white rounded collection cards, restrained gold detail and subtle brown shadows. This replaces the earlier dark workshop interface. The open-book/circuit motif remains, redrawn as a simple burgundy-and-gold mark.
 
 ## Palette
-| Token | Hex | Use |
-|---|---|---|
-| Workshop ink | #142526 | Main background |
-| Deep iron | #101B1D | Header bands, footers, controls |
-| Aged brass | #CFAA6D | Identity, calls to action, instrument marks |
-| Parchment | #EDE2C9 | Main text and reading surfaces |
-| Oxidised teal | #86CBBD | Signals, technical labels, secondary emphasis |
-| Burnished copper | #9B6747 | Restrained supporting accent |
-| Muted sage | #B0B7AA | Secondary copy on dark backgrounds |
+| Role | Hex |
+|---|---|
+| Page canvas | #FDF7EE |
+| White cards | #FFFFFF |
+| Primary headings | #7C1F16 |
+| Terracotta action | #A8321F |
+| Gold accent | #D4971B |
+| Main text | #33241A |
+| Secondary text | #6B5B4E |
+| Warm border | #EAD8C2 |
+| Pale yellow callout | #FFF8DD |
+| Pale lilac callout | #F8F0FF |
 
-Brass and teal are functional accents, not neon effects. Long lesson text uses a parchment reading surface with dark ink. Never rely on colour alone for state, completion, or errors.
+## Type and layout
+Georgia / Times New Roman serif for headings; native Arial / Helvetica for text, controls and labels. No remote fonts. Native fonts also work in downloaded offline files. The previous Archivo Black files and their unchanged licence are retained as optional historical assets; they are not the default UI typeface.
 
-## Typography
-- Display and platform voice: Archivo Black, falling back to Arial Black/Impact/sans-serif.
-- Technical labels and interface notes: Courier New/Courier/monospace.
-- Reading copy: Arial/Helvetica/sans-serif.
+Use a 1060px centred canvas, 24px main collection radius, 14–20px supporting card radii, pill labels and circular previous/next controls. Collection layout: cover and six miniature selectors beside details, outcome callouts and paired actions. Stack on smaller screens. Honour reduced motion and visible keyboard focus.
 
-Archivo Black is self-hosted as a roughly 25 KB WOFF2 subset under the SIL Open Font License included here. Other stacks are system fonts. No external font host is used. Heavy display lettering gives a confident engineering identity; monospaced marginalia carries the technical language.
+## Assets
+SVG mark and full lockup are the editable masters. Transparent PNG exports and web-optimised WebP versions are included. Maintain clear space of one quarter of the icon width. Do not stretch, glow or place on busy imagery. No trademark clearance is claimed.
 
-## Composition
-Asymmetric editorial opening; technical-plate artwork; ledger-style two-column workshop index; numbered experiments; generous margins; thin drafting rules; restrained mechanical motifs. Use a workbench/dashboard, open stacks/library, and field notes/news as the platform's navigation language. Keep navigation terms clear in page text and document titles.
+## Content integrity
+Use real curriculum counts. No fabricated testimonials, ratings, concurrent-reader counts, expiring access, download mirrors or advertisements. Do not copy the reference site’s literary material. Progress and capstone scoring remain learner self-reports.
 
-No animated gears, particle canvases, scroll hijacking, parallax, decorative sound, fake activity indicators, testimonials, or invented institutional seals/accreditation.
-
-## Voice
-Curious, clear, grounded, practical. Say “test it”, “make a small build”, and “show what worked”. Avoid “revolutionary”, guaranteed earnings, and inflated completion claims.
-
-## Performance and security
-Use compressed same-origin assets, CSS geometry, and SVG diagrams; no external graphics or font libraries. Offline HTML embeds its emblem and retains no network dependency. Keep learner keys out of artwork, analytics, and exports. Branding is not a substitute for an authentication security review.
-
-## Rights
-Website code remains MIT; original course/library text remains CC BY 4.0. Branding is supplied for this platform's use. The selected logo is AI-generated and has not received trademark or third-party-rights clearance. No exclusivity or legal protection is guaranteed.
-
-## Command-center collection pattern
-A large selected field manual, detailed progress/next-action panel, position counter, previous/next controls and mini-manual rail. Keyboard navigation and swipe, no autoplay. Inspired by the collection browsing interaction at https://the-secret-classics.blogspot.com/p/homepage.html, without reusing its assets/content, countdown claims, download redirects or visitor statistics.
-
-## Section separation
-Use distinct backgrounds and 4–5 px brass/teal top rules to mark major learning zones; a thinner internal rule separates header, selected content, thumbnail collection and project register. Do not rely on whitespace alone or wrap every paragraph in an identical card.
+## Scope
+The theme applies to public pages, the learner dashboard, activities, reviews, rubrics, account dialogs, library/news, practice labs and native offline HTML. Original application code is MIT; original learning and graphic materials CC BY 4.0. Third-party licence text remains unchanged.
