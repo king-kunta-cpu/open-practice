@@ -1,16 +1,70 @@
 {
- "name": "open-practice-school",
- "main": "worker.mjs",
- "compatibility_date": "2026-10-01",
- "assets": {"directory": "../../apps/web/public", "binding": "ASSETS", "run_worker_first": ["/api/*"]},
- "ai": {"binding": "AI"},
- "ratelimits": [{"name": "TUTOR_LIMITER", "namespace_id": "1001", "simple": {"limit": 5,"period": 60}}],
- "vars": {
-  "AI_ENABLED": "false",
-  "AI_PROVIDER_ORDER": "groq,cloudflare,pollinations",
-  "GROQ_MODEL": "",
-  "CLOUDFLARE_MODEL": "",
-  "POLLINATIONS_MODEL": "",
-  "APPROVED_MODELS": ""
- }
+  "name": "open-practice-school",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "../../apps/web/public",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "ratelimits": [
+    {
+      "name": "TUTOR_LIMITER",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    },
+    {
+      "name": "AUTH_LIMITER",
+      "namespace_id": "1003",
+      "simple": {
+        "limit": 8,
+        "period": 60
+      }
+    },
+    {
+      "name": "LEARNING_LIMITER",
+      "namespace_id": "1002",
+      "simple": {
+        "limit": 90,
+        "period": 60
+      }
+    }
+  ],
+  "vars": {
+    "AI_ENABLED": "false",
+    "AI_PROVIDER_ORDER": "groq,cloudflare,pollinations",
+    "GROQ_MODEL": "",
+    "CLOUDFLARE_MODEL": "",
+    "POLLINATIONS_MODEL": "",
+    "APPROVED_MODELS": ""
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "LEARNER_DB",
+        "class_name": "LearnerDatabase"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1-learners",
+      "new_sqlite_classes": [
+        "LearnerDatabase"
+      ]
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "0 3 * * *"
+    ]
+  }
 }

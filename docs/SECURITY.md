@@ -25,3 +25,12 @@ Local notes stay in that browser and exports contain those notes. A shared compu
 
 ## Content and code
 Lesson drafts require maintainer review. No autonomous publication or execution of learner code. Prompt injection is not fully solved by a system instruction; the tutor has no tool permissions. Render model answers as text, not HTML.
+
+## Accounts, tracking and learner keys (current release)
+Usernames are public identifiers, not verified identities. Passwords use salted PBKDF2-SHA256 (100,000 iterations, within the Workers WebCrypto limit); recovery codes and 30-day session tokens are hashed. This is a pilot authentication implementation, not a security audit or production certification. Complete an independent review and consider a stronger managed identity/password-hardening design before broad enrolment.
+
+Sessions use Secure/HttpOnly/SameSite=Strict host-only cookies. SQL uses bound parameters. Registration and recovery are rate limited; distributed attacks and denial of service remain possible. Password resets invalidate prior sessions. There is no email reset or default admin account. Account deletion removes active account/workspace/event records; platform backups or downloaded files have separate retention.
+
+First-party events are tied to authenticated accounts and include only an allowed event name, a course/resource identifier, and timestamp. Account consent and adult attestation are required for registration. No user age or real-world identity is verified. Daily cleanup removes events older than 90 days and expired sessions; deletion also occurs during sign-in cleanup.
+
+Learner practice credentials exist only in the request/input field and provider call, not database rows, browser storage, analytics, source files, or offline exports. The key field clears on each request/sign-out. Do not enable request-body capture in platform observability: it could expose credentials despite the application's no-logging design. The learner-selected provider receives the prompt and can incur that learner's charges. There is no cross-provider fallback in learner practice.

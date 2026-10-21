@@ -5,3 +5,6 @@
 node_modules
 .wrangler
 *.zip
+
+data
+*.sqlite

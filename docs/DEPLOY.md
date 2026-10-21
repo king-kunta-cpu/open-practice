@@ -65,3 +65,12 @@ Set `PUBLIC_ORIGIN` to your externally visible HTTPS origin behind a reverse pro
 Provider models and quotas change. Deliberately no ten-model availability or perpetual-free promise is baked into the code.
 
 Wrangler is fetched as external tooling, not included in the runtime or lockfile. Audit the exact CLI version you intend to use, then pin that reviewed version in your own release process. The default latest CLI command is convenient, not a reproducible pinned deployment toolchain.
+
+## Learner storage release
+Live accounts use `LearnerDatabase`, a SQLite Durable Object in the same Worker. The config includes its namespace binding and a migration tagged `v1-learners`, plus separate auth and learning-event limiters and a daily retention cron. Do not remove or rename the namespace/class or change the stable `open-practice-school` object name during a routine update: that can orphan account data. Cloudflare D1 creation was denied by the current deployment token; no D1 database was created.
+
+Deploying this configuration to a new Cloudflare account creates a fresh database; it does not migrate learners automatically. Retain the old deployment until a verified data export/import process is complete. No automatic operator-wide export has been implemented yet. Users can export their account/workspace data.
+
+Native Node accounts require Node 22.13+ and a persistent SQLite file, default `data/learners.sqlite`. Mount a persistent Docker volume at `/app/data`; do not bake database files into images. Use HTTPS and set `PUBLIC_ORIGIN` to the exact public origin. Secure session cookies require a secure context. In-memory rate limits are single-instance pilot controls, not scalable distributed protection.
+
+Account permissions are self-service only: no public admin export endpoint or default admin password exists. Library and News Drops are edited through the Git repository. News entries require a date, source links and editorial review.

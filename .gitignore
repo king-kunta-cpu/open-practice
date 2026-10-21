@@ -5,3 +5,8 @@ node_modules/
 .dev.vars
 .wrangler/
 *.log
+
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

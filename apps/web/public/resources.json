@@ -1,0 +1,86 @@
+[
+  {
+    "id": "prompt-kit",
+    "title": "Prompt design & verification kit",
+    "kind": "Prompt kit",
+    "description": "A reusable task brief, evidence table, and output-review checklist.",
+    "url": "/resources/prompt-kit.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "expenses",
+    "title": "Fictional expenses dataset",
+    "kind": "Dataset",
+    "description": "A small CSV with known totals for practising spreadsheet formulas.",
+    "url": "/resources/sample-expenses.csv",
+    "licence": "CC BY 4.0",
+    "format": "CSV"
+  },
+  {
+    "id": "provider-check",
+    "title": "Cloud provider evaluation worksheet",
+    "kind": "Worksheet",
+    "description": "Check allowed use, quotas, data handling, model access, and failures before integration.",
+    "url": "/resources/provider-review.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "build-log",
+    "title": "Practical project build log",
+    "kind": "Template",
+    "description": "Document acceptance tests, evidence, limitations, and the next improvement.",
+    "url": "/resources/build-log.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "starter",
+    "title": "Offline quote calculator starter",
+    "kind": "Code starter",
+    "description": "A self-contained HTML calculator with labelled fields and basic validation.",
+    "url": "/resources/quote-calculator.html",
+    "licence": "CC BY 4.0",
+    "format": "HTML"
+  },
+  {
+    "id": "safety",
+    "title": "Approval-first automation checklist",
+    "kind": "Checklist",
+    "description": "Map inputs, permissions, retries, duplicate protection, and the emergency stop.",
+    "url": "/resources/automation-checklist.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "build-cycle",
+    "title": "Build \u2192 test \u2192 improve",
+    "kind": "Visual asset",
+    "description": "Reusable original SVG diagram for your learning notes, projects, and presentations.",
+    "url": "/assets/build-cycle.svg",
+    "image": "/assets/build-cycle.svg",
+    "licence": "CC BY 4.0",
+    "format": "SVG"
+  },
+  {
+    "id": "key-boundary",
+    "title": "Keep your AI keys out of exports",
+    "kind": "Visual asset",
+    "description": "Reusable original SVG diagram for your learning notes, projects, and presentations.",
+    "url": "/assets/key-boundary.svg",
+    "image": "/assets/key-boundary.svg",
+    "licence": "CC BY 4.0",
+    "format": "SVG"
+  },
+  {
+    "id": "offline-flow",
+    "title": "Take your learning offline",
+    "kind": "Visual asset",
+    "description": "Reusable original SVG diagram for your learning notes, projects, and presentations.",
+    "url": "/assets/offline-flow.svg",
+    "image": "/assets/offline-flow.svg",
+    "licence": "CC BY 4.0",
+    "format": "SVG"
+  }
+]

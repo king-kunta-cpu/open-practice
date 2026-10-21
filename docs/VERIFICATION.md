@@ -1,0 +1,28 @@
+# Account/library/offline release verification
+
+Verified against the live Worker on 2026-10-21.
+
+## Automated
+21 tests pass under Node 22, including native SQLite persistence, password hashing, escaping in offline exports, required resource files, and existing routing/security tests. The older sandbox Node 20 skips the native SQLite test; the full Node 22 run has no skips.
+
+## Live HTTP
+- Public course/library/news/privacy pages and SVG resource return HTTP 200.
+- Register a temporary adult account, receive recovery code and secure session.
+- Save a course workspace, retrieve it, refuse a stale version with HTTP 409.
+- Record an allowed learning event and verify extraneous key-like fields are not stored.
+- Export account work and events.
+- Sign out; signed-out save is denied with HTTP 401.
+- Sign in and retrieve prior saved notes (cross-session persistence).
+- Make a successful learner-key Groq inference request.
+- Recover/reset password using the code, then delete the test account and verify session is cleared.
+
+## Chromium browser
+- Register through the actual UI and save a course note to the account.
+- Download a native HTML workspace.
+- Open it from disk, disconnect network access, edit a note, download a new HTML copy, reopen and verify the edit survived.
+- Render all 9 library resources and 3 news entries.
+- Delete the browser test account.
+- Check mobile viewport at 390px: no horizontal overflow.
+- No uncaught browser JavaScript errors.
+
+Test accounts were deleted. No API keys were committed. Google Gemini and learner Cloudflare adapters are implemented but have not had authenticated end-to-end inference tests; no suitable learner credentials were supplied for them. Learner Groq was verified. These checks are not a penetration test, load test, data-restoration drill, or child-safety review.

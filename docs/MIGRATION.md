@@ -17,3 +17,12 @@ Current notes and progress live in localStorage under `op-progress` on the brows
 
 ## No hidden dependencies
 No database, proprietary LMS format, CDN scripts/fonts, account provider or paid inference SDK. The Node runtime has no package dependencies; Wrangler is a development/deployment dependency only. Optional hosted inference is still external infrastructure.
+
+## Accounts and cloud work (new release)
+Production account data resides in a SQLite Durable Object, not in the Git repository. Its schema is in `migrations/0001_learners.sql`; SQL access is isolated behind `adapters/cloudflare/database.mjs`. A D1 binding can be substituted because account code accepts the same minimal prepare/bind/first/all/run/batch interface. Node 22.13+ uses `adapters/node/database.mjs` and a persistent native SQLite file.
+
+Moving the code alone does not move the live database. A full operator export/import utility and backup/restore rehearsal are still required for complete account migration. Do not shut down the old service or rename its Durable Object binding/class before that exists. Learner exports are implemented; passwords/session hashes are intentionally excluded from those exports. A fresh host has fresh accounts unless a controlled database migration is performed.
+
+Offline progress now supports round-trip transfer: export course progress JSON from the offline HTML; import it inside the matching online course; then explicitly Save to account. Changing domains still does not automatically transfer localStorage. Signed-in workspaces can be loaded through the Account menu. Cloud saves detect stale versions and refuse silent overwrites.
+
+Older statements above that described import/account storage as unimplemented apply to the pre-account prototype; the working paths in this section supersede them.

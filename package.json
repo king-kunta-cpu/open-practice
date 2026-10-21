@@ -1,16 +1,17 @@
 {
   "name": "open-practice",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.13"
   },
   "scripts": {
     "dev": "node --env-file-if-exists=.env adapters/node/server.mjs",
     "start": "node adapters/node/server.mjs",
     "test": "node --test test/*.test.mjs",
     "check": "npm test && node scripts/check-secrets.mjs",
-    "deploy": "npx wrangler@latest deploy --config adapters/cloudflare/wrangler.jsonc"
+    "deploy": "npx wrangler@latest deploy --config adapters/cloudflare/wrangler.jsonc",
+    "build:assets": "node scripts/build-inline-assets.mjs"
   }
 }

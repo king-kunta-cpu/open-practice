@@ -1,65 +1,67 @@
-# Open Practice — one repository, replaceable infrastructure
+# Open Practice — portable practical AI school
 
-A practical, independent, non-accredited AI school. Starter materials are drafts for review.
+Independent, non-accredited, free-to-learn pilot. One repository, replaceable hosting and AI providers. Original starter lessons are drafts for review.
 
-## Quick start
-Node 22+ recommended. No runtime dependencies required.
+## Live
+- School: https://open-practice-school.zlnew.workers.dev
+- Library: https://open-practice-school.zlnew.workers.dev/library.html
+- News Drops: https://open-practice-school.zlnew.workers.dev/news.html
+- Privacy: https://open-practice-school.zlnew.workers.dev/privacy.html
+- Repository: https://github.com/king-kunta-cpu/open-practice-school
 
+## Working features
+- Six practical courses, eighteen lessons, six deterministic knowledge checks.
+- Username/password accounts, recovery codes, secure sessions, account export and deletion.
+- Explicit cloud workspace saves, loading on another session/device, stale-write detection.
+- Local notes and progress for learners who choose not to sign in.
+- Self-contained offline HTML workspaces: lessons, editable notes, checklists and knowledge checks. Save edits by downloading an updated HTML copy. Export offline progress as JSON and import it back into the online course before saving to your account.
+- First-party learning events, not advertising trackers: opens, completions, saves, downloads, and source-link opens. No keystrokes, private prompts, or keys in event payloads. Daily 90-day retention cleanup.
+- Learner-owned temporary connections: Groq, Google AI Studio/Gemini, Cloudflare Workers AI. Keys are never persisted by app code; prompts pass through the school server to the chosen provider. Key fields clear after requests/sign-out.
+- Free library: six templates/datasets/code starters and three original SVG assets.
+- News Drops: three dated, reviewed source-linked reference/release entries, not a live automated news feed.
+- Optional company-funded course tutor, currently verified with Groq.
+
+## Repository
+```text
+apps/web/public/          Website, lessons, library/news, offline exporter, analytics client
+packages/core/           Portable tutor API
+packages/accounts/       SQL-based accounts, sessions, workspaces, events
+packages/ai/             Company-provider fallback and learner-key requests
+adapters/cloudflare/     Worker, SQLite Durable Object store, deployment configuration
+adapters/node/           Node 22.13+ server and native SQLite store
+migrations/              Portable account schema
+config/                  Blank environment template
+scripts/                 Generated-asset builder and basic secret scan
+.github/workflows/       Read-only tests on push, PR and weekly schedule
+ test/                   21 automated tests (all run on Node 22)
+ docs/                   Deployment, migration, security, live access and verification
+Dockerfile               Node hosting alternative; persist /app/data
+```
+
+## Local start
+Node 22.13+ is required for accounts; no third-party runtime dependencies.
 ```sh
 cp config/env.example .env
 npm run dev
-# http://localhost:3001
 npm run check
 ```
-For Node 20 without env-file support: export configuration variables in your shell and run `npm start`.
+Open port 3001. Configure HTTPS/public origin behind a reverse proxy. Native SQLite is experimental in Node 22 and should be reviewed on runtime upgrades. Older Node can serve lessons but account storage is unavailable.
 
-## Repository map
-```text
-apps/web/public/              Static school, lessons, local progress, exports
-packages/core/api.mjs         Portable Web Request/Response API and validation
-packages/ai/router.mjs        Provider selection, bounded fallback, output normalisation
-adapters/cloudflare/          Workers assets, AI binding and rate-limit integration
-adapters/node/                Dependency-free server, local limits, CF REST alternative
-config/env.example           Blank configuration contract; no credentials
-scripts/                     Basic secret-pattern scan
-.github/workflows/           Read-only scheduled and PR checks
- test/                       Content, security and mocked provider-routing tests
- docs/                       Deployment, security and migration runbooks
-Dockerfile                   Alternate hosting with Node 22
-```
+## Lean production stack
+GitHub for source/CI; Cloudflare Worker plus its SQLite Durable Object for hosting/storage; cloud inference providers. D1 creation was not permitted by the supplied deployment token, so the live account database uses built-in SQLite Durable Objects instead. The SQL account interface also accepts D1 if you provision it later.
 
-## Hosting and AI are independent
-Default model priority: **Groq → Cloudflare Workers AI → Pollinations**. Only configured and explicitly approved models are eligible. Pollinations remains last, not the primary. Each provider is attempted once per request, with a deadline. Changing provider priority does not change course files or learner data.
+Default company fallback order: Groq → Cloudflare AI → Pollinations. Only explicitly approved/configured models are eligible. Live primary Groq is verified; Cloudflare fallback model and Pollinations credentials are not configured. The learner-key exercise path never falls back to another provider or the company's key.
 
-**GitHub Models is intentionally excluded.** GitHub's current documentation reports the service fully retired July 30, 2026. GitHub remains the code/CI host, not an inference dependency. See https://docs.github.com/en/github-models . GitHub Copilot is a separate service, not an interchangeable free school API.
+GitHub Models is intentionally excluded: official docs report retirement on July 30, 2026 (https://docs.github.com/en/github-models). Repositories, GitHub sign-in and Copilot are separate products.
 
-## Configure cloud tutoring
-AI is OFF by default. Choose exact current models from your account/provider catalogue; do not assume catalogue presence implies free use. Set model variables, secret keys, and matching `provider:model-id` entries in `APPROVED_MODELS`. The approved list is an operator review gate, not automatic price verification. Set `AI_ENABLED=true` only after configuring limits and provider-side budgets.
+## Deployment and portability
+See docs/DEPLOY.md and docs/MIGRATION.md. Run `node scripts/build-inline-assets.mjs` before direct Workers API uploads. Wrangler serves canonical static files; generated assets are also present for API deployment. Committed defaults keep company AI off for safe new installations. Live configuration/secrets are separate from those defaults.
 
-Cloudflare deployment: configuration goes in `adapters/cloudflare/wrangler.jsonc`; set secrets with Wrangler, never in vars. Native Workers AI needs the `AI` binding rather than a runtime account token. Node deployment uses environment variables and Cloudflare REST if that provider is desired. See [deployment](docs/DEPLOY.md).
+## Pilot limitations
+Adult accounts only, with recovery codes and no email reset. No accreditation, verified assessment, admin analytics dashboard, automatic news ingestion, autonomous publication, OAuth, or automatic background sync. Cloud saves are explicit and local/cloud conflict handling is visible. There is no automatic operator-wide database export tool yet; learner account export is implemented. Complete backup/restore rehearsal, private support, security review, stronger abuse controls and provider budgets before scaling.
 
-## What works
-Six courses / eighteen practical lessons; search and filters; self-reported local notes and progress; deterministic quizzes; Markdown project briefs; JSON record export; optional course-grounded cloud tutoring; automated checks. No learner accounts, separate database, app telemetry, or chat-history persistence.
+## Verification
+21 tests pass on Node 22. Live HTTP checks covered account creation, sessions, cloud persistence, stale-write rejection, event export, sign-out, sign-in, recovery, learner-owned Groq inference, and deletion. Real Chromium checks covered registration, cloud save, offline HTML edit/download/reopen, library/news rendering and mobile overflow. Temporary test accounts were deleted. See docs/VERIFICATION.md.
 
-## Not yet implemented
-Autonomous content production/publication, global budget accounting, cross-request circuit breakers, provider benchmarking/model discovery, verified assessments, record re-import, learner sync, and moderation. Provider routing has mocked tests. The deployed school has also passed a real Groq tutor request; production secrets are stored in Cloudflare, not this repository.
-
-## Portability
-Copy this repository to any Git host; use the Node server or Dockerfile on another host; keep the same `/api/status` and `/api/tutor` contracts. See [migration](docs/MIGRATION.md). Local progress belongs to the browser origin: changing domains does not automatically migrate it.
-
-## Security and limits
-Read [security](docs/SECURITY.md) before enabling a public tutor. API quotas are not unlimited. Rate limiting is not a global spend cap. Configure provider-side budgets, review billing behaviour and data terms, and obtain appropriate consent. Fallback can send the same question to more than one provider.
-
-Code: MIT. Original lessons: CC BY 4.0. Third-party services/models retain their own terms.
-
-Deployment-tool note: an initial Wrangler dependency audit reported six advisories in its development dependency tree. It was removed from the application dependency graph; this does not certify the external CLI as vulnerability-free. Review/audit your deployment tooling before authenticated use.
-
-## Live deployment
-- School: https://open-practice-school.zlnew.workers.dev
-- Repository: https://github.com/king-kunta-cpu/open-practice-school
-- Live primary: Groq (`openai/gpt-oss-20b`), verified with a real tutor request.
-- Cloudflare AI binding is provisioned, but no fallback model is approved yet; the deployment token could not access its AI model catalogue.
-- Pollinations is disabled until a key and approved model are configured.
-- Public learner access requires no login.
-
-Production was deployed through the Workers API with generated inline assets. Run `node scripts/build-inline-assets.mjs` before a direct-API asset release. Wrangler deployment serves the original static asset directory instead. Repository source and live configuration are distinct: the committed Wrangler file keeps AI off for safe fresh deployments. Configure approved models and secrets deliberately before enabling it on a new host.
+## Licensing and tooling
+Code: MIT. Original lessons and library materials: CC BY 4.0. Third-party models/services have their own terms. All app runtime code is dependency-free; Wrangler is external deployment tooling, not in the runtime dependency graph. Audit and pin your chosen deployment CLI before authenticated production use; the initial Wrangler toolchain audit reported development dependency advisories, so it was removed from app dependencies. This is not certification that external tooling is vulnerability-free.
