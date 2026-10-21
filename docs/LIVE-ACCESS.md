@@ -23,3 +23,8 @@ No default administrator account/password exists. Content is managed in the repo
 ## Tool field desk
 
 The illustrated external-tools directory is at `/tools.html`. It links into the existing evidence/account/offline activity workflows; external accounts remain learner-owned and access/paid-feature caveats are shown on every card.
+
+
+## Artwork batches / 0.8.3
+
+The activity catalogue `/activities.html` now contains refreshed artwork for activities 01–20; activities 21–50 remain pending. Direct examples: `/activities.html?activity=voice-delivery` and `/activities.html?activity=debate-opponent`. Native Cloudflare static assets are attached to the same Worker, with security-header processing retained. Existing accounts and cloud progress use the unchanged database namespace and object selector.

@@ -2,10 +2,9 @@ import {database} from './database.mjs';
 export {LearnerDatabase} from './database.mjs';
 import {accountAPI} from '../../packages/accounts/api.mjs';
 import {practiceAPI} from '../../packages/ai/practice.mjs';
-import staticAssets from './static.mjs';
 import {createAPI} from '../../packages/core/api.mjs';
 export default {async scheduled(event,env){const db=database(env);if(db)await db.batch([db.prepare('DELETE FROM sessions WHERE expires_at < ?').bind(Date.now()),db.prepare('DELETE FROM learning_events WHERE created_at < ?').bind(Date.now()-90*86400000)])},async fetch(request,env){
- env={...env,ASSETS:env.ASSETS||staticAssets};
+ env={...env}; // Keep request-scoped database adapters out of the shared binding object.
  env.DB=database(env);
  const path=new URL(request.url).pathname;
  try {
@@ -13,7 +12,9 @@ export default {async scheduled(event,env){const db=database(env);if(db)await db
  if(path==='/api/practice')return await practiceAPI(request,env);
  }catch{return new Response(JSON.stringify({error:'Request could not be processed.'}),{status:400,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}})}
  if(!new URL(request.url).pathname.startsWith('/api/')){
- const response=await env.ASSETS.fetch(request);const output=new Response(response.body,response);output.headers.set('Referrer-Policy','strict-origin-when-cross-origin');output.headers.set('X-Content-Type-Options','nosniff');output.headers.set('Permissions-Policy','camera=(), microphone=(), geolocation=()');
+ if(!env.ASSETS)return new Response('Static assets are not configured.',{status:503,headers:{'Cache-Control':'no-store'}});
+ const assetURL=new URL(request.url);if(path==='/')assetURL.pathname='/index.html';
+ const response=await env.ASSETS.fetch(new Request(assetURL,request));const output=new Response(response.body,response);output.headers.set('Referrer-Policy','strict-origin-when-cross-origin');output.headers.set('X-Content-Type-Options','nosniff');output.headers.set('Permissions-Policy','camera=(), microphone=(), geolocation=()');output.headers.set('Cache-Control',/\.(png|webp|jpg|ico|zip|pdf|woff2?)$/i.test(path)?'public,max-age=86400':'no-cache');
  if(path==='/'||(/^\/[^/]+\.html$/.test(path)))output.headers.set('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'");
  return output;
  }

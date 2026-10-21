@@ -96,3 +96,13 @@ Visit `/tools.html` for ten external practice options linked to existing illustr
 The directory is plain HTML/CSS/JavaScript plus `tools.json`, in this same repository and Worker. No React, Tailwind CDN, new backend, key collection or local-model runtime is introduced. Groq, AI Studio and Workers AI replace local training/simulation and unmaintained Lobe recommendations. Provider access is distinguished from learning-material access: free tiers/allocations have limits; Spaces, Canva AI and Zapier AI are conditional. No paid entitlement or commercial media license is promised.
 
 61 automated tests pass. `scripts/tools-browser-check.mjs` checks all ten tool assignments, guide/cover loading, search/filters/empty state/reset, clipboard-denial fallback, linked workspace, account dialog and four responsive widths. Use `PREVIEW_URL` and `QA_DIR` as in the activity browser suite. The existing activity/foundation browser suites remain applicable.
+
+## Artwork refresh / 0.8.3 — 20 of 50
+
+Activities 01–20 now have distinct colorful AI-generated editorial art, full-bleed covers and matching illustrated workflow guides. Thirty covers/guides (21–50) still await later batches. Existing IDs, learner records and curriculum are unchanged.
+
+To preserve image quality while keeping the deployed Worker small, public files now use the native Cloudflare **ASSETS binding on the same Worker**. No extra service, bucket or third-party image host is introduced. All requests still pass through the Worker for security headers; `.html` URLs, root mapping, API routing and learner database binding are preserved. Self-contained SVGs keep downloadable guides, collection ZIPs and offline HTML independent of network access.
+
+`npm run build:assets` still generates a portable `static.mjs` fixture for integration tests, but production must not import it. `npm run deploy` uses Wrangler's native asset upload through the existing config. For an **existing** deployment, `scripts/deploy-cloudflare-assets.py` provides a standard-library REST uploader with explicit production database-selector and namespace checks and existing-secret retention. Run `python3 scripts/deploy-cloudflare-assets.py --check` for an offline manifest/module-budget check. Actual upload reads `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` privately from the environment, never from command arguments or source code. Do not use the fresh-install configuration on production.
+
+67 automated tests cover artwork embedding, module budget, root and exact-HTML handling, security/cache headers, HEAD/304/404 behavior, API isolation and existing learning features. The all-50 activity and ten-tool browser suites also pass locally with the twenty refreshed covers/guides.

@@ -1,4 +1,5 @@
-// Canonical public assets -> deployable Worker module, including binary branding.
+// Canonical public assets -> portable integration-test fixture, including binary branding.
+// Production uses the native ASSETS binding; worker.mjs must not import this large fixture.
 import {readdir,readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 const assets={};
