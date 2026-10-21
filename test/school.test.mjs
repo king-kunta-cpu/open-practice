@@ -1,0 +1,28 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {createAPI} from '../packages/core/api.mjs';
+import {configuredProviders,generate} from '../packages/ai/router.mjs';
+const courses=JSON.parse(await readFile(new URL('../apps/web/public/courses.json',import.meta.url)));
+const env={AI_ENABLED:'true',GROQ_API_KEY:'test-only',GROQ_MODEL:'example',APPROVED_MODELS:'groq:example'};
+const request=(body={course:'prompt',question:'How do I check a source?'},origin='https://school.test')=>new Request('https://school.test/api/tutor',{method:'POST',headers:{origin,'Content-Type':'application/json'},body:JSON.stringify(body)});
+const api=(limit=async()=>true)=>createAPI({loadCourses:async()=>courses,limit,generateAnswer:async()=>({text:'Test hint',provider:'test',model:'test'})});
+test('six courses and eighteen complete lessons',()=>{assert.equal(courses.length,6);assert.equal(new Set(courses.map(c=>c.id)).size,6);for(const c of courses){assert.equal(c.lessons.length,3);for(const l of c.lessons){assert.ok(l.text.length>60);assert.ok(l.task.length>60)}assert.ok(c.quiz.answer>=0&&c.quiz.answer<c.quiz.options.length)}});
+test('disabled tutor fails closed',async()=>assert.equal((await api()(request(),{})).status,503));
+test('cross-origin denied',async()=>assert.equal((await api()(request({},'https://evil.test'),env)).status,403));
+test('missing limiter blocks inference',async()=>assert.equal((await api(null)(request(),env)).status,503));
+test('invalid course rejected',async()=>assert.equal((await api()(request({course:'unknown',question:'test'}),env)).status,400));
+test('null input rejected',async()=>assert.equal((await api()(request(null),env)).status,400));
+test('oversized input bounded',async()=>assert.equal((await api()(request({question:'a'.repeat(7000)}),env)).status,413));
+test('rate limit enforced',async()=>assert.equal((await api(async()=>false)(request(),env)).status,429));
+test('valid question receives injected answer',async()=>{const r=await api()(request(),env);assert.equal(r.status,200);assert.equal((await r.json()).text,'Test hint')});
+test('unapproved models disabled',()=>assert.equal(configuredProviders({...env,APPROVED_MODELS:''}).length,0));
+test('retired and unknown providers excluded',()=>assert.equal(configuredProviders({...env,AI_PROVIDER_ORDER:'github,unknown'}).length,0));
+test('Groq to Cloudflare to Pollinations fallback with no duplicate retries',async()=>{
+ const called=[];const e={...env,AI:{run:async()=>{called.push('cloudflare');throw new Error('quota')}},CLOUDFLARE_MODEL:'example',POLLINATIONS_KEY:'test-only',POLLINATIONS_MODEL:'example',APPROVED_MODELS:'groq:example,cloudflare:example,pollinations:example'};
+ const result=await generate(e,[],{fetcher:async url=>{called.push(url.includes('groq')?'groq':'pollinations');return url.includes('groq')?new Response('{}',{status:429}):Response.json({choices:[{message:{content:'A hint'}}]})}});
+ assert.deepEqual(called,['groq','cloudflare','pollinations']);assert.equal(result.provider,'pollinations');
+});
+test('successful primary does not call fallback',async()=>{let count=0;const r=await generate(env,[],{fetcher:async()=>{count++;return Response.json({choices:[{message:{content:'OK'}}]})}});assert.equal(count,1);assert.equal(r.provider,'groq')});
+test('empty response fails over safely',async()=>{await assert.rejects(()=>generate(env,[],{fetcher:async()=>Response.json({choices:[]})}),/unavailable/)});
+test('native binding timeout is bounded',async()=>{const e={AI:{run:()=>new Promise(()=>{})},CLOUDFLARE_MODEL:'example',APPROVED_MODELS:'cloudflare:example'};await assert.rejects(()=>generate(e,[],{timeoutMs:5,totalMs:10}),/unavailable/)});

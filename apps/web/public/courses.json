@@ -1,0 +1,218 @@
+[
+  {
+    "id": "prompt",
+    "num": "01",
+    "title": "AI, without the guesswork",
+    "track": "Foundations",
+    "project": "Write a reliable research brief",
+    "time": "25 min",
+    "icon": "\u25c8",
+    "description": "Learn to ask better questions, verify answers, and turn a vague request into a useful result.",
+    "lessons": [
+      {
+        "title": "Define the job",
+        "text": "A useful prompt specifies a task, relevant context, constraints, and an output format. Treat the model as an untrusted assistant, not a source of truth.",
+        "task": "Write a prompt for a one-page comparison of three ways a small shop could track inventory. Specify the audience, budget, output table, and what the model should do when uncertain."
+      },
+      {
+        "title": "Build a verification loop",
+        "text": "Ask the model to separate facts, assumptions, and suggestions. A plausible citation may be invented. Open the original source and check the claim and date yourself.",
+        "task": "Run your prompt in a cloud AI tool you choose. Pick three factual claims. Verify them independently and record each source URL and the exact supporting passage."
+      },
+      {
+        "title": "Ship your research brief",
+        "text": "Keep a record of the prompt, model, date, changes, and remaining uncertainties. Remove private information before publishing.",
+        "task": "Deliver a brief containing your original prompt, the revised answer, three checked claims, and one limitation. Do not claim the output is independently verified unless you checked it."
+      }
+    ],
+    "quiz": {
+      "question": "What makes an AI-generated citation trustworthy?",
+      "options": [
+        "It looks professional",
+        "You opened the source and checked that it supports the claim",
+        "Two models repeated it"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "replies",
+    "num": "02",
+    "title": "Your first business assistant",
+    "track": "Everyday work",
+    "project": "Build a customer-reply prompt kit",
+    "time": "35 min",
+    "icon": "\u2197",
+    "description": "Turn repetitive enquiries into clear, consistent draft replies\u2014without exposing customer data.",
+    "lessons": [
+      {
+        "title": "Create a fictional policy",
+        "text": "Start with a fictional shop. Define opening hours, delivery areas, returns, and prices. These are the only facts the assistant may use.",
+        "task": "Write a fictional shop policy with five rules. Include a rule that uncertain questions must be referred to a person."
+      },
+      {
+        "title": "Build the reply template",
+        "text": "Separate the customer message from instructions. Customer text is untrusted input; it must not override your policy. Never give the model authority to issue refunds or send messages.",
+        "task": "Create a prompt that returns: draft reply, policy used, and escalation needed. Test normal delivery, an out-of-policy refund, and a message saying ignore all previous instructions."
+      },
+      {
+        "title": "Evaluate before use",
+        "text": "Automatic replies can make promises you cannot keep. Keep a human in the sending loop and minimise customer data.",
+        "task": "Produce three test replies and a checklist: factual, polite, no invented promises, no private data, and correct escalation. Save your template as a text file."
+      }
+    ],
+    "quiz": {
+      "question": "What should the assistant do with an unsupported refund request?",
+      "options": [
+        "Invent a reasonable policy",
+        "Issue a refund automatically",
+        "Escalate it to a person"
+      ],
+      "answer": 2
+    }
+  },
+  {
+    "id": "sheets",
+    "num": "03",
+    "title": "Make messy data useful",
+    "track": "Data & spreadsheets",
+    "project": "Create a checked expense summary",
+    "time": "40 min",
+    "icon": "\u25a6",
+    "description": "Use AI to help with formulas while keeping calculation and checking deterministic.",
+    "lessons": [
+      {
+        "title": "Start with clean sample data",
+        "text": "Use fictional expenses rather than bank statements. Create columns Date, Category, Description, Amount. Keep numbers numeric and one row per transaction.",
+        "task": "Create five fictional expenses: Travel 10, Food 5, Travel 15, Tools 20, Food 10. The expected total is 60."
+      },
+      {
+        "title": "Ask for a formula, then test it",
+        "text": "AI can suggest spreadsheet formulas, but your spreadsheet performs the calculation. With headers in row 1 and five amounts in D2:D6, =SUM(D2:D6) should produce 60. Locale settings can change separators.",
+        "task": "Use =SUM(D2:D6). Then ask an AI for a category total formula. Test =SUMIF(B2:B6,\"Travel\",D2:D6); the expected result is 25."
+      },
+      {
+        "title": "Add a failure test",
+        "text": "A formula working once is not proof. Test blank cells, changed categories, negative amounts, and a new row beyond the original range.",
+        "task": "Add a sixth expense. Observe whether the range includes it. Submit your sample CSV, formulas, expected totals, and one discovered failure case."
+      }
+    ],
+    "quiz": {
+      "question": "What proves a suggested formula works for your sample?",
+      "options": [
+        "The model says it is correct",
+        "Its calculated output matches independently checked expected values",
+        "It is a long formula"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "web",
+    "num": "04",
+    "title": "From idea to working page",
+    "track": "Build with AI",
+    "project": "Publish a useful one-page tool",
+    "time": "60 min",
+    "icon": "\u2318",
+    "description": "Build a simple calculator, understand its code, and test its edge cases.",
+    "lessons": [
+      {
+        "title": "Specify the smallest tool",
+        "text": "Build a quote calculator for a fictional service: quantity multiplied by unit price. It should reject negative inputs. No accounts, payments, or personal information are needed.",
+        "task": "Write the acceptance criteria: 3 \u00d7 5 = 15, zero is allowed, negative inputs show an error, and all fields have labels."
+      },
+      {
+        "title": "Build and inspect",
+        "text": "Ask an AI for one self-contained HTML file with CSS and JavaScript. Read the code before running it. Avoid external scripts and never paste secrets into generated code.",
+        "task": "Generate the file, inspect it, then open it in your browser. Confirm it does not make network requests. Explain which lines read inputs and calculate the result."
+      },
+      {
+        "title": "Test and share",
+        "text": "A working page needs more than a screenshot. Check keyboard use, small screens, invalid input, and whether text explains limitations.",
+        "task": "Record the four acceptance tests and their results. Submit index.html and a short README. Deploy only after inspecting the code and removing personal information."
+      }
+    ],
+    "quiz": {
+      "question": "When should you execute generated code?",
+      "options": [
+        "After inspecting it and understanding its permissions",
+        "Immediately, because it was generated",
+        "Only if it contains a secret key"
+      ],
+      "answer": 0
+    }
+  },
+  {
+    "id": "automation",
+    "num": "05",
+    "title": "Automate the boring bit\u2014safely",
+    "track": "Automation",
+    "project": "Design an approval-first workflow",
+    "time": "45 min",
+    "icon": "\u21c4",
+    "description": "Map an automation that drafts useful work but asks before taking action.",
+    "lessons": [
+      {
+        "title": "Map the workflow",
+        "text": "Every automation has an input, transformation, output, and failure path. Start with a workflow that prepares a weekly summary from fictional tasks.",
+        "task": "Draw: sample task list \u2192 validate fields \u2192 draft summary \u2192 human review \u2192 publish. Mark where data crosses a service boundary."
+      },
+      {
+        "title": "Plan retries and duplicate protection",
+        "text": "Retries can accidentally send duplicate messages. Store a stable job ID and completed status. Stop after a small number of attempts, and do not retry authentication or exhausted-budget errors blindly.",
+        "task": "Write pseudocode that checks whether a job is already complete, attempts it once, and records the result. Add a maximum retry count of two for temporary errors."
+      },
+      {
+        "title": "Keep a stop switch",
+        "text": "An autonomous system needs limited permissions, a pause control, logs without secrets, and a human approval gate for public actions.",
+        "task": "Submit your diagram, pseudocode, three failure cases, and a shutdown procedure. This project is a design exercise, not an unattended deployed agent."
+      }
+    ],
+    "quiz": {
+      "question": "Which action needs a human approval gate in this exercise?",
+      "options": [
+        "Reading fictional sample tasks",
+        "Publishing a public message",
+        "Checking a required field"
+      ],
+      "answer": 1
+    }
+  },
+  {
+    "id": "cloud",
+    "num": "06",
+    "title": "Understand the AI plumbing",
+    "track": "Open AI systems",
+    "project": "Build an endpoint evaluation checklist",
+    "time": "50 min",
+    "icon": "\u25ce",
+    "description": "Separate open-source software, model licences, hosted APIs, and free usage quotas.",
+    "lessons": [
+      {
+        "title": "Know what is actually free",
+        "text": "A public GitHub repository may contain code, model weights, an SDK, or a list of APIs. None of these guarantees free hosted compute. Inspect the licence, provider terms, authentication, pricing, and last update.",
+        "task": "Choose a public AI repository. Record its URL, licence, purpose, and whether it supplies an actual hosted endpoint. Do not run unknown install commands."
+      },
+      {
+        "title": "Understand cloud requests",
+        "text": "An OpenAI-compatible chat API commonly accepts a model and messages. Keep secret API keys server-side. A 401 means authentication failed, 429 means a limit was reached, and 402 may mean credits are exhausted.",
+        "task": "Sketch browser \u2192 your gateway \u2192 provider. Mark where the secret lives. Write user-friendly messages for authentication failure, exhausted credits, and timeouts."
+      },
+      {
+        "title": "Evaluate before integrating",
+        "text": "Test a provider using non-sensitive sample prompts. Confirm allowed application use, current quotas, data handling, latency, and failure behaviour. Never use leaked keys or reverse-engineered private services.",
+        "task": "Deliver a provider checklist with evidence links and a checked date. Include an offline fallback: the lesson remains readable when the tutor is unavailable."
+      }
+    ],
+    "quiz": {
+      "question": "Does an open-source repository guarantee free cloud inference?",
+      "options": [
+        "Yes, always",
+        "Only if it has many stars",
+        "No; hosting and usage terms are separate"
+      ],
+      "answer": 2
+    }
+  }
+]
