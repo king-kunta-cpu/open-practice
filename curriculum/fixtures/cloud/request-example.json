@@ -1,0 +1,10 @@
+{
+  "model": "YOUR_APPROVED_MODEL",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain how to verify one factual claim in two sentences."
+    }
+  ],
+  "max_tokens": 200
+}

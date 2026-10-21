@@ -1,0 +1,16 @@
+{
+  "task_summary": {
+    "total": 4,
+    "done": 2,
+    "todo": 1,
+    "blocked": 1
+  },
+  "run_summary": {
+    "received": 5,
+    "invalid": 1,
+    "duplicate_replays": 1,
+    "unique_valid_jobs": 3,
+    "awaiting_review": 2,
+    "published": 1
+  }
+}

@@ -1,0 +1,6 @@
+ReceiptID,Reason
+r03,duplicate_id
+r08,non_numeric_amount
+r09,unknown_category
+r10,negative_amount
+r11,missing_date

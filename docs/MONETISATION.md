@@ -10,7 +10,7 @@ This is a proposal, not an enabled payment system or revenue forecast. Check edu
 2. **Paid project clinics and portfolio reviews.** Optional feedback on a learner's build, using a published rubric. Never imply that payment buys a pass, job, accredited certificate or professional licence.
 3. **Custom implementation/support.** Scope, build and maintain tools for organisations that want delivery rather than self-study. Contract separately from free learning and document permissions, costs, ownership and maintenance boundaries.
 4. **Clearly labelled sponsorship.** Sponsors fund open learning tracks, library assets or low-bandwidth access. Retain editorial independence and disclose the relationship. Do not hand sponsors learner email lists, prompts or behavioural profiles.
-5. **Voluntary supporter membership/donations.** Supporters help keep the school open; essential learning and offline files remain free. Extra live office hours could be an optional service only after capacity and legal review.
+5. **Voluntary supporter membership/donations.** Supporters help keep the platform open; essential learning and offline files remain free. Extra live office hours could be an optional service only after capacity and legal review.
 
 ## Pilot pricing hypotheses (USD, not market-validated)
 | Offer | First test | What is included |
@@ -23,7 +23,7 @@ This is a proposal, not an enabled payment system or revenue forecast. Check edu
 Interview five potential buyers and sell one tightly scoped pilot before introducing a subscription. Prices are experiments; actual willingness to pay and delivery costs are unknown.
 
 ## Unit economics to measure
-Gross receipts minus payment fees, tax, refunds, staff/mentor time, support, hosting, email and inference. Learner-owned API keys reduce the school's inference bill but do not make provider use free or move the school's privacy responsibilities away.
+Gross receipts minus payment fees, tax, refunds, staff/mentor time, support, hosting, email and inference. Learner-owned API keys reduce the platform's inference bill but do not make provider use free or move the platform's privacy responsibilities away.
 
 Illustration only: two workshops at $250 plus ten project reviews at $20 produce $700 gross, not $700 profit. This is arithmetic, not expected earnings.
 
@@ -35,7 +35,7 @@ Illustration only: two workshops at $250 plus ten project reviews at $20 produce
 - No unlabelled affiliate promotions. If affiliates are added, disclose them clearly and preserve independent recommendations.
 
 ## Payments
-Choose a processor that actually supports the legal entity's country, settlement bank and intended services. Do not use an unsupported-country workaround or misstate the business location. No checkout, subscription, payment collection or paid claims have been added to the live school in this release.
+Choose a processor that actually supports the legal entity's country, settlement bank and intended services. Do not use an unsupported-country workaround or misstate the business location. No checkout, subscription, payment collection or paid claims have been added to the live platform in this release.
 
 ## First 30-day experiment
 - Interview five small businesses and five learners about one specific problem each.

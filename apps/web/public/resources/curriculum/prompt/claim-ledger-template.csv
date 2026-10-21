@@ -1,0 +1,4 @@
+Claim,Source,Exact_support_or_test,Checked_date,Verdict,Uncertainty
+The fictional shop has 500 stock items,fictional-shop-brief.md,Stock items: 500.,,Supported as exercise data,Not a real organisation
+The proposed workflow works offline,,,,Not checked,Test actual edit/export/restore actions
+The tool saves 80% of time,sample-output-B.md,,,Unsupported,No measurement or source

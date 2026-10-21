@@ -1,0 +1,310 @@
+{
+  "id": "automation",
+  "num": "05",
+  "title": "Automate the boring bit—safely",
+  "track": "Automation",
+  "project": "Design an approval-first workflow",
+  "time": "4h estimated",
+  "icon": "⇄",
+  "description": "Map an automation that drafts useful work but asks before taking action.",
+  "lessons": [
+    {
+      "title": "Map the workflow",
+      "estimatedMinutes": 30,
+      "text": "An automation is a sequence of state changes, not just a prompt on a timer. Define the input, validation, transformation, review, output, and failure path. Start with a fictional weekly task summary so you can reason about the process without sending messages or touching real systems.\n\nThe sample input contains four tasks: two done, one todo, and one blocked. A checked summary must preserve those counts. AI may help draft the wording, but it must not decide whether publication is authorised. Put the approval gate in deterministic workflow logic rather than relying on a sentence in a prompt.",
+      "example": "FLOW: task JSON → validate → count states → draft summary → human review → approved output.\nEXPECTED COUNTS: total 4; done 2; todo 1; blocked 1.\nFAILURE PATH: invalid input is rejected; missing approval means do not publish.",
+      "steps": [
+        "Draw the six stages and mark where data crosses a service boundary.",
+        "Identify which stages need AI and which are deterministic.",
+        "Calculate expected task counts independently.",
+        "Define the reviewer and the observable approval signal.",
+        "Draw a separate failure path for invalid input and provider failure."
+      ],
+      "expected": [
+        "A workflow diagram with explicit failure paths.",
+        "Correct expected counts for the fictional task list.",
+        "A deterministic approval gate outside the model."
+      ],
+      "commonMistakes": [
+        "Calling a generated paragraph a completed workflow.",
+        "Letting the model decide that its own output is approved."
+      ],
+      "selfCheck": "If the model writes approved in its answer, does that authorise publication in your design?",
+      "offline": "Use the fixture JSON and draw the process without connecting any service.",
+      "outcomes": [
+        "Map automation states and responsibilities.",
+        "Separate generated text from permission to act."
+      ],
+      "task": "Draw the six stages and mark where data crosses a service boundary. Identify which stages need AI and which are deterministic. Calculate expected task counts independently. Define the reviewer and the observable approval signal. Draw a separate failure path for invalid input and provider failure.",
+      "id": "automation-01",
+      "resourcePack": "/resources/packs/automation-practice-pack.zip"
+    },
+    {
+      "title": "Plan retries and duplicate protection",
+      "estimatedMinutes": 40,
+      "text": "Retrying a failed request can duplicate an action if the first attempt actually succeeded but its response was lost. Use a stable job identifier and check recorded state before any side effect. A timestamp alone may not identify the same logical job across retries.\n\nNot every failure deserves a retry. Authentication failures require configuration changes; exhausted budgets require a human decision or a reset, not a loop. Temporary network or provider failures may be retried a small number of times with a delay. Respect documented provider limits and do not rotate accounts to evade them.",
+      "example": "JOB: weekly-demo-001.\nSTATES: received → validated → drafted → awaiting_review → approved → published.\nREPLAY: If weekly-demo-001 is already published, return its recorded result without publishing again.\nRETRY POLICY: at most two attempts for a transient failure; never blindly retry 401/402.",
+      "steps": [
+        "Choose a stable ID for the weekly report job.",
+        "Write a state record containing job ID, status, attempts, and last error category.",
+        "Simulate the same request arriving twice.",
+        "Write separate handling for authentication, budget, rate-limit, and transient failures.",
+        "State what happens if the process stops after publishing but before saving its final status."
+      ],
+      "expected": [
+        "A retry policy and state model.",
+        "A duplicate-request simulation with no second side effect.",
+        "An acknowledged partial-failure risk and proposed mitigation."
+      ],
+      "commonMistakes": [
+        "Retrying every HTTP error immediately.",
+        "Assuming exactly-once delivery without controlling the side-effect boundary."
+      ],
+      "selfCheck": "Which missing record could make a published job run again after a restart?",
+      "offline": "Walk through repeated requests using a paper state table.",
+      "outcomes": [
+        "Design bounded retries and replay handling.",
+        "Recognise partial failures around side effects."
+      ],
+      "task": "Choose a stable ID for the weekly report job. Write a state record containing job ID, status, attempts, and last error category. Simulate the same request arriving twice. Write separate handling for authentication, budget, rate-limit, and transient failures. State what happens if the process stops after publishing but before saving its final status.",
+      "id": "automation-02",
+      "resourcePack": "/resources/packs/automation-practice-pack.zip"
+    },
+    {
+      "title": "Keep a stop switch",
+      "estimatedMinutes": 35,
+      "text": "An automated workflow needs limited permissions, a pause control, and a clear person responsible for recovery. Logs should make failures understandable without storing API keys, private prompts, or unnecessary personal data. A stop switch is only useful if someone knows how to operate it and has tested it.\n\nDefine safe defaults: disabled until configured, draft-only before approval, and no publication when the reviewer or provider is unavailable. A workflow can continue to prepare a manual report when AI fails. Availability of the underlying learning material or input data should not depend on a model responding.",
+      "example": "STOP PROCEDURE: disable publication; record the last completed job ID; notify the reviewer; inspect pending cases; correct the issue; rerun dry-run tests; resume only after explicit approval.\nLOG EXAMPLE: job_id, stage, result_code, time—not key, raw prompt, or customer record.",
+      "steps": [
+        "List the minimum permissions each stage needs.",
+        "Write a five-step pause and recovery procedure.",
+        "Choose safe log fields and identify fields that must never be logged.",
+        "Simulate a provider outage while publication is disabled.",
+        "Check that a manual summary remains possible."
+      ],
+      "expected": [
+        "A tested stop procedure.",
+        "A minimum-permission map and log-field list.",
+        "A manual fallback that does not require cloud AI."
+      ],
+      "commonMistakes": [
+        "Giving a report generator broad account administration rights.",
+        "Writing secrets into logs to make debugging easier."
+      ],
+      "selfCheck": "Who can pause the workflow, and how do they know the pause actually took effect?",
+      "offline": "Perform a tabletop shutdown exercise with the fictional job records.",
+      "outcomes": [
+        "Define operational controls and safe defaults.",
+        "Recover without exposing secrets or widening permissions."
+      ],
+      "task": "List the minimum permissions each stage needs. Write a five-step pause and recovery procedure. Choose safe log fields and identify fields that must never be logged. Simulate a provider outage while publication is disabled. Check that a manual summary remains possible.",
+      "id": "automation-03",
+      "resourcePack": "/resources/packs/automation-practice-pack.zip"
+    },
+    {
+      "title": "Validate webhook inputs and replays",
+      "estimatedMinutes": 40,
+      "text": "A webhook is an untrusted request until validated. Check expected fields, types, size, method, origin/authentication requirements, and allowed values. A valid JSON document can still carry an invalid job. Never treat model-generated text or an incoming approved field as proof of a trusted reviewer’s action.\n\nThis exercise uses saved JSON examples rather than a public endpoint. It does not implement cryptographic webhook signatures. In a real integration, follow the provider’s signature verification and replay-protection guidance. Do not invent a generic signature algorithm and assume it matches every provider.",
+      "example": "INPUT CASES: complete job; duplicate job ID; missing job ID; tasks is a string instead of an array; approved=false.\nEXPECTED: validate structure before processing; reject invalid types; deduplicate repeated IDs; keep unapproved jobs out of publication.",
+      "steps": [
+        "Read webhook-cases.json and list the required fields and types.",
+        "Classify each case before running any transformation.",
+        "Write an expected response and next state for each case.",
+        "Add a payload-size limit to your design.",
+        "Document that signature verification remains a production requirement, not a completed feature here."
+      ],
+      "expected": [
+        "A schema/checklist and five classified input cases.",
+        "No publication path from an untrusted approval field.",
+        "A precise statement about unimplemented signature verification."
+      ],
+      "commonMistakes": [
+        "Parsing JSON and calling it fully validated.",
+        "Trusting a claimed role or approval inside incoming data."
+      ],
+      "selfCheck": "Why is approved=true in a request body not sufficient evidence of human authorisation?",
+      "offline": "Classify the saved request examples manually; no webhook needs to be exposed.",
+      "outcomes": [
+        "Validate message structure and trust boundaries.",
+        "Distinguish a practice simulation from authenticated integration."
+      ],
+      "task": "Read webhook-cases.json and list the required fields and types. Classify each case before running any transformation. Write an expected response and next state for each case. Add a payload-size limit to your design. Document that signature verification remains a production requirement, not a completed feature here.",
+      "id": "automation-04",
+      "resourcePack": "/resources/packs/automation-practice-pack.zip"
+    },
+    {
+      "title": "Instrument and recover safely",
+      "estimatedMinutes": 40,
+      "text": "Useful monitoring reports what stage failed, how often, and what the operator can do next. It does not need to capture every prompt or private document. Start with counts for received, rejected, drafted, awaiting review, published, and failed jobs.\n\nA dashboard is not evidence that a workflow is correct. Reconcile counts and inspect exceptional cases. If two copies of the same job are received and one is published, report the duplicate as a replay rather than a second completed job. Keep a runbook that describes expected alerts and a safe replay procedure.",
+      "example": "RUN SUMMARY: received 5; invalid 1; duplicate replays 1; unique valid jobs 3; awaiting review 2; published 1.\nRECONCILIATION: 1 invalid + 1 duplicate + 3 unique valid = 5 received.\nALERT: publication attempted without trusted approval → pause and investigate.",
+      "steps": [
+        "Create a run summary from the supplied simulated events.",
+        "Reconcile received events to rejected, replayed, and unique jobs.",
+        "Choose two alerts with an actionable response.",
+        "Write a safe replay procedure that checks side-effect status.",
+        "Review the log design for secrets and unnecessary personal data."
+      ],
+      "expected": [
+        "A reconciled operational report.",
+        "Two alerts and an operator runbook.",
+        "A documented safe-replay check."
+      ],
+      "commonMistakes": [
+        "Counting every retry as a new successful job.",
+        "Collecting private content when aggregate state is sufficient."
+      ],
+      "selfCheck": "Can you explain every received event without double-counting a replay?",
+      "offline": "Use the supplied event table and build the operational report in a spreadsheet.",
+      "outcomes": [
+        "Build minimal useful observability.",
+        "Reconcile operational counts and investigate exceptions."
+      ],
+      "task": "Create a run summary from the supplied simulated events. Reconcile received events to rejected, replayed, and unique jobs. Choose two alerts with an actionable response. Write a safe replay procedure that checks side-effect status. Review the log design for secrets and unnecessary personal data.",
+      "id": "automation-05",
+      "resourcePack": "/resources/packs/automation-practice-pack.zip"
+    },
+    {
+      "title": "Capstone: design an approval-first report pipeline",
+      "estimatedMinutes": 55,
+      "text": "Deliver a complete design and dry-run simulation for the fictional weekly report. The artefact should explain what data enters, how it is checked, what AI may draft, who approves, how publication would be guarded, and how the process stops. Actual unattended publication is outside this exercise.\n\nUse a small state table to demonstrate normal operation, invalid input, replay, provider outage, and a stop command. The work is successful when another learner can follow those cases and identify the next safe action. Do not claim that a diagram is a deployed agent or that a dry run proves production reliability.",
+      "example": "PACK: workflow.svg or diagram.md; schema.md; state-table.csv; test-cases.md; retry-policy.md; runbook.md.\nACCEPTANCE: every test has a next state; replays do not duplicate publication; all public actions require a trusted approval gate; stop procedure is demonstrated.",
+      "steps": [
+        "Assemble the six design artefacts and a fictional input set.",
+        "Run five dry-run scenarios and record states after each step.",
+        "Challenge one partial-failure case with another reviewer.",
+        "Score the capstone rubric using actual scenario evidence.",
+        "Publish a redacted design pack labelled simulation, not production deployment."
+      ],
+      "expected": [
+        "A complete approval-first design pack.",
+        "Five traceable dry-run scenarios.",
+        "A candid list of production gaps and a tested stop procedure."
+      ],
+      "commonMistakes": [
+        "Claiming autonomy while hiding an untested manual step.",
+        "Presenting simulated results as real delivered messages."
+      ],
+      "selfCheck": "Which part would need the strongest additional review before connecting this design to real accounts?",
+      "offline": "The capstone is intentionally completable with files, diagrams, and manual simulation.",
+      "outcomes": [
+        "Deliver a reviewable automation design.",
+        "Communicate production gaps honestly."
+      ],
+      "task": "Assemble the six design artefacts and a fictional input set. Run five dry-run scenarios and record states after each step. Challenge one partial-failure case with another reviewer. Score the capstone rubric using actual scenario evidence. Publish a redacted design pack labelled simulation, not production deployment.",
+      "id": "automation-06",
+      "resourcePack": "/resources/packs/automation-practice-pack.zip"
+    }
+  ],
+  "quiz": {
+    "question": "Which action needs a human approval gate in this exercise?",
+    "options": [
+      "Reading fictional sample tasks",
+      "Publishing a public message",
+      "Checking a required field"
+    ],
+    "answer": 1
+  },
+  "prerequisites": [
+    "Understand a task specification and simple tables/JSON.",
+    "No real account integrations are needed."
+  ],
+  "outcomes": [
+    "Map states, permissions and failure paths.",
+    "Design bounded retries and duplicate protection.",
+    "Validate requests and protect review/approval boundaries.",
+    "Deliver an operationally reviewable dry-run design."
+  ],
+  "references": [
+    {
+      "title": "HTTP response status codes",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+    },
+    {
+      "title": "OWASP logging guidance",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html"
+    }
+  ],
+  "version": "2.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; not independently expert-reviewed.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "Which action needs a human approval gate in this exercise?",
+      "options": [
+        "Reading fictional sample tasks",
+        "Publishing a public message",
+        "Checking a required field"
+      ],
+      "answer": 1,
+      "explanation": "Check the relevant worked example and its evidence/authority boundary."
+    },
+    {
+      "question": "Does an incoming approved=true field establish trusted human approval?",
+      "options": [
+        "Yes, if it is valid JSON.",
+        "Only if the model repeats it.",
+        "No; approval must be authenticated outside untrusted content."
+      ],
+      "answer": 2,
+      "explanation": "Parsing a field does not establish who set it or whether they had authority."
+    },
+    {
+      "question": "Why record a stable job ID?",
+      "options": [
+        "To recognise repeated delivery of the same logical job.",
+        "To hide failures.",
+        "To guarantee all networks deliver exactly once."
+      ],
+      "answer": 0,
+      "explanation": "Stable IDs support deduplication; they do not automatically solve every side-effect boundary."
+    }
+  ],
+  "capstone": {
+    "title": "Capstone: design an approval-first report pipeline",
+    "brief": "Deliver a complete design and dry-run simulation for the fictional weekly report. The artefact should explain what data enters, how it is checked, what AI may draft, who approves, how publication would be guarded, and how the process stops. Actual unattended publication is outside this exercise.\n\nUse a small state table to demonstrate normal operation, invalid input, replay, provider outage, and a stop command. The work is successful when another learner can follow those cases and identify the next safe action. Do not claim that a diagram is a deployed agent or that a dry run proves production reliability.",
+    "deliverables": [
+      "A complete approval-first design pack.",
+      "Five traceable dry-run scenarios.",
+      "A candid list of production gaps and a tested stop procedure."
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Workflow model",
+        "evidence": "Input, validation, drafting, review, publication and failure paths are explicit.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Replay handling",
+        "evidence": "Stable IDs and state checks prevent duplicate simulated publication.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Failure coverage",
+        "evidence": "Five scenarios have traceable next states and safe defaults.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Operations",
+        "evidence": "Minimal logs, alerts, reconciliation and stop/recovery procedures are demonstrated.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Authority and honesty",
+        "evidence": "No real unattended public actions; simulation and production gaps are labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the final safety/limits criterion. This is practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/automation-handbook.md",
+    "pack": "/resources/packs/automation-practice-pack.zip"
+  }
+}

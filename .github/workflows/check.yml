@@ -1,4 +1,4 @@
-name: Check school
+name: Check platform
 on:
   push:
   pull_request:
@@ -14,4 +14,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: npm run build:assets
+      - run: git diff --exit-code
       - run: npm run check

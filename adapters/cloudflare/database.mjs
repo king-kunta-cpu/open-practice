@@ -20,7 +20,7 @@ export class LearnerDatabase {
 export function database(env){
  if(env.DB?.prepare)return env.DB; // D1 option, if configured later.
  if(!env.LEARNER_DB)return null;
- const stub=env.LEARNER_DB.get(env.LEARNER_DB.idFromName('open-practice-school'));
+ const stub=env.LEARNER_DB.get(env.DB_OBJECT_ID?env.LEARNER_DB.idFromString(env.DB_OBJECT_ID):env.LEARNER_DB.idFromName('open-practice'));
  async function execute(statements){const response=await stub.fetch('https://internal-database/query',{method:'POST',body:JSON.stringify({statements:statements.map(s=>({sql:s.sql,params:s.params}))})});const data=await response.json();if(!response.ok)throw Error('Database operation failed');return data.results}
  function prepare(sql){return {sql,params:[],bind(...params){return {...this,params}},async first(){return (await execute([this]))[0].results[0]||null},async all(){return (await execute([this]))[0]},async run(){return (await execute([this]))[0]}}}
  return {prepare,batch:execute};

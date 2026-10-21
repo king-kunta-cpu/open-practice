@@ -21,12 +21,12 @@ http.createServer(async(req,res)=>{try{
  if(url.pathname.startsWith('/api/')){
   const headers=new Headers();for(const [k,v] of Object.entries(req.headers))if(v)headers.set(k,Array.isArray(v)?v.join(','):v);
   headers.set('x-internal-client-ip',req.socket.remoteAddress||'unknown');headers.set('CF-Connecting-IP',req.socket.remoteAddress||'unknown');
-  let bytes=0;const parts=[];for await(const part of req){bytes+=part.length;if(bytes>120000){res.writeHead(413);res.end('{"error":"Request too large"}');return}parts.push(part)}
+  let bytes=0;const parts=[];for await(const part of req){bytes+=part.length;if(bytes>180000){res.writeHead(413);res.end('{"error":"Request too large"}');return}parts.push(part)}
   const request=new Request(url,{method:req.method,headers,...(['POST','PUT','DELETE'].includes(req.method)?{body:Buffer.concat(parts)}:{})});
   let r;try{r=url.pathname.startsWith('/api/account/')||['/api/workspaces','/api/events'].includes(url.pathname)?await accountAPI(request,env):url.pathname==='/api/practice'?await practiceAPI(request,env):await api(request,env)}catch{r=Response.json({error:'Request could not be processed.'},{status:400})}
   res.writeHead(r.status,Object.fromEntries(r.headers));res.end(await r.text());return;
  }
  const path=resolve(root,'.'+decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname));
  if(!path.startsWith(root)){res.writeHead(403);res.end();return}
- const data=await readFile(path);res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.csv':'text/csv','.md':'text/plain','.webp':'image/webp','.png':'image/png','.woff2':'font/woff2','.ttf':'font/ttf'})[extname(path)]||'text/plain');res.setHeader('X-Content-Type-Options','nosniff');res.end(data);
+ const data=await readFile(path);res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.csv':'text/csv','.md':'text/plain','.webp':'image/webp','.png':'image/png','.woff2':'font/woff2','.ttf':'font/ttf','.zip':'application/zip','.mjs':'text/javascript'})[extname(path)]||'text/plain');res.setHeader('X-Content-Type-Options','nosniff');res.end(data);
 }catch{res.writeHead(404);res.end('Not found')}}).listen(Number(process.env.PORT)||3001,'0.0.0.0',()=>console.log('Open Practice ready; configured port '+(process.env.PORT||3001)));

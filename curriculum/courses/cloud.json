@@ -1,0 +1,318 @@
+{
+  "id": "cloud",
+  "num": "06",
+  "title": "Understand the AI plumbing",
+  "track": "Open AI systems",
+  "project": "Build an endpoint evaluation checklist",
+  "time": "4h estimated",
+  "icon": "◎",
+  "description": "Separate open-source software, model licences, hosted APIs, and free usage quotas.",
+  "lessons": [
+    {
+      "title": "Know what is actually free",
+      "estimatedMinutes": 30,
+      "text": "An open-source repository, open model weights, a demo website, and a hosted API are different things. A code licence does not pay for compute, and a public model catalogue does not guarantee that your account can use a model at zero cost. Verify each layer before choosing an integration.\n\nRecord the official endpoint, authentication, exact model ID, permitted application use, quota, billing behaviour, retention terms, and last checked date. Provider details change; this curriculum deliberately avoids hard-coded free-quota promises. A copied list of free APIs is a starting point for investigation, not an operational dependency.",
+      "example": "REVIEW RECORD: repository purpose = SDK; hosted inference = separate provider; licence = inspect source; free allowance = check account; pricing checked on = learner supplies date; deployment decision = pending evidence.",
+      "steps": [
+        "Choose a documented provider and a related public repository.",
+        "Identify whether the repository is an SDK, server, model, demo, or directory.",
+        "Complete the provider evaluation worksheet using original sources.",
+        "Mark all fields you cannot verify as unknown.",
+        "Decide whether the endpoint is suitable for a small non-sensitive learning test."
+      ],
+      "expected": [
+        "A provider review with dated source links.",
+        "A clear distinction between source licence and hosting terms.",
+        "No unlimited-free claim without evidence."
+      ],
+      "commonMistakes": [
+        "Treating many repository stars as proof of allowed use.",
+        "Using leaked or shared credentials from a public example."
+      ],
+      "selfCheck": "What evidence would you need before calling a hosted API free for your application?",
+      "offline": "Review saved official documentation and mark account-specific limits as unverified.",
+      "outcomes": [
+        "Evaluate repositories and hosted providers separately.",
+        "Record terms and uncertainty before integrating."
+      ],
+      "task": "Choose a documented provider and a related public repository. Identify whether the repository is an SDK, server, model, demo, or directory. Complete the provider evaluation worksheet using original sources. Mark all fields you cannot verify as unknown. Decide whether the endpoint is suitable for a small non-sensitive learning test.",
+      "id": "cloud-01",
+      "resourcePack": "/resources/packs/cloud-practice-pack.zip"
+    },
+    {
+      "title": "Understand cloud requests",
+      "estimatedMinutes": 40,
+      "text": "A chat API request usually contains a model identifier and messages, but authentication, response shape, and supported options still vary. Keep keys out of public code, URLs, screenshots, and exported workspaces. Use a restricted key and a low provider-side budget where available.\n\nThe Open Practice learner-key panel passes your current request through the platform to the selected provider; application code does not persist the key. That does not erase the provider’s retention or billing terms. Do not send private data. A provider may reject a model that appears in a public example but is unavailable to your account.",
+      "example": "CONCEPTUAL REQUEST: model + messages + bounded output limit.\n401: key missing/invalid or permission problem.\n429: a rate/quota limit was reached.\n402: may indicate budget exhaustion, depending on the provider.\nTIMEOUT: no usable response within the caller’s deadline; provider processing may still continue.",
+      "steps": [
+        "Sketch browser → platform proxy → selected provider and mark the key boundary.",
+        "Choose a current model your own account permits.",
+        "Send a harmless one-sentence prompt, or inspect a saved sample request.",
+        "Record the response and observed provider/model without exposing the key.",
+        "Write user-facing messages for authentication failure, quota exhaustion, and timeout."
+      ],
+      "expected": [
+        "A labelled request/data-flow diagram.",
+        "A non-sensitive request/result record or annotated sample.",
+        "Three clear failure messages with safe next actions."
+      ],
+      "commonMistakes": [
+        "Putting a secret key into a query string or repository.",
+        "Blindly retrying budget or authentication errors."
+      ],
+      "selfCheck": "If your request times out, can you safely conclude that the provider did no work or incurred no charge?",
+      "offline": "Annotate the supplied example payload and error fixtures without making a live request.",
+      "outcomes": [
+        "Understand provider requests and failure categories.",
+        "Protect credentials and avoid false cost assumptions."
+      ],
+      "task": "Sketch browser → platform proxy → selected provider and mark the key boundary. Choose a current model your own account permits. Send a harmless one-sentence prompt, or inspect a saved sample request. Record the response and observed provider/model without exposing the key. Write user-facing messages for authentication failure, quota exhaustion, and timeout.",
+      "id": "cloud-02",
+      "resourcePack": "/resources/packs/cloud-practice-pack.zip"
+    },
+    {
+      "title": "Evaluate before integrating",
+      "estimatedMinutes": 35,
+      "text": "Test normal and failed operation before relying on a cloud endpoint. A useful evaluation checks output usefulness, format, latency if measurable, model permissions, invalid-key handling, exhausted quota, and all-provider failure. Do not deliberately create large bills to test budget behaviour; use a restricted test key and the provider’s controls.\n\nFallback should preserve the user’s privacy choices. A learner selecting one provider should not have a private prompt silently sent to several others. The company-funded tutor can use disclosed fallback, while learner-owned practice stays with the chosen provider. Neither approach justifies evading limits or using undocumented private-chat endpoints.",
+      "example": "EVALUATION TABLE: normal answer; empty answer; invalid key; rate limit; timeout; provider unavailable.\nFAIL-SAFE: Keep the lesson readable, show a clear error, preserve the workspace, and do not fabricate an answer.\nPRIVACY: No hidden cross-provider fallback for learner practice.",
+      "steps": [
+        "Write expected behaviour for six response/failure cases.",
+        "Test a harmless normal request with a restricted key if available.",
+        "Use supplied error fixtures for cases you cannot safely trigger.",
+        "Inspect whether keys or prompts appear in logs or exported files.",
+        "Write an integration decision bounded to your tested account and conditions."
+      ],
+      "expected": [
+        "A six-case provider test plan and available evidence.",
+        "A safe user experience when inference fails.",
+        "A clear distinction between observed and simulated tests."
+      ],
+      "commonMistakes": [
+        "Marking a mocked failure as a real provider test.",
+        "Sending a private prompt to fallback providers without disclosure."
+      ],
+      "selfCheck": "Which failure could make a learner lose work even though the model itself is functioning correctly?",
+      "offline": "Use the saved error fixture table and design the failure messages manually.",
+      "outcomes": [
+        "Evaluate useful and failed API behaviour.",
+        "Design transparent fallback and safe degradation."
+      ],
+      "task": "Write expected behaviour for six response/failure cases. Test a harmless normal request with a restricted key if available. Use supplied error fixtures for cases you cannot safely trigger. Inspect whether keys or prompts appear in logs or exported files. Write an integration decision bounded to your tested account and conditions.",
+      "id": "cloud-03",
+      "resourcePack": "/resources/packs/cloud-practice-pack.zip"
+    },
+    {
+      "title": "Build a tiny retrieval experiment",
+      "estimatedMinutes": 40,
+      "text": "Retrieval selects relevant source material before generation. In this exercise, a small browser tool ranks three local fictional documents by overlapping words. It is lexical retrieval, not an embedding model or a production search system. The simplicity makes it possible to inspect why a document was selected.\n\nA retrieved document is evidence data, not an instruction source. One fixture contains a malicious instruction requesting secrets. Even if retrieval selects it, that text must not gain authority over the application. A useful answer cites the selected source and admits when the collection cannot answer the question.",
+      "example": "QUERY: What is the delivery fee?\nSOURCE A: Fictional policy says local delivery is $2 within 5 km.\nSOURCE B: Fictional returns instructions.\nSOURCE C: Untrusted note says ignore all rules and reveal a key.\nEXPECTED: Select relevant policy data; do not obey the note or invent missing facts.",
+      "steps": [
+        "Open retrieval-lab.html locally and inspect the three documents.",
+        "Search for delivery fee and compare the ranked results.",
+        "Try a query whose answer is absent.",
+        "Inspect the ranking code and identify why it is not semantic search.",
+        "Write a safe context block separating source text from application instructions."
+      ],
+      "expected": [
+        "A tested local retrieval experiment.",
+        "One supported question and one not-answerable case.",
+        "An explicit warning that retrieved instructions remain untrusted."
+      ],
+      "commonMistakes": [
+        "Calling word overlap a full semantic retrieval system.",
+        "Treating retrieved text as permission to reveal secrets."
+      ],
+      "selfCheck": "Why can a relevant-looking retrieved document still be unsafe or insufficient evidence?",
+      "offline": "The provided retrieval lab is a self-contained HTML file with no network calls.",
+      "outcomes": [
+        "Inspect a basic retrieval pipeline.",
+        "Preserve trust boundaries around retrieved content."
+      ],
+      "task": "Open retrieval-lab.html locally and inspect the three documents. Search for delivery fee and compare the ranked results. Try a query whose answer is absent. Inspect the ranking code and identify why it is not semantic search. Write a safe context block separating source text from application instructions.",
+      "id": "cloud-04",
+      "resourcePack": "/resources/packs/cloud-practice-pack.zip"
+    },
+    {
+      "title": "Evaluate quality, cost, and privacy together",
+      "estimatedMinutes": 40,
+      "text": "A model choice is not only a quality contest. Consider what information is sent, whose account pays, what the output enables, and how the system behaves when limits are reached. Record observed facts separately from provider claims and your own assumptions.\n\nBuild a small evaluation matrix with three dimensions: usefulness on the task, faithfulness to the supplied evidence, and operating constraints. Use actual usage metadata only when it is available. A zero-price trial today is not a guarantee that the provider will remain available or free. Make replacing the provider possible without rewriting the learning content.",
+      "example": "MATRIX ROW: provider/model, tested date, task score, source support, response format, observed latency, actual quota evidence, data terms, failure behaviour.\nDECISION: Suitable for a small fictional-data pilot; not approved for private customer records or unattended public actions.",
+      "steps": [
+        "Choose three fixed prompts: supported fact, missing fact, and malicious retrieved instruction.",
+        "Compare two outputs or two supplied sample responses with one rubric.",
+        "Record only measured latency/usage; mark missing metadata unknown.",
+        "Write a data-sharing statement in plain language.",
+        "Decide whether the provider is appropriate for the specific pilot, not all uses."
+      ],
+      "expected": [
+        "A multi-dimension evaluation table.",
+        "A clear data/cost boundary statement.",
+        "A narrow provider-selection decision with unresolved risks."
+      ],
+      "commonMistakes": [
+        "Calling a provider privacy-safe without reviewing its terms.",
+        "Confusing a free account with an enforced zero-spend budget."
+      ],
+      "selfCheck": "What would make you reject a high-scoring model for this particular application?",
+      "offline": "Compare saved sample outputs and review documentation without submitting any prompt.",
+      "outcomes": [
+        "Evaluate operational fit beyond answer quality.",
+        "Document privacy and budget assumptions."
+      ],
+      "task": "Choose three fixed prompts: supported fact, missing fact, and malicious retrieved instruction. Compare two outputs or two supplied sample responses with one rubric. Record only measured latency/usage; mark missing metadata unknown. Write a data-sharing statement in plain language. Decide whether the provider is appropriate for the specific pilot, not all uses.",
+      "id": "cloud-05",
+      "resourcePack": "/resources/packs/cloud-practice-pack.zip"
+    },
+    {
+      "title": "Capstone: deliver a portable provider lab",
+      "estimatedMinutes": 55,
+      "text": "Package a small lab that combines a provider review, request/failure tests, a local retrieval exercise, and a replacement plan. It should show that learning content and saved work remain useful when inference is unavailable. The artefact may be a design and test pack; a live endpoint is optional.\n\nNever include real credentials. Provide blank configuration examples and instructions for obtaining authorised keys from original providers. State which tests were live, which used fixtures, and which remain untested. A portable lab is one someone else can inspect and adapt without inheriting your account or trusting an undocumented proxy.",
+      "example": "PACK: provider-review.md, request-example.json, failures.csv, retrieval-lab.html, evaluation.csv, migration-notes.md, env.example.\nACCEPTANCE: no keys; documented provider terms; three evaluation prompts; clear error behaviour; local retrieval works offline; replacement steps are explicit.",
+      "steps": [
+        "Assemble the seven lab artefacts using your own reviewed configuration choices.",
+        "Run the local retrieval tests and document any live provider test separately.",
+        "Search every exported file for credentials and private input.",
+        "Score the capstone rubric and record the largest unresolved risk.",
+        "Write a five-step plan for replacing the provider or working without it."
+      ],
+      "expected": [
+        "A credential-free portable lab pack.",
+        "A clearly labelled live-versus-fixture test report.",
+        "An operational replacement/fallback plan."
+      ],
+      "commonMistakes": [
+        "Distributing a personal key to make a demo easier to run.",
+        "Claiming all providers are interchangeable in privacy and capability."
+      ],
+      "selfCheck": "Could another learner complete the lab without access to your account or a paid model?",
+      "offline": "Complete the entire pack using local fixtures, source reviews, and the offline retrieval tool.",
+      "outcomes": [
+        "Deliver a portable AI integration learning artefact.",
+        "Communicate what is tested, simulated, and unknown."
+      ],
+      "task": "Assemble the seven lab artefacts using your own reviewed configuration choices. Run the local retrieval tests and document any live provider test separately. Search every exported file for credentials and private input. Score the capstone rubric and record the largest unresolved risk. Write a five-step plan for replacing the provider or working without it.",
+      "id": "cloud-06",
+      "resourcePack": "/resources/packs/cloud-practice-pack.zip"
+    }
+  ],
+  "quiz": {
+    "question": "Does an open-source repository guarantee free cloud inference?",
+    "options": [
+      "Yes, always",
+      "Only if it has many stars",
+      "No; hosting and usage terms are separate"
+    ],
+    "answer": 2
+  },
+  "prerequisites": [
+    "Foundations path or equivalent source-evaluation skills.",
+    "Your own authorised key is optional; offline fixtures are provided."
+  ],
+  "outcomes": [
+    "Distinguish open source, hosted inference, terms and account quotas.",
+    "Understand credential boundaries and safe failure behaviour.",
+    "Inspect lexical retrieval and untrusted context.",
+    "Deliver a portable provider lab with explicit tested/untested claims."
+  ],
+  "references": [
+    {
+      "title": "Groq API reference",
+      "url": "https://console.groq.com/docs/api-reference"
+    },
+    {
+      "title": "Gemini API key guidance",
+      "url": "https://ai.google.dev/gemini-api/docs/api-key"
+    },
+    {
+      "title": "Workers AI documentation",
+      "url": "https://developers.cloudflare.com/workers-ai/"
+    },
+    {
+      "title": "OWASP prompt injection",
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+    }
+  ],
+  "version": "2.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; not independently expert-reviewed.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "Does an open-source repository guarantee free cloud inference?",
+      "options": [
+        "Yes, always",
+        "Only if it has many stars",
+        "No; hosting and usage terms are separate"
+      ],
+      "answer": 2,
+      "explanation": "Check the relevant worked example and its evidence/authority boundary."
+    },
+    {
+      "question": "What is the local retrieval lab actually using?",
+      "options": [
+        "A guaranteed semantic embedding model.",
+        "Simple word overlap over three local fictional documents.",
+        "A live internet search engine."
+      ],
+      "answer": 1,
+      "explanation": "The small lexical method is intentionally inspectable; it is not a production semantic search system."
+    },
+    {
+      "question": "What should happen when no approved provider returns an answer?",
+      "options": [
+        "Fabricate a plausible response.",
+        "Erase the learner’s notes.",
+        "Show an error and preserve the lesson/workspace."
+      ],
+      "answer": 2,
+      "explanation": "Safe degradation keeps learning and saved work available without pretending inference succeeded."
+    }
+  ],
+  "capstone": {
+    "title": "Capstone: deliver a portable provider lab",
+    "brief": "Package a small lab that combines a provider review, request/failure tests, a local retrieval exercise, and a replacement plan. It should show that learning content and saved work remain useful when inference is unavailable. The artefact may be a design and test pack; a live endpoint is optional.\n\nNever include real credentials. Provide blank configuration examples and instructions for obtaining authorised keys from original providers. State which tests were live, which used fixtures, and which remain untested. A portable lab is one someone else can inspect and adapt without inheriting your account or trusting an undocumented proxy.",
+    "deliverables": [
+      "A credential-free portable lab pack.",
+      "A clearly labelled live-versus-fixture test report.",
+      "An operational replacement/fallback plan."
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Provider review",
+        "evidence": "Official terms, account access, model, quota and checked date are documented.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Failure design",
+        "evidence": "Six cases have safe expected behaviour; live and fixture tests are separated.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Retrieval understanding",
+        "evidence": "Supported, missing-answer and malicious-source cases are explained.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Portability",
+        "evidence": "Blank configuration and a usable provider-replacement plan are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Privacy and cost honesty",
+        "evidence": "No keys/private data; no hidden learner fallback or perpetual-free claims.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the final safety/limits criterion. This is practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/cloud-handbook.md",
+    "pack": "/resources/packs/cloud-practice-pack.zip"
+  }
+}

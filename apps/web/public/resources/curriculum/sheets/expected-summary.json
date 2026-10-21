@@ -1,0 +1,10 @@
+{
+  "accepted": 7,
+  "rejected": 5,
+  "total": 72.5,
+  "categories": {
+    "Travel": 37.5,
+    "Food": 15,
+    "Tools": 20
+  }
+}

@@ -55,7 +55,7 @@
   },
   {
     "id": "build-cycle",
-    "title": "Build \u2192 test \u2192 improve",
+    "title": "Build → test → improve",
     "kind": "Visual asset",
     "description": "Reusable original SVG diagram for your learning notes, projects, and presentations.",
     "url": "/assets/build-cycle.svg",
@@ -82,5 +82,113 @@
     "image": "/assets/offline-flow.svg",
     "licence": "CC BY 4.0",
     "format": "SVG"
+  },
+  {
+    "id": "prompt-handbook",
+    "title": "AI, without the guesswork — complete handbook",
+    "kind": "Course handbook",
+    "description": "Six detailed activities, worked examples, expected outputs, review questions and a five-criterion capstone rubric.",
+    "url": "/resources/handbooks/prompt-handbook.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "prompt-pack",
+    "title": "AI, without the guesswork — practice pack",
+    "kind": "Practice pack",
+    "description": "The full workbook plus fictional inputs, reference outputs, templates and test fixtures. No provider keys required to download.",
+    "url": "/resources/packs/prompt-practice-pack.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP"
+  },
+  {
+    "id": "replies-handbook",
+    "title": "Your first business assistant — complete handbook",
+    "kind": "Course handbook",
+    "description": "Six detailed activities, worked examples, expected outputs, review questions and a five-criterion capstone rubric.",
+    "url": "/resources/handbooks/replies-handbook.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "replies-pack",
+    "title": "Your first business assistant — practice pack",
+    "kind": "Practice pack",
+    "description": "The full workbook plus fictional inputs, reference outputs, templates and test fixtures. No provider keys required to download.",
+    "url": "/resources/packs/replies-practice-pack.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP"
+  },
+  {
+    "id": "sheets-handbook",
+    "title": "Make messy data useful — complete handbook",
+    "kind": "Course handbook",
+    "description": "Six detailed activities, worked examples, expected outputs, review questions and a five-criterion capstone rubric.",
+    "url": "/resources/handbooks/sheets-handbook.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "sheets-pack",
+    "title": "Make messy data useful — practice pack",
+    "kind": "Practice pack",
+    "description": "The full workbook plus fictional inputs, reference outputs, templates and test fixtures. No provider keys required to download.",
+    "url": "/resources/packs/sheets-practice-pack.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP"
+  },
+  {
+    "id": "web-handbook",
+    "title": "From idea to working page — complete handbook",
+    "kind": "Course handbook",
+    "description": "Six detailed activities, worked examples, expected outputs, review questions and a five-criterion capstone rubric.",
+    "url": "/resources/handbooks/web-handbook.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "web-pack",
+    "title": "From idea to working page — practice pack",
+    "kind": "Practice pack",
+    "description": "The full workbook plus fictional inputs, reference outputs, templates and test fixtures. No provider keys required to download.",
+    "url": "/resources/packs/web-practice-pack.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP"
+  },
+  {
+    "id": "automation-handbook",
+    "title": "Automate the boring bit—safely — complete handbook",
+    "kind": "Course handbook",
+    "description": "Six detailed activities, worked examples, expected outputs, review questions and a five-criterion capstone rubric.",
+    "url": "/resources/handbooks/automation-handbook.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "automation-pack",
+    "title": "Automate the boring bit—safely — practice pack",
+    "kind": "Practice pack",
+    "description": "The full workbook plus fictional inputs, reference outputs, templates and test fixtures. No provider keys required to download.",
+    "url": "/resources/packs/automation-practice-pack.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP"
+  },
+  {
+    "id": "cloud-handbook",
+    "title": "Understand the AI plumbing — complete handbook",
+    "kind": "Course handbook",
+    "description": "Six detailed activities, worked examples, expected outputs, review questions and a five-criterion capstone rubric.",
+    "url": "/resources/handbooks/cloud-handbook.md",
+    "licence": "CC BY 4.0",
+    "format": "MD"
+  },
+  {
+    "id": "cloud-pack",
+    "title": "Understand the AI plumbing — practice pack",
+    "kind": "Practice pack",
+    "description": "The full workbook plus fictional inputs, reference outputs, templates and test fixtures. No provider keys required to download.",
+    "url": "/resources/packs/cloud-practice-pack.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP"
   }
 ]

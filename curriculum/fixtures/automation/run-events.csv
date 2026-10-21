@@ -1,0 +1,6 @@
+EventID,JobID,Result
+e1,job-a,published_after_trusted_review
+e2,job-a,duplicate_replay
+e3,job-b,awaiting_review
+e4,job-c,awaiting_review
+e5,,rejected_missing_job_id

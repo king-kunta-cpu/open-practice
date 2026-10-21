@@ -1,6 +1,6 @@
 {
   "name": "open-practice",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -12,6 +12,7 @@
     "test": "node --test test/*.test.mjs",
     "check": "npm test && node scripts/check-secrets.mjs",
     "deploy": "npx wrangler@latest deploy --config adapters/cloudflare/wrangler.jsonc",
-    "build:assets": "node scripts/build-inline-assets.mjs"
+    "build:assets": "python3 scripts/build-curriculum.py && node scripts/build-offline-assets.mjs && node scripts/build-inline-assets.mjs",
+    "build:curriculum": "python3 scripts/build-curriculum.py"
   }
 }

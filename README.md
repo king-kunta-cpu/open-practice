@@ -1,80 +1,63 @@
-# Open Practice — portable practical AI school
+# Open Practice
+## Practical AI Engineering
 
-Independent, non-accredited, free-to-learn pilot. One repository, replaceable hosting and AI providers. Original starter lessons are drafts for review.
+Free practical learning. Independent, non-degree and non-accredited. One portable repository; no runtime package dependencies.
 
-## Live
-- School: https://open-practice-school.zlnew.workers.dev
-- Library: https://open-practice-school.zlnew.workers.dev/library.html
-- News Drops: https://open-practice-school.zlnew.workers.dev/news.html
-- Privacy: https://open-practice-school.zlnew.workers.dev/privacy.html
-- Repository: https://github.com/king-kunta-cpu/open-practice-school
+## Curriculum 2.0
+- **6 build paths / 36 substantial activities / 36 worked examples.**
+- **18 knowledge-review questions / 6 capstones / 30 rubric criteria.**
+- **21 library resources**, including six full handbooks and six ZIP practice packs.
+- **37 fictional fixture files**, including dirty datasets, reference outputs, templates, an offline quote calculator and an offline lexical-retrieval lab.
+- Approximately **24 guided hours**, an editorial estimate not yet validated with learners.
 
-## Working features
-- Six practical courses, eighteen lessons, six deterministic knowledge checks.
-- Username/password accounts, recovery codes, secure sessions, account export and deletion.
-- Explicit cloud workspace saves, loading on another session/device, stale-write detection.
-- Local notes and progress for learners who choose not to sign in.
-- Self-contained offline HTML workspaces: lessons, editable notes, checklists and knowledge checks. Save edits by downloading an updated HTML copy. Export offline progress as JSON and import it back into the online course before saving to your account.
-- First-party learning events, not advertising trackers: opens, completions, saves, downloads, and source-link opens. No keystrokes, private prompts, or keys in event payloads. Daily 90-day retention cleanup.
-- Learner-owned temporary connections: Groq, Google AI Studio/Gemini, Cloudflare Workers AI. Keys are never persisted by app code; prompts pass through the school server to the chosen provider. Key fields clear after requests/sign-out.
-- Free library: six templates/datasets/code starters and three original SVG assets.
-- News Drops: three dated, reviewed source-linked reference/release entries, not a live automated news feed.
-- Optional company-funded course tutor, currently verified with Groq.
+Paths: prompting and evidence; support replies; spreadsheet cleaning; browser applications; automation and human review; cloud AI and retrieval. These are practical foundations, not complete professional AI-engineering preparation. Each activity has outcomes, explanation, a worked example, guided steps, expected evidence, common mistakes, a self-check and an offline alternative. Independent subject-matter review remains pending.
 
-## Repository
-```text
-apps/web/public/          Website, lessons, library/news, offline exporter, analytics client
-packages/core/           Portable tutor API
-packages/accounts/       SQL-based accounts, sessions, workspaces, events
-packages/ai/             Company-provider fallback and learner-key requests
-adapters/cloudflare/     Worker, SQLite Durable Object store, deployment configuration
-adapters/node/           Node 22.13+ server and native SQLite store
-migrations/              Portable account schema
-config/                  Blank environment template
-scripts/                 Generated-asset builder and basic secret scan
-.github/workflows/       Read-only tests on push, PR and weekly schedule
- test/                   28 automated tests (all run on Node 22)
- docs/                   Deployment, migration, security, live access and verification
-Dockerfile               Node hosting alternative; persist /app/data
-```
+Browse `/curriculum.html`. Original sources live in `curriculum/courses/` and `curriculum/fixtures/`. Generated public JSON, handbooks, fixture copies and deterministic ZIPs come from `scripts/build-curriculum.py`.
 
-## Local start
-Node 22.13+ is required for accounts; no third-party runtime dependencies.
+## Run and verify
+Requires Node 22.13+ for native SQLite accounts, and Python 3 for the content build.
 ```sh
 cp config/env.example .env
+npm run build:assets
 npm run dev
 npm run check
 ```
-Open port 3001. Configure HTTPS/public origin behind a reverse proxy. Native SQLite is experimental in Node 22 and should be reviewed on runtime upgrades. Older Node can serve lessons but account storage is unavailable.
+The default local port is 3001. For remote preview, bind to the supplied public origin and serve over HTTPS. Node SQLite currently emits an experimental-runtime warning.
 
-## Lean production stack
-GitHub for source/CI; Cloudflare Worker plus its SQLite Durable Object for hosting/storage; cloud inference providers. D1 creation was not permitted by the supplied deployment token, so the live account database uses built-in SQLite Durable Objects instead. The SQL account interface also accepts D1 if you provision it later.
+## Working platform
+- Username/password accounts, hashed recovery codes, secure sessions, export and deletion; **email magic links are not implemented**.
+- Explicit cloud save/load, stale-write detection, visible empty/error/retry states.
+- Local progress and notes without an account. Existing first-three-activity notes/completions retain their indices; the expanded review is versioned separately.
+- Standalone native HTML workspaces with all six activities, review questions, capstone rubric and editable notes. Download an updated copy to preserve edits; export JSON for online import. Fixture packs are separate downloads.
+- Completion and rubric scores are **learner self-reports**, not verified credentials. Capstone threshold: at least 8/10 and 2/2 on the critical safety criterion.
+- First-party named learning events, no advertising trackers. No keystrokes, private prompts or keys in event payloads; daily 90-day retention cleanup.
+- Temporary learner-owned Groq, Google AI Studio/Gemini and Cloudflare connections. Activity credentials are separate from the optional company tutor. Do not put secrets in notes.
+- Company tutor receives only the selected activity, not every lesson in the path. Approved fallback order: Groq → Cloudflare → Pollinations; no local/browser inference.
+- Free library and three dated source-linked News Drops; these are not an automated news feed.
 
-Default company fallback order: Groq → Cloudflare AI → Pollinations. Only explicitly approved/configured models are eligible. Live primary Groq is verified; Cloudflare fallback model and Pollinations credentials are not configured. The learner-key exercise path never falls back to another provider or the company's key.
+## Four-component ceiling / portability
+Source and CI on GitHub; hosting on Cloudflare Workers; storage in a SQLite Durable Object; cloud inference. The Node/SQLite adapter and Dockerfile support migration without application rewrites. Do not add more infrastructure merely to duplicate existing functions.
 
-GitHub Models is intentionally excluded: official docs report retirement on July 30, 2026 (https://docs.github.com/en/github-models). Repositories, GitHub sign-in and Copilot are separate products.
+```text
+curriculum/              Canonical activities, fixture sources and base library
+apps/web/public/         Website, generated curriculum, resources, offline exporter
+packages/                Portable accounts, tutor and learner-provider APIs
+adapters/cloudflare/     Worker and SQLite Durable Object adapter
+adapters/node/           Node server and native SQLite adapter
+migrations/              Portable SQL account schema
+scripts/                 Content/assets builders, transfer preparation, secret scan
+ test/                   Automated functional and curriculum tests
+ docs/                   Operations, deployment, security and verification
+branding/                Original artwork and licensed display font
+```
 
-## Deployment and portability
-See docs/DEPLOY.md and docs/MIGRATION.md. Run `node scripts/build-inline-assets.mjs` before direct Workers API uploads. Wrangler serves canonical static files; generated assets are also present for API deployment. Committed defaults keep company AI off for safe new installations. Live configuration/secrets are separate from those defaults.
+## Release status
+This 0.6.0 release is built and verified locally. The renamed public hostname and repository are **deployment targets, not confirmed live URLs**. The existing deployment is unchanged until authenticated transfer is completed. See `docs/LIVE-ACCESS.md` and `docs/IDENTITY-TRANSFER.md` before deploying: a fresh namespace would not contain existing accounts.
 
-## Pilot limitations
-Adult accounts only, with recovery codes and no email reset. No accreditation, verified assessment, admin analytics dashboard, automatic news ingestion, autonomous publication, OAuth, or automatic background sync. Cloud saves are explicit and local/cloud conflict handling is visible. There is no automatic operator-wide database export tool yet; learner account export is implemented. Complete backup/restore rehearsal, private support, security review, stronger abuse controls and provider budgets before scaling.
+New-installation defaults keep AI off and use a fresh named database object. Existing installations must transfer their Durable Object namespace and preserve the original object ID. Do not deploy new-installation defaults over an existing account system.
 
-## Verification
-28 tests pass on Node 22. Live HTTP checks covered account creation, sessions, cloud persistence, stale-write rejection, event export, sign-out, sign-in, recovery, learner-owned Groq inference, and deletion. Real Chromium checks covered registration, cloud save, offline HTML edit/download/reopen, library/news rendering and mobile overflow. Temporary test accounts were deleted. See docs/VERIFICATION.md.
+## Pilot boundaries
+No accreditation, verified assessment, automatic background sync, autonomous publishing, OAuth, payment checkout or admin analytics dashboard. Before wider launch: security review, backup/restore rehearsal, stronger abuse limits, budget controls and independent content review. Prior production account/provider checks do not establish that this release is deployed.
 
-## Licensing and tooling
-Code: MIT. Original lessons and library materials: CC BY 4.0. Third-party models/services have their own terms. All app runtime code is dependency-free; Wrangler is external deployment tooling, not in the runtime dependency graph. Audit and pin your chosen deployment CLI before authenticated production use; the initial Wrangler toolchain audit reported development dependency advisories, so it was removed from app dependencies. This is not certification that external tooling is vulnerability-free.
-
-## Dashboard and account bugfix
-Use https://open-practice-school.zlnew.workers.dev/dashboard.html . Empty accounts now show starter courses and a clear no-saves state instead of silently returning from Load cloud work. Normal sign-in opens the dashboard. Recovery-code replacement is available under Account after confirming the current password, and revokes existing sessions. Email magic-link login is not configured; it requires an approved sender/domain and transactional email delivery. Never email passwords.
-
-## Brass & Circuit identity
-The school now uses the selected book/circuit/gear logo, aged brass and oxidised teal on workshop ink, parchment reading surfaces, heavy self-hosted display typography and monospaced labels, technical-plate imagery and a ledger-style workshop index. The identity covers public pages, dashboards, dialogs and offline HTML exports. Assets live in `apps/web/public/brand/`; transparent PNG masters and an offline brand guide live in `branding/`.
-
-No external graphics/font/animation libraries were added. The public homepage makes no third-party browser requests during the verified unauthenticated load. Main public pages have a restrictive same-origin script policy; downloaded HTML workspaces remain standalone and interactive. This does not upgrade pilot authentication to audited production status.
-
-## AI Engineering School / collection command center
-The requested name is Open Practice AI Engineering School. The student dashboard now adapts a collection-browser pattern: a large selected field manual, details/progress/next action, numbered counter, previous/next arrows, six mini-manual previews, keyboard navigation and swipe/drag. It has no autoplay, artificial urgency, fabricated reader counts or copied reference-site content. Thick rules and distinct backgrounds frame sections across the school. Archivo Black is self-hosted under the included SIL Open Font License (roughly 25 KB WOFF2); offline workspaces embed a copy to remain standalone.
-
-See `docs/MONETISATION.md` for a free-core/paid-service proposal and `docs/NAMING-AND-REGISTRATION.md` for the naming/registration caveat. No legal clearance, payment processing, accredited qualification or professional-engineer status is claimed. No checkout or paid access was enabled.
+## Licensing
+Code: MIT. Original learning/library material: CC BY 4.0. Archivo Black: included, unchanged SIL Open Font License. Third-party services have separate terms. No legal clearance, professional status or vulnerability-free certification is claimed. See `docs/OPERATING-NOTES.md`, `docs/SECURITY.md` and `docs/MONETISATION.md`.

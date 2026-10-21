@@ -1,0 +1,314 @@
+{
+  "id": "web",
+  "num": "04",
+  "title": "From idea to working page",
+  "track": "Build with AI",
+  "project": "Publish a useful one-page tool",
+  "time": "5h estimated",
+  "icon": "⌘",
+  "description": "Build a simple calculator, understand its code, and test its edge cases.",
+  "lessons": [
+    {
+      "title": "Specify the smallest tool",
+      "estimatedMinutes": 35,
+      "text": "A useful first web tool has one clear job and no unnecessary accounts, payments, analytics, or personal data. Build a fictional quote calculator: quantity multiplied by unit price. Inputs must be finite, non-negative numbers. Decide whether decimals and zero are allowed before asking AI for code.\n\nAcceptance criteria turn an idea into something testable. Define inputs, expected results, error messages, keyboard behaviour, and offline use. This makes it possible to reject generated code that looks attractive but does the wrong thing. The calculator is an estimate exercise, not a production billing system.",
+      "example": "ACCEPTANCE: 3 × 5 = 15.00; 0 × 5 = 0.00; 1.5 × 2 = 3.00; negative or blank input is rejected. Every input has a visible label. The page works without a network request.",
+      "steps": [
+        "Write a one-sentence problem statement.",
+        "Choose rules for zero, decimal, blank, negative, and non-finite values.",
+        "Create at least eight input/expected-result tests using quote-tests.json.",
+        "Sketch the page with labels, calculate action, result, and error area.",
+        "State explicitly that no payment or real customer data is involved."
+      ],
+      "expected": [
+        "A small written specification and page sketch.",
+        "Eight acceptance tests with expected values.",
+        "A clear boundary between an estimate and an invoice."
+      ],
+      "commonMistakes": [
+        "Starting from visual styling before defining behaviour.",
+        "Letting generated code decide how invalid inputs are handled."
+      ],
+      "selfCheck": "If the tool displays 0.00 for a blank quantity, did it meet your specification?",
+      "offline": "Write the specification and test table on paper before coding.",
+      "outcomes": [
+        "Specify a minimal useful web tool.",
+        "Define acceptance tests before implementation."
+      ],
+      "task": "Write a one-sentence problem statement. Choose rules for zero, decimal, blank, negative, and non-finite values. Create at least eight input/expected-result tests using quote-tests.json. Sketch the page with labels, calculate action, result, and error area. State explicitly that no payment or real customer data is involved.",
+      "id": "web-01",
+      "resourcePack": "/resources/packs/web-practice-pack.zip"
+    },
+    {
+      "title": "Build and inspect",
+      "estimatedMinutes": 50,
+      "text": "Ask for one self-contained HTML file with labelled inputs, a button, a result area, and no external libraries. Read generated code before running it. Look for network calls, script imports, credential fields, unexpected storage, and operations unrelated to the tool’s purpose.\n\nSeparate calculation logic from the interface. A pure calculateQuote function can be tested with known inputs; the event handler reads form values and displays the result. Avoid inserting user-provided content with innerHTML. Use textContent for results and errors so input is treated as text rather than markup.",
+      "example": "LOGIC: reject blank input; convert to numbers; reject non-finite or negative values; multiply; check that the result is finite; format for display.\nINTERFACE: read fields → call calculation → put a result/error into a text node.\nSCOPE: no tax, currency conversion, or payment processing.",
+      "steps": [
+        "Create or generate a one-file implementation matching your specification.",
+        "Inspect it for fetch, external script tags, storage, and unrelated permissions.",
+        "Find the function that validates and multiplies values.",
+        "Explain each validation branch in your own words.",
+        "Open it locally and run the happy-path tests before styling it."
+      ],
+      "expected": [
+        "An inspectable self-contained HTML file.",
+        "An explanation of input validation and calculation.",
+        "A list of external dependencies: none for this build."
+      ],
+      "commonMistakes": [
+        "Running generated install commands without inspection.",
+        "Assuming HTML min attributes replace all validation logic."
+      ],
+      "selfCheck": "Which lines would you inspect first if a generated calculator unexpectedly requested an API key?",
+      "offline": "Use the supplied self-contained reference calculator and annotate the code before changing it.",
+      "outcomes": [
+        "Inspect generated code for scope and risk.",
+        "Separate computation from interface handling."
+      ],
+      "task": "Create or generate a one-file implementation matching your specification. Inspect it for fetch, external script tags, storage, and unrelated permissions. Find the function that validates and multiplies values. Explain each validation branch in your own words. Open it locally and run the happy-path tests before styling it.",
+      "id": "web-02",
+      "resourcePack": "/resources/packs/web-practice-pack.zip"
+    },
+    {
+      "title": "Test and share",
+      "estimatedMinutes": 45,
+      "text": "Run the same acceptance tests against your actual file, not a screenshot or an AI explanation. Record expected output, observed output, and pass/fail. Test keyboard operation and a narrow screen as well as arithmetic. A page that works only with a mouse is not complete.\n\nThe reference calculator intentionally remains simple. JavaScript floating-point arithmetic can be unsuitable for precise financial accounting. Formatting with two decimals does not solve every money-calculation problem. State that limitation rather than advertising the exercise as an invoicing or payment system.",
+      "example": "TEST LOG: quantity 3, price 5 → expected 15.00 → observed 15.00 → pass.\nKEYBOARD TEST: Tab reaches both inputs and Calculate; Enter submits; the result is announced in a status region.\nLIMITATION: Educational estimate, no tax or financial rounding policy.",
+      "steps": [
+        "Run all eight fixture cases and record observed results.",
+        "Navigate the page using only Tab, Shift+Tab, Enter, and Space.",
+        "Test a phone-width viewport and long error text.",
+        "Disconnect the network and repeat a successful calculation.",
+        "Share the HTML with a README listing tests and limitations."
+      ],
+      "expected": [
+        "Eight recorded arithmetic/validation tests.",
+        "Keyboard, narrow-screen, and offline checks.",
+        "A README that does not overstate financial correctness."
+      ],
+      "commonMistakes": [
+        "Testing the reference file while sharing a different untested version.",
+        "Treating two-decimal formatting as a complete accounting policy."
+      ],
+      "selfCheck": "Can someone open the file offline and reproduce your test results without installing anything?",
+      "offline": "The entire activity is designed to run from a local file.",
+      "outcomes": [
+        "Test actual behaviour across inputs and devices.",
+        "Share a reproducible build with honest limits."
+      ],
+      "task": "Run all eight fixture cases and record observed results. Navigate the page using only Tab, Shift+Tab, Enter, and Space. Test a phone-width viewport and long error text. Disconnect the network and repeat a successful calculation. Share the HTML with a README listing tests and limitations.",
+      "id": "web-03",
+      "resourcePack": "/resources/packs/web-practice-pack.zip"
+    },
+    {
+      "title": "Debug with reproducible failures",
+      "estimatedMinutes": 45,
+      "text": "A useful bug report contains the smallest input that reproduces the problem, the expected result, the actual result, and the relevant environment. When asking AI for help, include the narrow function and test—not secrets, an entire account export, or unrelated application files.\n\nChange one thing at a time and keep a known-working version. A suggested fix may solve one case while breaking another. Rerun the full small test set after each change. If the model proposes a large rewrite, ask it to explain why a smaller patch is insufficient.",
+      "example": "BUG: Empty quantity shows zero instead of an error.\nCAUSE: Number(\"\") becomes 0.\nSMALL FIX: Check the trimmed raw input before numeric conversion.\nREGRESSION TESTS: zero must still be accepted; blank must fail.",
+      "steps": [
+        "Introduce the blank-input bug in a copy of the calculator.",
+        "Write a four-part bug report with exact reproduction steps.",
+        "Ask for or propose the smallest change that addresses the cause.",
+        "Run the blank and zero tests, then all remaining cases.",
+        "Record the diff and the reason the fix is correct."
+      ],
+      "expected": [
+        "A reproducible bug report.",
+        "A small explained patch and regression test results.",
+        "An unchanged known-working backup."
+      ],
+      "commonMistakes": [
+        "Pasting an entire private project into a cloud prompt.",
+        "Accepting a rewrite without checking whether old tests still pass."
+      ],
+      "selfCheck": "Why must zero remain a separate test after fixing blank-input handling?",
+      "offline": "Debug the local file using browser developer tools or a text editor.",
+      "outcomes": [
+        "Write focused debugging requests.",
+        "Protect behaviour with regression tests."
+      ],
+      "task": "Introduce the blank-input bug in a copy of the calculator. Write a four-part bug report with exact reproduction steps. Ask for or propose the smallest change that addresses the cause. Run the blank and zero tests, then all remaining cases. Record the diff and the reason the fix is correct.",
+      "id": "web-04",
+      "resourcePack": "/resources/packs/web-practice-pack.zip"
+    },
+    {
+      "title": "Improve accessibility and safe rendering",
+      "estimatedMinutes": 45,
+      "text": "Accessibility and safe rendering are engineering requirements, not final decorations. Use visible labels connected to inputs, meaningful button text, readable contrast, and a result/status region. Errors should explain the problem without relying only on red colour.\n\nTreat any future free-text field as untrusted. For this exercise, test that text such as <img src=x onerror=alert(1)> is shown as text or rejected, never executed. Do not add a rich-text editor or third-party UI library just to display a result. Keep the file inspectable and responsive.",
+      "example": "REQUIRED: label for=\"quantity\" matches input id=\"quantity\".\nSTATUS: a result region uses role=\"status\".\nSAFE OUTPUT: result.textContent = message.\nREVIEW: controls remain readable at browser zoom and do not require hovering.",
+      "steps": [
+        "Check the label/input associations.",
+        "Confirm that errors are understandable without colour.",
+        "Inspect every location that displays user-supplied text.",
+        "Test keyboard focus visibility and a larger browser zoom.",
+        "Remove decorative features that reduce clarity or add unnecessary dependencies."
+      ],
+      "expected": [
+        "An accessibility checklist with observed results.",
+        "No untrusted HTML insertion in the tool.",
+        "A responsive version that remains usable without hover."
+      ],
+      "commonMistakes": [
+        "Using placeholders as the only labels.",
+        "Confusing a sanitisation claim with evidence that rendering is safe."
+      ],
+      "selfCheck": "How would a keyboard user know which input is invalid and where the current focus is?",
+      "offline": "Perform every check on the downloaded HTML; no account or network is required.",
+      "outcomes": [
+        "Apply basic accessible form patterns.",
+        "Render untrusted text without executing it."
+      ],
+      "task": "Check the label/input associations. Confirm that errors are understandable without colour. Inspect every location that displays user-supplied text. Test keyboard focus visibility and a larger browser zoom. Remove decorative features that reduce clarity or add unnecessary dependencies.",
+      "id": "web-05",
+      "resourcePack": "/resources/packs/web-practice-pack.zip"
+    },
+    {
+      "title": "Capstone: release a tested quote tool",
+      "estimatedMinutes": 80,
+      "text": "Deliver a small release that another person can inspect, run offline, and test. Include the implementation, specification, acceptance tests, observed results, accessibility notes, and known limitations. A release note should explain what changed and what is deliberately outside scope.\n\nIf you publish the file online, review it again for secrets and dependencies. Do not add payment buttons or real customer collection to this capstone. Those features introduce additional financial, security, legal, and privacy responsibilities that this practice build has not addressed.",
+      "example": "RELEASE PACK: index.html, README.md, specification.md, test-results.md, CHANGELOG.md.\nACCEPTANCE: all eight fixture tests pass; keyboard and offline checks pass; no network dependencies; no misleading billing claims.",
+      "steps": [
+        "Freeze a release candidate and run the entire test checklist.",
+        "Ask another learner to reproduce two tests from the README.",
+        "Fix one issue they find and record the change.",
+        "Score the five capstone criteria with evidence.",
+        "Export the HTML and release pack without credentials or private data."
+      ],
+      "expected": [
+        "A runnable and inspectable release pack.",
+        "Complete tests and a documented review improvement.",
+        "Explicit limits covering financial accuracy, tax, and production use."
+      ],
+      "commonMistakes": [
+        "Publishing a later untested version after finishing the test report.",
+        "Claiming secure or production-ready solely because the page runs."
+      ],
+      "selfCheck": "Which acceptance test would catch a regression introduced by your last visual change?",
+      "offline": "Complete and distribute the release as local files; public deployment is optional.",
+      "outcomes": [
+        "Package and review a minimal web release.",
+        "Distinguish a practice build from production financial software."
+      ],
+      "task": "Freeze a release candidate and run the entire test checklist. Ask another learner to reproduce two tests from the README. Fix one issue they find and record the change. Score the five capstone criteria with evidence. Export the HTML and release pack without credentials or private data.",
+      "id": "web-06",
+      "resourcePack": "/resources/packs/web-practice-pack.zip"
+    }
+  ],
+  "quiz": {
+    "question": "When should you execute generated code?",
+    "options": [
+      "After inspecting it and understanding its permissions",
+      "Immediately, because it was generated",
+      "Only if it contains a secret key"
+    ],
+    "answer": 0
+  },
+  "prerequisites": [
+    "Can create/open a local HTML file.",
+    "A modern browser; coding experience is not required."
+  ],
+  "outcomes": [
+    "Specify a minimal tool with eight acceptance tests.",
+    "Inspect generated code for unnecessary network and permission use.",
+    "Debug small reproducible failures and rerun regressions.",
+    "Release an accessible, offline, credential-free calculator."
+  ],
+  "references": [
+    {
+      "title": "MDN: first website",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website"
+    },
+    {
+      "title": "MDN: accessible forms",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form"
+    },
+    {
+      "title": "MDN: textContent",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent"
+    }
+  ],
+  "version": "2.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 300,
+  "editorialStatus": "Original authored practice material; not independently expert-reviewed.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "When should you execute generated code?",
+      "options": [
+        "After inspecting it and understanding its permissions",
+        "Immediately, because it was generated",
+        "Only if it contains a secret key"
+      ],
+      "answer": 0,
+      "explanation": "Check the relevant worked example and its evidence/authority boundary."
+    },
+    {
+      "question": "Why test zero separately after rejecting blanks?",
+      "options": [
+        "Because zero is invalid too.",
+        "Because fixing blank handling must not accidentally reject a valid zero.",
+        "Because formatting changes the input."
+      ],
+      "answer": 1,
+      "explanation": "Blank and zero have different meanings in the specification."
+    },
+    {
+      "question": "Which method is appropriate for showing untrusted text in a result region?",
+      "options": [
+        "textContent",
+        "A raw innerHTML assignment",
+        "eval"
+      ],
+      "answer": 0,
+      "explanation": "textContent treats the input as text instead of executable markup."
+    }
+  ],
+  "capstone": {
+    "title": "Capstone: release a tested quote tool",
+    "brief": "Deliver a small release that another person can inspect, run offline, and test. Include the implementation, specification, acceptance tests, observed results, accessibility notes, and known limitations. A release note should explain what changed and what is deliberately outside scope.\n\nIf you publish the file online, review it again for secrets and dependencies. Do not add payment buttons or real customer collection to this capstone. Those features introduce additional financial, security, legal, and privacy responsibilities that this practice build has not addressed.",
+    "deliverables": [
+      "A runnable and inspectable release pack.",
+      "Complete tests and a documented review improvement.",
+      "Explicit limits covering financial accuracy, tax, and production use."
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Specification",
+        "evidence": "Inputs, invalid cases and scope are defined before implementation.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Behaviour",
+        "evidence": "All eight fixture tests have expected and observed results.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Accessible use",
+        "evidence": "Visible labels, keyboard operation, focus and status/error handling are checked.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Reproducibility",
+        "evidence": "Offline file, README, change log and review evidence are supplied.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety and scope",
+        "evidence": "No secrets/dependencies/real payments; financial limits are stated.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the final safety/limits criterion. This is practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/web-handbook.md",
+    "pack": "/resources/packs/web-practice-pack.zip"
+  }
+}

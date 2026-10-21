@@ -9,14 +9,18 @@ From the extracted repository root:
 ```sh
 git init -b main
 git add .
-git commit -m "Initial portable school"
+git commit -m "Initial portable platform"
 # Create an empty repository in your own account, then use its real SSH URL:
 git remote add origin git@github.com:YOUR_ACCOUNT/YOUR_REPOSITORY.git
 git push -u origin main
 ```
 Replace example account/repository names. Use SSH or a credential manager, not a token embedded in a remote URL. Repository creation/push is not performed by this bundle. CI checks are read-only and do not deploy automatically.
 
-## 2. Deploy to Cloudflare with AI off
+## Existing deployment: stop and read first
+
+For an identity/Worker rename, follow `IDENTITY-TRANSFER.md`, not the fresh-install command below. This release has not been deployed externally. Build content with `npm run build:assets` before either deployment path.
+
+## 2. Fresh installation: deploy to Cloudflare with AI off
 
 ```sh
 npm install
@@ -67,7 +71,7 @@ Provider models and quotas change. Deliberately no ten-model availability or per
 Wrangler is fetched as external tooling, not included in the runtime or lockfile. Audit the exact CLI version you intend to use, then pin that reviewed version in your own release process. The default latest CLI command is convenient, not a reproducible pinned deployment toolchain.
 
 ## Learner storage release
-Live accounts use `LearnerDatabase`, a SQLite Durable Object in the same Worker. The config includes its namespace binding and a migration tagged `v1-learners`, plus separate auth and learning-event limiters and a daily retention cron. Do not remove or rename the namespace/class or change the stable `open-practice-school` object name during a routine update: that can orphan account data. Cloudflare D1 creation was denied by the current deployment token; no D1 database was created.
+Live accounts use `LearnerDatabase`, a SQLite Durable Object in the same Worker. The config includes its namespace binding and a migration tagged `v1-learners`, plus separate auth and learning-event limiters and a daily retention cron. Do not remove or rename the namespace/class or change the stable `open-practice` object name during a routine update: that can orphan account data. Cloudflare D1 creation was denied by the current deployment token; no D1 database was created.
 
 Deploying this configuration to a new Cloudflare account creates a fresh database; it does not migrate learners automatically. Retain the old deployment until a verified data export/import process is complete. No automatic operator-wide export has been implemented yet. Users can export their account/workspace data.
 

@@ -1,5 +1,5 @@
 {
-  "name": "open-practice-school",
+  "name": "open-practice",
   "main": "worker.mjs",
   "compatibility_date": "2026-10-01",
   "assets": {
@@ -44,7 +44,8 @@
     "GROQ_MODEL": "",
     "CLOUDFLARE_MODEL": "",
     "POLLINATIONS_MODEL": "",
-    "APPROVED_MODELS": ""
+    "APPROVED_MODELS": "",
+    "DB_OBJECT_ID": ""
   },
   "durable_objects": {
     "bindings": [

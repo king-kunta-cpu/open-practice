@@ -6,13 +6,13 @@ export const randomToken=()=>hex(crypto.getRandomValues(new Uint8Array(32)));
 export async function digest(text){return hex(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))}
 export async function passwordHash(password,salt){const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);return hex(await crypto.subtle.deriveBits({name:'PBKDF2',salt:unhex(salt),iterations:100000,hash:'SHA-256'},key,256))}
 export function equal(a,b){if(typeof a!=='string'||typeof b!=='string'||a.length!==b.length)return false;let diff=0;for(let i=0;i<a.length;i++)diff|=a.charCodeAt(i)^b.charCodeAt(i);return diff===0}
-export async function readJSON(request,max=120000){const reader=request.body?.getReader();if(!reader)throw Error('JSON required');let size=0,parts=[];for(;;){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>max){await reader.cancel();throw Error('Request too large')}parts.push(value)}const bytes=new Uint8Array(size);let at=0;for(const p of parts){bytes.set(p,at);at+=p.length}return JSON.parse(new TextDecoder().decode(bytes))}
+export async function readJSON(request,max=180000){const reader=request.body?.getReader();if(!reader)throw Error('JSON required');let size=0,parts=[];for(;;){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>max){await reader.cancel();throw Error('Request too large')}parts.push(value)}const bytes=new Uint8Array(size);let at=0;for(const p of parts){bytes.set(p,at);at+=p.length}return JSON.parse(new TextDecoder().decode(bytes))}
 export async function learnerFor(request,db){const cookie=request.headers.get('cookie')||'';const token=cookie.match(/(?:^|;\s*)__Host-op_session=([a-f0-9]{64})(?:;|$)/)?.[1];if(!token)return null;return db.prepare('SELECT learners.id, learners.username FROM sessions JOIN learners ON learners.id = sessions.learner_id WHERE sessions.token_hash = ? AND sessions.expires_at > ?').bind(await digest(token),Date.now()).first()}
 const cookie=token=>`__Host-op_session=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=2592000`;
 async function session(db,user){const token=randomToken();await db.prepare('INSERT INTO sessions(token_hash,learner_id,expires_at) VALUES(?,?,?)').bind(await digest(token),user.id,Date.now()+30*86400000).run();return cookie(token)}
 export const eventNames=new Set(['lesson_opened','lesson_completed','checkpoint_passed','workspace_saved','workspace_downloaded','resource_downloaded','news_opened']);
 export async function accountAPI(request,env){
- const path=new URL(request.url).pathname,db=env.DB;if(!db)return reply({error:'Accounts require the configured school database.'},503);
+ const path=new URL(request.url).pathname,db=env.DB;if(!db)return reply({error:'Accounts require the configured platform database.'},503);
  if(!['GET','POST','PUT','DELETE'].includes(request.method))return reply({error:'Method not allowed'},405);
  if(request.method!=='GET'&&request.headers.get('origin')!==new URL(request.url).origin)return reply({error:'Same-origin requests only'},403);
  if(request.method!=='GET'){
@@ -65,7 +65,7 @@ export async function accountAPI(request,env){
  if(path==='/api/workspaces'&&request.method==='GET'){const rows=await db.prepare('SELECT course_id,content,updated_at FROM workspaces WHERE learner_id = ?').bind(user.id).all();return reply({workspaces:rows.results})}
  if(path==='/api/workspaces'&&request.method==='PUT'){
   const b=await readJSON(request);if(!/^[a-z0-9_-]{1,40}$/.test(b.course||'')||!b.workspace||typeof b.workspace!=='object'||Array.isArray(b.workspace))return reply({error:'Valid course and workspace required'},400);
-  const content=JSON.stringify(b.workspace);if(content.length>50000)return reply({error:'Workspace too large (50 KB maximum)'},413);
+  const content=JSON.stringify(b.workspace);if(new TextEncoder().encode(content).byteLength>160000)return reply({error:'Workspace too large (160 KB maximum)'},413);
   const old=await db.prepare('SELECT updated_at FROM workspaces WHERE learner_id = ? AND course_id = ?').bind(user.id,b.course).first();
   if(old&&b.expectedVersion!==old.updated_at)return reply({error:'Another device saved a newer version. Reload before overwriting.',conflict:true},409);
   const now=Date.now();

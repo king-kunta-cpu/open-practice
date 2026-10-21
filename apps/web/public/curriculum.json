@@ -1,0 +1,33 @@
+{
+  "version": "2.0",
+  "identity": "Open Practice",
+  "descriptor": "Practical AI Engineering",
+  "paths": 6,
+  "lessons": 36,
+  "workedExamples": 36,
+  "reviewQuestions": 18,
+  "capstones": 6,
+  "rubricCriteria": 30,
+  "estimatedMinutes": 1440,
+  "resources": 21,
+  "fixtureFiles": 37,
+  "editorialStatus": "Original authored practice material. Estimates are unvalidated; independent subject-matter review remains pending.",
+  "roadmap": [
+    {
+      "title": "Document assistants and retrieval evaluation",
+      "status": "Planned, not yet available"
+    },
+    {
+      "title": "Small application backends and tool permissions",
+      "status": "Planned, not yet available"
+    },
+    {
+      "title": "Multimodal workflows and accessibility",
+      "status": "Planned, not yet available"
+    },
+    {
+      "title": "Deployment, monitoring and maintenance",
+      "status": "Planned, not yet available"
+    }
+  ]
+}

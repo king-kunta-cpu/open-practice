@@ -1,0 +1,7 @@
+Case,Expected_platform_behaviour,What_it_does_not_prove
+Normal answer,Show text with provider/model label,General correctness
+Empty answer,Show unavailable/no usable answer,That another provider should be tried without consent
+Invalid key,Ask learner to review permissions; never echo key,Exact provider-specific semantics
+Rate limit,Respect retry timing; no evasion,That making more keys creates more allowance
+Timeout,Preserve work and explain uncertainty,That processing or billing stopped
+Provider unavailable,Keep lessons and local workspace usable,That a fake answer is acceptable

@@ -1,20 +1,18 @@
-# Live access
+# Access and release state
 
-- School: https://open-practice-school.zlnew.workers.dev
-- Source repository: https://github.com/king-kunta-cpu/open-practice-school
-- GitHub owner: king-kunta-cpu
-- GitHub sign-in: https://github.com/login
-- Cloudflare sign-in: https://dash.cloudflare.com/
-- Groq sign-in: https://console.groq.com/
+## Current release
+Version 0.6.0 is built and tested in the workspace. A local preview is available through the running preview server. No production transfer, repository rename or external push was completed for this release because deployment credentials are not available in the current environment.
 
-Public materials need no account. Learners can now register, use recovery codes, save cloud work and record learning events. No default operator/admin password exists. Content is administered in the Git repository and deployed to the Worker. Production secrets are managed in Cloudflare, not here.
+## Intended identity destinations — not confirmed live
+- Platform target: `https://open-practice.zlnew.workers.dev`
+- Repository target: `https://github.com/king-kunta-cpu/open-practice`
+- Paths: `/curriculum.html`, `/dashboard.html`, `/library.html`, `/news.html`, `/privacy.html`.
 
-Verified: public homepage, course JSON, status endpoint and one actual Groq tutor response returned HTTP 200.
+The previous production hostname/repository remain unchanged. Their identifiers are intentionally not repeated in the active source. Follow `IDENTITY-TRANSFER.md` to preserve existing accounts before changing public destinations. A different hostname requires learners to sign in again; cookies must not be copied between hosts.
 
-Library: https://open-practice-school.zlnew.workers.dev/library.html
-News Drops: https://open-practice-school.zlnew.workers.dev/news.html
-Privacy: https://open-practice-school.zlnew.workers.dev/privacy.html
+## Operator access
+- Source hosting: https://github.com/login
+- Hosting/storage: https://dash.cloudflare.com/
+- Groq: https://console.groq.com/
 
-Account, offline-workspace and learner-key checks are recorded in VERIFICATION.md. Pending: a verified Cloudflare AI fallback model, Pollinations credentials, custom domain, stronger public-abuse controls, provider-side budget confirmation, and automated deployment. GitHub CI checks code; pushing does not currently trigger a Cloudflare release.
-
-Security: credentials exposed in chat must be rotated. Replacing the Groq key also requires updating the GROQ_API_KEY Worker secret. Rotate GitHub and Cloudflare deployment tokens without adding them to this repository.
+No default administrator password exists. Content is managed in this repository. Provider credentials and deployment tokens belong in the hosting secret manager or an authenticated CLI, never source, chat or learner notes. Rotate credentials previously exposed in conversation. Email-link login remains unimplemented pending a verified sender/domain/service.

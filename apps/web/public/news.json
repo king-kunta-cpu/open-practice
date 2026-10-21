@@ -18,7 +18,7 @@
     "tag": "REFERENCE DROP",
     "title": "Bring a key. Understand the boundary.",
     "date": "2026-10-21",
-    "description": "Your provider account and exact model determine access, data terms, quotas, and possible charges. The school now offers temporary learner-key requests for Google AI Studio, Groq, and Cloudflare. A free account is not a guarantee of unlimited inference.",
+    "description": "Your provider account and exact model determine access, data terms, quotas, and possible charges. The platform now offers temporary learner-key requests for Google AI Studio, Groq, and Cloudflare. A free account is not a guarantee of unlimited inference.",
     "exercise": "Use the provider worksheet from the library. Find your account\u2019s actual quota and billing controls before making a request.",
     "sources": [
       {
@@ -37,15 +37,15 @@
   },
   {
     "id": "offline-workspaces",
-    "tag": "SCHOOL RELEASE",
+    "tag": "platform RELEASE",
     "title": "A workspace you can keep\u2014not just a page you visited",
     "date": "2026-10-21",
-    "description": "Course workspaces can be downloaded as self-contained HTML. Lessons, notes, checklists, and the knowledge check work offline. Cloud inference does not. Download an updated copy to preserve edits, then export JSON to import progress back into the school.",
+    "description": "Course workspaces can be downloaded as self-contained HTML. Lessons, notes, checklists, and the knowledge check work offline. Cloud inference does not. Download an updated copy to preserve edits, then export JSON to import progress back into the platform.",
     "exercise": "Download one course workspace, disconnect from the internet, change a note, save an updated HTML copy, and reopen it. Confirm the note survived.",
     "sources": [
       {
         "label": "Open Practice source and release history",
-        "url": "https://github.com/king-kunta-cpu/open-practice-school"
+        "url": "https://github.com/king-kunta-cpu/open-practice"
       }
     ]
   }

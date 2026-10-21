@@ -1,0 +1,306 @@
+{
+  "id": "prompt",
+  "num": "01",
+  "title": "AI, without the guesswork",
+  "track": "Foundations",
+  "project": "Write a reliable research brief",
+  "time": "3h 30m estimated",
+  "icon": "◈",
+  "description": "Learn to ask better questions, verify answers, and turn a vague request into a useful result.",
+  "lessons": [
+    {
+      "title": "Define the job",
+      "estimatedMinutes": 25,
+      "text": "A prompt is a task specification, not a magic phrase. Before asking for an answer, decide who will use it, what decision it supports, and what evidence would make it useful. Separate instructions from background material and specify the output shape.\n\nWork with a fictional neighbourhood shop: 500 stock items, one operator, unreliable internet, and a monthly tool budget of $12. These are exercise assumptions, not research findings. An answer that recommends an expensive always-online system fails even if it sounds impressive. A useful first experiment is small enough that you can judge the output yourself.",
+      "example": "TASK: Compare paper stock cards, a spreadsheet, and a small local database for the fictional shop.\nCONSTRAINTS: One operator; intermittent internet; $12/month maximum.\nOUTPUT: A table with setup effort, offline suitability, maintenance, and unknowns.\nEVIDENCE RULE: Separate provided facts from assumptions. Do not invent vendor prices or citations.",
+      "steps": [
+        "Write the decision the owner needs to make in one sentence.",
+        "List the four supplied constraints and mark each as an exercise assumption.",
+        "Write one prompt containing task, audience, context, constraints, and output format.",
+        "Test it with your chosen AI, or write a plausible sample answer manually.",
+        "Highlight one sentence that is useful and one that needs evidence."
+      ],
+      "expected": [
+        "A reusable task brief with all five fields.",
+        "A sample comparison that respects the budget and connectivity constraints.",
+        "A list of unanswered questions instead of invented facts."
+      ],
+      "commonMistakes": [
+        "Asking for the best tool without defining best.",
+        "Treating a confident vendor-price claim as evidence."
+      ],
+      "selfCheck": "If the model recommends a $30/month online-only system, which acceptance conditions did it fail?",
+      "offline": "Use the fictional shop brief and manually draft the comparison. The specification and evaluation work do not require inference.",
+      "outcomes": [
+        "Translate a vague request into a testable task.",
+        "Separate fictional constraints, facts, and assumptions."
+      ],
+      "task": "Write the decision the owner needs to make in one sentence. List the four supplied constraints and mark each as an exercise assumption. Write one prompt containing task, audience, context, constraints, and output format. Test it with your chosen AI, or write a plausible sample answer manually. Highlight one sentence that is useful and one that needs evidence.",
+      "id": "prompt-01",
+      "resourcePack": "/resources/packs/prompt-practice-pack.zip"
+    },
+    {
+      "title": "Build a verification loop",
+      "estimatedMinutes": 35,
+      "text": "Generated text is a candidate answer, not a source. Verification means identifying a specific claim and checking whether an accessible original source supports that exact claim, under the conditions you care about. A real URL can still be irrelevant or outdated. Two models agreeing does not create independent evidence.\n\nUse a claim ledger: claim, source, supporting passage, checked date, verdict, and remaining uncertainty. For this exercise, distinguish claims about the fictional shop from real-world statements about software. The shop brief can support the former; current product documentation or a reproducible test is needed for the latter.",
+      "example": "Candidate claim: \"The proposed workflow works with no internet.\"\nTest: Disconnect the device and perform the required stock-edit and export actions.\nVerdict: Supported only for the actions actually tested.\nRemaining uncertainty: Multi-device synchronisation was not tested.",
+      "steps": [
+        "Extract three factual claims from your comparison.",
+        "Identify which are supported by the supplied brief and which require external evidence.",
+        "Open the original documentation or perform a small reproducible test.",
+        "Record the exact passage or test result, not just the homepage URL.",
+        "Revise unsupported claims to explicit uncertainty."
+      ],
+      "expected": [
+        "Three completed rows in the claim ledger.",
+        "At least one rejected or narrowed claim.",
+        "A revised answer that distinguishes evidence from inference."
+      ],
+      "commonMistakes": [
+        "Citing a search snippet instead of the source.",
+        "Writing verified when only one narrow behaviour was tested."
+      ],
+      "selfCheck": "What is the difference between a source existing and a source supporting your precise claim?",
+      "offline": "Use the supplied fictional source pack and identify contradictions. Mark live product claims as not checked rather than inventing verification.",
+      "outcomes": [
+        "Build an auditable claim ledger.",
+        "Narrow conclusions to the evidence available."
+      ],
+      "task": "Extract three factual claims from your comparison. Identify which are supported by the supplied brief and which require external evidence. Open the original documentation or perform a small reproducible test. Record the exact passage or test result, not just the homepage URL. Revise unsupported claims to explicit uncertainty.",
+      "id": "prompt-02",
+      "resourcePack": "/resources/packs/prompt-practice-pack.zip"
+    },
+    {
+      "title": "Ship your research brief",
+      "estimatedMinutes": 30,
+      "text": "A useful brief lets another person understand your recommendation without reconstructing your entire chat. Include the decision, constraints, options, evidence, limitations, and a small next action. Keep a change log so readers can see which claims were revised and why.\n\nThe first brief is a baseline, not a final verdict. A one-page result is easier to test than a long essay filled with unsupported detail. If you used an AI, record the provider, exact model if available, date, prompt version, and what you checked yourself. Do not include credentials or private conversations in the published artefact.",
+      "example": "RECOMMENDATION: Pilot a spreadsheet using fictional stock data for one week.\nWHY: It fits the stated budget and can be tested with the existing device.\nNOT PROVEN: Backup reliability and ease of use for the owner.\nNEXT TEST: Enter ten sample items, export them, restore them, and ask the owner to explain the process.",
+      "steps": [
+        "Write a one-page brief with a recommendation and two alternatives.",
+        "Attach your prompt and three-row evidence ledger.",
+        "State at least two limitations in plain language.",
+        "Define a low-risk next test with an observable pass condition.",
+        "Remove private data and package the files so another person can inspect them."
+      ],
+      "expected": [
+        "Brief v1, prompt v1, evidence ledger, and limitations.",
+        "A next-step test with a clear pass/fail condition.",
+        "A dated change log recording at least one correction."
+      ],
+      "commonMistakes": [
+        "Hiding limitations in an appendix nobody reads.",
+        "Confusing an attractive document with a tested recommendation."
+      ],
+      "selfCheck": "Could another person tell which conclusion you personally checked and which remains provisional?",
+      "offline": "Write and package the brief in a text editor using only the supplied fictional evidence.",
+      "outcomes": [
+        "Communicate a bounded recommendation.",
+        "Publish reproducible evidence without exposing secrets."
+      ],
+      "task": "Write a one-page brief with a recommendation and two alternatives. Attach your prompt and three-row evidence ledger. State at least two limitations in plain language. Define a low-risk next test with an observable pass condition. Remove private data and package the files so another person can inspect them.",
+      "id": "prompt-03",
+      "resourcePack": "/resources/packs/prompt-practice-pack.zip"
+    },
+    {
+      "title": "Design reusable task contracts",
+      "estimatedMinutes": 35,
+      "text": "A reusable prompt needs variables, a stable output contract, and an explicit refusal or uncertainty path. Reuse should preserve the task logic while making the changing inputs visible. Treat inserted documents as data, not as new instructions. Delimiters help people read boundaries, but they do not eliminate prompt injection.\n\nCreate two versions: a human-readable brief and a structured contract. For the latter, name required fields and acceptable values. If a system needs JSON, check it with a parser and then validate its schema. Correct JSON syntax does not mean the facts or field values are correct.",
+      "example": "INPUT VARIABLES: business_type, available_tools, monthly_budget, connectivity.\nOUTPUT FIELDS: recommendation, reasons[], assumptions[], missing_information[], next_test.\nFAILURE PATH: If a required input is absent, ask a focused question instead of inventing it.\nTEST INPUT: monthly_budget is missing.",
+      "steps": [
+        "Extract the changing values from your original prompt into named variables.",
+        "Define required output fields and one example of a valid result.",
+        "Create a test with a missing budget and one with contradictory constraints.",
+        "Check whether the output asks a question or exposes the contradiction.",
+        "Version the template and record what changed from v1."
+      ],
+      "expected": [
+        "A reusable prompt contract with named variables.",
+        "A valid-output example and two failure-case examples.",
+        "A short validation checklist for syntax, meaning, and evidence."
+      ],
+      "commonMistakes": [
+        "Assuming delimiters make untrusted text harmless.",
+        "Accepting structurally valid JSON with invented values."
+      ],
+      "selfCheck": "How would your downstream process respond if the output is valid JSON but its recommendation violates the budget?",
+      "offline": "Fill the contract manually for two fictional organisations and validate the fields without using AI.",
+      "outcomes": [
+        "Design output contracts and failure paths.",
+        "Test prompt reuse rather than relying on wording tricks."
+      ],
+      "task": "Extract the changing values from your original prompt into named variables. Define required output fields and one example of a valid result. Create a test with a missing budget and one with contradictory constraints. Check whether the output asks a question or exposes the contradiction. Version the template and record what changed from v1.",
+      "id": "prompt-04",
+      "resourcePack": "/resources/packs/prompt-practice-pack.zip"
+    },
+    {
+      "title": "Compare models with evidence",
+      "estimatedMinutes": 35,
+      "text": "A fair comparison holds the task and evaluation criteria steady. Comparing unrelated prompts, different evidence, or different output lengths can make a weak system look stronger. Choose a small fixed test set and judge outputs against a rubric before looking at the model names.\n\nUse quality, faithfulness to constraints, transparency about uncertainty, and practical usefulness as separate criteria. Record latency and usage information only if your tool exposes them; do not invent token counts or prices. One run is not a reliability study. If you can, repeat a difficult case and record variation.",
+      "example": "FIXED TESTS: complete shop brief; missing budget; contradictory connectivity requirement.\nRUBRIC: constraint adherence 0–2; evidence discipline 0–2; usable next step 0–2.\nCOMPARISON: Output A scores 5/6, Output B scores 3/6.\nLIMITATION: Three examples are a small diagnostic set, not a general benchmark.",
+      "steps": [
+        "Freeze three test inputs and your scoring rubric before generating outputs.",
+        "Compare two providers/models, or compare two saved sample answers if you have no keys.",
+        "Label outputs A and B while scoring.",
+        "Record concrete reasons for every non-zero or zero score.",
+        "Write a conclusion limited to the tested task and sample size."
+      ],
+      "expected": [
+        "A three-case evaluation table.",
+        "Scores with evidence rather than a preferred brand name.",
+        "A limitations statement about sample size and repeatability."
+      ],
+      "commonMistakes": [
+        "Changing the rubric after seeing the preferred model.",
+        "Declaring a universal winner from one attractive answer."
+      ],
+      "selfCheck": "Which variable would make your comparison unfair if changed between runs?",
+      "offline": "Use two manually written candidate answers and score them blind. The evaluation method is the learning objective.",
+      "outcomes": [
+        "Compare outputs against a fixed rubric.",
+        "Avoid overclaiming from small evaluations."
+      ],
+      "task": "Freeze three test inputs and your scoring rubric before generating outputs. Compare two providers/models, or compare two saved sample answers if you have no keys. Label outputs A and B while scoring. Record concrete reasons for every non-zero or zero score. Write a conclusion limited to the tested task and sample size.",
+      "id": "prompt-05",
+      "resourcePack": "/resources/packs/prompt-practice-pack.zip"
+    },
+    {
+      "title": "Capstone: deliver an evidence-backed decision pack",
+      "estimatedMinutes": 50,
+      "text": "Combine the brief, prompt contract, evidence ledger, and evaluation into a small decision pack. The pack should make a proposed action safer and easier to inspect; it should not pretend that AI removed the need for judgement.\n\nBefore release, ask a second person—or perform a separate review yourself—to find one unsupported claim, one unclear assumption, and one instruction that cannot be reproduced. Fix those issues and keep the earlier version. Your final deliverable is the trail of reasoning and testing, not a statement that a model is trustworthy in every setting.",
+      "example": "PACK CONTENTS: README.md, brief.md, prompt-contract.md, claims.csv, evaluation.csv, CHANGELOG.md.\nACCEPTANCE: Every material factual claim has support or an uncertainty label; every recommendation respects the fictional constraints; another person can repeat the next test.",
+      "steps": [
+        "Choose the best bounded recommendation from your previous work.",
+        "Assemble all six artefacts listed in the example.",
+        "Score the pack against the five capstone criteria.",
+        "Ask for one challenge to your recommendation and write a response.",
+        "Publish or privately archive a redacted final copy with a clear reuse licence."
+      ],
+      "expected": [
+        "A complete, navigable decision pack.",
+        "A scored self-review with evidence for each criterion.",
+        "One documented improvement made after challenge or review."
+      ],
+      "commonMistakes": [
+        "Replacing the evidence trail with a polished AI summary.",
+        "Publishing real business details or keys inside screenshots."
+      ],
+      "selfCheck": "What evidence would make you change your recommendation, and is that written in your pack?",
+      "offline": "Complete the pack from fictional documents and saved sample outputs. Inference is optional for this capstone.",
+      "outcomes": [
+        "Deliver a reproducible practical research artefact.",
+        "Explain limitations and revise after review."
+      ],
+      "task": "Choose the best bounded recommendation from your previous work. Assemble all six artefacts listed in the example. Score the pack against the five capstone criteria. Ask for one challenge to your recommendation and write a response. Publish or privately archive a redacted final copy with a clear reuse licence.",
+      "id": "prompt-06",
+      "resourcePack": "/resources/packs/prompt-practice-pack.zip"
+    }
+  ],
+  "quiz": {
+    "question": "What makes an AI-generated citation trustworthy?",
+    "options": [
+      "It looks professional",
+      "You opened the source and checked that it supports the claim",
+      "Two models repeated it"
+    ],
+    "answer": 1
+  },
+  "prerequisites": [
+    "Comfortable editing a text file.",
+    "No coding or paid AI account required."
+  ],
+  "outcomes": [
+    "Turn a vague request into an acceptance-tested task.",
+    "Verify claims with a reproducible evidence ledger.",
+    "Design reusable prompt contracts and compare outputs fairly.",
+    "Deliver a bounded research recommendation with limitations."
+  ],
+  "references": [
+    {
+      "title": "Evidence and source evaluation",
+      "url": "https://www.lib.berkeley.edu/research-support/evaluate"
+    }
+  ],
+  "version": "2.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 210,
+  "editorialStatus": "Original authored practice material; not independently expert-reviewed.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "What makes an AI-generated citation trustworthy?",
+      "options": [
+        "It looks professional",
+        "You opened the source and checked that it supports the claim",
+        "Two models repeated it"
+      ],
+      "answer": 1,
+      "explanation": "Check the relevant worked example and its evidence/authority boundary."
+    },
+    {
+      "question": "What makes an output comparison fair?",
+      "options": [
+        "Use the same inputs and a rubric defined before seeing outputs.",
+        "Pick the longest answer.",
+        "Change the task until a favourite model wins."
+      ],
+      "answer": 0,
+      "explanation": "A fixed task and predeclared rubric reduce cherry-picking; small samples still limit conclusions."
+    },
+    {
+      "question": "What should a prompt contract do when required information is missing?",
+      "options": [
+        "Invent a likely value.",
+        "Ask a focused question or state the missing information.",
+        "Ignore the constraint."
+      ],
+      "answer": 1,
+      "explanation": "A missing field should trigger an explicit uncertainty/failure path, not a fabricated fact."
+    }
+  ],
+  "capstone": {
+    "title": "Capstone: deliver an evidence-backed decision pack",
+    "brief": "Combine the brief, prompt contract, evidence ledger, and evaluation into a small decision pack. The pack should make a proposed action safer and easier to inspect; it should not pretend that AI removed the need for judgement.\n\nBefore release, ask a second person—or perform a separate review yourself—to find one unsupported claim, one unclear assumption, and one instruction that cannot be reproduced. Fix those issues and keep the earlier version. Your final deliverable is the trail of reasoning and testing, not a statement that a model is trustworthy in every setting.",
+    "deliverables": [
+      "A complete, navigable decision pack.",
+      "A scored self-review with evidence for each criterion.",
+      "One documented improvement made after challenge or review."
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Task contract",
+        "evidence": "The task, audience, constraints, output shape and unknowns are explicit.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Evidence trail",
+        "evidence": "Three material claims have exact support or an uncertainty label.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Fair comparison",
+        "evidence": "Three fixed cases are scored against a rubric chosen in advance.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Reproducibility",
+        "evidence": "Another person can follow the next test and inspect the change log.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Privacy and honesty",
+        "evidence": "No secrets/private data; fictional facts and limits are clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the final safety/limits criterion. This is practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/prompt-handbook.md",
+    "pack": "/resources/packs/prompt-practice-pack.zip"
+  }
+}

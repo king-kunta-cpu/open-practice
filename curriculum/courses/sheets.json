@@ -1,0 +1,310 @@
+{
+  "id": "sheets",
+  "num": "03",
+  "title": "Make messy data useful",
+  "track": "Data & spreadsheets",
+  "project": "Create a checked expense summary",
+  "time": "4h estimated",
+  "icon": "▦",
+  "description": "Use AI to help with formulas while keeping calculation and checking deterministic.",
+  "lessons": [
+    {
+      "title": "Start with clean sample data",
+      "estimatedMinutes": 30,
+      "text": "A spreadsheet is easier to check when each row represents one event and each column has one meaning. Start with fictional expenses, not bank statements. Keep dates consistent, amounts numeric, and categories drawn from an explicit list. Stable receipt identifiers make duplicate handling possible.\n\nThe five-row warm-up totals 60: Travel 10, Food 5, Travel 15, Tools 20, and Food 10. These expected values are deliberately small enough to calculate by hand. If an AI suggests a summary, compare it with this independent baseline rather than trusting the narrative.",
+      "example": "WARM-UP TOTAL: 10 + 5 + 15 + 20 + 10 = 60.\nTRAVEL: 10 + 15 = 25.\nFOOD: 5 + 10 = 15.\nTOOLS: 20.\nCOLUMNS: Date, Category, Description, Amount, ReceiptID.",
+      "steps": [
+        "Import the warm-up CSV into a spreadsheet or inspect it as text.",
+        "Check that every row has the same five fields.",
+        "Calculate the total and category subtotals independently.",
+        "Write the allowed category list: Travel, Food, Tools.",
+        "Explain why a receipt ID is useful before attempting deduplication."
+      ],
+      "expected": [
+        "A correctly structured five-row table.",
+        "An independently checked total of 60 and three subtotals.",
+        "A short data dictionary for each column."
+      ],
+      "commonMistakes": [
+        "Storing currency symbols inside numeric amounts.",
+        "Putting two transactions into one cell or row."
+      ],
+      "selfCheck": "If the spreadsheet returns 6010 instead of 70 after an addition, what data-type problem might exist?",
+      "offline": "Use a printed table or text editor and calculate totals manually.",
+      "outcomes": [
+        "Structure tabular data for reliable calculations.",
+        "Establish independent expected outputs."
+      ],
+      "task": "Import the warm-up CSV into a spreadsheet or inspect it as text. Check that every row has the same five fields. Calculate the total and category subtotals independently. Write the allowed category list: Travel, Food, Tools. Explain why a receipt ID is useful before attempting deduplication.",
+      "id": "sheets-01",
+      "resourcePack": "/resources/packs/sheets-practice-pack.zip"
+    },
+    {
+      "title": "Ask for a formula, then test it",
+      "estimatedMinutes": 40,
+      "text": "AI can help draft a formula, but the spreadsheet calculates the result. Specify the exact column layout, row range, and desired treatment of blanks. A formula that references the wrong column can be syntactically valid and still give a plausible wrong answer.\n\nWith the warm-up headers in row 1, Amount is column D and Category is column B. SUM(D2:D6) should produce 60. SUMIF(B2:B6,\"Travel\",D2:D6) should produce 25. Some spreadsheet locales use semicolons instead of commas; adjust syntax without changing the logic. Always state the layout when asking a model for help.",
+      "example": "TOTAL: =SUM(D2:D6)\nTRAVEL: =SUMIF(B2:B6,\"Travel\",D2:D6)\nEXPECTED: 60 and 25.\nCOUNTEREXAMPLE: Summing E2:E6 addresses receipt IDs, not amounts.",
+      "steps": [
+        "Write the column map beside your data.",
+        "Ask an AI for a total and a Travel subtotal formula, or write them yourself.",
+        "Run the formulas and compare with the hand-checked values.",
+        "Deliberately change one range to the wrong column and observe the result.",
+        "Record the correct formula, expected result, and observed failure."
+      ],
+      "expected": [
+        "Two formulas with correct ranges.",
+        "A pass/fail record against expected totals.",
+        "One documented wrong-range example."
+      ],
+      "commonMistakes": [
+        "Accepting a formula because the model explains it confidently.",
+        "Ignoring that a locale may require different separators."
+      ],
+      "selfCheck": "What evidence distinguishes a correct formula from a formula that merely happens to give the right total once?",
+      "offline": "Annotate the ranges in text and perform the same calculation by hand.",
+      "outcomes": [
+        "Translate a data layout into spreadsheet formulas.",
+        "Validate formulas with known outputs and counterexamples."
+      ],
+      "task": "Write the column map beside your data. Ask an AI for a total and a Travel subtotal formula, or write them yourself. Run the formulas and compare with the hand-checked values. Deliberately change one range to the wrong column and observe the result. Record the correct formula, expected result, and observed failure.",
+      "id": "sheets-02",
+      "resourcePack": "/resources/packs/sheets-practice-pack.zip"
+    },
+    {
+      "title": "Add a failure test",
+      "estimatedMinutes": 35,
+      "text": "Tests should cover more than the original happy path. Try a new row beyond the initial range, a blank amount, a category misspelling, a zero amount, and a negative value. Your data policy decides what is valid; do not let the model silently choose the policy for you.\n\nFor this workshop, amounts must be finite numbers greater than or equal to zero, categories must match the allowed list, and receipt IDs must be unique. This simplified rule deliberately excludes refunds; a real expense system would need an explicit policy for them. The purpose is to make rejection visible instead of quietly altering the data.",
+      "example": "CASE: Add Travel 12.50 beyond the original range.\nEXPECTED TOTAL IF INCLUDED: 72.50.\nFAILURE: A fixed formula still returns 60.\nFIX: Expand the range or use a structured table; then rerun all earlier checks.",
+      "steps": [
+        "Add a sixth valid expense of 12.50.",
+        "Check whether the original range includes the new row.",
+        "Create test rows for blank, negative, misspelled-category, and zero values.",
+        "Write the expected handling for each case before calculating.",
+        "Update the formula/range and confirm the earlier totals still behave as expected."
+      ],
+      "expected": [
+        "A five-case edge-test table.",
+        "A corrected expanding-range approach or documented manual process.",
+        "A stated policy for zero and negative values."
+      ],
+      "commonMistakes": [
+        "Treating every negative amount as a harmless typo.",
+        "Fixing the range without rerunning earlier checks."
+      ],
+      "selfCheck": "Why is silently changing a negative value to positive worse than recording a rejected row?",
+      "offline": "Use the supplied cases and mark which the stated validation policy accepts.",
+      "outcomes": [
+        "Design edge cases for data workflows.",
+        "Separate validation policy from formula syntax."
+      ],
+      "task": "Add a sixth valid expense of 12.50. Check whether the original range includes the new row. Create test rows for blank, negative, misspelled-category, and zero values. Write the expected handling for each case before calculating. Update the formula/range and confirm the earlier totals still behave as expected.",
+      "id": "sheets-03",
+      "resourcePack": "/resources/packs/sheets-practice-pack.zip"
+    },
+    {
+      "title": "Clean and validate extracted data",
+      "estimatedMinutes": 35,
+      "text": "AI-assisted extraction should produce candidate rows, not trusted accounting records. Preserve the original input and record changes. A missing amount should remain missing or enter a reject log; it must not become a guessed number just to make a table complete.\n\nThe dirty-expenses fixture contains twelve rows. Under the workshop policy, seven are accepted and five rejected: one duplicate receipt ID, one non-numeric amount, one unknown category, one negative amount, and one missing date. The accepted total is 72.50. Zero is valid. Dates must be supplied, but this exercise does not implement a full calendar validator.",
+      "example": "EXPECTED ACCEPTED ROWS: 7.\nEXPECTED REJECTED ROWS: 5.\nREJECT LOG: ReceiptID, original row, reason, action.\nREASONS: duplicate_id; non_numeric_amount; unknown_category; negative_amount; missing_date.",
+      "steps": [
+        "Read dirty-expenses.csv without overwriting it.",
+        "Apply the written rules one by one and record every rejection.",
+        "Produce a clean table in the original column order.",
+        "Compare it against expected-clean.csv and the five reject reasons.",
+        "Explain why the zero-amount row is accepted but the missing amount is not."
+      ],
+      "expected": [
+        "Seven accepted rows and a five-row reject log.",
+        "An unchanged original input file.",
+        "A clean total of 72.50 with no guessed amounts."
+      ],
+      "commonMistakes": [
+        "Deleting problematic rows without a trace.",
+        "Treating missing, zero, and invalid text as the same value."
+      ],
+      "selfCheck": "Can another person reconstruct why each original row was accepted or rejected?",
+      "offline": "Perform the validation manually using the fixture and expected-output file.",
+      "outcomes": [
+        "Validate extracted rows using explicit rules.",
+        "Maintain an audit trail for rejected data."
+      ],
+      "task": "Read dirty-expenses.csv without overwriting it. Apply the written rules one by one and record every rejection. Produce a clean table in the original column order. Compare it against expected-clean.csv and the five reject reasons. Explain why the zero-amount row is accepted but the missing amount is not.",
+      "id": "sheets-04",
+      "resourcePack": "/resources/packs/sheets-practice-pack.zip"
+    },
+    {
+      "title": "Produce an auditable summary",
+      "estimatedMinutes": 40,
+      "text": "A summary needs reconciliation before presentation. The clean fixture’s categories total Travel 37.50, Food 15.00, and Tools 20.00, which sum to 72.50. A chart should communicate those values, not hide the excluded rows.\n\nSeparate what the data contains from what you infer. These twelve fictional records cannot establish a real spending trend or recommend layoffs. State the date scope, accepted-row count, rejected-row count, and validation policy beside the summary. If you ask AI for a narrative, give it only the checked aggregate and require it not to invent causes.",
+      "example": "CHECKED SUMMARY: Travel 37.50; Food 15.00; Tools 20.00; total 72.50.\nSAFE NARRATIVE: Travel is the largest category in this fictional accepted subset.\nUNSUPPORTED NARRATIVE: Fuel inflation caused overspending this month.",
+      "steps": [
+        "Calculate category subtotals from the accepted rows.",
+        "Reconcile the subtotals to the grand total.",
+        "Create a small bar chart or labelled text chart.",
+        "Write a two-sentence narrative restricted to the checked facts.",
+        "Attach a footnote stating that five original rows were rejected and why."
+      ],
+      "expected": [
+        "A reconciled category summary and simple chart.",
+        "A factual narrative with no invented causal explanation.",
+        "A visible validation and exclusion note."
+      ],
+      "commonMistakes": [
+        "Using a pretty chart to conceal a failed total.",
+        "Turning a tiny fictional sample into a real-world business conclusion."
+      ],
+      "selfCheck": "Which sentence in your report would require evidence beyond this dataset?",
+      "offline": "Draw a text bar chart and write the checked totals directly from the expected file.",
+      "outcomes": [
+        "Reconcile summary values and communicate exclusions.",
+        "Constrain AI-generated narratives to known data."
+      ],
+      "task": "Calculate category subtotals from the accepted rows. Reconcile the subtotals to the grand total. Create a small bar chart or labelled text chart. Write a two-sentence narrative restricted to the checked facts. Attach a footnote stating that five original rows were rejected and why.",
+      "id": "sheets-05",
+      "resourcePack": "/resources/packs/sheets-practice-pack.zip"
+    },
+    {
+      "title": "Capstone: ship a checked expense pipeline",
+      "estimatedMinutes": 60,
+      "text": "Build a repeatable process from original input through validation, clean data, rejection records, totals, and a short report. It can be manual, spreadsheet-based, or a small script. The acceptance criteria are the same: predictable treatment of bad rows and reproducible checked results.\n\nDo not describe the result as accounting software. It is an educational validation workflow using fictional data. Include instructions for adding a new receipt and explain what must happen if a duplicate ID has conflicting values. A person should review such conflicts rather than the system silently choosing one.",
+      "example": "PACK: original.csv, rules.md, clean.csv, rejects.csv, summary.md, tests.md.\nACCEPTANCE: 7 accepted; 5 rejected; total 72.50; category totals reconcile; rerunning unchanged input produces the same result.",
+      "steps": [
+        "Assemble your input, written rules, clean output, reject log, and summary.",
+        "Run the same process twice and compare outputs.",
+        "Add one valid row and one duplicate-ID conflict as change tests.",
+        "Score the capstone rubric and document unresolved limitations.",
+        "Export the files with a README that another learner can follow."
+      ],
+      "expected": [
+        "A reproducible six-file data workflow.",
+        "Baseline tests and two change tests.",
+        "A limitation note covering refunds, dates, and real financial use."
+      ],
+      "commonMistakes": [
+        "Claiming production readiness from a small fixture.",
+        "Overwriting the original data during cleaning."
+      ],
+      "selfCheck": "What would you need to add before this process could safely touch real financial records?",
+      "offline": "Deliver the same artefacts using manually checked tables; automation is optional.",
+      "outcomes": [
+        "Deliver a reproducible data-quality workflow.",
+        "Explain the boundary between a practice build and financial software."
+      ],
+      "task": "Assemble your input, written rules, clean output, reject log, and summary. Run the same process twice and compare outputs. Add one valid row and one duplicate-ID conflict as change tests. Score the capstone rubric and document unresolved limitations. Export the files with a README that another learner can follow.",
+      "id": "sheets-06",
+      "resourcePack": "/resources/packs/sheets-practice-pack.zip"
+    }
+  ],
+  "quiz": {
+    "question": "What proves a suggested formula works for your sample?",
+    "options": [
+      "The model says it is correct",
+      "Its calculated output matches independently checked expected values",
+      "It is a long formula"
+    ],
+    "answer": 1
+  },
+  "prerequisites": [
+    "Basic rows/columns and simple arithmetic.",
+    "A spreadsheet is helpful; manual completion is supported."
+  ],
+  "outcomes": [
+    "Structure fictional expense data and calculate known totals.",
+    "Test formulas with normal and edge cases.",
+    "Validate dirty data without silently guessing or deleting evidence.",
+    "Deliver a reconciled summary and reproducible reject log."
+  ],
+  "references": [
+    {
+      "title": "Google Sheets function reference",
+      "url": "https://support.google.com/docs/table/25273"
+    },
+    {
+      "title": "LibreOffice Calc guidance",
+      "url": "https://help.libreoffice.org/latest/en-US/text/scalc/main0000.html"
+    }
+  ],
+  "version": "2.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; not independently expert-reviewed.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "What proves a suggested formula works for your sample?",
+      "options": [
+        "The model says it is correct",
+        "Its calculated output matches independently checked expected values",
+        "It is a long formula"
+      ],
+      "answer": 1,
+      "explanation": "Check the relevant worked example and its evidence/authority boundary."
+    },
+    {
+      "question": "How should a missing amount be handled under this exercise policy?",
+      "options": [
+        "Guess a reasonable amount.",
+        "Reject or flag it with a recorded reason.",
+        "Replace it with zero without a note."
+      ],
+      "answer": 1,
+      "explanation": "Missing and zero are different. The input must remain auditable."
+    },
+    {
+      "question": "What should category subtotals do?",
+      "options": [
+        "Reconcile to the checked grand total.",
+        "Always match the model’s narrative.",
+        "Ignore rows the chart cannot show."
+      ],
+      "answer": 0,
+      "explanation": "A summary needs numerical reconciliation and explicit exclusions before presentation."
+    }
+  ],
+  "capstone": {
+    "title": "Capstone: ship a checked expense pipeline",
+    "brief": "Build a repeatable process from original input through validation, clean data, rejection records, totals, and a short report. It can be manual, spreadsheet-based, or a small script. The acceptance criteria are the same: predictable treatment of bad rows and reproducible checked results.\n\nDo not describe the result as accounting software. It is an educational validation workflow using fictional data. Include instructions for adding a new receipt and explain what must happen if a duplicate ID has conflicting values. A person should review such conflicts rather than the system silently choosing one.",
+    "deliverables": [
+      "A reproducible six-file data workflow.",
+      "Baseline tests and two change tests.",
+      "A limitation note covering refunds, dates, and real financial use."
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Input preservation",
+        "evidence": "Original data and validation policy are retained.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Correct validation",
+        "evidence": "The baseline yields 7 accepted and 5 rejected rows with reasons.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Reconciled totals",
+        "evidence": "Total 72.50; Travel 37.50, Food 15.00, Tools 20.00.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatability",
+        "evidence": "Reruns and added-row/duplicate-conflict tests are documented.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Scope and privacy",
+        "evidence": "Only fictional data; financial limitations and exclusions are clear.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the final safety/limits criterion. This is practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/sheets-handbook.md",
+    "pack": "/resources/packs/sheets-practice-pack.zip"
+  }
+}

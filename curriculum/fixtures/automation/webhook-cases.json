@@ -1,0 +1,126 @@
+[
+  {
+    "job_id": "weekly-demo-001",
+    "tasks": [
+      {
+        "id": "t1",
+        "title": "Check fictional stock",
+        "status": "done",
+        "owner": "Demo A"
+      },
+      {
+        "id": "t2",
+        "title": "Prepare sample report",
+        "status": "todo",
+        "owner": "Demo B"
+      },
+      {
+        "id": "t3",
+        "title": "Review sample counts",
+        "status": "done",
+        "owner": "Demo A"
+      },
+      {
+        "id": "t4",
+        "title": "Wait for a human decision",
+        "status": "blocked",
+        "owner": "Demo B"
+      }
+    ],
+    "approved": false
+  },
+  {
+    "job_id": "weekly-demo-001",
+    "tasks": [
+      {
+        "id": "t1",
+        "title": "Check fictional stock",
+        "status": "done",
+        "owner": "Demo A"
+      },
+      {
+        "id": "t2",
+        "title": "Prepare sample report",
+        "status": "todo",
+        "owner": "Demo B"
+      },
+      {
+        "id": "t3",
+        "title": "Review sample counts",
+        "status": "done",
+        "owner": "Demo A"
+      },
+      {
+        "id": "t4",
+        "title": "Wait for a human decision",
+        "status": "blocked",
+        "owner": "Demo B"
+      }
+    ],
+    "approved": false
+  },
+  {
+    "tasks": [
+      {
+        "id": "t1",
+        "title": "Check fictional stock",
+        "status": "done",
+        "owner": "Demo A"
+      },
+      {
+        "id": "t2",
+        "title": "Prepare sample report",
+        "status": "todo",
+        "owner": "Demo B"
+      },
+      {
+        "id": "t3",
+        "title": "Review sample counts",
+        "status": "done",
+        "owner": "Demo A"
+      },
+      {
+        "id": "t4",
+        "title": "Wait for a human decision",
+        "status": "blocked",
+        "owner": "Demo B"
+      }
+    ],
+    "approved": true
+  },
+  {
+    "job_id": "weekly-demo-002",
+    "tasks": "not an array",
+    "approved": true
+  },
+  {
+    "job_id": "weekly-demo-003",
+    "tasks": [
+      {
+        "id": "t1",
+        "title": "Check fictional stock",
+        "status": "done",
+        "owner": "Demo A"
+      },
+      {
+        "id": "t2",
+        "title": "Prepare sample report",
+        "status": "todo",
+        "owner": "Demo B"
+      },
+      {
+        "id": "t3",
+        "title": "Review sample counts",
+        "status": "done",
+        "owner": "Demo A"
+      },
+      {
+        "id": "t4",
+        "title": "Wait for a human decision",
+        "status": "blocked",
+        "owner": "Demo B"
+      }
+    ],
+    "approved": false
+  }
+]

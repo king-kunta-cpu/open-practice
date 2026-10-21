@@ -1,0 +1,13 @@
+Date,Category,Description,Amount,ReceiptID
+2026-10-01,Travel,Fictional bus fare,10,r01
+2026-10-02,Food,Fictional lunch,5,r02
+2026-10-03,Travel,Fictional delivery,15,r03
+2026-10-04,Tools,Fictional supplies,20,r04
+2026-10-05,Food,Fictional refreshments,10,r05
+2026-10-06,Travel,Fictional trip,12.50,r06
+2026-10-07,Food,Fictional zero-cost item,0,r07
+2026-10-03,Travel,Fictional delivery,15,r03
+2026-10-08,Tools,Unreadable amount,N/A,r08
+2026-10-09,Unknown,Unmapped category,9,r09
+2026-10-10,Food,Negative outside this exercise policy,-5,r10
+,Food,Missing date,5,r11

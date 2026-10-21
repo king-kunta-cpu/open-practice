@@ -1,39 +1,37 @@
-# Account/library/offline release verification
+# Verification — 0.6.0 / 2026-10-21
 
-Verified against the live Worker on 2026-10-21.
+## Current release: local, not production
+38 automated tests pass under Node 22 with no skips. Chromium checks use the local Node preview, not the production Worker. External namespace transfer, remote repository rename/push and production deployment have **not** been executed for this release.
 
-## Automated
-21 tests pass under Node 22, including native SQLite persistence, password hashing, escaping in offline exports, required resource files, and existing routing/security tests. The older sandbox Node 20 skips the native SQLite test; the full Node 22 run has no skips.
+## Automated checks
+- Six canonical paths, 36 complete activities, 18 review questions, six capstones, 30 rubric criteria; guided-time totals reconcile to 1,440 estimated minutes.
+- Every activity includes outcomes, explanation, example, guided steps, evidence, common mistakes, understanding check and offline alternative.
+- Legacy first-three-activity indices and notes survive; prior knowledge checks do not silently pass the expanded review.
+- A 9/10 capstone fails its threshold if the critical safety criterion is only 1/2.
+- Eight calculator reference cases plus multiplication overflow; cleaned expense fixture reconciles to its documented category totals.
+- Tutor context contains the selected activity rather than the full path.
+- Six practice ZIPs rebuild deterministically, open without archive errors and include workbook, metadata and fixtures.
+- Worker-packaged ZIP/image/font bytes equal the source bytes, with correct MIME types.
+- Active authored text uses current identity; historical Git records and third-party licence files are excluded from rewriting.
+- Native SQLite registration, persistence, recovery rotation, export/deletion behaviour and the existing security/provider/router suite remain passing.
 
-## Live HTTP
-- Public course/library/news/privacy pages and SVG resource return HTTP 200.
-- Register a temporary adult account, receive recovery code and secure session.
-- Save a course workspace, retrieve it, refuse a stale version with HTTP 409.
-- Record an allowed learning event and verify extraneous key-like fields are not stored.
-- Export account work and events.
-- Sign out; signed-out save is denied with HTTP 401.
-- Sign in and retrieve prior saved notes (cross-session persistence).
-- Make a successful learner-key Groq inference request.
-- Recover/reset password using the code, then delete the test account and verify session is cleared.
+## Chromium local browser
+- Curriculum page renders six paths and accurate 36-activity/21-resource counts.
+- A path shows six activity selectors, structured examples/evidence, three review questions and five rubric controls.
+- Selecting the correct review responses updates progress; critical rubric scoring changes the displayed threshold status.
+- Native HTML export contains all six activities, review questions and rubric. Notes containing script-like text remain text and never execute.
+- Download → open from disk → edit final-activity note → download updated copy → reopen preserves both old and new notes.
+- Offline JSON reimport restores the final-activity note to the online path.
+- Library renders 21 downloads; dashboard uses eight completion units and a 36-activity denominator.
+- Homepage, curriculum, active cloud-AI path, dashboard, library, News Drops and privacy have no horizontal overflow at 390px.
+- Offline quote fixture calculates a fractional case; lexical-retrieval fixture renders sources and explicitly reports a no-overlap query.
+- A temporary account saves and retrieves the final expanded activity through the local HTTP API, then is deleted.
+- No uncaught browser JavaScript errors in the successful run.
 
-## Chromium browser
-- Register through the actual UI and save a course note to the account.
-- Download a native HTML workspace.
-- Open it from disk, disconnect network access, edit a note, download a new HTML copy, reopen and verify the edit survived.
-- Render all 9 library resources and 3 news entries.
-- Delete the browser test account.
-- Check mobile viewport at 390px: no horizontal overflow.
-- No uncaught browser JavaScript errors.
+The browser suite exercises one path's full review/export round trip; structural/unit checks cover all six. Mocked provider tests do not establish live provider availability. Earlier production Groq/account tests belong to the preceding release and are not proof that 0.6.0 is live.
 
-Test accounts were deleted. No API keys were committed. Google Gemini and learner Cloudflare adapters are implemented but have not had authenticated end-to-end inference tests; no suitable learner credentials were supplied for them. Learner Groq was verified. These checks are not a penetration test, load test, data-restoration drill, or child-safety review.
+## Remaining gates
+Independent subject-matter review, learner-tested timing, full backup/restore rehearsal, namespace-transfer rehearsal, production account-preservation verification, external rename/push/deployment, authenticated Gemini/learner Cloudflare tests, abuse/load/security review and provider budget enforcement. No email-link sender is configured. Self-review scores are not independently verified assessment.
 
-## Dashboard bugfix release
-The old Load cloud work button returned silently for an empty account and used a blocking confirmation/reload path for saved accounts. It now opens a dedicated dashboard with explicit loading, empty, error and retry states; browser/cloud course cards; and explicit cloud-copy restore. Normal sign-in redirects to the dashboard. Registration/recovery retains the one-time code until the learner chooses to continue. Recovery-code replacement requires the current password and revokes existing sessions before issuing a new session. Additional automated coverage verifies rotation and the empty-state/timeout paths.
-
-Dashboard release Chromium verification: a new empty account opened the dashboard with all six courses; saved work appeared after sign-out/sign-in; recovery replacement succeeded; the temporary account was deleted. No browser JavaScript errors. The Node 22 run now passes 22 tests.
-
-## Brass & Circuit redesign verification
-25 Node 22 tests pass. Binary logo/favicon responses match the original bytes after Worker packaging. Main pages have a same-origin script policy; downloadable starter HTML retains its own working inline script. Chromium reran account creation/deletion, dashboard loading, cloud saves and recovery rotation, plus offline edit/save/reopen. Library and news render correctly, and the 390px mobile viewport has no horizontal overflow. A fresh production homepage load made zero third-party browser requests and had no failed assets; logo loading was verified. The hero's embedded SVG emblem needs no external image fetch.
-
-## Collection command-center release
-28 Node 22 tests pass. Chromium verifies previous/next selection, mini-manual selection, ArrowLeft/ArrowRight/Home/End controls, mobile horizontal drag/swipe, selected-item tracking, the new offline download action, and font loading. Public pages have no horizontal overflow at 390px. Account registration, saved-work retrieval, recovery replacement, deletion and offline edit/download/reopen were rerun successfully; temporary test accounts were removed. The six covers are original school diagrams; no reference-site media or tracking/urgency scripts were copied.
+## Optional browser runner
+Start the Node server, install Playwright in a separate QA environment, then run `PREVIEW_URL=http://127.0.0.1:3001 node scripts/browser-check.mjs`. If Playwright is not installed in the repository, set `PLAYWRIGHT_MODULE` to its module path. `QA_DIR` selects an output directory; otherwise temporary OS storage is used. Playwright is test tooling, not a runtime dependency.
