@@ -71,3 +71,10 @@ The 0.8.0 studio was published and its all-50 activity suite plus foundation sui
 The 0.8.1 tool directory adds ten provider options with official access-reference links, four track filters and two access labels, reusing existing illustrated exercises rather than inventing independent mastery claims. It does not save keys or add provider bindings. The free-tier label is not a guarantee of model/feature/region availability. Canva editing alone is explicitly design-only; a Zapier manual handoff is not an automated AI run. The source list's local-training/simulation recommendations are replaced and Lobe's maintenance status is disclosed.
 
 Local verification: 61 automated tests; ten challenge inputs/prompts/guides and related covers; directory search/track/access/reset/empty state; clipboard failure fallback; linked evidence workspace; account dialog; 360/390/768/1024px responsive layouts. No new account/workspace schema or database migration is needed.
+
+
+## Artwork refresh / 0.8.2 — first ten only
+
+Activities 01–10 have original colorful AI-generated editorial illustrations with dimensional lighting, shading and material textures. Their ten visual guides now have artwork headers, color-coded steps and shaded process diagrams. The remaining 40 activity covers/guides are not yet replaced: generation was limited to ten images in this turn. The catalogue uses larger edge-to-edge artwork instead of padded book thumbnails. The linked tools directory, dashboard, collection selectors and ZIP downloads consume the same updated assets.
+
+Images remain self-contained in SVG data URIs, including offline HTML exports. Compressed source art and guide thumbnails live in `branding/activity-art`; the deterministic builder uses only Python's standard library. 63 automated tests cover the original functionality plus artwork embedding and the 3 MiB Worker payload ceiling. All 100 activity SVGs are XML-valid. The all-50 activity browser suite and ten-tool suite passed locally after the artwork update, including mobile layouts and offline edit/reopen.

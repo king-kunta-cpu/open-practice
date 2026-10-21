@@ -3,6 +3,8 @@
 from pathlib import Path
 from collections import Counter
 import json,html,textwrap,zipfile,io
+import importlib.util
+_spec=importlib.util.spec_from_file_location("activity_art",Path(__file__).with_name("activity-art.py"));art=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(art)
 R=Path(__file__).resolve().parent.parent;P=R/'apps/web/public';groups=json.loads((R/'curriculum/activity-collections.json').read_text());G={g['id']:g for g in groups};activities=[json.loads(p.read_text()) for p in sorted((R/'curriculum/activities').glob('*.json'))]
 assert len(activities)==50 and Counter(a['collection'] for a in activities)=={g['id']:5 for g in groups}
 for folder in ['activities','brand/activities','resources/activity-handbooks','resources/activity-inputs','resources/activity-packs','resources/activity-collections']:(P/folder).mkdir(parents=True,exist_ok=True)
@@ -22,6 +24,7 @@ icons=[
 def txt(x,y,value,size=20,fill='#fff5e5',anchor='start',family='Georgia,serif'):
  return f'<text x="{x}" y="{y}" text-anchor="{anchor}" fill="{fill}" font-size="{size}" font-family="{family}">{html.escape(value)}</text>'
 def cover(a):
+ if art.artwork(a):return art.cover(a,G[a["collection"]]["title"])
  gi=next(i for i,g in enumerate(groups) if g['id']==a['collection']);color=palette[gi];lines=textwrap.wrap(a['title'],23);out=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-label="{html.escape(a["title"])}"><rect width="600" height="720" rx="12" fill="{color}"/><path d="M0 0H18V720H0" fill="#000" opacity=".13"/><rect x="24" y="24" width="552" height="672" rx="7" fill="none" stroke="#d9b78f"/><rect x="34" y="34" width="532" height="652" rx="5" fill="none" stroke="#d9b78f" opacity=".25"/>'
  out+=txt(300,78,'OPEN PRACTICE / LEARN BY DOING',13,'#ecd4a8','middle','Arial,sans-serif')+txt(300,120,G[a['collection']]['title'].upper(),12,'#ecd4a8','middle','Arial,sans-serif')
  out+=f'<g transform="translate(300 265) scale(1.25)" fill="none" stroke="#ecd4a8" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"><circle r="81" opacity=".32"/>{icons[gi]}</g>'
@@ -30,6 +33,7 @@ def cover(a):
  return out
 
 def guide(a):
+ if art.artwork(a):return art.guide(a)
  out=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" role="img" aria-label="Four-stage guide: {html.escape(a["title"])}"><rect width="1100" height="720" rx="24" fill="#fff9f1"/><rect x="1" y="1" width="1098" height="718" rx="24" fill="none" stroke="#ead8c2"/>'+txt(42,49,f'FIELD GUIDE / ACTIVITY {a["number"]:02d}',13,'#a8321f',family='Arial,sans-serif')
  for i,line in enumerate(textwrap.wrap(a['title'],48)):out+=txt(42,94+i*31,line,29,'#7c1f16')
  for i,step in enumerate(a['visualSteps']):
