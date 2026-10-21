@@ -9,13 +9,13 @@ if out.exists():shutil.rmtree(out)
 out.mkdir(parents=True)
 for folder in ['brand','resources','activities','demonstrations']:
  shutil.copytree(P/folder,out/folder)
-for name in ['style.css','practice.html','starter.html','facilitators.html','demonstrations.html']:
+for name in ['style.css','practice.html','starter.html','facilitators.html','demonstrations.html','about.html','help.html','privacy.html','cookies.html','terms.html','licensing.html','accessibility.html','contact.html']:
  shutil.copy2(P/name,out/name)
 shutil.copy2(P/'practice.html',out/'index.html')
 # Only generated learning pages are altered. Downloadable examples retain their own code.
 nav=f'<nav aria-label="Reading navigation"><a href="{base}/">50 guides</a><a href="{base}/starter.html">Starter</a><a href="{base}/facilitators.html">Pilot kit</a><a href="{base}/demonstrations.html">Demonstrations</a></nav>'
 banner='<aside style="padding:16px;background:#f4dfaf;border-bottom:3px solid #7c1f16"><strong>Alternate reading &amp; download site.</strong> No accounts, cloud saving, browser progress or analytics run here. Editable workspaces remain on <a href="'+MAIN+'">the main site</a>. If that host is blocked on your network, read the guides and download the offline kit here; do not bypass certificate warnings.</aside>'
-allowed={'practice.html','starter.html','facilitators.html','demonstrations.html','index.html'}
+allowed={'practice.html','starter.html','facilitators.html','demonstrations.html','about.html','help.html','privacy.html','cookies.html','terms.html','licensing.html','accessibility.html','contact.html','index.html'}
 for p in out.rglob('*.html'):
  rel=p.relative_to(out)
  if rel.parts[0]=='resources':continue
@@ -30,7 +30,7 @@ for p in out.rglob('*.html'):
  def link(m):
   attribute,path=m[1],m[2]
   if path=='/':target=base+'/'
-  elif path.split('?',1)[0] in ['/activities.html','/dashboard.html','/curriculum.html','/library.html','/tools.html','/news.html','/privacy.html']:target=MAIN+path
+  elif path.split('?',1)[0] in ['/activities.html','/dashboard.html','/curriculum.html','/library.html','/tools.html','/news.html']:target=MAIN+path
   else:target=base+path
   return attribute+'="'+target+'"'
  s=re.sub(r'(href|src)="(/(?!/)[^"]*)"',link,s)

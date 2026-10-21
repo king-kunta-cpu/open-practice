@@ -1,0 +1,213 @@
+[
+  {
+    "slug": "about",
+    "title": "Built for practice, not promises.",
+    "label": "About Open Practice",
+    "cover": "prompt",
+    "intro": "Independent, open practical AI learning. Read a worked example, make an artifact, test it and keep a limitation you can explain.",
+    "sections": [
+      [
+        "What is available",
+        "Six foundation build paths contain 36 guided activities. Fifty additional illustrated activities cover prompting, data, verification, design and creative workflows. The library includes original templates, fictional inputs, handbooks and downloadable practice packs."
+      ],
+      [
+        "What this is not",
+        "Open Practice is non-accredited. Self-reviews are learner reports, not proctored assessment, a qualification, employment evidence or an independent evaluation of mastery. Time estimates and teaching materials have not been independently learner-validated."
+      ],
+      [
+        "Open materials, honest boundaries",
+        "You can read and download public materials without an account. Hosted AI services may require their own accounts, keys, credits or payment. Manual fixtures and design-only routes are labelled; they are not presented as live model runs. Illustrations are AI-generated editorial artwork with human-authored instructional labels, not provider screenshots."
+      ],
+      [
+        "Who maintains it",
+        "This project is maintained through its public source repository. No institutional endorsement, registered-company status, university affiliation or partner relationship is implied. See the contact page for the current public feedback route."
+      ],
+      [
+        "Follow the work",
+        "<a href='https://github.com/king-kunta-cpu/open-practice' target='_blank' rel='noopener noreferrer'>Inspect the source and release history ↗</a> · <a href='/curriculum.html'>Explore the curriculum</a> · <a href='/licensing.html'>Reuse the materials</a>"
+      ]
+    ]
+  },
+  {
+    "slug": "terms",
+    "title": "Clear terms. Useful practice.",
+    "label": "Terms of use",
+    "cover": "automation",
+    "intro": "These terms describe the current independent pilot. They are not a claim of accreditation, guaranteed AI performance or unlimited free third-party access.",
+    "sections": [
+      [
+        "Using the materials",
+        "Public learning materials and downloads are available without an account. Reuse is governed by the applicable licences, not a transfer of ownership of third-party material. Read the licensing page before redistribution."
+      ],
+      [
+        "Accounts and acceptable use",
+        "Account registration is limited to adults aged 18 or older in this pilot. Choose a unique password and keep your recovery code. Do not impersonate others, access another person's account, probe accounts without permission, distribute malware or use the platform to infringe rights. Use only provider credentials you are authorised to use."
+      ],
+      [
+        "Your work and responsibility",
+        "You retain whatever rights you already have in your own work. Saving a draft permits the service to process it for the requested storage and learning features; it does not make the work public or grant a general promotional licence. Do not upload private documents, credentials or material you lack permission to process. Sharing and cloud saving are explicit choices."
+      ],
+      [
+        "AI and external services",
+        "Generated output can be false, unsafe, biased or incomplete. Verify it against sources and acceptance tests. Activities are not professional medical, legal, financial or other regulated advice. External tools have separate terms, privacy practices and changing quotas. Company tutor access does not give you ownership of company API keys."
+      ],
+      [
+        "Availability and outcomes",
+        "This is a pilot supplied as available. Features can fail or change; retain independent exports of important work. No result, uptime level, certificate, job, accessibility conformance or free-provider capacity is guaranteed. Nothing here excludes rights or liabilities that cannot lawfully be excluded."
+      ],
+      [
+        "Leaving or reporting a problem",
+        "Export or delete your account through the Account menu. Deletion does not erase local browser copies or downloaded files. Report a redacted issue through the contact page; do not publish passwords or recovery codes. These published terms may be updated, with the date shown here. Significant operational changes should be reflected in the relevant policy before launch."
+      ]
+    ]
+  },
+  {
+    "slug": "licensing",
+    "title": "Download. Adapt. Give credit.",
+    "label": "Licensing & attribution",
+    "cover": "web",
+    "intro": "Open learning materials are intended to be used, not merely viewed. The repository and each resource identify the applicable licence.",
+    "sections": [
+      [
+        "Original learning materials — CC BY 4.0",
+        "Original lessons, handbooks, worksheets, fictional datasets and platform diagrams are offered under Creative Commons Attribution 4.0 International where copyright applies. You may share and adapt them, including commercially, provided you give appropriate credit, link to the licence and indicate changes. Do not imply endorsement."
+      ],
+      [
+        "Code — MIT",
+        "Platform source code is offered under the MIT licence, subject to included third-party notices. Preserve the copyright and permission notice when redistributing substantial portions. Downloadable learning code starters are labelled in the library; inspect the per-file and repository notices rather than assuming every third-party dependency has the same licence."
+      ],
+      [
+        "An attribution you can adapt",
+        "<pre>Adapted from Open Practice, [resource title].\nSource: https://open-practice.zlnew.workers.dev/\nLicence: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/\nChanges: [describe your edits]. No endorsement implied.</pre>"
+      ],
+      [
+        "Illustrations, fonts and external material",
+        "Covers and editorial illustrations are AI-generated, with authored titles and instructional labels. Copyright protection and permitted uses of AI-generated imagery can vary by jurisdiction; no exclusive copyright or universal clearance is promised. Third-party names, trademarks, linked articles and provider interfaces remain subject to their owners' rights. The bundled Archivo Black font retains its SIL Open Font License notice. Do not treat a link to an external asset as a licence to copy it."
+      ],
+      [
+        "Licence texts and questions",
+        "<a href='https://creativecommons.org/licenses/by/4.0/' target='_blank' rel='noopener noreferrer'>Read CC BY 4.0 ↗</a> · <a href='https://github.com/king-kunta-cpu/open-practice/blob/main/LICENSE' target='_blank' rel='noopener noreferrer'>Read repository licence notices ↗</a>. If a resource has conflicting or missing notices, ask through the contact page before relying on a particular permission."
+      ]
+    ]
+  },
+  {
+    "slug": "accessibility",
+    "title": "Useful access, without a blanket claim.",
+    "label": "Accessibility statement",
+    "cover": "web",
+    "intro": "The aim is readable, keyboard-usable learning that works across screen sizes and has practical low-connectivity alternatives. This is a work in progress, not an independent conformance certificate.",
+    "sections": [
+      [
+        "What is implemented",
+        "Core pages use semantic headings, labelled controls, visible keyboard focus, native buttons and dialogs, image descriptions and responsive layouts. Carousel controls support keyboard navigation. Reduced-motion preferences are respected. The illustrated guides also provide instructional text outside images."
+      ],
+      [
+        "Reading and offline alternatives",
+        "Static activity guides can be read without JavaScript. Markdown handbooks, fictional inputs and offline HTML exports are available. Use the alternate reading site if the main host cannot be reached; account services remain on the main host. Download needed materials before relying on an offline session."
+      ],
+      [
+        "Known limits",
+        "No full independent WCAG audit or comprehensive assistive-technology review has been completed. Artwork may contain incidental generated markings; rely on the authored instructions rather than small text inside illustrations. Some interactive features require JavaScript, and external tools may have their own accessibility barriers. A colour-contrast check alone is not an accessibility audit."
+      ],
+      [
+        "Tell us what blocks you",
+        "Use the contact page's public issue route with a redacted description: page URL, the task you tried, what happened and, if comfortable, browser and assistive technology. Do not disclose medical information, credentials or private learner work. A dedicated private support channel and guaranteed response time are not currently offered."
+      ],
+      [
+        "Practical navigation",
+        "Tab moves through controls; Enter or Space activates native buttons. Arrow keys, Home and End select carousel items. Escape closes a native dialog. Browser zoom and system text settings are supported in the tested layouts, but that is not a guarantee for every device or content combination."
+      ]
+    ]
+  },
+  {
+    "slug": "contact",
+    "title": "A clear route to the people building this.",
+    "label": "Contact & feedback",
+    "cover": "replies",
+    "intro": "Report a problem, suggest a useful improvement or ask about facilitating a small adult practice session. No partnership or booking is implied by an enquiry.",
+    "sections": [
+      [
+        "Current public feedback route",
+        "<p class='contact-options'><a class='primary' href='https://github.com/king-kunta-cpu/open-practice/issues' target='_blank' rel='noopener noreferrer'>Open the project issue tracker ↗</a></p>The issue tracker is public and may require a GitHub account. Include the page URL, steps to reproduce, expected behaviour and a redacted screenshot if useful. There is no contact form on this page and no message has been submitted merely by visiting it."
+      ],
+      [
+        "Privacy and security questions",
+        "Do not post passwords, API keys, recovery codes, private documents, account exports or personal learner information in a public issue. For a sensitive concern, first request a private follow-up route without publishing the sensitive details. A dedicated private reporting inbox, confidential support service and response-time commitment have not been established for this pilot."
+      ],
+      [
+        "Account help",
+        "Use the Account menu to export data, replace a recovery code, revoke other sessions or delete your account after password confirmation. Recovery requires your stored recovery code; email login and email password resets are not available. Please do not send credentials to request assistance."
+      ],
+      [
+        "Facilitator enquiries",
+        "Read the <a href='/facilitators.html'>adult facilitator kit</a> and indicate the proposed audience, facilitator and format without sharing attendee lists. A 60-minute taster is not full completion of the approximately 120-minute starter. Dates and partnerships must be agreed before being announced."
+      ],
+      [
+        "Before sharing a screenshot",
+        "Remove your username if you do not want it public, along with account details, keys, private prompts, browser tabs and downloaded-file contents. For connection failures, the exact browser error code is useful; do not bypass certificate warnings."
+      ]
+    ]
+  },
+  {
+    "slug": "cookies",
+    "title": "What stays in your browser.",
+    "label": "Cookies & local storage",
+    "cover": "cloud",
+    "intro": "Essential sign-in storage, local learning drafts and optional counts have different purposes. There are no advertising cookies or third-party analytics scripts installed by the application.",
+    "sections": [
+      [
+        "Essential sign-in cookie",
+        "The __Host-op_session cookie holds an opaque sign-in token. It is Secure, HttpOnly and SameSite=Strict, scoped to the host and valid for up to 30 days. A hashed token is stored on the server. Signing out invalidates the current session. Necessary account functions cannot work with all cookies blocked."
+      ],
+      [
+        "Local drafts and preferences",
+        "Browser local storage keeps foundation and standalone activity drafts, self-review state and interface choices. Local drafts do not automatically sync to an account. Other users of the same browser profile may access them. Clearing site data can remove these drafts; export anything important first."
+      ],
+      [
+        "Optional acquisition counts",
+        "Optional first-party counts are off by default. If enabled, browser storage keeps the consent choice, a random identifier, first opt-in day and a broad source tag. These are separate from account-linked learning events. Global Privacy Control disables optional counting. Use the optional analytics controls to turn it off or request deletion; the privacy policy explains the 90-day suppression marker."
+      ],
+      [
+        "Managing stored data",
+        "Use the browser's site-data settings to clear local storage and cookies, understanding that this can sign you out and erase local drafts. Deleting a cloud account does not delete local browser data or downloaded files; clearing a browser does not delete cloud work. Downloaded HTML and JSON files are not encrypted."
+      ],
+      [
+        "Hosting and external services",
+        "Cloudflare and AI providers process network requests under their own terms and operational practices. Third-party sites may set their own storage when you choose to visit them. The platform does not promise anonymity or zero infrastructure retention. Read the <a href='/privacy.html'>privacy policy</a> for server-side data handling."
+      ]
+    ]
+  },
+  {
+    "slug": "help",
+    "title": "Keep your work. Know the boundaries.",
+    "label": "Help & frequently asked questions",
+    "cover": "sheets",
+    "intro": "A practical guide to accounts, saving, downloads and provider access. Start with fictional inputs and keep an independent copy of important work.",
+    "sections": [
+      [
+        "Do I need an account or a paid AI plan?",
+        "No account is needed to read materials or download public resources. Some optional hosted tools require their own account, key, credits or payment. A free chat interface is not automatically a free API. Each activity explains a manual, fixture or design-only alternative where applicable."
+      ],
+      [
+        "Where is my work saved?",
+        "Browser saving stays on that device/profile. Save to account and Load account copy are explicit actions; they are not an automatic background sync. The dashboard shows account work and local drafts separately. If cloud loading fails, do not overwrite a known saved copy until you have exported the work you want to retain."
+      ],
+      [
+        "How do I work offline?",
+        "Download the relevant handbook, input and practice pack, or export an editable standalone HTML workspace. After editing an offline HTML file, download its updated copy using the file's save control. Offline exports contain your notes, not provider keys or sign-in credentials. Keep them private because they are not encrypted."
+      ],
+      [
+        "How does sign-in recovery work?",
+        "Accounts use a username and password, not email. Keep the recovery code shown at registration. Without the password or that code, the pilot cannot reset access. The Account menu lets you replace the recovery code and revoke other sessions. Never include a recovery code in a public support request."
+      ],
+      [
+        "Does completing a path earn a qualification?",
+        "No. This is independent, non-accredited learning. Completion and self-review records are self-reported practice, not verified mastery, a certificate or a professional credential. Keep actual artifacts, tests and limitations rather than treating a progress marker as proof."
+      ],
+      [
+        "What if the page will not load or a search changes by itself?",
+        "Use the alternate reading site for guides and downloads if the main host fails. Report the exact connection error without bypassing warnings. Catalogue filtering should only follow your own search input; report any remaining password-manager interference with browser/extension details and a redacted screenshot, not your password or account export."
+      ]
+    ]
+  }
+]

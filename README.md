@@ -137,3 +137,11 @@ The final ten original AI-generated editorial illustrations and matching self-co
 - [Alternate HTTPS reading/download mirror](https://king-kunta-cpu.github.io/open-practice/) — explicitly not an account/cloud-saving host
 
 Consent-first funnel counts are off by default. Sharing is optional and local. The existing daily Worker schedule performs bounded research; invitation sending remains disabled until Gmail authentication succeeds. The three-organisation pilot has strict caps, public role contacts only, opt-out and no automatic follow-ups. Research results and SMTP acceptance are never represented as learner outcomes. See [operator instructions](docs/acquisition-operations.md).
+
+## Cover-first shelves and site information (0.9.2)
+
+Catalogue search now keeps an explicitly accepted user query separate from DOM values that a browser/password manager may autofill. Unsolicited events and unfocused input cannot drive filtering. Account credential controls are mounted only when the learner opens the Account dialog, then removed on close. Account autofill remains available inside that explicit dialog.
+
+Home cards, both carousel thumbnail rails, curriculum entries and tool cards display large artwork. Every one of the 31 library resources has a cover; the full illustrated library and downloads are also rendered as HTML for JavaScript-free reading. Related downloads deliberately share their build-path artwork; these are not 31 newly generated illustrations.
+
+Shared footer navigation links the privacy policy, cookies/storage explanation, terms, licensing, accessibility statement, about, contact and help pages. These describe the current independent adult pilot and actual features, not legal certification or an audited accessibility guarantee. The contact route is the public repository issue tracker; no private support inbox or contact form is invented.
