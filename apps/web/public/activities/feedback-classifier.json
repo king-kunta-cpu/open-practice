@@ -1,0 +1,99 @@
+{
+  "id": "feedback-classifier",
+  "number": 24,
+  "title": "Classify feedback with an uncertainty bucket",
+  "collection": "data-structures",
+  "goal": "Create a small labelled feedback set and inspect false positives.",
+  "explanation": "Sentiment is not the same as topic or urgency. A short review can contain praise and criticism at once; forcing it into a single emotional label hides information. Define an explicit Mixed/Unclear route and quote the relevant text instead of guessing a customer’s feelings.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "r1: “Arrived early. Excellent.” r2: “It is a mug.” r3: “The handle broke immediately.” r4: “Looks lovely, but the lid leaks.” r5: “Great, another week waiting.” Labels: Positive, Neutral, Negative, Mixed/Unclear.",
+  "prompt": "Classify each review by ID using the defined labels. Give an exact evidence span and a separate issue/topic field. Use Mixed/Unclear when praise and criticism coexist or sarcasm is uncertain. Do not infer a person’s mood or intent beyond the text.",
+  "workedExample": "r1 → Positive; r2 → Neutral; r3 → Negative, issue handle durability; r4 → Mixed/Unclear, leak plus visual praise; r5 may be Negative with an explicit sarcasm note or Mixed/Unclear if uncertain. Either needs evidence, not an invented emotion.",
+  "steps": [
+    {
+      "title": "Define labels",
+      "text": "Write decision rules and an uncertainty route before testing."
+    },
+    {
+      "title": "Make reference labels",
+      "text": "Label the five reviews yourself and note where a reasonable reviewer might disagree."
+    },
+    {
+      "title": "Run the classifier",
+      "text": "Keep review IDs and exact quoted evidence for each output."
+    },
+    {
+      "title": "Compare mistakes",
+      "text": "Count clear matches separately from ambiguous cases. Inspect r4 and r5 rather than hiding them."
+    },
+    {
+      "title": "Test a new case",
+      "text": "Use “Fast delivery, broken item.” Decide whether the revised rules preserve both pieces of feedback."
+    }
+  ],
+  "checks": [
+    "Every output preserves the review ID and quotes an actual evidence span.",
+    "Topic/issue is separate from sentiment, and the mixed review is not flattened into only praise.",
+    "Ambiguous labels and disagreements remain visible in the score table."
+  ],
+  "commonMistakes": [
+    "Treating sarcasm detection as certain.",
+    "Inferring a customer’s personality from a short comment."
+  ],
+  "offline": "Use a manual sorting table and compare two readers’ labels before agreeing the policy.",
+  "visualSteps": [
+    {
+      "title": "Define",
+      "text": "Write label rules"
+    },
+    {
+      "title": "Label",
+      "text": "Keep a human reference"
+    },
+    {
+      "title": "Compare",
+      "text": "Show errors and ambiguity"
+    },
+    {
+      "title": "Refine",
+      "text": "Test a fresh mixed review"
+    }
+  ],
+  "reflection": "Which review made a three-bucket classification inadequate?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Every output preserves the review ID and quotes an actual evidence span."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Topic/issue is separate from sentiment, and the mixed review is not flattened into only praise."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Treating sarcasm detection as certain."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Data & structures",
+  "extraFiles": [
+    {
+      "title": "Fictional CSV dataset",
+      "url": "/resources/activity-inputs/feedback-classifier.csv"
+    }
+  ],
+  "cover": "/brand/activities/feedback-classifier-cover.svg",
+  "guide": "/brand/activities/feedback-classifier-guide.svg",
+  "handbook": "/resources/activity-handbooks/feedback-classifier.md",
+  "fixture": "/resources/activity-inputs/feedback-classifier.md",
+  "pack": "/resources/activity-packs/data-structures.zip"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "html-debugger",
+  "number": 19,
+  "title": "Debug a tiny page with evidence",
+  "collection": "verify-trust",
+  "goal": "Ask for a minimal repair, then compare actual browser rendering.",
+  "explanation": "Browsers often repair broken HTML, so “it looks fine” is not proof that markup is correct. Do not run unfamiliar scripts. This exercise uses a harmless text-formatting fragment and a sandboxed preview with scripting disabled. Keep the fix small enough to explain each tag.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "html",
+  "sampleInput": "Broken fragment: <p>Welcome <strong>builder</p><p>Try one small experiment.</p>\nDesired: only the word “builder” is strongly emphasized; the second paragraph should not inherit emphasis.",
+  "prompt": "Find the unmatched formatting element in this HTML fragment. Return a minimal corrected fragment and a short explanation of the repair. Do not add JavaScript, external links, libraries or unrelated styling. Explain why browser error recovery can make the broken result appear inconsistent.",
+  "workedExample": "Corrected: <p>Welcome <strong>builder</strong></p><p>Try one small experiment.</p>. The closing strong tag belongs before the first paragraph closes. Browser recovery is not a reliable substitute for a valid structure.",
+  "steps": [
+    {
+      "title": "Write the expected appearance",
+      "text": "Specify exactly which word should be emphasized before viewing the model’s answer."
+    },
+    {
+      "title": "Ask for a minimal patch",
+      "text": "Compare the returned fragment with the original; reject unrelated additions."
+    },
+    {
+      "title": "Preview safely",
+      "text": "Use the activity’s script-disabled preview or a plain local HTML file containing only this fragment."
+    },
+    {
+      "title": "Check a second case",
+      "text": "Replace strong with em and repeat the missing-close test. Explain the same structural issue."
+    },
+    {
+      "title": "Teach back the fix",
+      "text": "Annotate opening/closing pairs and describe why a browser might hide the original mistake."
+    }
+  ],
+  "checks": [
+    "The corrected fragment closes the intended element at the correct point.",
+    "No script, library or external resource is introduced by the repair.",
+    "You compare actual rendering and can explain the matched tag pair."
+  ],
+  "commonMistakes": [
+    "Running arbitrary generated code because it is labelled a fix.",
+    "Accepting a large rewrite that hides the original issue."
+  ],
+  "offline": "Print the snippet and draw lines between opening and closing tags, then sketch the expected rendering.",
+  "visualSteps": [
+    {
+      "title": "Expect",
+      "text": "Describe the desired output"
+    },
+    {
+      "title": "Inspect",
+      "text": "Find the missing close"
+    },
+    {
+      "title": "Patch",
+      "text": "Change only what is necessary"
+    },
+    {
+      "title": "Preview",
+      "text": "Check in a safe sandbox"
+    }
+  ],
+  "reflection": "Why can a browser display something useful even when the HTML is malformed?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The corrected fragment closes the intended element at the correct point."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. No script, library or external resource is introduced by the repair."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Running arbitrary generated code because it is labelled a fix."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

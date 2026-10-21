@@ -1,0 +1,87 @@
+{
+  "id": "spreadsheet-lookup",
+  "number": 7,
+  "title": "A spreadsheet formula you actually test",
+  "collection": "data-structures",
+  "goal": "Turn a plain-language lookup requirement into a formula and test missing and duplicate IDs.",
+  "explanation": "An apparently correct formula may fail in a different spreadsheet locale or quietly select the first duplicate. Define the expected behaviour before asking for syntax. Use a small fictional table, and verify each result manually. Generated formulas are drafts, not evidence that the data is clean.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "spreadsheet",
+  "sampleInput": "Create columns A:C: ID, Name, Email. Rows: u01, Nia, nia@example.test; u02, Tari, tari@example.test; u02, Tari old, old@example.test. Lookup cell E2. Test u01, u99 and u02. Desired rule: return the email for exactly one match; blank for no match; FLAG DUPLICATE for multiple matches.",
+  "prompt": "For my spreadsheet, propose a formula using COUNTIF and a lookup to implement: exactly one matching ID in A2:A4 returns C2:C4; zero matches returns an empty string; more than one match returns FLAG DUPLICATE. Ask which spreadsheet and locale if necessary. Explain the tested ranges. Do not hide every error with IFERROR.",
+  "workedExample": "One Excel/Sheets-style draft: =IF(COUNTIF(A2:A4,E2)=0,\"\",IF(COUNTIF(A2:A4,E2)>1,\"FLAG DUPLICATE\",XLOOKUP(E2,A2:A4,C2:C4,\"\"))). Some versions/locales need different functions or separators; test in the actual sheet. Expected: u01 → nia@example.test; u99 → blank; u02 → FLAG DUPLICATE.",
+  "steps": [
+    {
+      "title": "Build the tiny sheet",
+      "text": "Type the fictional rows and lookup cell exactly; manually write expected outcomes for the three IDs."
+    },
+    {
+      "title": "Describe the rule",
+      "text": "Include duplicate handling, no-match behaviour and your actual spreadsheet product/locale."
+    },
+    {
+      "title": "Test the draft",
+      "text": "Paste the formula into a spare result cell, not into original data. Try each ID and record the displayed value."
+    },
+    {
+      "title": "Change a boundary",
+      "text": "Add a new row outside A2:A4. Check whether the range updates or silently misses it."
+    },
+    {
+      "title": "Explain the revision",
+      "text": "Adjust to a table/range appropriate to your tool and retest. Keep the formula text and results."
+    }
+  ],
+  "checks": [
+    "The three original cases match the documented unique, missing and duplicate rules.",
+    "You have tested the formula in the named spreadsheet, not just read the AI explanation.",
+    "An added row produces a documented range update or an explicit limitation."
+  ],
+  "commonMistakes": [
+    "Accepting a first-match lookup when duplicates need review.",
+    "Masking a syntax error or data-quality problem with blanket IFERROR."
+  ],
+  "offline": "Match the ID cards to the rows by hand and document the three expected results; mark formula execution untested until you have a spreadsheet.",
+  "visualSteps": [
+    {
+      "title": "Specify",
+      "text": "Define missing and duplicate rules"
+    },
+    {
+      "title": "Generate",
+      "text": "Name the spreadsheet"
+    },
+    {
+      "title": "Run",
+      "text": "Try three known cases"
+    },
+    {
+      "title": "Retest",
+      "text": "Add an out-of-range row"
+    }
+  ],
+  "reflection": "Which failure would an empty-string fallback have hidden?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The three original cases match the documented unique, missing and duplicate rules."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. You have tested the formula in the named spreadsheet, not just read the AI explanation."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Accepting a first-match lookup when duplicates need review."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

@@ -1,0 +1,87 @@
+{
+  "id": "sql-reference",
+  "number": 44,
+  "title": "Read a SQL query against known totals",
+  "collection": "verify-trust",
+  "goal": "Translate a data question into a query and check boundaries against a tiny fixture.",
+  "explanation": "Generated SQL is not safe to run against an unfamiliar production database. Use a read-only fictional table or a spreadsheet calculation as the reference. Define the SQL dialect, timestamp storage and date range explicitly. A query that looks plausible can include the wrong year or country, or mishandle missing rows.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "sql",
+  "sampleInput": "sales rows: 2024-12-31, 50, Canada; 2025-01-01, 100, Canada; 2025-06-10, 25.50, Canada; 2025-12-31, 10, Canada; 2026-01-01, 200, Canada; 2025-08-01, 99, Kenya. Dates are ISO date strings; amounts are fictional USD.",
+  "prompt": "For a SQLite table sales(date TEXT, amount REAL, country TEXT), write one read-only SELECT for total Canada sales in calendar year 2025. Use a half-open date range from 2025-01-01 inclusive to 2026-01-01 exclusive. Explain each filter and how an empty set should be displayed. Do not modify any data.",
+  "workedExample": "Reference: SELECT COALESCE(SUM(amount),0) AS total FROM sales WHERE country = 'Canada' AND date >= '2025-01-01' AND date < '2026-01-01'; expected fixture total 135.50. The 2024, 2026 and Kenya rows must be excluded. REAL arithmetic is not a recommendation for production accounting.",
+  "steps": [
+    {
+      "title": "Calculate a manual reference",
+      "text": "Mark the three included Canada/2025 rows and sum them in a spreadsheet or on paper."
+    },
+    {
+      "title": "Specify dialect and storage",
+      "text": "State SQLite and ISO date strings so the model does not guess functions or timezone semantics."
+    },
+    {
+      "title": "Inspect the generated query",
+      "text": "Confirm it is a single SELECT with the exact country and half-open date range."
+    },
+    {
+      "title": "Check boundary cases",
+      "text": "Test how the query treats the first and last included dates, 2026-01-01 and an absent country."
+    },
+    {
+      "title": "Execute only if safe",
+      "text": "Optionally use a disposable read-only sample database. Otherwise label the artifact reviewed but not SQL-executed."
+    }
+  ],
+  "checks": [
+    "The manually verified total is 135.50 and the excluded rows are listed.",
+    "Date boundaries include all 2025 dates but exclude 2026-01-01.",
+    "The report names dialect/storage assumptions and does not claim execution unless it happened."
+  ],
+  "commonMistakes": [
+    "Running generated queries against a live database with write permissions.",
+    "Using a locale-dependent date format or silently assuming a timezone."
+  ],
+  "offline": "Filter the supplied rows in a spreadsheet or on paper and compare the result with the proposed SQL.",
+  "visualSteps": [
+    {
+      "title": "Reference",
+      "text": "Sum known included rows"
+    },
+    {
+      "title": "Specify",
+      "text": "Name dialect and date format"
+    },
+    {
+      "title": "Inspect",
+      "text": "Read each filter"
+    },
+    {
+      "title": "Boundary",
+      "text": "Check year edges and no rows"
+    }
+  ],
+  "reflection": "Why is “before 2026-01-01” safer than guessing the final time of 31 December?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The manually verified total is 135.50 and the excluded rows are listed."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Date boundaries include all 2025 dates but exclude 2026-01-01."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Running generated queries against a live database with write permissions."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

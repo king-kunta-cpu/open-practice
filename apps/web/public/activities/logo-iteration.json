@@ -1,0 +1,94 @@
+{
+  "id": "logo-iteration",
+  "number": 10,
+  "title": "The logo iteration loop",
+  "collection": "creative-production",
+  "goal": "Translate vague feedback into testable visual constraints.",
+  "explanation": "A generated mark is a concept, not a trademark-cleared identity or a production-ready vector. Some generators have a separate negative-prompt field; others need plain-language constraints. Judge the output visually either way. Keep a short design brief fixed and improve one failure at a time.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "image",
+  "sampleInput": "Fictional café: Ember Cup. Desired mark: a warm, welcoming symbol, readable at 32 pixels, two colours, no letters required. Avoid green, coffee-bean silhouettes, real brands and detailed texture.",
+  "prompt": "Create one original symbol concept for a fictional café. Use burgundy and warm cream only. No green, no coffee beans, no text, no gradients or tiny decorative details. The symbol must remain distinguishable at 32 pixels. Suggest an alternative motif such as a cup-shaped sunrise without copying an existing logo.",
+  "workedExample": "Review record: Version A uses a green leaf and tiny steam lines → fails colour and small-size checks. Revision B uses a two-colour cup/sun outline → passes those checks, but still needs originality/trademark review and vector redrawing.",
+  "steps": [
+    {
+      "title": "Freeze the brief",
+      "text": "Write the audience, two colours, size test and forbidden elements before generating."
+    },
+    {
+      "title": "Make one concept",
+      "text": "Save the unedited first result. Do not accept a model’s claim that it followed the constraints."
+    },
+    {
+      "title": "Inspect at small size",
+      "text": "View at 32 and 64 pixels; count colours and look for bean/leaf shapes or accidental letters."
+    },
+    {
+      "title": "Revise specifically",
+      "text": "Say which visible element must change while preserving the rest of the brief."
+    },
+    {
+      "title": "Document handoff limits",
+      "text": "Keep the brief, two versions and test table. Note that legal clearance and production vector work remain undone."
+    }
+  ],
+  "checks": [
+    "The final concept visually contains no green, beans or unintended text.",
+    "A 32-pixel preview remains recognizable without relying on tiny detail.",
+    "The handoff distinguishes concept development from trademark clearance and production vector delivery."
+  ],
+  "commonMistakes": [
+    "Believing a negative prompt guarantees exclusion.",
+    "Calling an attractive raster concept a finished brand system."
+  ],
+  "offline": "Sketch two symbol concepts in the supplied brief, colour them with the two allowed colours and run the same small-size check.",
+  "visualSteps": [
+    {
+      "title": "Brief",
+      "text": "Set palette and exclusions"
+    },
+    {
+      "title": "Generate",
+      "text": "Keep the first concept"
+    },
+    {
+      "title": "Inspect",
+      "text": "Shrink to 32 pixels"
+    },
+    {
+      "title": "Refine",
+      "text": "Fix one visible failure"
+    }
+  ],
+  "reflection": "Which revision improved function rather than just personal taste?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The final concept visually contains no green, beans or unintended text."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. A 32-pixel preview remains recognizable without relying on tiny detail."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Believing a negative prompt guarantees exclusion."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Creative production",
+  "extraFiles": [],
+  "cover": "/brand/activities/logo-iteration-cover.svg",
+  "guide": "/brand/activities/logo-iteration-guide.svg",
+  "handbook": "/resources/activity-handbooks/logo-iteration.md",
+  "fixture": "/resources/activity-inputs/logo-iteration.md",
+  "pack": "/resources/activity-packs/creative-production.zip"
+}

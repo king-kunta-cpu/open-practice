@@ -1,0 +1,62 @@
+[
+  {
+    "id": "prompt-craft",
+    "title": "Prompt craft",
+    "description": "Turn a vague request into a testable instruction.",
+    "num": 1
+  },
+  {
+    "id": "learning-reasoning",
+    "title": "Learning & reasoning",
+    "description": "Use explanations without mistaking fluency for evidence.",
+    "num": 2
+  },
+  {
+    "id": "data-structures",
+    "title": "Data & structures",
+    "description": "Turn messy inputs into formats you can check.",
+    "num": 3
+  },
+  {
+    "id": "vision-editing",
+    "title": "Vision & image editing",
+    "description": "Build datasets and test visual systems honestly.",
+    "num": 4
+  },
+  {
+    "id": "creative-production",
+    "title": "Creative production",
+    "description": "Direct and review images, sound and stories.",
+    "num": 5
+  },
+  {
+    "id": "assistants-workflows",
+    "title": "Assistants & workflows",
+    "description": "Set boundaries and keep people in control.",
+    "num": 6
+  },
+  {
+    "id": "research-evidence",
+    "title": "Research & evidence",
+    "description": "Find, attribute and verify information.",
+    "num": 7
+  },
+  {
+    "id": "workplace-writing",
+    "title": "Workplace writing",
+    "description": "Make everyday communication more useful.",
+    "num": 8
+  },
+  {
+    "id": "design-decisions",
+    "title": "Design & decisions",
+    "description": "Prototype ideas and separate simulation from research.",
+    "num": 9
+  },
+  {
+    "id": "verify-trust",
+    "title": "Verify before you trust",
+    "description": "Inspect generated technical and professional advice.",
+    "num": 10
+  }
+]

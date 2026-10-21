@@ -1,0 +1,94 @@
+{
+  "id": "framing-audit",
+  "number": 33,
+  "title": "Audit framing without declaring perfect neutrality",
+  "collection": "research-evidence",
+  "goal": "Separate verifiable claims, opinions and rhetorical framing.",
+  "explanation": "Removing adjectives does not produce an unbiased account: selection and omission can still shape a story. Preserve who said what, the scope of numbers and uncertainty. This exercise produces a transparent evidence ledger and a cautious rewrite, not an authoritative neutral version of reality.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Fictional opinion: “The disastrous queue system wasted everyone’s day. The office says 80 visitors attended on Tuesday and the median wait was 35 minutes. One visitor called the experience unbearable. Clearly the entire service is beyond repair.”",
+  "prompt": "Split the text into checkable claims, attributed opinions and unsupported inferences. Preserve attribution. Then write a restrained summary using only supported statements and indicate what is missing. Do not turn “the office says” into independent verification or “median” into “everyone.”",
+  "workedExample": "Checkable attributed claim: office reports 80 Tuesday visitors and a 35-minute median wait. Attributed opinion: one visitor found it unbearable. Unsupported inference: the whole service is beyond repair. Needed: measurement method, comparison period and broader visitor evidence.",
+  "steps": [
+    {
+      "title": "Mark claim types",
+      "text": "Use three colours for factual assertions, attributed opinions and rhetorical conclusions."
+    },
+    {
+      "title": "Request the ledger",
+      "text": "Require source wording and explicit attribution for each retained item."
+    },
+    {
+      "title": "Rewrite cautiously",
+      "text": "Keep the reported numbers and opinion source, removing the sweeping conclusion."
+    },
+    {
+      "title": "Check selection bias",
+      "text": "List whose experience and which time periods are absent."
+    },
+    {
+      "title": "Compare versions",
+      "text": "Explain how omission or source choice can still frame the rewritten paragraph."
+    }
+  ],
+  "checks": [
+    "The office’s claim stays attributed and the median is not generalized to all visitors.",
+    "One person’s opinion is not presented as a population finding.",
+    "The final note names missing context and avoids claiming perfect neutrality."
+  ],
+  "commonMistakes": [
+    "Assuming adjective removal eliminates bias.",
+    "Dropping attribution because the remaining sentence sounds cleaner."
+  ],
+  "offline": "Annotate and rewrite the supplied opinion manually, keeping the same evidence categories.",
+  "visualSteps": [
+    {
+      "title": "Classify",
+      "text": "Facts, opinions, inferences"
+    },
+    {
+      "title": "Attribute",
+      "text": "Keep who said what"
+    },
+    {
+      "title": "Rewrite",
+      "text": "Remove unsupported framing"
+    },
+    {
+      "title": "Reflect",
+      "text": "Notice remaining omissions"
+    }
+  ],
+  "reflection": "Which choice in your own rewrite still influenced the reader’s interpretation?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The office’s claim stays attributed and the median is not generalized to all visitors."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. One person’s opinion is not presented as a population finding."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Assuming adjective removal eliminates bias."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Research & evidence",
+  "extraFiles": [],
+  "cover": "/brand/activities/framing-audit-cover.svg",
+  "guide": "/brand/activities/framing-audit-guide.svg",
+  "handbook": "/resources/activity-handbooks/framing-audit.md",
+  "fixture": "/resources/activity-inputs/framing-audit.md",
+  "pack": "/resources/activity-packs/research-evidence.zip"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "ui-wireframe",
+  "number": 17,
+  "title": "From AI mockup to usable wireframe",
+  "collection": "design-decisions",
+  "goal": "Turn an image concept into a labelled, testable interface plan.",
+  "explanation": "An attractive image is not a working app, and image-generated text is often unreliable. Start with a single user task and a content hierarchy. Use an image generator optionally for visual exploration, then redraw the actual labels and focus order in a simple document or design tool.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "design",
+  "sampleInput": "Fictional task: a beginner wants to log a ten-minute walk. Screen needs: activity name, duration, save action, cancel action and a confirmation/error state. No calorie estimate, health claim, account details or personal location is needed.",
+  "prompt": "Propose a mobile wireframe for logging a walk. Put the task title first, labelled duration field second, primary Save activity action third and a secondary Cancel action nearby. Specify empty, invalid and success states in text. If creating an image, use placeholder blocks, not claims that the rendered text or interface is accessible.",
+  "workedExample": "A usable specification says: duration accepts a positive number of minutes; blank shows “Enter a duration”; zero shows “Use more than zero minutes”; success says “Walk saved: 10 minutes.” A pretty image with an unlabeled number field fails.",
+  "steps": [
+    {
+      "title": "Define the task",
+      "text": "Write what the person must complete in one sentence and remove unrelated features."
+    },
+    {
+      "title": "Explore one concept",
+      "text": "Generate a layout description or optional image; keep it labelled as a concept."
+    },
+    {
+      "title": "Make a real wireframe",
+      "text": "Replace image text with editable labels and write each control’s purpose."
+    },
+    {
+      "title": "Walk through failures",
+      "text": "Try blank, zero and valid duration on paper; map the exact messages and next actions."
+    },
+    {
+      "title": "Test with a reader",
+      "text": "Ask someone to identify the primary action and explain what happens next without your coaching."
+    }
+  ],
+  "checks": [
+    "Every field has an explicit editable label and a described purpose.",
+    "Empty, invalid and success states are specified, not merely drawn.",
+    "The report calls the image a mockup, not a functional or accessibility-certified interface."
+  ],
+  "commonMistakes": [
+    "Judging usability from visual polish alone.",
+    "Assuming dark mode or high contrast guarantees accessibility."
+  ],
+  "offline": "Draw a labelled paper wireframe and run the same three-state walkthrough with a reader.",
+  "visualSteps": [
+    {
+      "title": "Task",
+      "text": "Choose one user goal"
+    },
+    {
+      "title": "Layout",
+      "text": "Arrange content priority"
+    },
+    {
+      "title": "States",
+      "text": "Write errors and success"
+    },
+    {
+      "title": "Test",
+      "text": "Ask a reader to walk through"
+    }
+  ],
+  "reflection": "Which missing state did the image fail to show?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Every field has an explicit editable label and a described purpose."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Empty, invalid and success states are specified, not merely drawn."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Judging usability from visual polish alone."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

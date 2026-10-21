@@ -1,0 +1,94 @@
+{
+  "id": "outpainting-review",
+  "number": 28,
+  "title": "Expand an image without pretending it is evidence",
+  "collection": "vision-editing",
+  "goal": "Review generated extensions for continuity and fabricated context.",
+  "explanation": "Outpainting invents pixels outside the original frame. A plausible extension does not reveal what really existed there. Use an original object photo with no private setting or people, preserve an unedited source, and inspect the join, perspective, lighting and unwanted objects. Availability may require paid credits.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "image-edit",
+  "sampleInput": "Make an original close-up photo of a plain mug on a table against an empty wall. Desired extension: more of the same tabletop and wall, with no people, documents, logos, windows or new objects. Keep the original mug unchanged.",
+  "prompt": "Expand the canvas around this original object photo. Continue the table plane, wall colour, lighting direction and camera perspective. Preserve the original mug. Do not add people, writing or identifiable places. The extension is fictional generated context, not a reconstruction of the real room.",
+  "workedExample": "A review may find a table edge bending at the seam, duplicated handles or a new window. Those are continuity/constraint failures. Even a seamless extension must be labelled edited/generated, not documentary evidence of the actual room.",
+  "steps": [
+    {
+      "title": "Choose a safe source",
+      "text": "Use your own object photograph and remove personal information from the frame."
+    },
+    {
+      "title": "Preserve the original",
+      "text": "Keep the uncropped source and note the intended canvas boundary."
+    },
+    {
+      "title": "Generate the extension",
+      "text": "Change only the blank surroundings; check the actual tool’s export and credit terms."
+    },
+    {
+      "title": "Inspect at the seam",
+      "text": "Zoom in on table lines, shadows, mug shape and invented objects. Compare with the source."
+    },
+    {
+      "title": "Label the output",
+      "text": "Save an edited-image note describing which region is generated and what remains uncertain."
+    }
+  ],
+  "checks": [
+    "An untouched source and the edited output are both retained.",
+    "The join, lighting, perspective and protected mug are checked explicitly.",
+    "The extension is labelled fictional generated content, not a record of the original room."
+  ],
+  "commonMistakes": [
+    "Using a private room, face or document without consent.",
+    "Treating a plausible extension as a recovered historical photograph."
+  ],
+  "offline": "Draw the proposed extended canvas and annotate continuity checks; label it a plan, not an edited photograph.",
+  "visualSteps": [
+    {
+      "title": "Source",
+      "text": "Use your own simple object"
+    },
+    {
+      "title": "Expand",
+      "text": "Protect the original region"
+    },
+    {
+      "title": "Inspect",
+      "text": "Check seams and perspective"
+    },
+    {
+      "title": "Label",
+      "text": "Disclose invented surroundings"
+    }
+  ],
+  "reflection": "Which added detail could someone wrongly interpret as a fact about the original setting?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. An untouched source and the edited output are both retained."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The join, lighting, perspective and protected mug are checked explicitly."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Using a private room, face or document without consent."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Vision & image editing",
+  "extraFiles": [],
+  "cover": "/brand/activities/outpainting-review-cover.svg",
+  "guide": "/brand/activities/outpainting-review-guide.svg",
+  "handbook": "/resources/activity-handbooks/outpainting-review.md",
+  "fixture": "/resources/activity-inputs/outpainting-review.md",
+  "pack": "/resources/activity-packs/vision-editing.zip"
+}

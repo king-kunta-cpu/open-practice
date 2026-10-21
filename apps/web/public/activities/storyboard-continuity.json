@@ -1,0 +1,94 @@
+{
+  "id": "storyboard-continuity",
+  "number": 48,
+  "title": "A three-frame story with continuity",
+  "collection": "creative-production",
+  "goal": "Translate a short narrative into consistent visual briefs and inspect change across frames.",
+  "explanation": "Separate the story’s changing action from its fixed character and setting details. Repeating a style phrase does not guarantee continuity; reference-image support and controls vary by tool. Use an original fictional character, no real likeness, and keep all three frames as separate artifacts with a continuity ledger.",
+  "estimatedMinutes": 60,
+  "level": "Beginner / no coding background required",
+  "capability": "image",
+  "sampleInput": "Original story: A small orange maintenance robot finds a seed on a rooftop. It plants the seed in a cracked blue pot. At sunrise it shelters the first leaf from the wind. Fixed details: round body, one square eye, blue pot, same rooftop; no logos or writing.",
+  "prompt": "Create three separate frame briefs, one per sentence. For each list fixed character/prop details, action, camera view and light. Use one coherent hand-drawn editorial style. Do not change the robot’s eye, pot colour or rooftop between frames. Do not claim that prompt repetition guarantees visual consistency.",
+  "workedExample": "Continuity ledger: robot round/orange/one square eye in all frames; pot blue once introduced; same rooftop edges. The action and time/light may change. A second eye or red pot is a continuity error, not a new story fact.",
+  "steps": [
+    {
+      "title": "Write the three sentences",
+      "text": "Keep the plot simple enough to show one action per frame."
+    },
+    {
+      "title": "Make a continuity sheet",
+      "text": "Separate permanent character/setting features from allowed changes."
+    },
+    {
+      "title": "Draft three briefs",
+      "text": "Require fixed details in each brief; avoid copying a known fictional franchise."
+    },
+    {
+      "title": "Generate or draw separately",
+      "text": "Use a permitted reference workflow if available; otherwise record the lack of identity controls."
+    },
+    {
+      "title": "Review as a sequence",
+      "text": "Compare all fixed features and note at least one correction before presenting the story."
+    }
+  ],
+  "checks": [
+    "There are three separately described frames with one clear action each.",
+    "Fixed robot, prop and setting details are checked across the sequence.",
+    "The report documents continuity failures and actual controls used rather than promising perfect consistency."
+  ],
+  "commonMistakes": [
+    "Treating style consistency as character consistency.",
+    "Using a real person’s likeness or a recognizable character without permission."
+  ],
+  "offline": "Draw three thumbnail frames from the continuity sheet and have a reader reconstruct the story.",
+  "visualSteps": [
+    {
+      "title": "Story",
+      "text": "One action per sentence"
+    },
+    {
+      "title": "Continuity",
+      "text": "Separate fixed and changing details"
+    },
+    {
+      "title": "Frames",
+      "text": "Make three individual briefs"
+    },
+    {
+      "title": "Review",
+      "text": "Inspect the sequence together"
+    }
+  ],
+  "reflection": "Which small visual inconsistency changed the story’s meaning?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. There are three separately described frames with one clear action each."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Fixed robot, prop and setting details are checked across the sequence."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Treating style consistency as character consistency."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Creative production",
+  "extraFiles": [],
+  "cover": "/brand/activities/storyboard-continuity-cover.svg",
+  "guide": "/brand/activities/storyboard-continuity-guide.svg",
+  "handbook": "/resources/activity-handbooks/storyboard-continuity.md",
+  "fixture": "/resources/activity-inputs/storyboard-continuity.md",
+  "pack": "/resources/activity-packs/creative-production.zip"
+}

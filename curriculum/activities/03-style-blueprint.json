@@ -1,0 +1,87 @@
+{
+  "id": "style-blueprint",
+  "number": 3,
+  "title": "Reverse-engineer a writing blueprint",
+  "collection": "prompt-craft",
+  "goal": "Describe the structure of a text and use it to write an original piece.",
+  "explanation": "A model cannot recover the exact hidden prompt that created an article. It can propose a plausible blueprint: audience, structure, tone, evidence and length. Analyse a text you own or have permission to use, then apply its abstract structure to a different topic rather than copying its expression.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Original sample: “Start small. Our weekend repair table began with three broken lamps and a borrowed screwdriver. By Sunday, neighbours had fixed two lamps and learned when to call an electrician. Bring a simple item next month; leave dangerous wiring to a professional.”",
+  "prompt": "Analyse this original sample. List its audience, hook, paragraph structure, sentence rhythm, evidence and closing action. Then write a reusable prompt for a NEW article on a different subject. Do not claim to know the original prompt, copy distinctive sentences or imitate a living writer by name.",
+  "workedExample": "Blueprint: short imperative hook → concrete small-scale story → modest outcome with a limitation → safe invitation. New topic: a neighbourhood seed exchange. The new article should not reuse lamps, screwdrivers or the original opening phrase.",
+  "steps": [
+    {
+      "title": "Annotate the sample",
+      "text": "Highlight the hook, concrete evidence, safety boundary and closing invitation in different colours."
+    },
+    {
+      "title": "Ask for a blueprint",
+      "text": "Use the prompt and mark which observations are actually visible in the source."
+    },
+    {
+      "title": "Choose a new topic",
+      "text": "Use a seed exchange or book swap, supplying your own fictional facts rather than asking for invented statistics."
+    },
+    {
+      "title": "Generate a fresh draft",
+      "text": "Give the blueprint and new facts in a separate request. Compare structure, not matching phrases."
+    },
+    {
+      "title": "Audit originality",
+      "text": "Flag repeated distinctive phrases and unsupported claims. Rewrite one paragraph yourself."
+    }
+  ],
+  "checks": [
+    "Every structural observation can be pointed to in the sample.",
+    "The new draft uses different subject matter and does not recycle distinctive sentences.",
+    "The answer describes a plausible blueprint, not “the exact original prompt.”"
+  ],
+  "commonMistakes": [
+    "Requesting a near-identical copyrighted article.",
+    "Assuming the model’s explanation reveals its internal thought process."
+  ],
+  "offline": "Make a five-box outline by hand and write a new piece from it; this is a structure exercise, not proof of AI provenance.",
+  "visualSteps": [
+    {
+      "title": "Read",
+      "text": "Mark the visible structure"
+    },
+    {
+      "title": "Abstract",
+      "text": "Describe reusable choices"
+    },
+    {
+      "title": "Transfer",
+      "text": "Choose new facts and topic"
+    },
+    {
+      "title": "Audit",
+      "text": "Check originality and evidence"
+    }
+  ],
+  "reflection": "Which structural feature was transferable without copying the original wording?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Every structural observation can be pointed to in the sample."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The new draft uses different subject matter and does not recycle distinctive sentences."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Requesting a near-identical copyrighted article."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

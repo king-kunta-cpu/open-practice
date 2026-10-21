@@ -1,0 +1,87 @@
+{
+  "id": "faq-from-friction",
+  "number": 37,
+  "title": "Build an FAQ from unanswered questions",
+  "collection": "design-decisions",
+  "goal": "Anticipate difficult questions without inventing policies or reassuring answers.",
+  "explanation": "A skeptical question is useful only if the answer is honest. Separate known policy, missing policy and a question that needs user research. The model can propose friction points; it cannot authorize refunds, privacy practices or support promises. Build a review queue before publishing anything.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Fictional service: a community tool-lending desk opens Saturdays. Borrowing is limited to seven days. Members collect tools in person. Deposit, damage, identity-check, data-retention and cancellation policies have not been decided.",
+  "prompt": "Generate seven difficult customer questions. For each, label Answer supported, Policy missing or Needs research, cite the supplied fact if present, and draft only an honest placeholder where policy is unknown. Do not promise free replacements, no deposits, privacy guarantees or always-available stock.",
+  "workedExample": "“How long may I borrow a tool?” → Answer supported: seven days. “What if it breaks?” → Policy missing: do not publish a liability or replacement promise. “Can I get a tool today?” → check Saturday opening and actual availability.",
+  "steps": [
+    {
+      "title": "List known policies",
+      "text": "Keep the three supplied facts separate from everything still undecided."
+    },
+    {
+      "title": "Generate the hard questions",
+      "text": "Include cost, damage, access, privacy, availability and cancellation."
+    },
+    {
+      "title": "Classify answerability",
+      "text": "Match each answer to a source fact or mark the gap visibly."
+    },
+    {
+      "title": "Create a policy queue",
+      "text": "Assign an owner and review status to each missing policy rather than filling it with AI guesses."
+    },
+    {
+      "title": "Test the FAQ draft",
+      "text": "Ask a reader which answers could cause a mistaken expectation or commitment."
+    }
+  ],
+  "checks": [
+    "Exactly seven questions cover distinct practical concerns.",
+    "Unsupported policies remain explicitly unresolved and are not published as promises.",
+    "A review queue identifies who must supply and approve each missing answer."
+  ],
+  "commonMistakes": [
+    "Treating a generated FAQ as an approved service policy.",
+    "Writing reassuring answers before the business has made the decision."
+  ],
+  "offline": "Draft questions with a partner and sort them into supported/missing/research-needed piles.",
+  "visualSteps": [
+    {
+      "title": "Facts",
+      "text": "List only known policies"
+    },
+    {
+      "title": "Questions",
+      "text": "Find hard friction points"
+    },
+    {
+      "title": "Gaps",
+      "text": "Mark what is unanswered"
+    },
+    {
+      "title": "Review",
+      "text": "Assign a real policy owner"
+    }
+  ],
+  "reflection": "Which tempting answer would accidentally commit the service to something it has not approved?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Exactly seven questions cover distinct practical concerns."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Unsupported policies remain explicitly unresolved and are not published as promises."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Treating a generated FAQ as an approved service policy."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

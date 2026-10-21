@@ -1,0 +1,94 @@
+{
+  "id": "thread-actions",
+  "number": 34,
+  "title": "Untangle an email thread into decisions",
+  "collection": "workplace-writing",
+  "goal": "Identify the latest decision, owner and deadline without treating every suggestion as agreement.",
+  "explanation": "Threads contain reversals, quoted older messages and different time zones. Work from the most recent relevant message while preserving the decision trail. The aim is a reviewable table, not an automatically sent message. Use fictional correspondence rather than a real private thread.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "09:00 Nia: “Could we launch Friday? Tari, could you check the copy?” 10:00 Tari: “I can check it Thursday by 15:00 CAT.” 11:00 Nia: “Friday is postponed. We need finance approval first.” 12:00 Jo: “I will ask finance today; no launch date is approved yet.”",
+  "prompt": "Create a table of current action, owner, agreed deadline, status and supporting message/time. Separate proposals, accepted tasks, blockers and superseded decisions. List the main friction points. Do not invent an approved launch date or send any messages.",
+  "workedExample": "Copy review | Tari | Thursday 15:00 CAT | accepted. Finance inquiry | Jo | today, relative to thread date | accepted. Launch | date not approved | blocked by finance. Friday’s proposed launch is superseded, not still a commitment.",
+  "steps": [
+    {
+      "title": "Order the messages",
+      "text": "Record the thread date if known and distinguish message times from task deadlines."
+    },
+    {
+      "title": "Extract current actions",
+      "text": "Keep owners, statuses and exact supporting quotations."
+    },
+    {
+      "title": "Resolve reversals",
+      "text": "Mark the Friday proposal superseded rather than leaving two active launch dates."
+    },
+    {
+      "title": "Find missing information",
+      "text": "Note that “today” needs the actual thread date and that finance has not approved anything."
+    },
+    {
+      "title": "Draft a confirmation",
+      "text": "Write a review-only summary asking for the missing date, not a claim that the project is ready."
+    }
+  ],
+  "checks": [
+    "The latest no-approved-launch-date decision supersedes the Friday suggestion.",
+    "Accepted tasks retain the correct owner and deadline, including time zone.",
+    "Relative dates and missing approvals stay unresolved instead of being guessed."
+  ],
+  "commonMistakes": [
+    "Copying the oldest quoted suggestion as the current decision.",
+    "Turning an assigned inquiry into an approved business outcome."
+  ],
+  "offline": "Make an action ledger manually from the four time-stamped messages.",
+  "visualSteps": [
+    {
+      "title": "Order",
+      "text": "Read the time sequence"
+    },
+    {
+      "title": "Extract",
+      "text": "Quote commitments"
+    },
+    {
+      "title": "Resolve",
+      "text": "Mark superseded decisions"
+    },
+    {
+      "title": "Confirm",
+      "text": "Ask about missing details"
+    }
+  ],
+  "reflection": "Which sentence changed the project state rather than merely adding information?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The latest no-approved-launch-date decision supersedes the Friday suggestion."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Accepted tasks retain the correct owner and deadline, including time zone."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Copying the oldest quoted suggestion as the current decision."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Workplace writing",
+  "extraFiles": [],
+  "cover": "/brand/activities/thread-actions-cover.svg",
+  "guide": "/brand/activities/thread-actions-guide.svg",
+  "handbook": "/resources/activity-handbooks/thread-actions.md",
+  "fixture": "/resources/activity-inputs/thread-actions.md",
+  "pack": "/resources/activity-packs/workplace-writing.zip"
+}

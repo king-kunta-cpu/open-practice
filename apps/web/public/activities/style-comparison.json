@@ -1,0 +1,94 @@
+{
+  "id": "style-comparison",
+  "number": 9,
+  "title": "One scene, three visual styles",
+  "collection": "vision-editing",
+  "goal": "Control a visual experiment by changing only the style instruction.",
+  "explanation": "Image generators are stochastic: a different result may come from randomness rather than style alone. Keep the subject, camera, layout and constraints fixed. Where supported, record seed/model/settings; if not supported, repeat each condition and state the limitation. Compare separate original images rather than assuming a grid is a controlled experiment.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "image",
+  "sampleInput": "Core scene: an empty pedestrian street at dawn, one bicycle beside a bakery window, eye-level camera, no readable signs, no logos or people. Styles: neon-influenced cyberpunk illustration; muted 1970s film photograph; loose watercolor painting.",
+  "prompt": "Generate the core scene exactly as specified, preserving the bicycle position, eye-level viewpoint and empty street. Apply only this style modifier: [one of the three styles]. No text, logos or recognizable real businesses.",
+  "workedExample": "A comparison sheet can record: bicycle retained? one bakery window? empty street? eye-level view? palette? texture? A watercolor output that adds a crowded market fails the fixed-scene requirement even if its painting style is attractive.",
+  "steps": [
+    {
+      "title": "Write fixed constraints",
+      "text": "List four scene elements that must not change. Use an original fictional setting."
+    },
+    {
+      "title": "Run three conditions",
+      "text": "Generate one image per style with the same core prompt. Record provider, model and settings where visible."
+    },
+    {
+      "title": "Compare observable features",
+      "text": "Score fixed-element retention separately from palette, lighting and surface texture."
+    },
+    {
+      "title": "Repeat a condition",
+      "text": "Regenerate one style. Note how much variation happens without changing the style text."
+    },
+    {
+      "title": "Refine one constraint",
+      "text": "Improve the weakest scene-preservation rule and compare before/after outputs."
+    }
+  ],
+  "checks": [
+    "Three separate outputs share the same written core prompt and differ only in the style modifier.",
+    "Your comparison scores composition retention separately from visual style.",
+    "The repeat run documents randomness or seed control rather than claiming causation from one sample."
+  ],
+  "commonMistakes": [
+    "Changing composition and style simultaneously.",
+    "Using a living artist’s name instead of describing visual attributes."
+  ],
+  "offline": "Draw three small scene thumbnails or annotate a licensed original scene using different colour/texture notes. Mark the work as a storyboard, not generated imagery.",
+  "visualSteps": [
+    {
+      "title": "Fix",
+      "text": "Lock subject and viewpoint"
+    },
+    {
+      "title": "Vary",
+      "text": "Change one style phrase"
+    },
+    {
+      "title": "Compare",
+      "text": "Separate style from content"
+    },
+    {
+      "title": "Repeat",
+      "text": "Observe random variation"
+    }
+  ],
+  "reflection": "Which difference can you reasonably attribute to style, and which might be random?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Three separate outputs share the same written core prompt and differ only in the style modifier."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Your comparison scores composition retention separately from visual style."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Changing composition and style simultaneously."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Vision & image editing",
+  "extraFiles": [],
+  "cover": "/brand/activities/style-comparison-cover.svg",
+  "guide": "/brand/activities/style-comparison-guide.svg",
+  "handbook": "/resources/activity-handbooks/style-comparison.md",
+  "fixture": "/resources/activity-inputs/style-comparison.md",
+  "pack": "/resources/activity-packs/vision-editing.zip"
+}

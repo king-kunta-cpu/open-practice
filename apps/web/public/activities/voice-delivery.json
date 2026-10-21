@@ -1,0 +1,94 @@
+{
+  "id": "voice-delivery",
+  "number": 18,
+  "title": "Direct a spoken explanation",
+  "collection": "creative-production",
+  "goal": "Compare voice delivery while keeping script, consent and meaning constant.",
+  "explanation": "Voice style affects perceived confidence but does not make the script accurate. Use generic licensed synthetic voices, never an unconsented clone. Write a short verified script, hold its words fixed, and compare intelligibility, pauses and pronunciation. Provider availability and free allowances vary.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "speech",
+  "sampleInput": "Original script: “A backup is a separate copy you can restore when the original is lost. A copy in the same folder may disappear with the same device. Keep a separate copy, protect access, and test that you can restore it.”",
+  "prompt": "Read this script in a calm, clear educational style. Keep every word unchanged. Pause at sentence boundaries and pronounce “backup” consistently. Do not add music, claims, names or a cloned person’s voice. [Paste script.]",
+  "workedExample": "A review table can rate calm / energetic / storytelling voices on word accuracy, clarity and unwanted additions. A dramatic delivery that changes “may disappear” to “will always disappear” fails even if listeners prefer the sound.",
+  "steps": [
+    {
+      "title": "Check the script",
+      "text": "Verify the meaning first and remove personal information. Time yourself reading it aloud."
+    },
+    {
+      "title": "Select permitted voices",
+      "text": "Use three generic licensed profiles if available, or two profiles plus your own reading; note the actual route."
+    },
+    {
+      "title": "Generate separate clips",
+      "text": "Keep the exact script and roughly comparable speed; save settings and tool labels."
+    },
+    {
+      "title": "Listen and annotate",
+      "text": "Mark mispronunciations, missing words, misleading emphasis and long pauses against the transcript."
+    },
+    {
+      "title": "Revise the direction",
+      "text": "Change one delivery instruction and compare the new clip; retain an accessible text transcript."
+    }
+  ],
+  "checks": [
+    "All clips use the same script and have a readable transcript.",
+    "The chosen voice is generic/licensed or your own, with no unconsented identity cloning.",
+    "Your comparison measures wording and intelligibility separately from personal preference."
+  ],
+  "commonMistakes": [
+    "Mistaking a confident voice for trustworthy content.",
+    "Using a celebrity or colleague’s voice without permission."
+  ],
+  "offline": "Record yourself delivering the same script in three styles, or annotate three read-aloud directions without generating audio.",
+  "visualSteps": [
+    {
+      "title": "Script",
+      "text": "Verify the words first"
+    },
+    {
+      "title": "Voice",
+      "text": "Choose a permitted profile"
+    },
+    {
+      "title": "Listen",
+      "text": "Mark omissions and emphasis"
+    },
+    {
+      "title": "Revise",
+      "text": "Change one delivery instruction"
+    }
+  ],
+  "reflection": "Which delivery changed what a listener might believe even though the words stayed similar?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. All clips use the same script and have a readable transcript."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The chosen voice is generic/licensed or your own, with no unconsented identity cloning."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Mistaking a confident voice for trustworthy content."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Creative production",
+  "extraFiles": [],
+  "cover": "/brand/activities/voice-delivery-cover.svg",
+  "guide": "/brand/activities/voice-delivery-guide.svg",
+  "handbook": "/resources/activity-handbooks/voice-delivery.md",
+  "fixture": "/resources/activity-inputs/voice-delivery.md",
+  "pack": "/resources/activity-packs/creative-production.zip"
+}

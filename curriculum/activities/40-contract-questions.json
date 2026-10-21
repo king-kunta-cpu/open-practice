@@ -1,0 +1,87 @@
+{
+  "id": "contract-questions",
+  "number": 40,
+  "title": "Turn a contract into questions for a professional",
+  "collection": "verify-trust",
+  "goal": "Flag clauses and missing terms without declaring legal validity or giving legal advice.",
+  "explanation": "Legal meaning depends on jurisdiction, the full agreement and facts outside a snippet. This exercise is preparation: identify quoted terms and formulate questions for a qualified professional. Do not upload confidential agreements or conclude a clause is illegal, unenforceable or safe based on an AI output.",
+  "estimatedMinutes": 40,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Fictional educational clauses: “The provider may change all fees without notice.” “The customer must give 90 days’ notice to cancel.” “The provider may suspend service at any time.” No governing law, dispute process, reciprocal obligations or data-deletion term is supplied.",
+  "prompt": "Create a review-preparation table: exact clause, plain-language concern, missing context, question for a qualified adviser. Do not declare any clause illegal, enforceable or acceptable. State that jurisdiction and the full agreement are needed. Do not rewrite a legally binding agreement for signature.",
+  "workedExample": "Concern: fees could change without advance warning. Question: “What notice is required in the relevant jurisdiction, and can a customer cancel without penalty after a fee change?” This is a review question, not a conclusion about legal rights.",
+  "steps": [
+    {
+      "title": "Use the fictional text",
+      "text": "Do not paste a private client or employment agreement."
+    },
+    {
+      "title": "Extract exact clauses",
+      "text": "Keep quoted wording distinct from your interpretation."
+    },
+    {
+      "title": "Request questions",
+      "text": "Require missing context and a professional-review question for every concern."
+    },
+    {
+      "title": "Audit the certainty",
+      "text": "Remove definitive legal conclusions and jurisdiction guesses."
+    },
+    {
+      "title": "Prepare a handoff",
+      "text": "Summarize the issues, relevant unknowns and need for a qualified review before action."
+    }
+  ],
+  "checks": [
+    "Each concern links to an exact supplied clause.",
+    "Missing jurisdiction and agreement context remain explicit.",
+    "The output is a question list, not legal clearance or advice to sign/breach the agreement."
+  ],
+  "commonMistakes": [
+    "Treating a generic model as a lawyer.",
+    "Declaring a clause illegal without jurisdiction or context."
+  ],
+  "offline": "Annotate the three clauses and draft neutral review questions yourself.",
+  "visualSteps": [
+    {
+      "title": "Quote",
+      "text": "Keep the exact term"
+    },
+    {
+      "title": "Explain",
+      "text": "Describe a possible concern"
+    },
+    {
+      "title": "Context",
+      "text": "List missing legal facts"
+    },
+    {
+      "title": "Refer",
+      "text": "Ask a qualified professional"
+    }
+  ],
+  "reflection": "Which question requires facts that the snippet cannot supply?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Each concern links to an exact supplied clause."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Missing jurisdiction and agreement context remain explicit."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Treating a generic model as a lawyer."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

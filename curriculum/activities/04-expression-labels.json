@@ -1,0 +1,87 @@
+{
+  "id": "expression-labels",
+  "number": 4,
+  "title": "Test visible-expression labels",
+  "collection": "vision-editing",
+  "goal": "Build a labelled image test and distinguish an expression from a person’s emotion or identity.",
+  "explanation": "A smile is an observable expression, not proof that someone is happy. This activity defaults to a hosted vision model classifying a small test set; that does not train a new model. If you have a supported hosted no-code trainer, record that separate route explicitly. Faces are optional: use simple expression cards instead.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "vision",
+  "sampleInput": "Make six original drawing cards: two with an upward-curved mouth, two with a straight mouth and two ambiguous/partly covered. Use labels Smile visible, Straight mouth visible, and Unclear. Reserve one of each for testing. Do not photograph another person.",
+  "prompt": "Classify the visible mouth shape in this original card as Smile visible, Straight mouth visible or Unclear. Give one short observation about the visible marks. Do not infer identity, feelings, health, personality or protected characteristics. If hidden or ambiguous, choose Unclear.",
+  "workedExample": "An upward curve may support “Smile visible; the mouth curves upward.” A covered mouth should produce Unclear. “This person is happy and trustworthy” fails the task, even if the picture is smiling.",
+  "steps": [
+    {
+      "title": "Build the cards",
+      "text": "Create balanced labels and include ambiguity; keep the held-out cards separate from any examples."
+    },
+    {
+      "title": "Choose your route",
+      "text": "Use a hosted vision tool with upload permission. If using a hosted trainer, record training settings; otherwise label the run pretrained classification."
+    },
+    {
+      "title": "Test new views",
+      "text": "Upload held-out cards one at a time. Record expected label, actual label and visible evidence."
+    },
+    {
+      "title": "Stress the boundary",
+      "text": "Rotate or partly cover a card. Observe whether the tool overclaims or admits uncertainty."
+    },
+    {
+      "title": "Document limitations",
+      "text": "Report the number correct out of the number tested. Do not generalize a tiny drawing-card test to real people."
+    }
+  ],
+  "checks": [
+    "The run log states whether custom training happened or only pretrained classification.",
+    "All three held-out labels are recorded, including unclear cases; errors remain visible.",
+    "No output is accepted as evidence of a person’s emotion, identity or trustworthiness."
+  ],
+  "commonMistakes": [
+    "Uploading faces without consent or using expression labels for surveillance.",
+    "Calling the result a trained emotion detector."
+  ],
+  "offline": "Use the supplied label sheet and ask a human to classify held-out drawing cards. Save a dataset/test plan and mark it “not model-tested.”",
+  "visualSteps": [
+    {
+      "title": "Label",
+      "text": "Describe visible marks only"
+    },
+    {
+      "title": "Split",
+      "text": "Reserve unseen cards"
+    },
+    {
+      "title": "Test",
+      "text": "Record every prediction"
+    },
+    {
+      "title": "Limit",
+      "text": "No emotion or identity claims"
+    }
+  ],
+  "reflection": "What can your labels establish, and what can they never establish about a real person?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The run log states whether custom training happened or only pretrained classification."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. All three held-out labels are recorded, including unclear cases; errors remain visible."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Uploading faces without consent or using expression labels for surveillance."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

@@ -1,7 +1,8 @@
-# Live access — 0.7.0 / 21 October 2026
+# Live access — 0.8.0 / 21 October 2026
 
 - Platform: https://open-practice.zlnew.workers.dev
 - My learning: https://open-practice.zlnew.workers.dev/dashboard.html
+- Activity studio: https://open-practice.zlnew.workers.dev/activities.html
 - Curriculum: https://open-practice.zlnew.workers.dev/curriculum.html
 - Library: https://open-practice.zlnew.workers.dev/library.html
 - News: https://open-practice.zlnew.workers.dev/news.html

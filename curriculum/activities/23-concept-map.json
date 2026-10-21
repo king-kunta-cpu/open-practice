@@ -1,0 +1,87 @@
+{
+  "id": "concept-map",
+  "number": 23,
+  "title": "Make a concept map you can correct",
+  "collection": "learning-reasoning",
+  "goal": "Turn a technical description into a labelled flow without confusing order and causation.",
+  "explanation": "A hierarchy and a process flow are different diagrams. Ask which relationship each arrow represents, and include alternate or failed paths. Start with a small verified account instead of asking a model to draw the entire internet from memory. A neat diagram can still have the wrong order.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Source sketch: A browser may use a cached address or ask DNS for a server address. It then establishes the needed connection and sends an HTTPS request. A server returns a response. The browser renders content and may request more resources. DNS failure can stop the normal path.",
+  "prompt": "Turn the sketch into a text flow with labelled arrows. Include the cached-address branch and DNS-failure branch. Distinguish “next step” from “part of.” Do not imply DNS downloads the webpage or that one response always completes rendering.",
+  "workedExample": "Browser → cached address? yes → connect/request; no → DNS lookup → address found? yes → connect/request; no → show error/retry. Response → render → possibly request images/styles. DNS resolves names; it does not serve the page content.",
+  "steps": [
+    {
+      "title": "Identify entities and actions",
+      "text": "Make separate lists for browser, DNS, server and response steps."
+    },
+    {
+      "title": "Generate the text map",
+      "text": "Request labelled arrows and both alternate/failure paths."
+    },
+    {
+      "title": "Trace one success",
+      "text": "Walk from typing an address to first rendering; point to every required stage."
+    },
+    {
+      "title": "Trace one failure",
+      "text": "Follow DNS failure without pretending a response was received."
+    },
+    {
+      "title": "Redraw and explain",
+      "text": "Use the visual guide as a model and write a plain-language description of one arrow’s exact meaning."
+    }
+  ],
+  "checks": [
+    "DNS resolution is distinguished from sending or receiving webpage content.",
+    "The cache and failure branches are present.",
+    "Each arrow has a stated relationship rather than an unexplained decorative connector."
+  ],
+  "commonMistakes": [
+    "Confusing a list of components with an ordered process.",
+    "Removing error branches to make the diagram look simpler."
+  ],
+  "offline": "Write steps on cards and arrange a flow with a cache branch and failure branch.",
+  "visualSteps": [
+    {
+      "title": "Extract",
+      "text": "List entities and actions"
+    },
+    {
+      "title": "Connect",
+      "text": "Label relationships"
+    },
+    {
+      "title": "Branch",
+      "text": "Include cache and failure"
+    },
+    {
+      "title": "Trace",
+      "text": "Walk a concrete request"
+    }
+  ],
+  "reflection": "Which arrow would mislead a beginner if it had no label?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. DNS resolution is distinguished from sending or receiving webpage content."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The cache and failure branches are present."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Confusing a list of components with an ordered process."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

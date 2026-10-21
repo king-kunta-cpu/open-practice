@@ -1,0 +1,94 @@
+{
+  "id": "audio-to-actions",
+  "number": 8,
+  "title": "From voice memo to accountable actions",
+  "collection": "assistants-workflows",
+  "goal": "Separate transcription errors from action-item extraction errors.",
+  "explanation": "Speech-to-text and summarization are two different stages, each with failure modes. Preserve the transcript before summarizing it, and do not let a model invent an owner or deadline. Use only your own consented recording; a supplied fictional transcript lets you practise without uploading audio.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "transcription",
+  "sampleInput": "Fictional transcript: “Let’s try a pop-up repair table. Nia can ask the venue by Friday. We still need someone to check insurance. Maybe Saturday the 14th, but do not announce it yet. Tari will list tools. There is no tool deadline agreed. Keep the first budget under $80.”",
+  "prompt": "Extract an action table from this transcript: action, owner, deadline, certainty, exact supporting quote. Use Not assigned or Not agreed where appropriate. Keep proposed dates separate from approved decisions. Do not turn the budget limit into permission to spend.",
+  "workedExample": "Venue inquiry | Nia | Friday | agreed | “Nia can ask the venue by Friday.” Insurance check | Not assigned | Not agreed | open. Saturday the 14th is proposed, not an announcement instruction. Tari owns the tool list, but its deadline is not agreed.",
+  "steps": [
+    {
+      "title": "Record or use the fixture",
+      "text": "If recording, make a short memo using invented project details and no third-party voices."
+    },
+    {
+      "title": "Review transcription first",
+      "text": "Compare the transcript to the audio, especially names, negation, numbers and dates. Note corrections."
+    },
+    {
+      "title": "Extract structured actions",
+      "text": "Use the prompt and retain a supporting quote for each row."
+    },
+    {
+      "title": "Audit omissions and inventions",
+      "text": "Check unassigned insurance, the tentative event date and Tari’s missing deadline."
+    },
+    {
+      "title": "Prepare a review message",
+      "text": "Write two clarifying questions a human must answer before publishing or spending."
+    }
+  ],
+  "checks": [
+    "Each action has a transcript quote; unspecified owners/deadlines remain explicitly unspecified.",
+    "The proposed event date is not presented as approved.",
+    "Transcription corrections and summarization corrections are logged separately."
+  ],
+  "commonMistakes": [
+    "Uploading someone else’s meeting without permission.",
+    "Replacing “not agreed” with a plausible-sounding deadline."
+  ],
+  "offline": "Use the supplied transcript and build the action table manually. This tests extraction, not transcription.",
+  "visualSteps": [
+    {
+      "title": "Capture",
+      "text": "Use consented audio or fixture"
+    },
+    {
+      "title": "Correct",
+      "text": "Check the transcript"
+    },
+    {
+      "title": "Extract",
+      "text": "Keep quotes and uncertainty"
+    },
+    {
+      "title": "Approve",
+      "text": "Ask a person before acting"
+    }
+  ],
+  "reflection": "Was your biggest error in hearing the words or interpreting the commitment?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Each action has a transcript quote; unspecified owners/deadlines remain explicitly unspecified."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The proposed event date is not presented as approved."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Uploading someone else’s meeting without permission."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Assistants & workflows",
+  "extraFiles": [],
+  "cover": "/brand/activities/audio-to-actions-cover.svg",
+  "guide": "/brand/activities/audio-to-actions-guide.svg",
+  "handbook": "/resources/activity-handbooks/audio-to-actions.md",
+  "fixture": "/resources/activity-inputs/audio-to-actions.md",
+  "pack": "/resources/activity-packs/assistants-workflows.zip"
+}

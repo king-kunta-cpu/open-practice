@@ -1,0 +1,87 @@
+{
+  "id": "json-data",
+  "number": 43,
+  "title": "From book notes to validated JSON",
+  "collection": "data-structures",
+  "goal": "Distinguish valid JSON syntax, a data shape and a formal JSON Schema.",
+  "explanation": "Valid JSON can still contain wrong values or inconsistent records. First parse the text, then check the agreed keys and types, then compare facts with the source. This exercise converts records and describes a shape; a formal JSON Schema is a separate optional extension, not something every JSON array automatically contains.",
+  "estimatedMinutes": 40,
+  "level": "Beginner / no coding background required",
+  "capability": "json",
+  "sampleInput": "Fictional books: Paper Signals — A. Dube — 2021 — rating 4; Quiet Circuits — T. Moyo — 2023 — rating 5; Small Useful Things — N. Rao — year unknown — rating 3. Ratings are integers from 1 to 5. No additional books or authors are supplied.",
+  "prompt": "Convert these three records to a JSON array using only lowercase keys: title, author, year, rating. Use an integer year or null when unknown; rating must be an integer from 1 to 5. Return JSON only, without comments, code fences, trailing commas or invented facts. Then, in a separate response if requested, describe the field rules.",
+  "workedExample": "One record: {\"title\":\"Small Useful Things\",\"author\":\"N. Rao\",\"year\":null,\"rating\":3}. A year of \"unknown\" is the wrong type for this contract, and a fabricated year such as 2020 is a factual error even if parsing succeeds.",
+  "steps": [
+    {
+      "title": "Define the shape",
+      "text": "Write exact keys, types, null policy and rating range before generating."
+    },
+    {
+      "title": "Request the array",
+      "text": "Use the fixture and preserve missing years rather than filling them."
+    },
+    {
+      "title": "Parse the output",
+      "text": "Use the activity checker; remove Markdown fences only if you understand they are wrappers, not JSON."
+    },
+    {
+      "title": "Validate the contract",
+      "text": "Check array length, exact key set, types, null and rating range independently of parsing."
+    },
+    {
+      "title": "Check facts and break it",
+      "text": "Compare titles/authors with the fixture, then try rating 9 or a trailing comma and note which check catches it."
+    }
+  ],
+  "checks": [
+    "JSON parsing succeeds and there are exactly three records with the agreed lowercase keys.",
+    "Unknown year is null; ratings satisfy the integer 1–5 rule.",
+    "Every title/author/value matches the fixture; syntax success is not mistaken for factual validity."
+  ],
+  "commonMistakes": [
+    "Calling any valid JSON array a JSON Schema.",
+    "Filling missing data to make the output look complete."
+  ],
+  "offline": "Write the three structured records as a table and apply the same key/type/fact checklist.",
+  "visualSteps": [
+    {
+      "title": "Shape",
+      "text": "Agree keys and types"
+    },
+    {
+      "title": "Generate",
+      "text": "Preserve nulls and facts"
+    },
+    {
+      "title": "Parse",
+      "text": "Check syntax separately"
+    },
+    {
+      "title": "Validate",
+      "text": "Check the data contract"
+    }
+  ],
+  "reflection": "Which error can pass a JSON parser but still violate your requirements?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. JSON parsing succeeds and there are exactly three records with the agreed lowercase keys."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Unknown year is null; ratings satisfy the integer 1–5 rule."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Calling any valid JSON array a JSON Schema."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

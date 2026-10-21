@@ -1,0 +1,94 @@
+{
+  "id": "audience-rewrite",
+  "number": 36,
+  "title": "One fact set, three audiences",
+  "collection": "workplace-writing",
+  "goal": "Change tone and emphasis without changing dates, responsibility or uncertainty.",
+  "explanation": "Different readers need different levels of detail, but tone adaptation must not hide a problem or create a promise. Freeze a small fact ledger first. Compare each version against the same ledger and look for omissions that would change a decision. Fictional delays avoid exposing real client information.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Facts: a prototype review planned for Tuesday is delayed because two checks failed. The team will provide a revised estimate on Thursday. No new completion date is approved. The client has not agreed to additional cost.",
+  "prompt": "Write three versions from the same facts: a concise teammate chat, a professional client email and a two-sentence executive update. Preserve the failed checks, Thursday estimate update and lack of an approved completion date. Do not promise Thursday delivery, blame an individual or imply extra cost approval.",
+  "workedExample": "Client-safe wording: “Two checks remain unresolved, so Tuesday’s review cannot proceed. We will share a revised estimate on Thursday; a new completion date is not yet confirmed.” “We will deliver Thursday” changes the facts.",
+  "steps": [
+    {
+      "title": "Freeze the ledger",
+      "text": "Write the four invariant facts before generating any tone variation."
+    },
+    {
+      "title": "Produce three drafts",
+      "text": "Name channel, audience and length rather than asking for increasingly persuasive versions."
+    },
+    {
+      "title": "Check each invariant",
+      "text": "Use a small table with one column per audience and one row per fact."
+    },
+    {
+      "title": "Inspect softened wording",
+      "text": "Look for euphemisms that conceal failed checks or turn an estimate into a commitment."
+    },
+    {
+      "title": "Edit for accountability",
+      "text": "Keep a clear next update and a truthful unresolved status in the final drafts."
+    }
+  ],
+  "checks": [
+    "All three drafts preserve the same dates, unresolved status and cost boundary.",
+    "Thursday is an estimate update, not a promised delivery.",
+    "Tone changes do not introduce blame, approval or new business commitments."
+  ],
+  "commonMistakes": [
+    "Making an executive summary so short that it hides a material risk.",
+    "Turning a reassuring tone into a false promise."
+  ],
+  "offline": "Write the three channel versions manually and compare them with the fact ledger.",
+  "visualSteps": [
+    {
+      "title": "Facts",
+      "text": "Freeze the invariant ledger"
+    },
+    {
+      "title": "Audience",
+      "text": "Choose channel and detail"
+    },
+    {
+      "title": "Rewrite",
+      "text": "Change tone, not truth"
+    },
+    {
+      "title": "Audit",
+      "text": "Check promises and omissions"
+    }
+  ],
+  "reflection": "Which audience version came closest to hiding a fact that mattered?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. All three drafts preserve the same dates, unresolved status and cost boundary."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Thursday is an estimate update, not a promised delivery."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Making an executive summary so short that it hides a material risk."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Workplace writing",
+  "extraFiles": [],
+  "cover": "/brand/activities/audience-rewrite-cover.svg",
+  "guide": "/brand/activities/audience-rewrite-guide.svg",
+  "handbook": "/resources/activity-handbooks/audience-rewrite.md",
+  "fixture": "/resources/activity-inputs/audience-rewrite.md",
+  "pack": "/resources/activity-packs/workplace-writing.zip"
+}

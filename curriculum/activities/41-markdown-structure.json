@@ -1,0 +1,87 @@
+{
+  "id": "markdown-structure",
+  "number": 41,
+  "title": "Make notes navigable with Markdown",
+  "collection": "data-structures",
+  "goal": "Organize notes while preserving quotations, deadlines and unknowns.",
+  "explanation": "Formatting can help people find information, but a polished hierarchy can make invented conclusions look authoritative. Keep original text beside the formatted version and check that headings do not imply decisions that were never made. Markdown is plain text; different renderers support different features.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "markdown",
+  "sampleInput": "Raw notes: “Repair table idea. Nia said ‘Keep the first event small.’ Venue inquiry due Friday. Tools list not assigned. Budget proposal $80, not approved. Need insurance check. Next discussion Tuesday.”",
+  "prompt": "Organize these notes in Markdown using one H1 title, H2 sections for Confirmed actions, Proposals and Open questions, a blockquote for the exact quotation, bold deadlines and a horizontal rule before next steps. Preserve the unassigned owner and unapproved budget. Do not invent decisions.",
+  "workedExample": "Expected structure: # Repair table planning; ## Confirmed actions → venue inquiry due **Friday**; ## Proposals → $80 budget, not approved; ## Open questions → tools owner and insurance check. The quotation must retain its wording and attribution.",
+  "steps": [
+    {
+      "title": "Mark the source states",
+      "text": "Identify quote, commitment, proposal and unresolved question before formatting."
+    },
+    {
+      "title": "Generate plain Markdown",
+      "text": "Keep the raw syntax so you can inspect #, >, ** and --- directly."
+    },
+    {
+      "title": "Preview safely",
+      "text": "Use the activity’s text-only rendered preview; raw HTML is not required."
+    },
+    {
+      "title": "Audit the meaning",
+      "text": "Compare all named dates, ownership and budget status with the raw notes."
+    },
+    {
+      "title": "Test portability",
+      "text": "Open the Markdown as plain text and check that the structure is still understandable."
+    }
+  ],
+  "checks": [
+    "The quote is exact and the proposed budget remains unapproved.",
+    "Heading levels are consistent and deadlines are emphasized without changing them.",
+    "Unassigned actions remain unassigned; no formatting implies a false decision."
+  ],
+  "commonMistakes": [
+    "Making a proposal look like an approved action by moving it under the wrong heading.",
+    "Assuming every Markdown renderer handles tables or raw HTML identically."
+  ],
+  "offline": "Write the Markdown by hand and compare the raw syntax with a paper outline.",
+  "visualSteps": [
+    {
+      "title": "Classify",
+      "text": "Separate notes by status"
+    },
+    {
+      "title": "Structure",
+      "text": "Choose meaningful headings"
+    },
+    {
+      "title": "Preview",
+      "text": "Inspect readable hierarchy"
+    },
+    {
+      "title": "Audit",
+      "text": "Preserve facts and uncertainty"
+    }
+  ],
+  "reflection": "Which heading choice could most easily change how the notes are interpreted?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The quote is exact and the proposed budget remains unapproved."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Heading levels are consistent and deadlines are emphasized without changing them."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Making a proposal look like an approved action by moving it under the wrong heading."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

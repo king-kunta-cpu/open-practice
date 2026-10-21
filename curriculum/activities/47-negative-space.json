@@ -1,0 +1,87 @@
+{
+  "id": "negative-space",
+  "number": 47,
+  "title": "Direct negative space with a measurable brief",
+  "collection": "creative-production",
+  "goal": "Use object size and position as composition requirements rather than vague adjectives.",
+  "explanation": "“Minimalist” can describe style without specifying layout. Define the main object, its approximate image area and where empty space belongs. The goal is not a mathematically exact segmentation model: use a rough grid and disclose estimation limits. A usable composition still needs visual hierarchy and an intentional subject.",
+  "estimatedMinutes": 40,
+  "level": "Beginner / no coding background required",
+  "capability": "image",
+  "sampleInput": "Scene: one plain coffee mug on an off-white background. Mug in the lower-right region; approximately 5–10% of frame area. Keep the upper-left two-thirds open for a future title, but do not generate any text or logo.",
+  "prompt": "Create one original minimal flat-lay image with a single plain mug in the lower-right. Use soft daylight and a solid warm off-white background. The mug should occupy roughly 5–10% of the full image area. Keep the upper-left two-thirds visually empty. No text, logos, extra props or dramatic texture.",
+  "workedExample": "Overlaying a simple 10×10 grid helps estimate occupied area. A mug spanning about 2×3 cells has a bounding area around 6%, though its actual silhouette is smaller. A large shadow or extra spoon may interfere with the intended title space.",
+  "steps": [
+    {
+      "title": "Specify the layout",
+      "text": "Write size, position and empty-region requirements before generating."
+    },
+    {
+      "title": "Create one image",
+      "text": "Keep the original prompt/settings and the unedited output."
+    },
+    {
+      "title": "Estimate with a grid",
+      "text": "Approximate the object’s bounding area and note shadow/shape limitations."
+    },
+    {
+      "title": "Test the empty region",
+      "text": "Place a temporary text box in a separate editor to see whether the intended title area is usable."
+    },
+    {
+      "title": "Refine the weakest condition",
+      "text": "Adjust scale or positioning language once, retaining both versions for comparison."
+    }
+  ],
+  "checks": [
+    "The output contains exactly one mug and no text or unwanted props.",
+    "The area estimate and its bounding-box limitation are documented.",
+    "The upper-left title region is demonstrably usable, not merely described as minimalist."
+  ],
+  "commonMistakes": [
+    "Treating “minimalist” as a precise placement instruction.",
+    "Claiming exact object-area measurement from a rough visual estimate."
+  ],
+  "offline": "Draw the scene on a 10×10 grid and reserve the title region before choosing the mug size.",
+  "visualSteps": [
+    {
+      "title": "Place",
+      "text": "Choose object and empty region"
+    },
+    {
+      "title": "Generate",
+      "text": "Keep the scene simple"
+    },
+    {
+      "title": "Measure",
+      "text": "Estimate with a grid"
+    },
+    {
+      "title": "Use",
+      "text": "Try a real title placeholder"
+    }
+  ],
+  "reflection": "Did the shadow consume more useful space than the mug itself?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The output contains exactly one mug and no text or unwanted props."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The area estimate and its bounding-box limitation are documented."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Treating “minimalist” as a precise placement instruction."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

@@ -1,0 +1,6 @@
+id,review,reference
+r1,Arrived early. Excellent.,Positive
+r2,It is a mug.,Neutral
+r3,The handle broke immediately.,Negative
+r4,"Looks lovely, but the lid leaks.",Mixed/Unclear
+r5,"Great, another week waiting.",Negative or Mixed/Unclear with explanation

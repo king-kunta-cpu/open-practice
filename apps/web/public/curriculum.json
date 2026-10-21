@@ -9,7 +9,7 @@
   "capstones": 6,
   "rubricCriteria": 30,
   "estimatedMinutes": 1440,
-  "resources": 21,
+  "resources": 31,
   "fixtureFiles": 37,
   "editorialStatus": "Original authored practice material. Estimates are unvalidated; independent subject-matter review remains pending.",
   "roadmap": [
@@ -29,5 +29,9 @@
       "title": "Deployment, monitoring and maintenance",
       "status": "Planned, not yet available"
     }
-  ]
+  ],
+  "foundationResources": 21,
+  "standaloneActivities": 50,
+  "totalActivities": 86,
+  "standaloneEstimatedMinutes": 1985
 }

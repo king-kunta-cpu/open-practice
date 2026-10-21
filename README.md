@@ -6,13 +6,24 @@ Free practical learning. Independent, non-degree and non-accredited. One portabl
 ## Curriculum 2.0
 - **6 build paths / 36 substantial activities / 36 worked examples.**
 - **18 knowledge-review questions / 6 capstones / 30 rubric criteria.**
-- **21 library resources**, including six full handbooks and six ZIP practice packs.
+- **31 library resources**, including six foundation handbooks/packs and ten new five-activity visual packs.
 - **37 fictional fixture files**, including dirty datasets, reference outputs, templates, an offline quote calculator and an offline lexical-retrieval lab.
 - Approximately **24 guided hours**, an editorial estimate not yet validated with learners.
 
 Paths: prompting and evidence; support replies; spreadsheet cleaning; browser applications; automation and human review; cloud AI and retrieval. These are practical foundations, not complete professional AI-engineering preparation. Each activity has outcomes, explanation, a worked example, guided steps, expected evidence, common mistakes, a self-check and an offline alternative. Independent subject-matter review remains pending.
 
 Browse `/curriculum.html`. Original sources live in `curriculum/courses/` and `curriculum/fixtures/`. Generated public JSON, handbooks, fixture copies and deterministic ZIPs come from `scripts/build-curriculum.py`.
+
+## The 50-activity practice studio
+A further **50 standalone guided activities** now extend the 36 foundation activities: **86 total**, across six foundation paths plus ten five-activity collections. Visit `/activities.html`. Each new activity has an original input, copyable prompt, worked reference, five guided steps, three test checks, a four-stage illustrated guide, common mistakes, an offline route and an evidence workspace.
+
+The release adds **50 individual covers, 50 visual guides, 50 handbooks, 50 input sheets, ten collection workbooks and ten deterministic practice packs**, plus original CSV datasets and a three-page fictional report PDF. A new editorial illustration introduces the collection. Estimated additional guided practice is 1,985 minutes (about 33 hours); combined estimated guided practice is about 57 hours. These are not learner-tested timings.
+
+Search/filter by collection; keep local evidence; explicitly save/load account copies; record the actual route (manual fixture, design-only or hosted AI run); download a self-contained illustrated HTML workspace; reimport its progress JSON. The learner dashboard shows standalone-activity records separately from foundation progress. Existing foundation IDs and notes are unchanged.
+
+Small deterministic tools help check JSON structure, limited regex policies (in a time-bounded worker), script-disabled HTML, basic Markdown hierarchy and actual colour contrast. They are not AI inference or complete correctness/accessibility certification. SQL/formula activities include known-reference CSV fixtures, not automatic execution against production data.
+
+Canonical sources: `curriculum/activities/`, `curriculum/activity-collections.json`, `curriculum/activity-fixtures/`. Build with `scripts/build-activities.py` after the foundation builder. See `curriculum/ACTIVITY-AUTHORING.md` for scope, source links and corrections to unsafe/outdated claims in the original exercise drafts.
 
 ## Run and verify
 Requires Node 22.13+ for native SQLite accounts, and Python 3 for the content build.
@@ -51,7 +62,7 @@ scripts/                 Content/assets builders, transfer preparation, secret s
 branding/                Original artwork and licensed display font
 ```
 
-## Live release / 0.7.0
+## Live release / 0.8.0
 - Platform: https://open-practice.zlnew.workers.dev
 - My learning: https://open-practice.zlnew.workers.dev/dashboard.html
 - Curriculum: https://open-practice.zlnew.workers.dev/curriculum.html
@@ -74,3 +85,6 @@ Code: MIT. Original learning/library material: CC BY 4.0. Archivo Black: include
 The public and learner interfaces now follow the requested reference’s actual cream/burgundy format: #FDF7EE canvas, #7C1F16 serif headings, #A8321F terracotta actions, white rounded cards, miniature cover selectors and a two-column collection browser. Native Georgia and Arial replace the heavy dark interface. The theme covers the homepage, dashboard, lessons, reviews/rubrics, account dialogs, curriculum, library/news, practice labs and standalone offline exports. No fabricated reader statistics, urgency, reviews, advertisements or reference-site content were copied.
 
 45 automated tests and local/production Chromium checks cover the curriculum, retained account/offline functionality, new public collection interactions and responsive layouts. Production transfer and deployment are verified; see the live release section above.
+
+## Verification / 0.8.0
+57 automated tests pass. The new browser suite visits all 50 detailed activities, checks cover/guide loading, search/filter, evidence recording, offline edit/reopen/import, verification tools, activity account save/restore, dashboard visibility and responsive layouts. The existing foundation suite remains passing. See `docs/VERIFICATION.md` for the final production status.

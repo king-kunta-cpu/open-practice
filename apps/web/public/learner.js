@@ -21,3 +21,6 @@ $('#account-delete').onclick=async()=>{if(!confirm('Permanently delete this acco
 try{learner=(await call('/api/account/me',undefined,'GET')).learner;showUser()}catch{showUser()}
 
 $('#recovery-rotate').onclick=async()=>{const b=$('#recovery-rotate');b.disabled=true;try{const d=await call('/api/account/rotate-recovery',{password:$('#delete-password').value});$('#delete-password').value='';$('#account-message').textContent='Previous recovery code and sessions revoked. SAVE YOUR NEW CODE PRIVATELY:\n'+d.recoveryCode;}catch(e){$('#account-message').textContent=e.message}finally{b.disabled=false}};
+
+// Explicit activity restore sets the conflict-detection baseline for the next save.
+export async function loadCloudWorkspace(course){const data=await call('/api/workspaces',undefined,'GET');const row=data.workspaces.find(item=>item.course_id===course);if(!row)return null;versions[course]=row.updated_at;return JSON.parse(row.content)}

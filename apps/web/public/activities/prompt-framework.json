@@ -1,0 +1,94 @@
+{
+  "id": "prompt-framework",
+  "number": 22,
+  "title": "Build a prompt contract, not a mega-prompt",
+  "collection": "prompt-craft",
+  "goal": "Combine role, context, constraints and format without burying the actual task.",
+  "explanation": "Long prompts are not automatically better. A useful contract includes a goal, available facts, restrictions and a checkable output shape. Conflicting requirements should trigger clarification rather than confident invention. This fictional recipe task is about instruction-following, not dietary or medical advice.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Available: 2 eggs, a handful of spinach, hot sauce, a bowl and a microwave-safe cooking container. No oil. Time budget 10 minutes. Appliance power and safe cooking guidance are not provided.",
+  "prompt": "Role: practical recipe drafter. Context: use only the listed ingredients and equipment. Constraints: no oil; under 10 minutes if feasible; do not invent appliance settings or guarantee food safety. Format: ingredients, proposed steps, missing safety information, feasibility note. Ask for clarification when a safe procedure needs facts not supplied.",
+  "workedExample": "A good response notices that appliance details and safe cooking guidance are missing. It may draft a plan with review notes, but should not invent a universal microwave time or guarantee that a fixed duration makes eggs safe.",
+  "steps": [
+    {
+      "title": "Write the four parts",
+      "text": "Separate role, context, constraints and output format into short labelled blocks."
+    },
+    {
+      "title": "Test the first prompt",
+      "text": "Check every ingredient, equipment item and claimed cooking instruction."
+    },
+    {
+      "title": "Add a contradiction",
+      "text": "Demand a five-course meal from the same two ingredients in two minutes. Observe whether it flags infeasibility."
+    },
+    {
+      "title": "Remove unnecessary text",
+      "text": "Shorten the prompt while keeping all essential conditions; compare compliance."
+    },
+    {
+      "title": "Save a reusable template",
+      "text": "Replace the recipe details with placeholders and include an explicit clarification rule."
+    }
+  ],
+  "checks": [
+    "The response adds no unlisted ingredients or equipment.",
+    "Missing safety information is flagged rather than replaced with invented appliance settings.",
+    "The contradictory case produces a feasibility warning or question, not a guaranteed result."
+  ],
+  "commonMistakes": [
+    "Assuming more instructions always improve a prompt.",
+    "Treating a generated recipe as food-safety advice."
+  ],
+  "offline": "Use the four-part contract to ask a person for a plan, then score compliance with the same checklist.",
+  "visualSteps": [
+    {
+      "title": "Goal",
+      "text": "Name the actual task"
+    },
+    {
+      "title": "Context",
+      "text": "Supply only known facts"
+    },
+    {
+      "title": "Constraints",
+      "text": "Define limits and conflicts"
+    },
+    {
+      "title": "Contract",
+      "text": "Choose a checkable format"
+    }
+  ],
+  "reflection": "Which sentence was essential, and which extra detail merely made the prompt longer?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The response adds no unlisted ingredients or equipment."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Missing safety information is flagged rather than replaced with invented appliance settings."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Assuming more instructions always improve a prompt."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Prompt craft",
+  "extraFiles": [],
+  "cover": "/brand/activities/prompt-framework-cover.svg",
+  "guide": "/brand/activities/prompt-framework-guide.svg",
+  "handbook": "/resources/activity-handbooks/prompt-framework.md",
+  "fixture": "/resources/activity-inputs/prompt-framework.md",
+  "pack": "/resources/activity-packs/prompt-craft.zip"
+}

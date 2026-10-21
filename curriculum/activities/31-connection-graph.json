@@ -1,0 +1,87 @@
+{
+  "id": "connection-graph",
+  "number": 31,
+  "title": "Find connections without inventing history",
+  "collection": "learning-reasoning",
+  "goal": "Distinguish an analogy, a documented influence and a factual relationship.",
+  "explanation": "An unexpected connection is an idea to investigate, not evidence that one system caused another. Separate analogy from history and verify specific claims independently. The Roman Empire and cloud computing can invite useful comparisons, but modern technical terms should not be projected backward as literal ancient systems.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Compare a Roman road network with a modern distributed computing network. Possible dimensions: routes, hubs, disruption, maintenance and administration. No historical document or technical specification is supplied.",
+  "prompt": "Suggest three clearly labelled ANALOGIES between these systems. For each, explain one useful comparison and one important difference. Put historical or technical factual claims in a separate verification-needed list. Do not invent direct influence, quotations or ancient equivalents of digital technology.",
+  "workedExample": "Analogy: both can involve alternative routes around disruption. Difference: roads transport physical travellers/goods; computer networks move encoded information under protocols. “Romans invented cloud load balancing” is not an acceptable factual conclusion.",
+  "steps": [
+    {
+      "title": "Name relationship types",
+      "text": "Define analogy, factual claim and causal influence before querying."
+    },
+    {
+      "title": "Generate three candidates",
+      "text": "Ask for useful similarities plus differences, not a sensational hidden-history narrative."
+    },
+    {
+      "title": "Tag each sentence",
+      "text": "Mark it analogy, factual assertion or unsupported causal claim."
+    },
+    {
+      "title": "Verify one assertion",
+      "text": "Consult an authoritative historical or technical source and record the exact supporting passage."
+    },
+    {
+      "title": "Build a cautious map",
+      "text": "Use solid edges for verified relationships and dashed edges for analogies or hypotheses."
+    }
+  ],
+  "checks": [
+    "Each connection is labelled by type and includes an explicit difference.",
+    "At least one factual assertion has independently checked evidence or remains unresolved.",
+    "No analogy is reported as proof of historical influence."
+  ],
+  "commonMistakes": [
+    "Mistaking a clever parallel for causation.",
+    "Inventing citations to make a surprising story sound credible."
+  ],
+  "offline": "Compare two familiar systems on paper and label the analogy boundaries without making historical claims.",
+  "visualSteps": [
+    {
+      "title": "Compare",
+      "text": "Choose a shared dimension"
+    },
+    {
+      "title": "Separate",
+      "text": "Analogy is not influence"
+    },
+    {
+      "title": "Verify",
+      "text": "Check factual assertions"
+    },
+    {
+      "title": "Map",
+      "text": "Label evidence strength"
+    }
+  ],
+  "reflection": "Which connection stayed useful after you removed its exaggerated historical claim?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Each connection is labelled by type and includes an explicit difference."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. At least one factual assertion has independently checked evidence or remains unresolved."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Mistaking a clever parallel for causation."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

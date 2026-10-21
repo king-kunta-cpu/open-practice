@@ -1,0 +1,94 @@
+{
+  "id": "plain-language",
+  "number": 38,
+  "title": "Fight corporate fog with concrete verbs",
+  "collection": "workplace-writing",
+  "goal": "Rewrite a vague announcement while exposing missing decisions.",
+  "explanation": "Plain English is not a guarantee of cross-cultural comprehension, but it makes ambiguity easier to see. Keep named owners, actions and deadlines when they exist; ask for them when they do not. Do not invent a plan simply to make the announcement sound decisive.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Original: “We are leveraging synergies to operationalize next-generation deliverables across stakeholder ecosystems.” Known facts: the support and logistics teams will combine weekly issue lists. Tari owns the first combined draft. No deadline is agreed.",
+  "prompt": "Rewrite the announcement in plain, active language for a reader unfamiliar with the organization. Use only the supplied facts. State the action, owner and missing deadline. Avoid buzzwords and do not invent a benefit, launch date or mandatory process. Add one clarifying question.",
+  "workedExample": "“Support and logistics will combine their weekly issue lists. Tari will prepare the first combined draft. We still need to agree when it is due. What date should Tari use?” This is clearer without pretending the work is already implemented.",
+  "steps": [
+    {
+      "title": "Separate slogan from facts",
+      "text": "Underline which parts of the announcement contain no concrete action."
+    },
+    {
+      "title": "Request a plain rewrite",
+      "text": "Supply the fact ledger so the model does not fill the gaps itself."
+    },
+    {
+      "title": "Inspect verbs and owners",
+      "text": "Circle who does what and identify every unresolved field."
+    },
+    {
+      "title": "Read aloud to a partner",
+      "text": "Ask them to repeat the next action without explaining the original jargon."
+    },
+    {
+      "title": "Refine and keep a question",
+      "text": "Shorten confusing terms while retaining the missing-deadline question."
+    }
+  ],
+  "checks": [
+    "The rewrite names the two teams, Tari and the combined issue-list task.",
+    "It does not invent a deadline, benefit number or completed implementation.",
+    "A reader can identify the action and what still needs agreement."
+  ],
+  "commonMistakes": [
+    "Replacing one set of buzzwords with another.",
+    "Assuming simpler wording authorizes a new plan."
+  ],
+  "offline": "Rewrite the fixture by hand using subject–verb–object sentences and one explicit unresolved question.",
+  "visualSteps": [
+    {
+      "title": "Decode",
+      "text": "Separate slogans from facts"
+    },
+    {
+      "title": "Rewrite",
+      "text": "Use concrete actions"
+    },
+    {
+      "title": "Check",
+      "text": "Name owner and unknowns"
+    },
+    {
+      "title": "Read back",
+      "text": "Test real comprehension"
+    }
+  ],
+  "reflection": "Which missing fact became more visible after you removed the jargon?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The rewrite names the two teams, Tari and the combined issue-list task."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. It does not invent a deadline, benefit number or completed implementation."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Replacing one set of buzzwords with another."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Workplace writing",
+  "extraFiles": [],
+  "cover": "/brand/activities/plain-language-cover.svg",
+  "guide": "/brand/activities/plain-language-guide.svg",
+  "handbook": "/resources/activity-handbooks/plain-language.md",
+  "fixture": "/resources/activity-inputs/plain-language.md",
+  "pack": "/resources/activity-packs/workplace-writing.zip"
+}

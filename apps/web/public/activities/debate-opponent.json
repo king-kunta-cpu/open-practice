@@ -1,0 +1,94 @@
+{
+  "id": "debate-opponent",
+  "number": 20,
+  "title": "Stress-test an argument politely",
+  "collection": "learning-reasoning",
+  "goal": "Use counterarguments to find assumptions, not to outsource your judgement.",
+  "explanation": "An AI opponent can generate plausible objections but may invent evidence. Define the claim narrowly, separate empirical statements from values and ask what evidence would change each side’s view. A useful debate ends with a revised claim or a better question, not a manufactured winner.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Claim: “Remote work is always better than office work.” Context: a fictional eight-person design team; two members need physical workshop equipment, three prefer quiet home working, and the team has missed two handovers. No productivity study is supplied.",
+  "prompt": "Challenge the word “always” in this claim using only the supplied context. Give one strongest counterexample, one assumption to test and one fair question. Do not fabricate studies or diagnose people. After I answer, help me rewrite a narrower, testable claim.",
+  "workedExample": "Counterexample: equipment-dependent tasks may require a shared workshop. Revised claim: for suitable desk tasks, a hybrid arrangement might help this team if handover reliability is maintained. That is a proposal to test, not a proven productivity result.",
+  "steps": [
+    {
+      "title": "State the claim",
+      "text": "Mark absolute words and define which team and tasks you mean."
+    },
+    {
+      "title": "Request a steelman objection",
+      "text": "Ask for the strongest reasonable counterexample rather than insults or rhetorical tricks."
+    },
+    {
+      "title": "Audit evidence",
+      "text": "Label each statement source-supported, hypothetical or unsupported; remove fabricated study references."
+    },
+    {
+      "title": "Answer one question",
+      "text": "Explain which trade-off matters most and what measurement you would accept."
+    },
+    {
+      "title": "Revise and plan a test",
+      "text": "Write a narrower claim and two measures, such as handover completion and task cycle time."
+    }
+  ],
+  "checks": [
+    "The objection targets an identifiable assumption rather than the speaker.",
+    "No invented study or unsupported productivity number is accepted as evidence.",
+    "The final claim has a scope and a plausible way to test it."
+  ],
+  "commonMistakes": [
+    "Equating persuasive language with a true counterargument.",
+    "Treating the exercise as a competition to “destroy” an opponent."
+  ],
+  "offline": "Write the strongest objection yourself, then ask a partner to improve it respectfully.",
+  "visualSteps": [
+    {
+      "title": "Claim",
+      "text": "Define scope and assumptions"
+    },
+    {
+      "title": "Challenge",
+      "text": "Find a fair counterexample"
+    },
+    {
+      "title": "Audit",
+      "text": "Separate evidence from rhetoric"
+    },
+    {
+      "title": "Revise",
+      "text": "Make the claim testable"
+    }
+  ],
+  "reflection": "What evidence could genuinely make you change your mind?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The objection targets an identifiable assumption rather than the speaker."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. No invented study or unsupported productivity number is accepted as evidence."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Equating persuasive language with a true counterargument."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Learning & reasoning",
+  "extraFiles": [],
+  "cover": "/brand/activities/debate-opponent-cover.svg",
+  "guide": "/brand/activities/debate-opponent-guide.svg",
+  "handbook": "/resources/activity-handbooks/debate-opponent.md",
+  "fixture": "/resources/activity-inputs/debate-opponent.md",
+  "pack": "/resources/activity-packs/learning-reasoning.zip"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "visual-priority",
+  "number": 27,
+  "title": "Test competing visual instructions",
+  "collection": "vision-editing",
+  "goal": "Separate wording emphasis from model-specific prompt weighting syntax.",
+  "explanation": "“Massive” and “tiny” describe relationships, but a generator may interpret them unpredictably. Numerical weighting syntax is provider-specific and may be ignored entirely. Start with plain language and inspect the image; do not claim a model used a weighting mechanism merely because you typed special punctuation.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "image",
+  "sampleInput": "Scene: a small kitten beside a large fictional dragon in a wide empty courtyard. Both subjects must be fully visible. Compare: dragon twice the kitten’s height; dragon ten times the kitten’s height; kitten larger than dragon.",
+  "prompt": "Create one original illustration of the specified scene. Keep both subjects fully visible at the same distance from the camera. Change only their relative height: [chosen condition]. No text, logos, recognizable characters or extra animals.",
+  "workedExample": "A test sheet measures the approximate visible height ratio and notes perspective or cropping. If the dragon is mostly off-frame, it does not demonstrate a controlled 10:1 size relationship. The result may be a failed condition, not an artistic success.",
+  "steps": [
+    {
+      "title": "Fix scene and framing",
+      "text": "Keep viewpoint, courtyard and subject count constant."
+    },
+    {
+      "title": "Vary one relationship",
+      "text": "Generate the three plain-language size conditions and record model/settings."
+    },
+    {
+      "title": "Measure visibly",
+      "text": "Estimate each subject’s height from the image and note perspective/cropping."
+    },
+    {
+      "title": "Try one supported control",
+      "text": "Only if provider documentation describes weights, test that syntax separately from the language experiment."
+    },
+    {
+      "title": "Report limits",
+      "text": "Retain failed images and distinguish observed results from assumptions about model internals."
+    }
+  ],
+  "checks": [
+    "Both subjects are visible in each scored result, or cropping is explicitly recorded as a failure.",
+    "Only the size relationship changes in the primary prompt comparison.",
+    "Provider-specific weighting is not presented as universal or inferred from appearance alone."
+  ],
+  "commonMistakes": [
+    "Treating arbitrary punctuation as a cross-provider weighting standard.",
+    "Confusing foreground perspective with actual relative size."
+  ],
+  "offline": "Make three simple silhouette sketches and measure the height ratios manually.",
+  "visualSteps": [
+    {
+      "title": "Fix",
+      "text": "Lock scene and viewpoint"
+    },
+    {
+      "title": "Vary",
+      "text": "Change relative size"
+    },
+    {
+      "title": "Measure",
+      "text": "Check visible proportions"
+    },
+    {
+      "title": "Qualify",
+      "text": "Separate syntax from evidence"
+    }
+  ],
+  "reflection": "How did perspective make the size comparison harder?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Both subjects are visible in each scored result, or cropping is explicitly recorded as a failure."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. Only the size relationship changes in the primary prompt comparison."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Treating arbitrary punctuation as a cross-provider weighting standard."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

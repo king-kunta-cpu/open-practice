@@ -1,0 +1,85 @@
+# 30. Translate jargon without changing the claim
+
+Open Practice / Learning & reasoning
+
+Estimated time: 35 minutes. Not learner-validated.
+
+Original material: CC BY 4.0. Independent, non-degree and non-accredited.
+
+Make a technical statement understandable without inventing business impact.
+
+## Why this matters
+
+Plain language should preserve uncertainty, conditions and numerical meaning. A model may replace jargon with impressive but unsupported savings or risk claims. Use a short fictional source and demand a parallel evidence ledger so the reader can see what was simplified and what remains unknown.
+
+## Before you start
+
+Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.
+
+## Practice input
+
+```text
+
+Source: “The prototype caches repeated requests for five minutes. In a 100-request test, 60 were served from cache. The test did not measure financial savings or peak-load behaviour.”
+
+```
+
+## Copy-and-adapt prompt
+
+```text
+
+Rewrite the source for a non-technical operations reader. Preserve the five-minute window, the 60/100 test result and the unmeasured limits. Then provide a source-to-rewrite mapping. Do not convert cache hits into a claimed 60% cost reduction or a performance guarantee.
+
+```
+
+## Worked reference
+
+Acceptable: “For five minutes, the prototype can reuse some recent answers. In one small test it reused stored results for 60 of 100 requests. We have not tested cost savings or heavy traffic.” A 60% savings claim is unsupported.
+
+## Guided activity
+
+1. **Mark protected meaning.** Underline numbers, qualifiers and limitations in the source.
+
+2. **Generate the rewrite.** Specify a reader and a shorter vocabulary, not a more persuasive sales message.
+
+3. **Build a mapping.** Trace each rewritten claim to an exact source sentence.
+
+4. **Challenge an overclaim.** Ask whether “60% cheaper” follows. Record why the missing cost measurements prevent that conclusion.
+
+5. **User-test comprehension.** Ask a reader to explain what was measured and what was not.
+
+## Test your result
+
+- [ ] All source numbers and limitations survive the rewrite.
+
+- [ ] Cache-hit rate is not misrepresented as cost saving or guaranteed speed.
+
+- [ ] A reader can distinguish the measured result from the untested business effect.
+
+## Common mistakes
+
+- Replacing technical jargon with invented business metrics.
+
+- Deleting uncertainty because it makes the sentence shorter.
+
+## Evidence to keep
+
+- **Keep the build**: Save your original input, exact prompt and resulting artifact. All source numbers and limitations survive the rewrite.
+
+- **Show what you tested**: Record a pass/fail result and evidence for every check below. Cache-hit rate is not misrepresented as cost saving or guaranteed speed.
+
+- **Explain a limitation**: Write what changed after one deliberate revision and name a remaining failure mode. Replacing technical jargon with invented business metrics.
+
+## No-account / offline route
+
+Write a plain-language version yourself and highlight each source-to-rewrite link.
+
+## Reflection
+
+Which qualifier would most change a decision if it disappeared?
+
+## Honest completion
+
+Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.
+
+Original authored activity; independent subject-matter review and learner timing remain pending.

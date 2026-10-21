@@ -1,4 +1,4 @@
-# Verification — 0.7.0 / 2026-10-21
+# Verification — 0.8.0 / 2026-10-21
 
 **Current status: deployed to https://open-practice.zlnew.workers.dev.** The final automated suite has 45 passing tests; the production browser suite also passes. Earlier local-only sections below are retained as a chronological record. The production-deployment section contains the final migration evidence.
 
@@ -55,3 +55,10 @@ The 0.7.0 release is now live at https://open-practice.zlnew.workers.dev. The pr
 - Existing remote repository renamed to `king-kunta-cpu/open-practice`; no second source repository was created.
 
 No accreditation, audited-security status, guaranteed provider budget, email-link sender or complete operator restore drill is claimed.
+
+## The 50-activity studio / 0.8.0
+57 automated tests pass with no skips. Tests verify all 50 unique activity numbers, ten collections with five members each, substantive unique inputs/prompts/references, five guided steps per activity, 50 original covers, 50 four-stage visual guides, 50 handbooks/input sheets, deterministic collection packs, original CSV/PDF fixtures and byte-accurate Worker binary packaging. New tests cover self-review evidence requirements, bounded record normalization, contrast reference values, JSON syntax/shape errors and standalone HTML escaping.
+
+The activity Chromium suite visits all 50 detailed views and confirms that their guides load. It exercises catalogue pagination/search/category filters; explicit manual/hosted/design route labels; local evidence/self-review; offline HTML download/edit/reopen and JSON reimport; regex, JSON, contrast and script-disabled HTML tools; temporary-account activity save/restore; dashboard activity records; and 360/390/768/1024px layouts. A long-account-name overflow found in the first run was corrected with wrapping before the passing run. Temporary accounts are deleted. The existing foundation browser suite also passes with the 31-item library.
+
+Timing and independent subject-matter review remain pending. No paid tool access, custom model training, image generation entitlement, real-user research, accessibility certification or professional advice is implied by reading an activity. Learner-recorded completion is not independently verified.

@@ -1,0 +1,94 @@
+{
+  "id": "few-shot-summary",
+  "number": 2,
+  "title": "Examples that teach the format",
+  "collection": "prompt-craft",
+  "goal": "Use labelled demonstrations to obtain consistent complaint summaries.",
+  "explanation": "Three demonstrations make this a few-shot exercise, not a one-shot exercise. A model can imitate their punctuation while still misunderstanding a complaint. Hold back one email until you have written the format rules, then test an ambiguous case as well as the easy one.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Email 1: My parcel was due Monday. It is Wednesday and nothing arrived. → Summary: Delivery — parcel two days late.\nEmail 2: The receipt shows $18 but my card was charged $23. → Summary: Billing — charged $5 above receipt.\nEmail 3: The lid cracked on first use. → Summary: Product — lid cracked on first use.\nHeld-out email: I paid for two notebooks; the parcel contained one.",
+  "prompt": "Learn the summary format from the three labelled examples. Summarize only the held-out email as “Summary: Category — one factual issue.” Use Delivery, Billing, Product or Needs review. Do not invent a cause, remedy or refund.\n[Paste examples and held-out email.]",
+  "workedExample": "Acceptable held-out result: Summary: Delivery — one of two paid notebooks missing. “Billing — customer charged twice” is not supported: the complaint concerns a missing item, not two payments.",
+  "steps": [
+    {
+      "title": "Prepare the demonstrations",
+      "text": "Copy the first three input/output pairs and name the allowed categories."
+    },
+    {
+      "title": "Hold one case back",
+      "text": "Keep the notebook email out of the demonstrations; write your own expected summary before querying."
+    },
+    {
+      "title": "Run the few-shot prompt",
+      "text": "Compare its output with your reference on category, issue, prefix and invented facts."
+    },
+    {
+      "title": "Try ambiguity",
+      "text": "Replace the held-out email with “It happened again.” A safe result asks for review rather than inventing a specific issue."
+    },
+    {
+      "title": "Refine one example",
+      "text": "If the notebook case fails, add a missing-item example and test a new held-out email, not the same one only."
+    }
+  ],
+  "checks": [
+    "The held-out summary captures one missing notebook without claiming a duplicate payment.",
+    "The ambiguous email receives Needs review or a clarification, not invented details.",
+    "The exact prefix, category separator and one-issue rule remain consistent across three new tests."
+  ],
+  "commonMistakes": [
+    "Evaluating only on examples already shown to the model.",
+    "Calling formatting consistency evidence of factual accuracy."
+  ],
+  "offline": "Classify the four emails on paper, then ask a partner to infer your formatting rule from the first three.",
+  "visualSteps": [
+    {
+      "title": "Examples",
+      "text": "Show three labelled pairs"
+    },
+    {
+      "title": "Hold out",
+      "text": "Hide the fourth answer"
+    },
+    {
+      "title": "Generate",
+      "text": "Request one summary"
+    },
+    {
+      "title": "Evaluate",
+      "text": "Check meaning and format"
+    }
+  ],
+  "reflection": "What changed when you improved the examples: the category decision, the formatting, or both?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The held-out summary captures one missing notebook without claiming a duplicate payment."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The ambiguous email receives Needs review or a clarification, not invented details."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Evaluating only on examples already shown to the model."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Prompt craft",
+  "extraFiles": [],
+  "cover": "/brand/activities/few-shot-summary-cover.svg",
+  "guide": "/brand/activities/few-shot-summary-guide.svg",
+  "handbook": "/resources/activity-handbooks/few-shot-summary.md",
+  "fixture": "/resources/activity-inputs/few-shot-summary.md",
+  "pack": "/resources/activity-packs/prompt-craft.zip"
+}

@@ -190,5 +190,105 @@
     "url": "/resources/packs/cloud-practice-pack.zip",
     "licence": "CC BY 4.0",
     "format": "ZIP"
+  },
+  {
+    "id": "activity-collection-prompt-craft",
+    "title": "Prompt craft — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/prompt-craft.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/persona-swap-cover.svg"
+  },
+  {
+    "id": "activity-collection-learning-reasoning",
+    "title": "Learning & reasoning — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/learning-reasoning.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/infinite-explainer-cover.svg"
+  },
+  {
+    "id": "activity-collection-data-structures",
+    "title": "Data & structures — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/data-structures.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/spreadsheet-lookup-cover.svg"
+  },
+  {
+    "id": "activity-collection-vision-editing",
+    "title": "Vision & image editing — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/vision-editing.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/expression-labels-cover.svg"
+  },
+  {
+    "id": "activity-collection-creative-production",
+    "title": "Creative production — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/creative-production.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/logo-iteration-cover.svg"
+  },
+  {
+    "id": "activity-collection-assistants-workflows",
+    "title": "Assistants & workflows — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/assistants-workflows.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/audio-to-actions-cover.svg"
+  },
+  {
+    "id": "activity-collection-research-evidence",
+    "title": "Research & evidence — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/research-evidence.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/document-extraction-cover.svg"
+  },
+  {
+    "id": "activity-collection-workplace-writing",
+    "title": "Workplace writing — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/workplace-writing.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/own-style-profile-cover.svg"
+  },
+  {
+    "id": "activity-collection-design-decisions",
+    "title": "Design & decisions — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/design-decisions.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/ui-wireframe-cover.svg"
+  },
+  {
+    "id": "activity-collection-verify-trust",
+    "title": "Verify before you trust — five-activity visual practice pack",
+    "kind": "Guided activity collection",
+    "description": "Five full activity handbooks, fictional inputs, illustrated covers, four-stage visual guides and an evidence ledger.",
+    "url": "/resources/activity-packs/verify-trust.zip",
+    "licence": "CC BY 4.0",
+    "format": "ZIP",
+    "image": "/brand/activities/translation-crosscheck-cover.svg"
   }
 ]

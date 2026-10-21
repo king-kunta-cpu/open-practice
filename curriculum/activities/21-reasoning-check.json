@@ -1,0 +1,87 @@
+{
+  "id": "reasoning-check",
+  "number": 21,
+  "title": "Check reasoning with an external answer",
+  "collection": "prompt-craft",
+  "goal": "Compare answer-only and concise-explanation prompts against a known reference.",
+  "explanation": "A request for hidden chain-of-thought does not guarantee accuracy and is not needed. Ask instead for a short calculation, stated assumptions and a checkable result. A polished explanation can rationalize a wrong answer. Use a puzzle with an external solution and keep the input identical across conditions.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Puzzle: A notebook and a pen cost $1.10 together. The notebook costs $1.00 more than the pen. What does the pen cost? Reference: pen $0.05; notebook $1.05; total $1.10 and difference $1.00.",
+  "prompt": "Solve the notebook-and-pen puzzle. State the answer, one short equation and a substitution check. Do not provide a private internal reasoning transcript. If you make an assumption, state it.\n[Paste puzzle without the reference answer.]",
+  "workedExample": "Let pen cost p. Then notebook costs p + 1.00, so 2p + 1.00 = 1.10 and p = 0.05. A $0.10 pen would imply a $1.10 notebook, totaling $1.20, so the tempting answer fails.",
+  "steps": [
+    {
+      "title": "Record the reference",
+      "text": "Hide the answer from the model and verify both total and difference yourself."
+    },
+    {
+      "title": "Run answer-only",
+      "text": "Ask for just the price in a fresh hosted chat and save the unedited answer."
+    },
+    {
+      "title": "Run a concise-check version",
+      "text": "Use the supplied prompt in a fresh context with the same puzzle."
+    },
+    {
+      "title": "Evaluate both externally",
+      "text": "Substitute each answer into the original constraints; do not score by explanation length."
+    },
+    {
+      "title": "Transfer the test",
+      "text": "Change the total to $1.30 with a $1.00 difference; the pen should be $0.15."
+    }
+  ],
+  "checks": [
+    "Both responses are checked against the total and difference, not judged on fluency.",
+    "The report includes the $0.15 transfer case and its substitution check.",
+    "You do not claim that longer explanations prevent errors or reveal hidden internal reasoning."
+  ],
+  "commonMistakes": [
+    "Rewarding a long explanation even when its arithmetic is wrong.",
+    "Leaking the reference answer into only one experimental condition."
+  ],
+  "offline": "Solve the equation manually and compare the tempting wrong answer with the two original constraints.",
+  "visualSteps": [
+    {
+      "title": "Reference",
+      "text": "Keep a verified answer"
+    },
+    {
+      "title": "Compare",
+      "text": "Use two prompt conditions"
+    },
+    {
+      "title": "Substitute",
+      "text": "Check original constraints"
+    },
+    {
+      "title": "Transfer",
+      "text": "Change the numbers"
+    }
+  ],
+  "reflection": "Did the explanation improve the result, or only make it sound more convincing?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Both responses are checked against the total and difference, not judged on fluency."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The report includes the $0.15 transfer case and its substitution check."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Rewarding a long explanation even when its arithmetic is wrong."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

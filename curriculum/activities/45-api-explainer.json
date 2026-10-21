@@ -1,0 +1,87 @@
+{
+  "id": "api-explainer",
+  "number": 45,
+  "title": "Explain an API with success and failure paths",
+  "collection": "assistants-workflows",
+  "goal": "Map a request and response without exposing credentials or inventing a service’s internals.",
+  "explanation": "An API is an agreed interface, not a window into every internal system. Use an invented service so you can distinguish the known contract from implementation guesses. Include authentication, permissions, status codes, rate limits and data minimization. A diagram is not a connected API call.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Fictional contract: GET /playlists/p01 with a valid authorized token returns {\"id\":\"p01\",\"tracks\":[\"t01\",\"t02\"]}. Missing/invalid token → 401. Valid token without access → 403. Missing playlist → 404. Too many requests → 429 with a retry hint. No real service or credential is involved.",
+  "prompt": "Explain this fictional API in plain language as a request/response flow. Include the five outcomes, what the client should display and what it must not log. Distinguish authentication from permission. Do not invent a real music service’s endpoints or internal architecture.",
+  "workedExample": "401 means credentials are missing/invalid; 403 means the supplied identity lacks access. A 429 should not trigger an endless tight retry loop. Tokens belong in protected request handling, not screenshots, URLs, analytics or shared exercise notes.",
+  "steps": [
+    {
+      "title": "Read the contract",
+      "text": "Separate endpoint, method, credentials, allowed response fields and status codes."
+    },
+    {
+      "title": "Build a success flow",
+      "text": "Trace the fictional mobile app’s request and the returned track IDs."
+    },
+    {
+      "title": "Add the four failure routes",
+      "text": "Write a safe message and next action for 401, 403, 404 and 429."
+    },
+    {
+      "title": "Minimize the log",
+      "text": "Keep status, timing and a non-secret request ID; omit tokens and unnecessary personal data."
+    },
+    {
+      "title": "Teach it back",
+      "text": "Explain the difference between authentication and permission using the two relevant statuses."
+    }
+  ],
+  "checks": [
+    "Success and all four failure outcomes appear in the flow.",
+    "401 and 403 are distinguished and rate limiting has a bounded retry/wait policy.",
+    "The artifact is labelled a contract simulation and contains no real tokens or invented live endpoints."
+  ],
+  "commonMistakes": [
+    "Confusing a valid login with permission to read every resource.",
+    "Putting API keys in query strings or shared screenshots."
+  ],
+  "offline": "Move request/status cards through the flow and explain the client’s next action for each.",
+  "visualSteps": [
+    {
+      "title": "Request",
+      "text": "Use the documented contract"
+    },
+    {
+      "title": "Authorize",
+      "text": "Check identity and access"
+    },
+    {
+      "title": "Respond",
+      "text": "Handle success and errors"
+    },
+    {
+      "title": "Protect",
+      "text": "Keep secrets out of logs"
+    }
+  ],
+  "reflection": "Which error should lead to a permission review rather than another login attempt?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Success and all four failure outcomes appear in the flow."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. 401 and 403 are distinguished and rate limiting has a bounded retry/wait policy."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Confusing a valid login with permission to read every resource."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

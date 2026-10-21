@@ -1,0 +1,87 @@
+{
+  "id": "paper-decoder",
+  "number": 35,
+  "title": "Read a paper without overselling it",
+  "collection": "research-evidence",
+  "goal": "Separate research question, method, result and real-world applicability.",
+  "explanation": "A paper’s abstract is not enough to establish a practical business benefit. Check the population, sample, comparison, outcome and stated limitations. Use the original fictional abstract first; when trying an actual paper, access a legitimate copy and keep its title/version. AI summaries are reading aids, not peer review.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "document",
+  "sampleInput": "Fictional abstract: “Twenty volunteers were randomly assigned to checklist or no-checklist groups for a simulated packing task. Median omissions were 1 versus 3. The task lasted one afternoon. No long-term retention, business revenue or safety outcome was measured.”",
+  "prompt": "Explain the question, sample, comparison, measured outcome and limitations in plain language. Separate the reported result from three possible follow-up applications, each labelled a hypothesis. Do not invent statistical significance, causal mechanisms, long-term effects or revenue gains.",
+  "workedExample": "Reported: lower median omissions in the checklist group in this small simulated task. Hypothesis: test a checklist in a different packing workflow. Unsupported: “checklists triple business productivity” or “the study proves permanent safety improvements.”",
+  "steps": [
+    {
+      "title": "Read the supplied abstract",
+      "text": "Highlight population, comparison, outcome, duration and limitations."
+    },
+    {
+      "title": "Generate a structured summary",
+      "text": "Ask for separate method, result and applicability sections."
+    },
+    {
+      "title": "Check each claim",
+      "text": "Trace the summary to exact abstract words; mark missing statistics as missing."
+    },
+    {
+      "title": "Design a follow-up",
+      "text": "Choose one setting and define a measurable outcome plus a risk/limitation."
+    },
+    {
+      "title": "Try a real paper optionally",
+      "text": "Read methods and limitations, not just the generated summary, before proposing any application."
+    }
+  ],
+  "checks": [
+    "Sample size, simulated context and one-afternoon duration remain visible.",
+    "No significance level, revenue result or long-term benefit is invented.",
+    "Suggested applications are hypotheses with a proposed test, not established findings."
+  ],
+  "commonMistakes": [
+    "Turning a small simulated result into a universal business claim.",
+    "Accepting citations or statistics that do not occur in the paper."
+  ],
+  "offline": "Complete the question/method/result/limit table by hand from the fictional abstract.",
+  "visualSteps": [
+    {
+      "title": "Question",
+      "text": "What was studied?"
+    },
+    {
+      "title": "Method",
+      "text": "Who and what comparison?"
+    },
+    {
+      "title": "Result",
+      "text": "What was actually measured?"
+    },
+    {
+      "title": "Transfer",
+      "text": "What needs a new test?"
+    }
+  ],
+  "reflection": "Which business use would require the biggest leap beyond the reported evidence?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Sample size, simulated context and one-afternoon duration remain visible."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. No significance level, revenue result or long-term benefit is invented."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Turning a small simulated result into a universal business claim."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

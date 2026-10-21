@@ -1,0 +1,94 @@
+{
+  "id": "source-synthesis",
+  "number": 16,
+  "title": "Reconcile two accounts without inventing consensus",
+  "collection": "research-evidence",
+  "goal": "Separate shared facts, real contradictions and unmentioned details.",
+  "explanation": "Two sources can differ because they cover different times or quote different people, not because one is necessarily false. Preserve attribution and compare like with like. Agreement is not proof of truth when sources may repeat the same origin. The fictional source pair includes a deliberate time distinction.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Source A, 09:00: “The repair event has 30 registrations. Organizers plan two tables. The venue is the East Hall.” Source B, 17:00: “Registrations reached 42 after lunch. Organizers confirmed East Hall and said a third table may be added.”",
+  "prompt": "Create three sections: shared supported facts; differences with source/time attribution; unresolved questions. Distinguish a later update from a contradiction and a proposal from confirmation. Quote the relevant words. Do not average counts or invent a final decision.",
+  "workedExample": "Shared: East Hall. Updated count: 30 at 09:00 versus 42 by 17:00, not necessarily a conflict. Two planned tables versus a possible third is an unresolved plan, not confirmation that three exist.",
+  "steps": [
+    {
+      "title": "Annotate each source",
+      "text": "Mark timestamp, confirmed facts, plans and tentative language independently."
+    },
+    {
+      "title": "Run the synthesis",
+      "text": "Require source labels and quotes for every comparison."
+    },
+    {
+      "title": "Check alleged conflicts",
+      "text": "Ask whether each difference concerns the same time, definition and scope."
+    },
+    {
+      "title": "Investigate dependence",
+      "text": "Note that the texts may share an organizer as their original source; do not call them independent verification."
+    },
+    {
+      "title": "Draft a cautious update",
+      "text": "State the most recent attributed facts and one question that needs confirmation."
+    }
+  ],
+  "checks": [
+    "The count change is identified as a time update rather than an automatic contradiction.",
+    "The third table remains tentative.",
+    "Every comparison has source/time attribution and no invented average or consensus."
+  ],
+  "commonMistakes": [
+    "Treating omission as disagreement.",
+    "Counting two articles that repeat one press release as two independent confirmations."
+  ],
+  "offline": "Use a two-column evidence ledger and write the shared/different/unresolved sections by hand.",
+  "visualSteps": [
+    {
+      "title": "Separate",
+      "text": "Annotate each source first"
+    },
+    {
+      "title": "Align",
+      "text": "Match time and scope"
+    },
+    {
+      "title": "Synthesize",
+      "text": "Keep attribution"
+    },
+    {
+      "title": "Resolve",
+      "text": "Ask what remains unknown"
+    }
+  ],
+  "reflection": "Which apparent contradiction disappeared once you compared timestamps?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The count change is identified as a time update rather than an automatic contradiction."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The third table remains tentative."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Treating omission as disagreement."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Research & evidence",
+  "extraFiles": [],
+  "cover": "/brand/activities/source-synthesis-cover.svg",
+  "guide": "/brand/activities/source-synthesis-guide.svg",
+  "handbook": "/resources/activity-handbooks/source-synthesis.md",
+  "fixture": "/resources/activity-inputs/source-synthesis.md",
+  "pack": "/resources/activity-packs/research-evidence.zip"
+}

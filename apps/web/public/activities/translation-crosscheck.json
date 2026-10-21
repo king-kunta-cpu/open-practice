@@ -1,0 +1,94 @@
+{
+  "id": "translation-crosscheck",
+  "number": 13,
+  "title": "Translation without false confidence",
+  "collection": "verify-trust",
+  "goal": "Use independent checks to identify meaning changes and unresolved ambiguity.",
+  "explanation": "Back-translation can expose problems, but two fluent translations can share the same error. Choose a non-sensitive text with numbers, negation, dates and an idiom. A bilingual human or authoritative glossary remains necessary for high-stakes use. Do not approve a translation solely because it comes back sounding plausible.",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Original: “Please do not ship before 6 November. Send 12 blue mugs, not 21. ‘Break a leg’ in the final line is a friendly wish, not an injury instruction.”",
+  "prompt": "Translate the supplied message into a language you can responsibly review. Preserve the date, quantity, negation and colour. Explain the idiom separately. In a fresh chat, translate the result back to English and list any ambiguous phrases. Do not certify the translation.",
+  "workedExample": "Check ledger: no shipment before 6 November; quantity 12; blue; exclusion of 21; idiom means good luck. If the return translation says “ship by 6 November,” it has reversed an operational constraint despite fluent wording.",
+  "steps": [
+    {
+      "title": "Mark invariants",
+      "text": "Write a checklist of date, quantity, negation, colour and idiom before translating."
+    },
+    {
+      "title": "Create a translation",
+      "text": "Keep the source and target text unchanged for comparison."
+    },
+    {
+      "title": "Use a fresh check",
+      "text": "Back-translate in a separate context; if possible use an independent service rather than the same model."
+    },
+    {
+      "title": "Inspect each invariant",
+      "text": "Record pass, fail or unresolved. Consult a bilingual reader or authoritative glossary for disputed language."
+    },
+    {
+      "title": "Prepare a safe handoff",
+      "text": "Mark unresolved wording and state “not approved for contractual or safety-critical use.”"
+    }
+  ],
+  "checks": [
+    "All five meaning constraints are checked individually rather than judged on fluency.",
+    "A changed before/by instruction is flagged as a material failure.",
+    "The report states the limits of back-translation and names unresolved review needs."
+  ],
+  "commonMistakes": [
+    "Assuming two AI systems are independent evidence of correctness.",
+    "Using an unfamiliar language without a competent human review route."
+  ],
+  "offline": "Use two English paraphrases and inspect whether they preserve the same constraints. Label this a meaning-preservation exercise, not a translation test.",
+  "visualSteps": [
+    {
+      "title": "Anchor",
+      "text": "Mark dates and negation"
+    },
+    {
+      "title": "Translate",
+      "text": "Keep the source unchanged"
+    },
+    {
+      "title": "Cross-check",
+      "text": "Use fresh context"
+    },
+    {
+      "title": "Escalate",
+      "text": "Resolve meaning with a reviewer"
+    }
+  ],
+  "reflection": "What important error could a fluent back-translation still miss?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. All five meaning constraints are checked individually rather than judged on fluency."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. A changed before/by instruction is flagged as a material failure."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Assuming two AI systems are independent evidence of correctness."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential.",
+  "collectionTitle": "Verify before you trust",
+  "extraFiles": [],
+  "cover": "/brand/activities/translation-crosscheck-cover.svg",
+  "guide": "/brand/activities/translation-crosscheck-guide.svg",
+  "handbook": "/resources/activity-handbooks/translation-crosscheck.md",
+  "fixture": "/resources/activity-inputs/translation-crosscheck.md",
+  "pack": "/resources/activity-packs/verify-trust.zip"
+}

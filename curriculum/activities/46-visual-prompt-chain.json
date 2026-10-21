@@ -1,0 +1,87 @@
+{
+  "id": "visual-prompt-chain",
+  "number": 46,
+  "title": "Chain a visual brief without losing control",
+  "collection": "creative-production",
+  "goal": "Turn a descriptive idea into a concise image brief, then inspect instruction drift.",
+  "explanation": "More descriptive text can create conflicting priorities. A text model’s elaborate scene is a draft brief, not a command the image generator will obey perfectly. Protect a few non-negotiable elements, reduce decorative overload and compare actual images against a stable checklist. Use original concepts rather than recognizable franchise settings.",
+  "estimatedMinutes": 45,
+  "level": "Beginner / no coding background required",
+  "capability": "image",
+  "sampleInput": "Original scene requirements: one floating garden island, one footbridge, a small waterfall, daylight and open sky. No buildings, people, writing or branded characters. Desired mood: quiet and welcoming.",
+  "prompt": "Write an image brief of at most 120 words using the supplied requirements. Separate subject, composition, lighting, palette and exclusions. Do not add new objects or a hidden story. Then compress it to 45 words while preserving the same fixed elements.",
+  "workedExample": "A verbose brief that adds towers and crowds has drifted from the requirements. The short and long versions should both retain one island, one bridge, a waterfall, daylight and the exclusions. Actual image compliance must be scored separately from prose quality.",
+  "steps": [
+    {
+      "title": "Freeze core elements",
+      "text": "Write the five required elements and exclusions as a scorecard."
+    },
+    {
+      "title": "Draft the long brief",
+      "text": "Use the text prompt and remove additions not authorized by the original idea."
+    },
+    {
+      "title": "Create the short brief",
+      "text": "Keep the same requirements with fewer modifiers."
+    },
+    {
+      "title": "Generate and compare optionally",
+      "text": "Use one image per brief in the same provider/model; record settings and variation limits."
+    },
+    {
+      "title": "Revise from evidence",
+      "text": "Change the brief because of a visible failure, not merely because a longer sentence sounds richer."
+    }
+  ],
+  "checks": [
+    "Both textual briefs preserve required elements and exclusions without extra objects.",
+    "The long brief is within 120 words and the short one within 45.",
+    "If images are generated, their visible compliance is scored separately from the descriptions."
+  ],
+  "commonMistakes": [
+    "Assuming a dense brief gives more precise control.",
+    "Allowing each stage to add objects until the final scene no longer matches the original task."
+  ],
+  "offline": "Write the two briefs and sketch thumbnail compositions, marking which required elements survived.",
+  "visualSteps": [
+    {
+      "title": "Anchor",
+      "text": "Freeze the core scene"
+    },
+    {
+      "title": "Describe",
+      "text": "Create a bounded brief"
+    },
+    {
+      "title": "Compress",
+      "text": "Keep only useful control"
+    },
+    {
+      "title": "Compare",
+      "text": "Judge visible compliance"
+    }
+  ],
+  "reflection": "Which decorative phrase could you remove without losing a meaningful instruction?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. Both textual briefs preserve required elements and exclusions without extra objects."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The long brief is within 120 words and the short one within 45."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Assuming a dense brief gives more precise control."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}

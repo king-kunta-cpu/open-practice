@@ -1,0 +1,87 @@
+{
+  "id": "own-style-profile",
+  "number": 15,
+  "title": "Build your own writing style profile",
+  "collection": "workplace-writing",
+  "goal": "Extract reusable stylistic preferences without copying private or identifiable material.",
+  "explanation": "A style profile is a rough description, not a perfect clone of a person. Use your own writing or the original fictional samples here. Separate style from facts, and avoid including contact details, confidential situations or signatures in reusable profiles. Compare a new draft with a checklist rather than asking whether it “sounds exactly like me.”",
+  "estimatedMinutes": 35,
+  "level": "Beginner / no coding background required",
+  "capability": "text",
+  "sampleInput": "Samples: “Thanks for the quick update. I will check the list this afternoon. Please flag anything urgent.” “The first draft is ready. Two details still need review. Could we check them on Friday?” “I appreciate the help. The handover is clearer now. Next time, let us agree the owner earlier.”",
+  "prompt": "Describe the visible style of these samples using sentence length, tone, vocabulary, punctuation and structure. Do not infer demographics or personality. Then draft an original thank-you note for a fictional venue host using: room access was helpful; cleanup finished on time; no promise of future bookings.",
+  "workedExample": "Useful profile: short direct sentences, polite but not flowery, explicit next actions, restrained punctuation. An acceptable note thanks the host for access and mentions timely cleanup. A promise to book every month violates the supplied facts.",
+  "steps": [
+    {
+      "title": "Select safe samples",
+      "text": "Use only your own permissioned text or the fixture. Remove names, signatures and private facts."
+    },
+    {
+      "title": "Extract a profile",
+      "text": "Ask for observable writing features; reject claims about personality or identity."
+    },
+    {
+      "title": "Draft on a new topic",
+      "text": "Supply the new facts separately so style examples are not treated as current facts."
+    },
+    {
+      "title": "Score the draft",
+      "text": "Check sentence length, directness, tone and absence of invented promises."
+    },
+    {
+      "title": "Make it yours",
+      "text": "Edit one sentence manually and note what the AI profile missed."
+    }
+  ],
+  "checks": [
+    "The profile describes visible writing choices, not inferred personal traits.",
+    "The new note includes only the three supplied facts and no future booking promise.",
+    "A human edit and its reason are saved alongside the draft."
+  ],
+  "commonMistakes": [
+    "Uploading private correspondence or cloning another person without permission.",
+    "Treating repetitive wording as a perfect personal voice."
+  ],
+  "offline": "Annotate the three samples and write the new note manually from the style checklist.",
+  "visualSteps": [
+    {
+      "title": "Select",
+      "text": "Use your own safe examples"
+    },
+    {
+      "title": "Describe",
+      "text": "Name observable style choices"
+    },
+    {
+      "title": "Draft",
+      "text": "Use new facts separately"
+    },
+    {
+      "title": "Edit",
+      "text": "Keep human authorship visible"
+    }
+  ],
+  "reflection": "Which part of your writing does a short style profile fail to capture?",
+  "evidence": [
+    {
+      "id": "artifact",
+      "title": "Keep the build",
+      "detail": "Save your original input, exact prompt and resulting artifact. The profile describes visible writing choices, not inferred personal traits."
+    },
+    {
+      "id": "test",
+      "title": "Show what you tested",
+      "detail": "Record a pass/fail result and evidence for every check below. The new note includes only the three supplied facts and no future booking promise."
+    },
+    {
+      "id": "reflection",
+      "title": "Explain a limitation",
+      "detail": "Write what changed after one deliberate revision and name a remaining failure mode. Uploading private correspondence or cloning another person without permission."
+    }
+  ],
+  "version": 1,
+  "licence": "CC BY 4.0",
+  "editorialStatus": "Original authored activity; independent subject-matter review and learner timing remain pending.",
+  "providerNote": "Materials are free. External tools may require an adult account, credits, regional eligibility or a paid plan. Check current terms before using them. Do not paste passwords, API keys, private messages or other people’s personal data. No model runs locally or downloads automatically on this platform.",
+  "completionNote": "Completion is a learner self-report based on saved evidence, not verified assessment or an accredited credential."
+}
