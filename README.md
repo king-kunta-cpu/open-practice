@@ -106,3 +106,10 @@ To preserve image quality while keeping the deployed Worker small, public files 
 `npm run build:assets` still generates a portable `static.mjs` fixture for integration tests, but production must not import it. `npm run deploy` uses Wrangler's native asset upload through the existing config. For an **existing** deployment, `scripts/deploy-cloudflare-assets.py` provides a standard-library REST uploader with explicit production database-selector and namespace checks and existing-secret retention. Run `python3 scripts/deploy-cloudflare-assets.py --check` for an offline manifest/module-budget check. Actual upload reads `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` privately from the environment, never from command arguments or source code. Do not use the fresh-install configuration on production.
 
 67 automated tests cover artwork embedding, module budget, root and exact-HTML handling, security/cache headers, HEAD/304/404 behavior, API isolation and existing learning features. The all-50 activity and ten-tool browser suites also pass locally with the twenty refreshed covers/guides.
+
+
+## Artwork refresh / 0.8.4 — activities 21–30
+
+Ten new original AI-generated editorial illustrations and matching self-contained visual guides now cover reasoning checks, prompt frameworks, concept maps, feedback classification, résumé evidence, simulated interviews, visual priorities, outpainting, controlled automation and jargon translation. Total refreshed: **30 covers and 30 guides**. Remaining: **20 covers and guides, activities 31–50**. The gallery, tool directory, dashboard and downloadable collection packs reuse the updated art without changing activity IDs or saved work.
+
+67 automated tests pass, including the exact artwork-batch scope, offline embedding and production module budget. Production retains the existing native same-Worker static-assets binding, original database namespace/object selector and existing secrets. No runtime, schema or infrastructure changes are needed for this batch.

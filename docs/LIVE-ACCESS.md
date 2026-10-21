@@ -28,3 +28,8 @@ The illustrated external-tools directory is at `/tools.html`. It links into the 
 ## Artwork batches / 0.8.3
 
 The activity catalogue `/activities.html` now contains refreshed artwork for activities 01–20; activities 21–50 remain pending. Direct examples: `/activities.html?activity=voice-delivery` and `/activities.html?activity=debate-opponent`. Native Cloudflare static assets are attached to the same Worker, with security-header processing retained. Existing accounts and cloud progress use the unchanged database namespace and object selector.
+
+
+## Artwork batch 3 / 0.8.4
+
+Activities 01–30 have refreshed artwork and illustrated guides. Activities 31–50 remain pending. Examples: `/activities.html?activity=visual-priority`, `/activities.html?activity=concept-map` and `/activities.html?activity=automation-blueprint`.

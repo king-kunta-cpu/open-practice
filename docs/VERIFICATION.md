@@ -90,3 +90,10 @@ Production packaging now uses Cloudflare's native same-Worker assets binding, no
 
 
 Production verification for 0.8.3: root, exact `.html` pages, SVG artwork, ZIP and PDF returned expected content and headers from native assets; missing paths returned 404. The live company tutor remained configured. A first browser run exposed an image-readiness timing assumption and a request-scoped adapter accidentally retained in shared bindings during the packaging refactor. The image check now awaits decoding; per-request binding copies were restored and guarded by a new regression test before the final passing run. The repeated live all-50 activity and foundation suites passed, including temporary-account registration/save/restore/deletion and offline edit/reopen. The separate diagnostic account was recovered and deleted; no test account was retained. The ten-tool browser suite also passed on native assets.
+
+
+## Artwork refresh / 0.8.4 — activities 21–30
+
+Ten new original AI-generated editorial illustrations and matching self-contained visual guides now cover reasoning checks, prompt frameworks, concept maps, feedback classification, résumé evidence, simulated interviews, visual priorities, outpainting, controlled automation and jargon translation. Total refreshed: **30 covers and 30 guides**. Remaining: **20 covers and guides, activities 31–50**. The gallery, tool directory, dashboard and downloadable collection packs reuse the updated art without changing activity IDs or saved work.
+
+67 automated tests pass, including the exact artwork-batch scope, offline embedding and production module budget. Production retains the existing native same-Worker static-assets binding, original database namespace/object selector and existing secrets. No runtime, schema or infrastructure changes are needed for this batch.
