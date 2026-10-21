@@ -43,3 +43,8 @@ Activities 01â€“40 have refreshed artwork and illustrated guides. Activities 41â
 ## Artwork complete / 0.8.6
 
 All 50 standalone activities have refreshed artwork and illustrated guides. Examples from the final batch: `/activities.html?activity=visual-prompt-chain`, `/activities.html?activity=storyboard-continuity` and `/activities.html?activity=contrast-check`. The complete set is available through `/activities.html` and the matching collection ZIPs; no activity artwork remains pending.
+
+
+## HTTPS troubleshooting
+
+If another device reports an unsupported protocol or certificate error, see [the safe HTTPS diagnostic procedure](HTTPS-TROUBLESHOOTING.md). It distinguishes a verified server response from an unverified client-specific failure; no certificate checks should be bypassed.
