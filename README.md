@@ -42,7 +42,7 @@ Cloudflare deployment: configuration goes in `adapters/cloudflare/wrangler.jsonc
 Six courses / eighteen practical lessons; search and filters; self-reported local notes and progress; deterministic quizzes; Markdown project briefs; JSON record export; optional course-grounded cloud tutoring; automated checks. No learner accounts, separate database, app telemetry, or chat-history persistence.
 
 ## Not yet implemented
-Autonomous content production/publication, global budget accounting, cross-request circuit breakers, provider benchmarking/model discovery, verified assessments, record re-import, learner sync, and moderation. Runtime provider calls have mocked tests, not authenticated integration tests. No real provider credentials were used to build this repository.
+Autonomous content production/publication, global budget accounting, cross-request circuit breakers, provider benchmarking/model discovery, verified assessments, record re-import, learner sync, and moderation. Provider routing has mocked tests. The deployed school has also passed a real Groq tutor request; production secrets are stored in Cloudflare, not this repository.
 
 ## Portability
 Copy this repository to any Git host; use the Node server or Dockerfile on another host; keep the same `/api/status` and `/api/tutor` contracts. See [migration](docs/MIGRATION.md). Local progress belongs to the browser origin: changing domains does not automatically migrate it.
@@ -53,3 +53,13 @@ Read [security](docs/SECURITY.md) before enabling a public tutor. API quotas are
 Code: MIT. Original lessons: CC BY 4.0. Third-party services/models retain their own terms.
 
 Deployment-tool note: an initial Wrangler dependency audit reported six advisories in its development dependency tree. It was removed from the application dependency graph; this does not certify the external CLI as vulnerability-free. Review/audit your deployment tooling before authenticated use.
+
+## Live deployment
+- School: https://open-practice-school.zlnew.workers.dev
+- Repository: https://github.com/king-kunta-cpu/open-practice-school
+- Live primary: Groq (`openai/gpt-oss-20b`), verified with a real tutor request.
+- Cloudflare AI binding is provisioned, but no fallback model is approved yet; the deployment token could not access its AI model catalogue.
+- Pollinations is disabled until a key and approved model are configured.
+- Public learner access requires no login.
+
+Production was deployed through the Workers API with generated inline assets. Run `node scripts/build-inline-assets.mjs` before a direct-API asset release. Wrangler deployment serves the original static asset directory instead. Repository source and live configuration are distinct: the committed Wrangler file keeps AI off for safe fresh deployments. Configure approved models and secrets deliberately before enabling it on a new host.
