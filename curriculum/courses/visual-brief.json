@@ -1,0 +1,313 @@
+{
+  "id": "visual-brief",
+  "num": "08",
+  "title": "Direct an illustration with a measurable brief",
+  "track": "Creative production",
+  "level": "Open entry",
+  "project": "Deliver an approved visual pack with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access.",
+  "lessons": [
+    {
+      "id": "visual-brief-01",
+      "title": "Write the brief before the prompt",
+      "estimatedMinutes": 35,
+      "text": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access.\n\nTurn an aesthetic wish into four inspectable constraints. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"brief\": {\n    \"ratio\": \"4:3\",\n    \"title_zone\": \"top-left\",\n    \"subject\": \"fictional seed shop\",\n    \"people\": 0\n  },\n  \"candidate\": {\n    \"ratio\": \"4:3\",\n    \"title_zone\": \"centre\",\n    \"subject\": \"fictional seed shop\",\n    \"people\": 0\n  }\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"passed\": 3,\n  \"failed\": [\n    \"title_zone\"\n  ],\n  \"decision\": \"revise\"\n}",
+      "steps": [
+        "Turn an aesthetic wish into four inspectable constraints.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Write the brief before the prompt — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Move the title zone to top-left: all four checks pass.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Turn an aesthetic wish into four inspectable constraints.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Turn an aesthetic wish into four inspectable constraints. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/visual-brief-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "visual-brief-02",
+      "title": "Inspect the constructed mismatch",
+      "estimatedMinutes": 35,
+      "text": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access.\n\nThe supplied candidate violates placement although its other fields match. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"passed\": 3,\n  \"failed\": [\n    \"title_zone\"\n  ],\n  \"decision\": \"revise\"\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "The supplied candidate violates placement although its other fields match.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Inspect the constructed mismatch — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Insert a person: people constraint fails.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "The supplied candidate violates placement although its other fields match.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "The supplied candidate violates placement although its other fields match. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/visual-brief-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "visual-brief-03",
+      "title": "Direct a bounded revision",
+      "estimatedMinutes": 35,
+      "text": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access.\n\nChange the title zone without accidentally changing the subject or aspect ratio. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.",
+      "example": "PROJECT CONTRACT:\nUse your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"passed\": 3,\n  \"failed\": [\n    \"title_zone\"\n  ],\n  \"decision\": \"revise\"\n}",
+      "steps": [
+        "Change the title zone without accidentally changing the subject or aspect ratio.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform A licence field of unknown is a hold for commercial use, not implied clearance.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Direct a bounded revision — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A licence field of unknown is a hold for commercial use, not implied clearance.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Change the title zone without accidentally changing the subject or aspect ratio.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Change the title zone without accidentally changing the subject or aspect ratio. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform A licence field of unknown is a hold for commercial use, not implied clearance. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/visual-brief-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "visual-brief-04",
+      "title": "Test output against the brief",
+      "estimatedMinutes": 35,
+      "text": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access.\n\nCheck rendered pixels with a human, not metadata alone. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.",
+      "example": "CHANGE TESTS — predict before running:\n1. Move the title zone to top-left: all four checks pass.\n2. Insert a person: people constraint fails.\n3. A licence field of unknown is a hold for commercial use, not implied clearance.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Check rendered pixels with a human, not metadata alone.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Move the title zone to top-left: all four checks pass.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Test output against the brief — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Move the title zone to top-left: all four checks pass.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Check rendered pixels with a human, not metadata alone.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Check rendered pixels with a human, not metadata alone. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Move the title zone to top-left: all four checks pass. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/visual-brief-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "visual-brief-05",
+      "title": "Record provenance and permissions",
+      "estimatedMinutes": 35,
+      "text": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access.\n\nCapture reference rights, allowed uses, provider terms and any unresolved questions. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "REVIEW BOUNDARY:\nUse your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.\n\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "Capture reference rights, allowed uses, provider terms and any unresolved questions.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Record provenance and permissions — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Insert a person: people constraint fails.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Capture reference rights, allowed uses, provider terms and any unresolved questions.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Capture reference rights, allowed uses, provider terms and any unresolved questions. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/visual-brief-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "visual-brief-06",
+      "title": "Deliver an approved visual pack",
+      "estimatedMinutes": 65,
+      "text": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access.\n\nInclude the brief, candidate comparison and a clear approval/hold decision. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Include the brief, candidate comparison and a clear approval/hold decision.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Deliver an approved visual pack — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A licence field of unknown is a hold for commercial use, not implied clearance.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Include the brief, candidate comparison and a clear approval/hold decision.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Include the brief, candidate comparison and a clear approval/hold decision. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/visual-brief-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected passed?",
+    "options": [
+      "3",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Open entry; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Turn an aesthetic wish into four inspectable constraints.",
+    "The supplied candidate violates placement although its other fields match.",
+    "Change the title zone without accidentally changing the subject or aspect ratio.",
+    "Check rendered pixels with a human, not metadata alone.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Creative Commons licence guidance",
+      "url": "https://creativecommons.org/share-your-work/cclicenses/"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected passed?",
+      "options": [
+        "3",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Deliver an approved visual pack",
+    "brief": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access. Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/visual-brief-handbook.md",
+    "pack": "/resources/packs/visual-brief-practice-pack.zip"
+  },
+  "sourceListingNumber": 3,
+  "supportingInputs": [],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

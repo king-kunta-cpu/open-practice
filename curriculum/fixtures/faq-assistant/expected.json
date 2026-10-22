@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "m1": "draft_with_source",
+    "m2": "human_review",
+    "m3": "human_review"
+  },
+  "automatic_actions": 0
+}

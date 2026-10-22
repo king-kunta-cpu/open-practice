@@ -1,0 +1,16 @@
+{
+  "rows": [
+    {
+      "category": "repairs",
+      "amount": 12
+    },
+    {
+      "category": "supplies",
+      "amount": 7
+    },
+    {
+      "category": "repairs",
+      "amount": 8
+    }
+  ]
+}

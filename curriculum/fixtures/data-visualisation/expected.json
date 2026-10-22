@@ -1,0 +1,8 @@
+{
+  "total": 18,
+  "failed_checks": [
+    "axis_baseline",
+    "text_alternative"
+  ],
+  "release": "revise"
+}

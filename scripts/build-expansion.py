@@ -1,0 +1,131 @@
+#!/usr/bin/env python3
+"""Compile 30 original project courses and 11 embedded supporting inputs. No network."""
+from pathlib import Path
+import sys,json,hashlib
+R=Path(__file__).resolve().parent.parent;sys.path.insert(0,str(R/'curriculum/expansion'))
+from profiles import PROFILES
+from lab_engine import run
+P=R/'apps/web/public'
+CLINICS=json.loads((R/'curriculum/expansion/lesson-clinics.json').read_text())
+def sentence(text):return text.rstrip('. ')+'.'
+SUPPORT=[
+(5,'ai-fieldwork',4,'Capability claims versus AGI speculation','AGI is a research concept, not something established by a fluent answer. Make a dated claim ledger: observed result, source, uncertainty and what further test would change the claim. Do not turn a narrow task success into a forecast about intelligence or employment.','Classify three claims as observed, inferred or speculative; attach evidence and a disconfirming test.'),
+(10,'evidence-assistant',4,'Providers are not capabilities','Company history and marketing are different from current API access and demonstrated behaviour. Compare two legitimate routes by regional eligibility, data terms, quotas, supported language and the same test set. Proprietary architectural details must not be invented.','Keep an access matrix with unknown cells and dated official links; unavailable is a valid result.'),
+(16,'ai-fieldwork',0,'Everyday applications with boundaries','Map one task each in writing, data and vision. Name a useful output and a failure that would matter to its user. Healthcare diagnosis, consequential financial decisions and autonomous actions are outside this beginner exercise.','Make a three-row use-case map with a human owner and an explicit stop condition.'),
+(18,'responsible-ai',0,'Institutions and affected communities','A tool can shift work onto people who have less connectivity, fewer language resources or no supported payment route. Draw a stakeholder map before deciding which benefits count. Include exclusion, consent, environmental/resource costs and recourse rather than assuming all users have the same access.','Add a stakeholder impact memo with affected groups, uncertainties, mitigation and a complaint route.'),
+(23,'ai-fieldwork',2,'Terminology you can demonstrate','Machine learning fits patterns from examples; a generative model produces candidate content; a rule-based validator checks stated conditions. None of these names makes a system autonomous or correct. Explain the difference using your actual task, not memorised jargon.','Write a glossary of five terms, each tied to a real observation and a limitation.'),
+(26,'ai-fieldwork',1,'One introduction, multiple ways to test','Use the same small task to distinguish data, a model response, a deterministic check and human approval. A second introductory label is not a second skill. Change one input and predict how each stage should respond before rerunning.','Keep an input-to-check trace and one counterexample; reuse it rather than repeating another survey.'),
+(34,'make-mula',4,'Ethical records and professional boundaries','Keep revenue, costs, unpaid time and refunds separate. Preserve consent, client approval and conflicts of interest. Do not describe an educational price sheet as accounting, audit or tax advice. Applicable obligations depend on jurisdiction; involve a qualified professional when required.','Add a dated cost ledger, confidentiality rule, conflict disclosure and a professional-review boundary.'),
+(37,'measured-ml',4,'More exercises are not more independent evidence','The public ML topic sequence overlaps another listing. Use the overlap to practise one additional error case, not to count the same evidence twice. Duplicate rows or near-identical examples across train and test can make a model seem better without new information.','Audit identifiers across splits and document one duplicate-contamination failure.'),
+(52,'faq-assistant',4,'Empathy without emotion-reading','Acknowledge the request, explain what is known and offer a human next step. Do not claim a model can diagnose a customer mood, read an expression reliably, provide therapy or infer a protected trait. Communication quality is reviewed by consenting people against explicit criteria.','Write two respectful handoffs; ask a human reviewer to assess clarity, acknowledgement and absence of invented commitments.'),
+(54,'python-records',4,'A single coding prerequisite, not a duplicate AI course','Control flow, file handling and functions remain ordinary programming even when AI drafts the code. Reuse the same tests after refactoring. A renamed course or a more complex class hierarchy is not evidence that the program learns from data.','Refactor the report function into parsing, validation and summary stages; prove unchanged baseline results.'),
+(69,'project-planning',4,'Leadership as delivery and accountability','A useful project owner communicates scope, uncertainty, decisions and responsibility. A plan generated by AI does not give authority over people. Practise a change conversation that names trade-offs and asks for approval rather than promising impossible dates.','Produce a stakeholder handoff, owner/decision table and retrospective with one negotiated change.')]
+TOPICS={x['number']:x for x in json.loads((R/'curriculum/expansion/topic-index.json').read_text())}
+A=[x['source'] for x in PROFILES];C=[x[0] for x in SUPPORT];B=[2,7,15,19,20,25,29,31,33,36,39,40,44,45,48,50,51,53,57,58,59,62,63,64,65,66,68];D=[9,11,70,71,73,74]
+assert len(A)==30 and len(C)==11 and set(A+C+B+D)==set(range(1,75)) and len(A+C+B+D)==74
+access='For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.'
+phase_guidance=[
+'Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.',
+'Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.',
+'Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.',
+'Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.',
+'Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.',
+'Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.'
+]
+assessment_explanation='The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested.'
+for index,p in enumerate(PROFILES,7):
+ id=p['id'];f=R/'curriculum/fixtures'/id;f.mkdir(parents=True,exist_ok=True)
+ 
+ if '--validate' in sys.argv:
+  observed=run(id,p['input']);assert observed==p['expected'],(id,observed,p['expected'])
+ dump=lambda x:json.dumps(x,indent=2,ensure_ascii=False)
+ (f/'input.json').write_text(dump(p['input'])+'\n');(f/'expected.json').write_text(dump(p['expected'])+'\n')
+ (f/'lab_engine.py').write_bytes((R/'curriculum/expansion/lab_engine.py').read_bytes())
+ runner=f'''import json\nfrom pathlib import Path\nfrom lab_engine import run\np=Path(__file__).resolve().parent\nsource=json.loads((p/'input.json').read_text())\nexpected=json.loads((p/'expected.json').read_text())\nactual=run({id!r},source)\nassert actual==expected,(actual,expected)\nprint(json.dumps(actual,indent=2))\nprint('PASS: constructed fixture only; not independent assessment or a live model call.')\n'''
+ (f/'reference.py').write_text(runner)
+ dep='scikit-learn>=1.6,<2\nnumpy>=2,<3\n' if id in ['sklearn-lab','clustering-lab'] else 'pandas>=2.2,<3\n' if id=='pandas-cleaning' else '# Standard library only for the supplied reference.\n'
+ (f/'requirements.txt').write_text(dep)
+ (f/'failure-tests.md').write_text('# Predict, change, rerun\n\n'+''.join(f'{i+1}. {x}\n' for i,x in enumerate(p['edges']))+'\nKeep expected behaviour separate from the result actually observed.\n')
+ (f/'evidence-log.csv').write_text('case,input_change,expected,observed,passed,limitation,live_or_constructed\n')
+ cells=[{'cell_type':'markdown','metadata':{},'source':[f'# {p["title"]}\n', 'Run in a permitted hosted notebook; no local/browser AI download is required. This is a small educational reference, not a real provider benchmark.\n',f'Optional dependencies for this fixture: {dep}\n',access]}, {'cell_type':'code','execution_count':None,'metadata':{},'outputs':[],'source':[(R/'curriculum/expansion/lab_engine.py').read_text()]}, {'cell_type':'code','execution_count':None,'metadata':{},'outputs':[],'source':['import json\n',f'fixture=json.loads({dump(p["input"])!r})\n',f'expected=json.loads({dump(p["expected"])!r})\n',f'actual=run({id!r},fixture)\n','assert actual==expected,(actual,expected)\n','actual']}, {'cell_type':'markdown','metadata':{},'source':['## Your independent change tests\n','\n'.join('- '+x for x in p['edges']),'\nAdd cells with predictions and observed results. Do not overwrite the original fixture.'] }]
+ (f/'hosted-lab.ipynb').write_text(dump({'cells':cells,'metadata':{'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'}},'nbformat':4,'nbformat_minor':5})+'\n')
+ (f/'README.md').write_text(f'''# {p['title']}: practice files\n\nOriginal educational fixture, CC BY 4.0. All data is fictional or authored.\n\n1. Read input.json and the rules in the handbook. Predict expected.json independently.\n2. For manual practice, trace rows and calculations without a provider account.\n3. For code practice, upload hosted-lab.ipynb to an authorised hosted Jupyter-compatible runtime. Install only requirements applicable to this fixture using its documented package interface, if not already present. Notebook access, compute and quotas are not guaranteed.\n4. Alternatively place all files together in a permitted hosted Python workspace and run `python reference.py`.\n5. Predict and perform all three changes in failure-tests.md; preserve evidence-log.csv.\n\n{p['rules']}\n\n{access}\n\nThe reference makes no network calls, does not receive keys and never pretends to be a live provider. It checks this synthetic fixture only. Do not paste secrets into notebooks, downloaded work or public logs. The base result was checked during the platform build; no execution on an external learner service is claimed.\n''')
+
+ if id=='make-mula':
+  (f/'market-evidence.md').write_text('''# Permission-based discovery and evidence log
+
+Ask permission to keep anonymous notes. Do not record private documents, identifiers or financial information.
+
+1. Tell me about the most recent time you performed this task.
+2. What triggered it and what happened next?
+3. Which part took the most time or needed correction?
+4. What happened when it went wrong?
+5. What is your current workaround?
+6. Who decides whether a new method can be tried?
+7. Would a fictional demonstration be useful to review? A no is valid.
+
+For each conversation record: consent; date; role without name; direct observation; interpretation; uncertainty; current workaround; next permitted step. Label AI role-play as rehearsal, never customer discovery.
+
+Funnel fields: conversations, relevant problems, offer discussions, proposals, paid orders, accepted deliveries, refunds, actual costs and total time. Do not fill later stages from assumed conversion rates. Earned income is zero if no payment occurred.
+
+Decision: continue / change / stop; supporting evidence; disconfirming evidence; next smallest test. No actual customer or income is claimed by this template.
+''')
+  (f/'access-check.csv').write_text('service_or_payment_route,learner_region,eligibility_status,official_source_url,checked_date,identity_requirements_summary,receiving_method_supported,currency_and_fx,fees,payout_timing,refund_route,data_terms,remaining_unknowns,decision\n')
+  (f/'offer-template.md').write_text('''# Scoped offer worksheet — not legal advice
+
+Buyer problem and evidence:
+Deliverable and acceptance tests:
+Inputs and permission to use them:
+Approved cloud services and data restrictions:
+Included work:
+Excluded work and professional-advice boundary:
+Price hypothesis, fees, revision allowance and payment terms:
+Legitimate receiving route verified on date:
+Client approval before any publication or external action:
+Rights, permitted use and third-party assets:
+Delivery date and dependencies:
+Revision limit and support period:
+Handoff format and ability to export:
+Changes requiring a new scope:
+Local obligations needing qualified advice:
+
+No invented client history, testimonials, savings, guarantees or qualifications. Do not store bank/card details, identity documents or credentials here.
+''')
+  (f/'handoff-checklist.md').write_text('''# Deliver, hand over and learn
+
+- Acceptance criteria agreed and checked; disagreements recorded.
+- Original inputs preserved; totals and material claims verified.
+- Private information removed from demonstrations and exports.
+- Permissions, rights and any cloud-data processing approval retained.
+- Human owner named; autonomous actions disabled unless separately authorised.
+- Exportable files, instructions and limitations supplied.
+- Revision/support boundary clear; no undisclosed subscriptions.
+- Actual paid amount, fees, costs, time and refunds recorded separately.
+- No order means no earned revenue; a simulation stays labelled.
+- Continue/change/stop decision supported by real evidence.
+
+This is educational practice, not a contract, financial advice or proof of typical earnings.
+''')
+ lessons=[]
+ for step,(title,note) in enumerate(p['stages']):
+  extra=[s for s in SUPPORT if s[1]==id and s[2]==step]
+  text=p['concept']+'\n\n'+sentence(note)+' '+phase_guidance[step]+'\n\nPolicy for this project: '+p['rules']
+  if step in [0,4]:text+='\n\n'+access
+  for s in extra:text+='\n\nSupporting practice — '+s[3]+': '+s[4]+' '+s[5]
+  baseline='SOURCE (authored fixture):\n'+dump(p['input'])+'\nINDEPENDENT FIXTURE TARGET:\n'+dump(p['expected'])
+  examples=[baseline,'MANUAL BASELINE / compare every named field\n'+dump(p['expected'])+'\nKeep a separate observed-result column; the answer key is not a model response.',f'PROJECT CONTRACT:\n{p["rules"]}\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n'+dump(p['expected']),'CHANGE TESTS — predict before running:\n'+'\n'.join(str(i+1)+'. '+x for i,x in enumerate(p['edges']))+'\nKeep the original expected.json unchanged.','REVIEW BOUNDARY:\n'+p['rules']+'\n'+'\n'.join(s[5] for s in extra)+'\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.','HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.']
+  actions=[sentence(note),'Open '+('input.json and expected.json' if step<2 else 'hosted-lab.ipynb and the reference code' if step==2 else 'failure-tests.md' if step==3 else 'README.md and your evidence log')+' from the practice pack; keep an unmodified original.', 'Record '+('a manual prediction and the relevant rule before consulting the answer key.' if step==0 else 'expected and observed values separately; explain every mismatch.' if step<4 else 'the human decision owner, limitations and any untested service access.'), 'Perform '+(p['edges'][step%3] if step in [2,3] else 'one small change and predict its effect before rerunning.'),'Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.']
+  actions += [s[5] for s in extra]
+  expected=[title+' — a saved, inspectable artefact tied to the supplied rule.','A baseline or change-test record with expected/observed results and a limitation.']+[s[5] for s in extra]
+  lesson=dict(id=id+'-'+str(step+1).zfill(2),title=title,estimatedMinutes=35 if step<5 else 65,text=text,example=examples[step],steps=actions,expected=expected,commonMistakes=[p['edges'][step%3],'Treating a supplied answer key, an authored example or self-review as independent field validation.'],selfCheck='Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?',offline='Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.',outcomes=[sentence(note),'Explain and retain a testable result and its limits.'],task=' '.join(actions),resourcePack='/resources/packs/'+id+'-practice-pack.zip',supportingInputs=[s[0] for s in extra])
+  if id in CLINICS:
+   clinic=CLINICS[id][step];lesson['text']+='\n\nProject clinic: '+clinic.get('text','');lesson['example']=clinic.get('example',lesson['example'])
+   if clinic.get('task'):lesson['steps'].append(clinic['task']);lesson['task']=' '.join(lesson['steps'])
+  lessons.append(lesson)
+ assessment=[dict(question='For the supplied fixture, what is the expected '+next(iter(p['expected']))+'?',options=[json.dumps(next(iter(p['expected'].values())),ensure_ascii=False),'It cannot be checked against the supplied input.','Whatever value the model reports most confidently.'],answer=0,explanation=assessment_explanation),dict(question='How should you handle the project rule: '+p['rules'],options=['Silently change the rule to fit an attractive output.','State the rule, test it, and record exceptions or unresolved failures.','Treat model confidence as proof.'],answer=1,explanation='Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy.'),dict(question='If mainstream providers do not serve your region, what is the honest route?',options=['Use a false country or borrowed account.','Claim the supplied fixture was a real API run.','Check legitimate available alternatives, or label the manual/fixture route and its limits.'],answer=2,explanation='Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result.')]
+ rubric=[dict(id='r1',title='Defined task and preserved input',evidence='Original input and the project policy are retained; the actual question is clear.',critical=False),dict(id='r2',title='Checked baseline',evidence='The supplied baseline reconciles field by field; unsupported live-run claims are absent.',critical=False),dict(id='r3',title='Three failure/change tests',evidence='All three specified changes have predictions, observed results and explanations.',critical=False),dict(id='r4',title='Repeatable handoff',evidence='Another person can follow the README; supporting practice evidence and unresolved limits are included.',critical=False),dict(id='r5',title='Safety, rights and access honesty',evidence=p['rules']+' Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.',critical=True)]
+ course=dict(id=id,num=str(index).zfill(2),title=p['title'],track=p['track'],level=p['level'],project=p['stages'][-1][0]+' with inputs, tests and a reproducible handoff.',time='4h estimated',icon='✦',description=p['concept'],lessons=lessons,quiz=assessment[0],prerequisites=[p['level']+'; inspect the worked fixture before beginning.','A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.','For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory.'],outcomes=[sentence(x[1]) for x in p['stages'][:4]]+['Keep a reproducible result and disclose safety, rights and regional access limits.'],references=[dict(title=p['reference'][0],url=p['reference'][1])],version='1.0',assessmentVersion=2,estimatedMinutes=sum(x['estimatedMinutes'] for x in lessons),editorialStatus='Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.',licence='CC BY 4.0',assessment=assessment,capstone=dict(title=lessons[-1]['title'],brief=p['concept']+' '+p['rules'],deliverables=['Input and policy','Observed result and three change tests','Reproduction, supporting-practice evidence and limitation notes'],rubric=rubric,scoring='Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment.'),downloads=dict(handbook='/resources/handbooks/'+id+'-handbook.md',pack='/resources/packs/'+id+'-practice-pack.zip'),sourceListingNumber=p['source'],supportingInputs=[s[0] for s in SUPPORT if s[1]==id],authorship='Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials.')
+ (R/'curriculum/courses'/f'{id}.json').write_text(dump(course)+'\n')
+scope={'version':'1.0.0','audience':'People across regions underserved, excluded or poorly supported by mainstream AI and payment providers; not restricted to any one country.','built': [{'listing':p['source'],'course':p['id'],'source_url':TOPICS[p['source']]['url']} for p in PROFILES], 'incorporated':[{'listing':s[0],'course':s[1],'lesson':s[2]+1,'title':s[3],'source_url':TOPICS[s[0]]['url']} for s in SUPPORT],'conditional_not_published':B,'held_not_published':D,'accessPrinciple':access}
+(R/'curriculum/expansion/scope.json').write_text(dump(scope)+'\n')
+print('Built 30 original six-activity courses, hosted notebooks, reference fixtures and 11 embedded supporting inputs; 27 conditional and 6 held inputs remain unpublished.')

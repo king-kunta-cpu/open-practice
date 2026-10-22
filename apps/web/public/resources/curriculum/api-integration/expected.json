@@ -1,0 +1,8 @@
+{
+  "decisions": [
+    "accept_draft",
+    "bounded_retry_later",
+    "schema_error",
+    "stop_auth_error"
+  ]
+}

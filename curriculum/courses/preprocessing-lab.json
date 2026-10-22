@@ -1,0 +1,313 @@
+{
+  "id": "preprocessing-lab",
+  "num": "27",
+  "title": "Build a preprocessing step that cannot see the future",
+  "track": "Measured machine learning",
+  "level": "Python + ML prerequisite",
+  "project": "Ship a leakage-resistant pipeline contract with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.",
+  "lessons": [
+    {
+      "id": "preprocessing-lab-01",
+      "title": "Mark the training boundary",
+      "estimatedMinutes": 35,
+      "text": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.\n\nWrite down which rows the fitted transformation is allowed to inspect. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"train\": [\n    2,\n    null,\n    4\n  ],\n  \"test\": [\n    100,\n    null\n  ]\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"training_mean\": 3,\n  \"train_filled\": [\n    2,\n    3,\n    4\n  ],\n  \"test_filled\": [\n    100,\n    3\n  ]\n}",
+      "steps": [
+        "Write down which rows the fitted transformation is allowed to inspect.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Mark the training boundary — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Including 100 in the fit would change the mean: detect the leakage.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Write down which rows the fitted transformation is allowed to inspect.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Write down which rows the fitted transformation is allowed to inspect. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/preprocessing-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "preprocessing-lab-02",
+      "title": "Calculate the permitted mean",
+      "estimatedMinutes": 35,
+      "text": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.\n\nUse only the observed training values. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"training_mean\": 3,\n  \"train_filled\": [\n    2,\n    3,\n    4\n  ],\n  \"test_filled\": [\n    100,\n    3\n  ]\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Use only the observed training values.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Calculate the permitted mean — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "All training values missing: stop and request a stated fallback policy.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Use only the observed training values.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Use only the observed training values. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/preprocessing-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "preprocessing-lab-03",
+      "title": "Implement fit then transform",
+      "estimatedMinutes": 35,
+      "text": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.\n\nReturn fitted parameters separately from transformed data. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.",
+      "example": "PROJECT CONTRACT:\nFit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"training_mean\": 3,\n  \"train_filled\": [\n    2,\n    3,\n    4\n  ],\n  \"test_filled\": [\n    100,\n    3\n  ]\n}",
+      "steps": [
+        "Return fitted parameters separately from transformed data.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform A new extreme test value must not change stored training parameters.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Implement fit then transform — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A new extreme test value must not change stored training parameters.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Return fitted parameters separately from transformed data.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Return fitted parameters separately from transformed data. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform A new extreme test value must not change stored training parameters. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/preprocessing-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "preprocessing-lab-04",
+      "title": "Inject an extreme test value",
+      "estimatedMinutes": 35,
+      "text": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.\n\nDemonstrate that training parameters do not change. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.",
+      "example": "CHANGE TESTS — predict before running:\n1. Including 100 in the fit would change the mean: detect the leakage.\n2. All training values missing: stop and request a stated fallback policy.\n3. A new extreme test value must not change stored training parameters.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Demonstrate that training parameters do not change.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Including 100 in the fit would change the mean: detect the leakage.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Inject an extreme test value — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Including 100 in the fit would change the mean: detect the leakage.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Demonstrate that training parameters do not change.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Demonstrate that training parameters do not change. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Including 100 in the fit would change the mean: detect the leakage. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/preprocessing-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "preprocessing-lab-05",
+      "title": "Extend to time and class imbalance",
+      "estimatedMinutes": 35,
+      "text": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.\n\nKeep chronological splits and resampling inside training only. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "REVIEW BOUNDARY:\nFit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.\n\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "Keep chronological splits and resampling inside training only.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Extend to time and class imbalance — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "All training values missing: stop and request a stated fallback policy.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Keep chronological splits and resampling inside training only.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Keep chronological splits and resampling inside training only. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/preprocessing-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "preprocessing-lab-06",
+      "title": "Ship a leakage-resistant pipeline contract",
+      "estimatedMinutes": 65,
+      "text": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.\n\nAttach tests for missingness, refit attempts and parameter provenance. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Attach tests for missingness, refit attempts and parameter provenance.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Ship a leakage-resistant pipeline contract — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A new extreme test value must not change stored training parameters.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Attach tests for missingness, refit attempts and parameter provenance.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Attach tests for missingness, refit attempts and parameter provenance. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/preprocessing-lab-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected training_mean?",
+    "options": [
+      "3",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Python + ML prerequisite; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Write down which rows the fitted transformation is allowed to inspect.",
+    "Use only the observed training values.",
+    "Return fitted parameters separately from transformed data.",
+    "Demonstrate that training parameters do not change.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Scikit-learn pipelines",
+      "url": "https://scikit-learn.org/stable/modules/compose.html"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected training_mean?",
+      "options": [
+        "3",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Ship a leakage-resistant pipeline contract",
+    "brief": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture. Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/preprocessing-lab-handbook.md",
+    "pack": "/resources/packs/preprocessing-lab-practice-pack.zip"
+  },
+  "sourceListingNumber": 43,
+  "supportingInputs": [],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

@@ -1,0 +1,313 @@
+{
+  "id": "api-integration",
+  "num": "19",
+  "title": "Connect an AI API without trusting every response",
+  "track": "Assistants & APIs",
+  "level": "JavaScript / Python prerequisite",
+  "project": "Ship an integration with a teardown note with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes.",
+  "lessons": [
+    {
+      "id": "api-integration-01",
+      "title": "Write the request and response contract",
+      "estimatedMinutes": 35,
+      "text": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes.\n\nSpecify required fields, maximum sizes and the trust boundary. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"responses\": [\n    {\n      \"status\": 200,\n      \"body\": {\n        \"text\": \"draft\"\n      }\n    },\n    {\n      \"status\": 429,\n      \"body\": {}\n    },\n    {\n      \"status\": 200,\n      \"body\": {\n        \"wrong\": \"shape\"\n      }\n    },\n    {\n      \"status\": 401,\n      \"body\": {}\n    }\n  ]\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"decisions\": [\n    \"accept_draft\",\n    \"bounded_retry_later\",\n    \"schema_error\",\n    \"stop_auth_error\"\n  ]\n}",
+      "steps": [
+        "Specify required fields, maximum sizes and the trust boundary.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Write the request and response contract — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Timeout: record an unavailable result, not a fabricated draft.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Specify required fields, maximum sizes and the trust boundary.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Specify required fields, maximum sizes and the trust boundary. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/api-integration-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "api-integration-02",
+      "title": "Classify constructed responses",
+      "estimatedMinutes": 35,
+      "text": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes.\n\nDistinguish transport status, schema validity and factual verification. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"decisions\": [\n    \"accept_draft\",\n    \"bounded_retry_later\",\n    \"schema_error\",\n    \"stop_auth_error\"\n  ]\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Distinguish transport status, schema validity and factual verification.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Classify constructed responses — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A key in a URL or export is a critical failure: remove it and rotate exposed credentials.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Distinguish transport status, schema validity and factual verification.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Distinguish transport status, schema validity and factual verification. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/api-integration-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "api-integration-03",
+      "title": "Build a bounded client",
+      "estimatedMinutes": 35,
+      "text": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes.\n\nUse timeouts and explicit error states instead of an infinite retry loop. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.",
+      "example": "PROJECT CONTRACT:\nThis reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"decisions\": [\n    \"accept_draft\",\n    \"bounded_retry_later\",\n    \"schema_error\",\n    \"stop_auth_error\"\n  ]\n}",
+      "steps": [
+        "Use timeouts and explicit error states instead of an infinite retry loop.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Quota response: respect limits; changing accounts to evade restrictions is not a fallback.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Build a bounded client — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Quota response: respect limits; changing accounts to evade restrictions is not a fallback.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Use timeouts and explicit error states instead of an infinite retry loop.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Use timeouts and explicit error states instead of an infinite retry loop. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Quota response: respect limits; changing accounts to evade restrictions is not a fallback. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/api-integration-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "api-integration-04",
+      "title": "Exercise authentication and quota failures",
+      "estimatedMinutes": 35,
+      "text": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes.\n\nNever paste a live key into a test fixture or public log. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.",
+      "example": "CHANGE TESTS — predict before running:\n1. Timeout: record an unavailable result, not a fabricated draft.\n2. A key in a URL or export is a critical failure: remove it and rotate exposed credentials.\n3. Quota response: respect limits; changing accounts to evade restrictions is not a fallback.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Never paste a live key into a test fixture or public log.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Timeout: record an unavailable result, not a fabricated draft.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Exercise authentication and quota failures — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Timeout: record an unavailable result, not a fabricated draft.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Never paste a live key into a test fixture or public log.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Never paste a live key into a test fixture or public log. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Timeout: record an unavailable result, not a fabricated draft. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/api-integration-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "api-integration-05",
+      "title": "Review provider-specific access",
+      "estimatedMinutes": 35,
+      "text": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes.\n\nCheck country, account, data and billing terms before selecting a legitimate alternative. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "REVIEW BOUNDARY:\nThis reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.\n\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "Check country, account, data and billing terms before selecting a legitimate alternative.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Review provider-specific access — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A key in a URL or export is a critical failure: remove it and rotate exposed credentials.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Check country, account, data and billing terms before selecting a legitimate alternative.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Check country, account, data and billing terms before selecting a legitimate alternative. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/api-integration-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "api-integration-06",
+      "title": "Ship an integration with a teardown note",
+      "estimatedMinutes": 65,
+      "text": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes.\n\nProvide request fixtures, failure tests and safe configuration instructions. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Provide request fixtures, failure tests and safe configuration instructions.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Ship an integration with a teardown note — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Quota response: respect limits; changing accounts to evade restrictions is not a fallback.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Provide request fixtures, failure tests and safe configuration instructions.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Provide request fixtures, failure tests and safe configuration instructions. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/api-integration-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected decisions?",
+    "options": [
+      "[\"accept_draft\", \"bounded_retry_later\", \"schema_error\", \"stop_auth_error\"]",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "JavaScript / Python prerequisite; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Specify required fields, maximum sizes and the trust boundary.",
+    "Distinguish transport status, schema validity and factual verification.",
+    "Use timeouts and explicit error states instead of an infinite retry loop.",
+    "Never paste a live key into a test fixture or public log.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "MDN HTTP response status codes",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected decisions?",
+      "options": [
+        "[\"accept_draft\", \"bounded_retry_later\", \"schema_error\", \"stop_auth_error\"]",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Ship an integration with a teardown note",
+    "brief": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes. This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/api-integration-handbook.md",
+    "pack": "/resources/packs/api-integration-practice-pack.zip"
+  },
+  "sourceListingNumber": 27,
+  "supportingInputs": [],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

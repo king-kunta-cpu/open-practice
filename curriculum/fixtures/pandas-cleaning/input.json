@@ -1,0 +1,20 @@
+{
+  "rows": [
+    {
+      "id": "a",
+      "units": 2
+    },
+    {
+      "id": "b",
+      "units": null
+    },
+    {
+      "id": "a",
+      "units": 2
+    },
+    {
+      "id": "c",
+      "units": 100
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "cases": [
+    {
+      "group": "A",
+      "correct": true
+    },
+    {
+      "group": "A",
+      "correct": true
+    },
+    {
+      "group": "B",
+      "correct": false
+    },
+    {
+      "group": "B",
+      "correct": true
+    }
+  ],
+  "privacy_failure": true
+}

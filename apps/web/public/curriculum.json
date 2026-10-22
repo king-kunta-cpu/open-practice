@@ -1,37 +1,25 @@
 {
-  "version": "2.0",
+  "version": "3.0",
   "identity": "Open Practice",
   "descriptor": "Practical AI Engineering",
-  "paths": 6,
-  "lessons": 36,
-  "workedExamples": 36,
-  "reviewQuestions": 18,
-  "capstones": 6,
-  "rubricCriteria": 30,
-  "estimatedMinutes": 1440,
-  "resources": 31,
-  "fixtureFiles": 37,
+  "paths": 36,
+  "lessons": 216,
+  "workedExamples": 216,
+  "reviewQuestions": 108,
+  "capstones": 36,
+  "rubricCriteria": 180,
+  "estimatedMinutes": 8640,
+  "resources": 91,
+  "fixtureFiles": 312,
   "editorialStatus": "Original authored practice material. Estimates are unvalidated; independent subject-matter review remains pending.",
   "roadmap": [
     {
-      "title": "Document assistants and retrieval evaluation",
-      "status": "Planned, not yet available"
-    },
-    {
-      "title": "Small application backends and tool permissions",
-      "status": "Planned, not yet available"
-    },
-    {
-      "title": "Multimodal workflows and accessibility",
-      "status": "Planned, not yet available"
-    },
-    {
-      "title": "Deployment, monitoring and maintenance",
+      "title": "Independent subject review and learner trials",
       "status": "Planned, not yet available"
     }
   ],
-  "foundationResources": 21,
+  "foundationResources": 81,
   "standaloneActivities": 50,
-  "totalActivities": 86,
+  "totalActivities": 266,
   "standaloneEstimatedMinutes": 1985
 }

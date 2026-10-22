@@ -1,0 +1,273 @@
+{
+  "version": "1.0.0",
+  "audience": "People across regions underserved, excluded or poorly supported by mainstream AI and payment providers; not restricted to any one country.",
+  "built": [
+    {
+      "listing": 1,
+      "course": "reproducible-cloud-lab",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/google-colab-course"
+    },
+    {
+      "listing": 3,
+      "course": "visual-brief",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/what-is-dall-e"
+    },
+    {
+      "listing": 4,
+      "course": "measured-ml",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/what-is-machine-learning"
+    },
+    {
+      "listing": 6,
+      "course": "generative-workbench",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/what-is-generative-ai"
+    },
+    {
+      "listing": 8,
+      "course": "evidence-assistant",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/what-is-claude-ai"
+    },
+    {
+      "listing": 12,
+      "course": "python-records",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/python-for-starters"
+    },
+    {
+      "listing": 13,
+      "course": "ai-fieldwork",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/artificial-intelligence-course-for-beginners"
+    },
+    {
+      "listing": 14,
+      "course": "faq-assistant",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/artificial-intelligence-online-chat"
+    },
+    {
+      "listing": 17,
+      "course": "data-report",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/fundamentals-of-data-science"
+    },
+    {
+      "listing": 21,
+      "course": "algorithms-lab",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/algorithms-and-data-structures"
+    },
+    {
+      "listing": 22,
+      "course": "constraint-planner",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/artificial-intelligence-and-problem-solving"
+    },
+    {
+      "listing": 24,
+      "course": "maths-workbench",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/maths-artificial-intelligence"
+    },
+    {
+      "listing": 27,
+      "course": "api-integration",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/artificial-intelligence-apis"
+    },
+    {
+      "listing": 28,
+      "course": "augmentation-lab",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/augmentation-data"
+    },
+    {
+      "listing": 30,
+      "course": "text-classification",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/programming-language-processing"
+    },
+    {
+      "listing": 32,
+      "course": "uncertainty-lab",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/statistics-about-artificial-intelligence"
+    },
+    {
+      "listing": 35,
+      "course": "inventory-planning",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/ai-in-supply-chain-and-logistics"
+    },
+    {
+      "listing": 38,
+      "course": "project-planning",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/it-project-planning"
+    },
+    {
+      "listing": 41,
+      "course": "data-cleaning",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/data-cleanlines"
+    },
+    {
+      "listing": 42,
+      "course": "supervised-lab",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/define-supervised-and-unsupervised-learning"
+    },
+    {
+      "listing": 43,
+      "course": "preprocessing-lab",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/preprocessed-dataset"
+    },
+    {
+      "listing": 46,
+      "course": "responsible-ai",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/ethics-for-ai"
+    },
+    {
+      "listing": 47,
+      "course": "time-experiment",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/time-and-time-management"
+    },
+    {
+      "listing": 49,
+      "course": "data-wrangling",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/python-for-data-cleaning"
+    },
+    {
+      "listing": 55,
+      "course": "sklearn-lab",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/sci-kit-learning"
+    },
+    {
+      "listing": 56,
+      "course": "pandas-cleaning",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/data-cleaning-with-pandas"
+    },
+    {
+      "listing": 60,
+      "course": "campaign-evidence",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/ai-in-advertising-future-trends-certification"
+    },
+    {
+      "listing": 61,
+      "course": "data-visualisation",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/matplotlib-lib-plt"
+    },
+    {
+      "listing": 67,
+      "course": "clustering-lab",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/machine-learning-unsupervised-techniques"
+    },
+    {
+      "listing": 72,
+      "course": "make-mula",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/small-entrepreneur-ideas"
+    }
+  ],
+  "incorporated": [
+    {
+      "listing": 5,
+      "course": "ai-fieldwork",
+      "lesson": 5,
+      "title": "Capability claims versus AGI speculation",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/what-is-general-artificial-intelligence"
+    },
+    {
+      "listing": 10,
+      "course": "evidence-assistant",
+      "lesson": 5,
+      "title": "Providers are not capabilities",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/what-is-open-ai"
+    },
+    {
+      "listing": 16,
+      "course": "ai-fieldwork",
+      "lesson": 1,
+      "title": "Everyday applications with boundaries",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/introduction-to-artificial-intelligence"
+    },
+    {
+      "listing": 18,
+      "course": "responsible-ai",
+      "lesson": 1,
+      "title": "Institutions and affected communities",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/artificial-intelligence-magazines"
+    },
+    {
+      "listing": 23,
+      "course": "ai-fieldwork",
+      "lesson": 3,
+      "title": "Terminology you can demonstrate",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/artificial-intelligence-meaning"
+    },
+    {
+      "listing": 26,
+      "course": "ai-fieldwork",
+      "lesson": 2,
+      "title": "One introduction, multiple ways to test",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/introduction-to-ai-course"
+    },
+    {
+      "listing": 34,
+      "course": "make-mula",
+      "lesson": 5,
+      "title": "Ethical records and professional boundaries",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/duty-ethics"
+    },
+    {
+      "listing": 37,
+      "course": "measured-ml",
+      "lesson": 5,
+      "title": "More exercises are not more independent evidence",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/machine-learning-course"
+    },
+    {
+      "listing": 52,
+      "course": "faq-assistant",
+      "lesson": 5,
+      "title": "Empathy without emotion-reading",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/leadership-in-emotional-intelligence"
+    },
+    {
+      "listing": 54,
+      "course": "python-records",
+      "lesson": 5,
+      "title": "A single coding prerequisite, not a duplicate AI course",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/ai-programming-with-python"
+    },
+    {
+      "listing": 69,
+      "course": "project-planning",
+      "lesson": 5,
+      "title": "Leadership as delivery and accountability",
+      "source_url": "https://www.oxfordhomestudy.com/courses/ai-courses-online/leadership-qualities-of-a-leader"
+    }
+  ],
+  "conditional_not_published": [
+    2,
+    7,
+    15,
+    19,
+    20,
+    25,
+    29,
+    31,
+    33,
+    36,
+    39,
+    40,
+    44,
+    45,
+    48,
+    50,
+    51,
+    53,
+    57,
+    58,
+    59,
+    62,
+    63,
+    64,
+    65,
+    66,
+    68
+  ],
+  "held_not_published": [
+    9,
+    11,
+    70,
+    71,
+    73,
+    74
+  ],
+  "accessPrinciple": "For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run."
+}

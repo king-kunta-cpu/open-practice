@@ -1,0 +1,23 @@
+{
+  "orders": [
+    {
+      "id": "o1",
+      "product": "p1",
+      "qty": 2
+    },
+    {
+      "id": "o2",
+      "product": "p2",
+      "qty": 1
+    },
+    {
+      "id": "o3",
+      "product": "missing",
+      "qty": 1
+    }
+  ],
+  "prices": {
+    "p1": 3,
+    "p2": 5
+  }
+}

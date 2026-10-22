@@ -1,0 +1,24 @@
+{
+  "rows": [
+    {
+      "id": "a",
+      "amount": 5
+    },
+    {
+      "id": "b",
+      "amount": 0
+    },
+    {
+      "id": "a",
+      "amount": 5
+    },
+    {
+      "id": "c",
+      "amount": "?"
+    },
+    {
+      "id": "d",
+      "amount": -1
+    }
+  ]
+}

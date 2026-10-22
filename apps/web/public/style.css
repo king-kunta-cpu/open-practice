@@ -43,3 +43,6 @@ h1,h2,h3,.command-identity strong,.activity-recent span{overflow-wrap:anywhere}.
 input[type=search]:-webkit-autofill{animation-name:op-autofill;animation-duration:1ms}input[type=search]:autofill{animation-name:op-autofill;animation-duration:1ms}@keyframes op-autofill{from{opacity:.99}to{opacity:1}}
 @media(max-width:920px){#cards.cards,.hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.curriculum-cover{width:190px}}
 @media(max-width:640px){#cards.cards,.hub-grid{grid-template-columns:1fr}.card{padding:0}.card-body,.resource-body{padding:22px}.card-art{display:block}.manual-thumbnail img,.public-browser .manual-thumbnail img{max-height:none;height:auto}.command-thumbnails,.public-browser .command-thumbnails{gap:8px;padding:14px 0}.curriculum-cover{float:none;width:100%;max-width:310px;margin:0 auto 24px}.info-hero{grid-template-columns:1fr}.info-hero img{max-width:230px;margin:auto}.tool-cover{max-height:none}.policy-links{gap:12px 20px}}
+
+/* Complete readable projects and access-first expansion. */
+.lesson-explanation{white-space:pre-line}.reading-page pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;font:12px/1.8 ui-monospace,monospace;background:#faf2e5;padding:20px;border:1px solid #ead8c2;border-radius:12px}.region-access{margin:35px auto;padding:30px}.region-access .primary{margin:12px 12px 12px 0}.filters{flex-wrap:wrap}

@@ -7,13 +7,13 @@ a=argparse.ArgumentParser();a.add_argument('--output',default='.output/reading-m
 if not out.is_relative_to(R/'.output') or out==R/'.output':raise SystemExit('Output must be a subdirectory of .output')
 if out.exists():shutil.rmtree(out)
 out.mkdir(parents=True)
-for folder in ['brand','resources','activities','demonstrations']:
+for folder in ['brand','resources','activities','demonstrations','builds']:
  shutil.copytree(P/folder,out/folder)
 for name in ['style.css','practice.html','starter.html','facilitators.html','demonstrations.html','about.html','help.html','privacy.html','cookies.html','terms.html','licensing.html','accessibility.html','contact.html']:
  shutil.copy2(P/name,out/name)
 shutil.copy2(P/'practice.html',out/'index.html')
 # Only generated learning pages are altered. Downloadable examples retain their own code.
-nav=f'<nav aria-label="Reading navigation"><a href="{base}/">50 guides</a><a href="{base}/starter.html">Starter</a><a href="{base}/facilitators.html">Pilot kit</a><a href="{base}/demonstrations.html">Demonstrations</a></nav>'
+nav=f'<nav aria-label="Reading navigation"><a href="{base}/">50 guides</a><a href="{base}/starter.html">Starter</a><a href="{base}/facilitators.html">Pilot kit</a><a href="{base}/demonstrations.html">Demonstrations</a><a href="{base}/builds/index.html">36 build guides</a></nav>'
 banner='<aside style="padding:16px;background:#f4dfaf;border-bottom:3px solid #7c1f16"><strong>Alternate reading &amp; download site.</strong> No accounts, cloud saving, browser progress or analytics run here. Editable workspaces remain on <a href="'+MAIN+'">the main site</a>. If that host is blocked on your network, read the guides and download the offline kit here; do not bypass certificate warnings.</aside>'
 allowed={'practice.html','starter.html','facilitators.html','demonstrations.html','about.html','help.html','privacy.html','cookies.html','terms.html','licensing.html','accessibility.html','contact.html','index.html'}
 for p in out.rglob('*.html'):

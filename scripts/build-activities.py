@@ -94,4 +94,4 @@ for g in groups:resources.append({'id':'activity-collection-'+g['id'],'title':g[
 (P/'resources.json').write_text(json.dumps(resources,indent=2,ensure_ascii=False)+'\n')
 print(f'Built {len(activities)} activities, 50 covers, 50 visual guides, 50 handbooks, 10 collection packs; library now {len(resources)} resources.')
 
-foundation=json.loads((P/'curriculum.json').read_text());foundation.update({'resources':len(resources),'foundationResources':21,'standaloneActivities':50,'totalActivities':86,'standaloneEstimatedMinutes':manifest['guidedMinutes']});(P/'curriculum.json').write_text(json.dumps(foundation,indent=2)+'\n')
+foundation=json.loads((P/'curriculum.json').read_text());foundation.update({'resources':len(resources),'foundationResources':foundation['resources'],'standaloneActivities':50,'totalActivities':foundation['lessons']+len(activities),'standaloneEstimatedMinutes':manifest['guidedMinutes']});(P/'curriculum.json').write_text(json.dumps(foundation,indent=2)+'\n')

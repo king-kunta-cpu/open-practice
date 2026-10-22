@@ -1,0 +1,10 @@
+{
+  "predictions": [
+    0,
+    0,
+    1,
+    1
+  ],
+  "correct": 4,
+  "test_count": 4
+}

@@ -22,7 +22,7 @@ s=s.replace('<section class="hub-hero">','<section class="hub-hero library-intro
 # Add policy/help links once to every public page, including rendered activity guides.
 links=[('about','About'),('help','Help & FAQ'),('privacy','Privacy policy'),('cookies','Cookies & storage'),('terms','Terms of use'),('licensing','Licensing'),('accessibility','Accessibility'),('contact','Contact')]
 nav='<div class="policy-links" role="navigation" aria-label="Policies and help">'+''.join(f'<a href="/{slug}.html">{label}</a>' for slug,label in links)+'</div>'
-files=list(P.glob('*.html'))+list((P/'activities').glob('*.html'))+list((P/'demonstrations').glob('*.html'))
+files=list(P.glob('*.html'))+list((P/'activities').glob('*.html'))+list((P/'demonstrations').glob('*.html'))+list((P/'builds').glob('*.html'))
 for p in files:
  s=p.read_text();s=re.sub(r'<div class="policy-links"[^>]*>.*?</div>','',s,flags=re.S);s=s.replace('</footer>',nav+'</footer>');p.write_text(s)
 # Extend the generated sitemap without duplicates.

@@ -1,0 +1,319 @@
+{
+  "id": "project-planning",
+  "num": "24",
+  "title": "Build a small project plan you can verify",
+  "track": "Planning & uncertainty",
+  "level": "Open entry",
+  "project": "Deliver a plan and retrospective template with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report.",
+  "lessons": [
+    {
+      "id": "project-planning-01",
+      "title": "Map deliverables and dependencies",
+      "estimatedMinutes": 35,
+      "text": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report.\n\nWrite each predecessor before drawing dates. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"duration\": {\n    \"A\": 2,\n    \"B\": 3,\n    \"C\": 1\n  },\n  \"depends\": {\n    \"A\": [],\n    \"B\": [\n      \"A\"\n    ],\n    \"C\": [\n      \"A\"\n    ]\n  }\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"finish\": {\n    \"A\": 2,\n    \"B\": 5,\n    \"C\": 3\n  },\n  \"project_days\": 5\n}",
+      "steps": [
+        "Write each predecessor before drawing dates.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Map deliverables and dependencies — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Add a dependency A after B: detect a cycle.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Write each predecessor before drawing dates.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Write each predecessor before drawing dates. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/project-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "project-planning-02",
+      "title": "Calculate the earliest finish",
+      "estimatedMinutes": 35,
+      "text": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report.\n\nUse a small dependency graph and hand-check the critical chain. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"finish\": {\n    \"A\": 2,\n    \"B\": 5,\n    \"C\": 3\n  },\n  \"project_days\": 5\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Use a small dependency graph and hand-check the critical chain.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Calculate the earliest finish — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Increase A to 4 days: project duration becomes 7.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Use a small dependency graph and hand-check the critical chain.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Use a small dependency graph and hand-check the critical chain. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/project-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "project-planning-03",
+      "title": "Build a change-aware plan",
+      "estimatedMinutes": 35,
+      "text": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report.\n\nCompute finish times from input durations rather than typing static dates. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.",
+      "example": "PROJECT CONTRACT:\nTask A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"finish\": {\n    \"A\": 2,\n    \"B\": 5,\n    \"C\": 3\n  },\n  \"project_days\": 5\n}",
+      "steps": [
+        "Compute finish times from input durations rather than typing static dates.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Only one worker available: parallel execution is no longer a valid assumption.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Build a change-aware plan — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Only one worker available: parallel execution is no longer a valid assumption.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Compute finish times from input durations rather than typing static dates.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Compute finish times from input durations rather than typing static dates. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Only one worker available: parallel execution is no longer a valid assumption. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/project-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "project-planning-04",
+      "title": "Test a cycle and capacity change",
+      "estimatedMinutes": 35,
+      "text": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report.\n\nReject invalid dependency graphs; document resource assumptions. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.",
+      "example": "CHANGE TESTS — predict before running:\n1. Add a dependency A after B: detect a cycle.\n2. Increase A to 4 days: project duration becomes 7.\n3. Only one worker available: parallel execution is no longer a valid assumption.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Reject invalid dependency graphs; document resource assumptions.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Add a dependency A after B: detect a cycle.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Test a cycle and capacity change — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Add a dependency A after B: detect a cycle.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Reject invalid dependency graphs; document resource assumptions.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Reject invalid dependency graphs; document resource assumptions. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Add a dependency A after B: detect a cycle. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/project-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "project-planning-05",
+      "title": "Rehearse stakeholder communication",
+      "estimatedMinutes": 35,
+      "text": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report.\n\nName an owner and uncertainty without inventing executive authority. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.\n\nSupporting practice — Leadership as delivery and accountability: A useful project owner communicates scope, uncertainty, decisions and responsibility. A plan generated by AI does not give authority over people. Practise a change conversation that names trade-offs and asks for approval rather than promising impossible dates. Produce a stakeholder handoff, owner/decision table and retrospective with one negotiated change.",
+      "example": "REVIEW BOUNDARY:\nTask A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.\nProduce a stakeholder handoff, owner/decision table and retrospective with one negotiated change.\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "Name an owner and uncertainty without inventing executive authority.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+        "Produce a stakeholder handoff, owner/decision table and retrospective with one negotiated change."
+      ],
+      "expected": [
+        "Rehearse stakeholder communication — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation.",
+        "Produce a stakeholder handoff, owner/decision table and retrospective with one negotiated change."
+      ],
+      "commonMistakes": [
+        "Increase A to 4 days: project duration becomes 7.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Name an owner and uncertainty without inventing executive authority.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Name an owner and uncertainty without inventing executive authority. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live. Produce a stakeholder handoff, owner/decision table and retrospective with one negotiated change.",
+      "resourcePack": "/resources/packs/project-planning-practice-pack.zip",
+      "supportingInputs": [
+        69
+      ]
+    },
+    {
+      "id": "project-planning-06",
+      "title": "Deliver a plan and retrospective template",
+      "estimatedMinutes": 65,
+      "text": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report.\n\nTrack actual work separately from estimates. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Track actual work separately from estimates.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Deliver a plan and retrospective template — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Only one worker available: parallel execution is no longer a valid assumption.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Track actual work separately from estimates.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Track actual work separately from estimates. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/project-planning-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected finish?",
+    "options": [
+      "{\"A\": 2, \"B\": 5, \"C\": 3}",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Open entry; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Write each predecessor before drawing dates.",
+    "Use a small dependency graph and hand-check the critical chain.",
+    "Compute finish times from input durations rather than typing static dates.",
+    "Reject invalid dependency graphs; document resource assumptions.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Python graphlib documentation",
+      "url": "https://docs.python.org/3/library/graphlib.html"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected finish?",
+      "options": [
+        "{\"A\": 2, \"B\": 5, \"C\": 3}",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Deliver a plan and retrospective template",
+    "brief": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report. Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/project-planning-handbook.md",
+    "pack": "/resources/packs/project-planning-practice-pack.zip"
+  },
+  "sourceListingNumber": 38,
+  "supportingInputs": [
+    69
+  ],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

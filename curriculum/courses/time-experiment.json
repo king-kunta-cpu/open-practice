@@ -1,0 +1,313 @@
+{
+  "id": "time-experiment",
+  "num": "29",
+  "title": "Measure whether a workflow actually saves time",
+  "track": "Planning & uncertainty",
+  "level": "Open entry",
+  "project": "Deliver a measured recommendation with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage.",
+  "lessons": [
+    {
+      "id": "time-experiment-01",
+      "title": "Choose a voluntary recurring task",
+      "estimatedMinutes": 35,
+      "text": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage.\n\nDefine start/stop rules and a privacy-preserving log. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"manual\": [\n    10,\n    12,\n    8\n  ],\n  \"draft\": [\n    4,\n    5,\n    3\n  ],\n  \"check\": [\n    3,\n    4,\n    2\n  ],\n  \"rework\": [\n    3,\n    2,\n    3\n  ]\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"manual_total\": 30,\n  \"assisted_total\": 29,\n  \"saved_minutes\": 1\n}",
+      "steps": [
+        "Define start/stop rules and a privacy-preserving log.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Choose a voluntary recurring task — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Add 3 setup minutes: net saving changes to -2.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Define start/stop rules and a privacy-preserving log.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Define start/stop rules and a privacy-preserving log. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/time-experiment-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "time-experiment-02",
+      "title": "Record a manual baseline",
+      "estimatedMinutes": 35,
+      "text": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage.\n\nKeep task difficulty and output criteria comparable. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"manual_total\": 30,\n  \"assisted_total\": 29,\n  \"saved_minutes\": 1\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Keep task difficulty and output criteria comparable.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Record a manual baseline — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Drop the slowest assisted case: label cherry-picking, not improvement.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Keep task difficulty and output criteria comparable.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Keep task difficulty and output criteria comparable. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/time-experiment-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "time-experiment-03",
+      "title": "Count the full assisted workflow",
+      "estimatedMinutes": 35,
+      "text": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage.\n\nInclude checking and repair rather than timing the first draft only. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.",
+      "example": "PROJECT CONTRACT:\nTotal assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"manual_total\": 30,\n  \"assisted_total\": 29,\n  \"saved_minutes\": 1\n}",
+      "steps": [
+        "Include checking and repair rather than timing the first draft only.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform A task changes in complexity: record the confound rather than reusing a prior saving.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Count the full assisted workflow — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A task changes in complexity: record the confound rather than reusing a prior saving.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Include checking and repair rather than timing the first draft only.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Include checking and repair rather than timing the first draft only. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform A task changes in complexity: record the confound rather than reusing a prior saving. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/time-experiment-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "time-experiment-04",
+      "title": "Stress-test the apparent saving",
+      "estimatedMinutes": 35,
+      "text": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage.\n\nAdd setup cost and inspect the change in the verdict. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.",
+      "example": "CHANGE TESTS — predict before running:\n1. Add 3 setup minutes: net saving changes to -2.\n2. Drop the slowest assisted case: label cherry-picking, not improvement.\n3. A task changes in complexity: record the confound rather than reusing a prior saving.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Add setup cost and inspect the change in the verdict.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Add 3 setup minutes: net saving changes to -2.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Stress-test the apparent saving — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Add 3 setup minutes: net saving changes to -2.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Add setup cost and inspect the change in the verdict.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Add setup cost and inspect the change in the verdict. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Add 3 setup minutes: net saving changes to -2. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/time-experiment-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "time-experiment-05",
+      "title": "Build a sustainable work plan",
+      "estimatedMinutes": 35,
+      "text": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage.\n\nPrioritisation is a choice with constraints, not a reason to monitor other people secretly. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "REVIEW BOUNDARY:\nTotal assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.\n\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "Prioritisation is a choice with constraints, not a reason to monitor other people secretly.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Build a sustainable work plan — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Drop the slowest assisted case: label cherry-picking, not improvement.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Prioritisation is a choice with constraints, not a reason to monitor other people secretly.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Prioritisation is a choice with constraints, not a reason to monitor other people secretly. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/time-experiment-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "time-experiment-06",
+      "title": "Deliver a measured recommendation",
+      "estimatedMinutes": 65,
+      "text": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage.\n\nReport sample, conditions and a reversible next step. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Report sample, conditions and a reversible next step.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Deliver a measured recommendation — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A task changes in complexity: record the confound rather than reusing a prior saving.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Report sample, conditions and a reversible next step.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Report sample, conditions and a reversible next step. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/time-experiment-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected manual_total?",
+    "options": [
+      "30",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Open entry; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Define start/stop rules and a privacy-preserving log.",
+    "Keep task difficulty and output criteria comparable.",
+    "Include checking and repair rather than timing the first draft only.",
+    "Add setup cost and inspect the change in the verdict.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Python time measurement",
+      "url": "https://docs.python.org/3/library/timeit.html"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected manual_total?",
+      "options": [
+        "30",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Deliver a measured recommendation",
+    "brief": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage. Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/time-experiment-handbook.md",
+    "pack": "/resources/packs/time-experiment-practice-pack.zip"
+  },
+  "sourceListingNumber": 47,
+  "supportingInputs": [],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

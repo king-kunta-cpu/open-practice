@@ -1,0 +1,319 @@
+{
+  "id": "measured-ml",
+  "num": "09",
+  "title": "Build a prediction and an honest baseline",
+  "track": "Measured machine learning",
+  "level": "Python + statistics",
+  "project": "Ship a model card and test record with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality.",
+  "lessons": [
+    {
+      "id": "measured-ml-01",
+      "title": "Define what prediction means",
+      "estimatedMinutes": 35,
+      "text": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality.\n\nName the unit, target and time at which each input becomes available. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"truth\": [\n    0,\n    0,\n    0,\n    1,\n    1,\n    1\n  ],\n  \"predicted\": [\n    0,\n    0,\n    1,\n    1,\n    0,\n    1\n  ]\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"correct\": 4,\n  \"total\": 6,\n  \"accuracy\": 0.666667,\n  \"baseline_accuracy\": 0.5,\n  \"false_positive\": 1,\n  \"false_negative\": 1\n}",
+      "steps": [
+        "Name the unit, target and time at which each input becomes available.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Define what prediction means — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Predict all zero: accuracy becomes 0.5, not evidence of useful discrimination.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Name the unit, target and time at which each input becomes available.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Name the unit, target and time at which each input becomes available. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/measured-ml-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "measured-ml-02",
+      "title": "Calculate a naive baseline",
+      "estimatedMinutes": 35,
+      "text": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality.\n\nCount the class balance before celebrating any model score. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"correct\": 4,\n  \"total\": 6,\n  \"accuracy\": 0.666667,\n  \"baseline_accuracy\": 0.5,\n  \"false_positive\": 1,\n  \"false_negative\": 1\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Count the class balance before celebrating any model score.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Calculate a naive baseline — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Swap one wrong prediction for its truth: accuracy rises to 5/6.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Count the class balance before celebrating any model score.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Count the class balance before celebrating any model score. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/measured-ml-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "measured-ml-03",
+      "title": "Implement a transparent evaluator",
+      "estimatedMinutes": 35,
+      "text": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality.\n\nCount correct labels, false positives and false negatives directly. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.",
+      "example": "PROJECT CONTRACT:\nDo not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"correct\": 4,\n  \"total\": 6,\n  \"accuracy\": 0.666667,\n  \"baseline_accuracy\": 0.5,\n  \"false_positive\": 1,\n  \"false_negative\": 1\n}",
+      "steps": [
+        "Count correct labels, false positives and false negatives directly.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Try an empty truth list: reject an undefined metric.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Implement a transparent evaluator — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Try an empty truth list: reject an undefined metric.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Count correct labels, false positives and false negatives directly.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Count correct labels, false positives and false negatives directly. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Try an empty truth list: reject an undefined metric. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/measured-ml-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "measured-ml-04",
+      "title": "Test a deliberately bad model",
+      "estimatedMinutes": 35,
+      "text": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality.\n\nCompare constant predictions and note which mistakes matter to the user. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.",
+      "example": "CHANGE TESTS — predict before running:\n1. Predict all zero: accuracy becomes 0.5, not evidence of useful discrimination.\n2. Swap one wrong prediction for its truth: accuracy rises to 5/6.\n3. Try an empty truth list: reject an undefined metric.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Compare constant predictions and note which mistakes matter to the user.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Predict all zero: accuracy becomes 0.5, not evidence of useful discrimination.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Test a deliberately bad model — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Predict all zero: accuracy becomes 0.5, not evidence of useful discrimination.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Compare constant predictions and note which mistakes matter to the user.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Compare constant predictions and note which mistakes matter to the user. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Predict all zero: accuracy becomes 0.5, not evidence of useful discrimination. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/measured-ml-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "measured-ml-05",
+      "title": "Explain uncertainty and duplication",
+      "estimatedMinutes": 35,
+      "text": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality.\n\nA second course title or repeated row does not create independent evidence. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.\n\nSupporting practice — More exercises are not more independent evidence: The public ML topic sequence overlaps another listing. Use the overlap to practise one additional error case, not to count the same evidence twice. Duplicate rows or near-identical examples across train and test can make a model seem better without new information. Audit identifiers across splits and document one duplicate-contamination failure.",
+      "example": "REVIEW BOUNDARY:\nDo not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.\nAudit identifiers across splits and document one duplicate-contamination failure.\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "A second course title or repeated row does not create independent evidence.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+        "Audit identifiers across splits and document one duplicate-contamination failure."
+      ],
+      "expected": [
+        "Explain uncertainty and duplication — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation.",
+        "Audit identifiers across splits and document one duplicate-contamination failure."
+      ],
+      "commonMistakes": [
+        "Swap one wrong prediction for its truth: accuracy rises to 5/6.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "A second course title or repeated row does not create independent evidence.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "A second course title or repeated row does not create independent evidence. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live. Audit identifiers across splits and document one duplicate-contamination failure.",
+      "resourcePack": "/resources/packs/measured-ml-practice-pack.zip",
+      "supportingInputs": [
+        37
+      ]
+    },
+    {
+      "id": "measured-ml-06",
+      "title": "Ship a model card and test record",
+      "estimatedMinutes": 65,
+      "text": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality.\n\nDocument the split, intended use and limitations alongside the benchmark. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Document the split, intended use and limitations alongside the benchmark.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Ship a model card and test record — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Try an empty truth list: reject an undefined metric.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Document the split, intended use and limitations alongside the benchmark.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Document the split, intended use and limitations alongside the benchmark. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/measured-ml-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected correct?",
+    "options": [
+      "4",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Python + statistics; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Name the unit, target and time at which each input becomes available.",
+    "Count the class balance before celebrating any model score.",
+    "Count correct labels, false positives and false negatives directly.",
+    "Compare constant predictions and note which mistakes matter to the user.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Scikit-learn evaluation guide",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected correct?",
+      "options": [
+        "4",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Ship a model card and test record",
+    "brief": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality. Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/measured-ml-handbook.md",
+    "pack": "/resources/packs/measured-ml-practice-pack.zip"
+  },
+  "sourceListingNumber": 4,
+  "supportingInputs": [
+    37
+  ],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

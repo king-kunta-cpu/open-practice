@@ -1,0 +1,14 @@
+{
+  "answers": [
+    {
+      "id": "q1",
+      "status": "supported",
+      "citation": "s1"
+    },
+    {
+      "id": "q2",
+      "status": "unknown",
+      "citation": null
+    }
+  ]
+}

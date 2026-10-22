@@ -1,0 +1,16 @@
+{
+  "messages": [
+    {
+      "id": "m1",
+      "type": "known_faq"
+    },
+    {
+      "id": "m2",
+      "type": "unknown"
+    },
+    {
+      "id": "m3",
+      "type": "refund_action"
+    }
+  ]
+}

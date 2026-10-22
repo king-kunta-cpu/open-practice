@@ -1,0 +1,24 @@
+{
+  "responses": [
+    {
+      "status": 200,
+      "body": {
+        "text": "draft"
+      }
+    },
+    {
+      "status": 429,
+      "body": {}
+    },
+    {
+      "status": 200,
+      "body": {
+        "wrong": "shape"
+      }
+    },
+    {
+      "status": 401,
+      "body": {}
+    }
+  ]
+}

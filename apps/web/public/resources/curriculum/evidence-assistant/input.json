@@ -1,0 +1,16 @@
+{
+  "source": {
+    "s1": "Returns accepted within 14 days.",
+    "s2": "Items must be unused."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "evidence": "s1"
+    },
+    {
+      "id": "q2",
+      "evidence": null
+    }
+  ]
+}

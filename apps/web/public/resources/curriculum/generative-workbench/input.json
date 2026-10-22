@@ -1,0 +1,20 @@
+{
+  "required": [
+    "two sentences",
+    "no invented discount"
+  ],
+  "candidates": [
+    {
+      "id": "A",
+      "facts": true,
+      "format": true,
+      "invented_discount": false
+    },
+    {
+      "id": "B",
+      "facts": false,
+      "format": true,
+      "invented_discount": true
+    }
+  ]
+}

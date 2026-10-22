@@ -1,0 +1,12 @@
+{
+  "training_mean": 3,
+  "train_filled": [
+    2,
+    3,
+    4
+  ],
+  "test_filled": [
+    100,
+    3
+  ]
+}

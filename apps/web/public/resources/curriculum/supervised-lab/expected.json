@@ -1,0 +1,7 @@
+{
+  "slope": 3,
+  "intercept": 2,
+  "prediction": 17,
+  "absolute_error": 0,
+  "mean_baseline_error": 7.5
+}

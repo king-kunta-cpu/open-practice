@@ -1,0 +1,325 @@
+{
+  "id": "make-mula",
+  "num": "36",
+  "title": "Make Mula: useful work, honest offers",
+  "track": "Make Mula",
+  "level": "Portfolio capstone",
+  "project": "Decide from actual evidence with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials.",
+  "lessons": [
+    {
+      "id": "make-mula-01",
+      "title": "Find a problem through discovery",
+      "estimatedMinutes": 35,
+      "text": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials.\n\nAsk three consenting potential users about their current workaround; keep simulations explicitly labelled. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.\n\nProject clinic: Discovery is listening before proposing automation. Ask about the most recent time the task occurred: what triggered it, who did it, how long it took, what went wrong and what the consequence was. Avoid leading questions such as 'Would you pay for my AI tool?' Ask permission to keep anonymous notes; do not record private documents or collect payment details. Three conversations reveal hypotheses, not a representative market.",
+      "example": "CONSTRUCTED DISCOVERY NOTE — NOT A REAL CUSTOMER\nRole: owner of a fictional repair shop.\nRecent task: copied five enquiry messages into a weekly job list.\nCurrent workaround: paper notebook; owner checks every entry.\nProblem hypothesis: duplicate transcription and missing appointment dates.\nUnproven: willingness to pay, available budget, accessible payout route.\nNEXT QUESTION: 'Can you describe the last time a missing date caused a problem?'",
+      "steps": [
+        "Ask three consenting potential users about their current workaround; keep simulations explicitly labelled.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+        "Use the discovery guide in market-evidence.md for three permission-based conversations, or clearly label a rehearsal; separate exact observations from your interpretation."
+      ],
+      "expected": [
+        "Find a problem through discovery — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Add a 10-unit refund: net becomes 15 and hourly return 3.75.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Ask three consenting potential users about their current workaround; keep simulations explicitly labelled.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Ask three consenting potential users about their current workaround; keep simulations explicitly labelled. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live. Use the discovery guide in market-evidence.md for three permission-based conversations, or clearly label a rehearsal; separate exact observations from your interpretation.",
+      "resourcePack": "/resources/packs/make-mula-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "make-mula-02",
+      "title": "Build and break one sample",
+      "estimatedMinutes": 35,
+      "text": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials.\n\nChoose checked reports, approved replies, verified content or a tiny web tool. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.\n\nProject clinic: Choose one lane, not a general AI agency: a checked report, approved reply pack, verified content pack or tiny web calculator. Write acceptance criteria before building. A report buyer might require totals that reconcile, visible rejected rows and a readable one-page explanation. Make the same sample manually first so speed and accuracy can be compared. A synthetic shop example remains a portfolio demonstration until a real buyer supplies authorised requirements.",
+      "example": "SAMPLE OFFER LANE — CHECKED WEEKLY REPORT\nInput: a fictional three-row expense table; no private customer records.\nDeliverables: unchanged source.csv, checked summary.csv, a one-page report and rejection log.\nAcceptance: category subtotals equal the grand total; unsupported causes are omitted.\nCHANGE TEST: add one valid row; the total and narrative must both update.\nNOT CLAIMED: a real customer, saved labour or earned revenue.",
+      "steps": [
+        "Choose checked reports, approved replies, verified content or a tiny web tool.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+        "Select an existing Open Practice report, replies, editing or web project; create the deliverables and write three buyer-readable acceptance criteria."
+      ],
+      "expected": [
+        "Build and break one sample — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "No paid order obtained: record zero earned income, not the hypothetical price.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Choose checked reports, approved replies, verified content or a tiny web tool.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Choose checked reports, approved replies, verified content or a tiny web tool. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live. Select an existing Open Practice report, replies, editing or web project; create the deliverables and write three buyer-readable acceptance criteria.",
+      "resourcePack": "/resources/packs/make-mula-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "make-mula-03",
+      "title": "Price the full workflow",
+      "estimatedMinutes": 35,
+      "text": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials.\n\nInclude selling and support time, fees, rework and refund assumptions. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.\n\nProject clinic: Pricing is a hypothesis, not a number copied from an income guide. In the fixture, a price of 30 minus tool cost 3 and fees 2 leaves 25 before tax. Four hours include two delivering, one selling and one supporting, so the effective return is 6.25 per hour before tax. Equipment, connectivity, foreign-exchange charges and additional rework may reduce it further. A refund of 10 leaves 15 and changes the return to 3.75. If no one pays, earned income is zero.",
+      "example": "HYPOTHETICAL ECONOMICS — GENERIC CURRENCY UNITS\nPrice: 30; tools: 3; transaction fees: 2.\nNet before tax: 30 - 3 - 2 = 25.\nTime: delivery 2h + selling 1h + support 1h = 4h.\nEffective hourly return before tax: 25 / 4 = 6.25.\nRefund scenario: (25 - 10) / 4 = 3.75.\nThese are assumptions to test, not a quoted market price or earnings result.",
+      "steps": [
+        "Include selling and support time, fees, rework and refund assumptions.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform A marketplace unavailable in the learner region is a stop condition until a legitimate route is verified.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+        "Run the supplied cost fixture, then add your own clearly labelled cost assumptions and one refund/rework scenario; do not enter bank or identity documents."
+      ],
+      "expected": [
+        "Price the full workflow — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A marketplace unavailable in the learner region is a stop condition until a legitimate route is verified.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Include selling and support time, fees, rework and refund assumptions.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Include selling and support time, fees, rework and refund assumptions. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform A marketplace unavailable in the learner region is a stop condition until a legitimate route is verified. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live. Run the supplied cost fixture, then add your own clearly labelled cost assumptions and one refund/rework scenario; do not enter bank or identity documents.",
+      "resourcePack": "/resources/packs/make-mula-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "make-mula-04",
+      "title": "Check access and test the offer",
+      "estimatedMinutes": 35,
+      "text": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials.\n\nVerify regional payout and identity rules, then use a small appropriate personalised approach with opt-outs. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.\n\nProject clinic: Check access before accepting money: seller-country eligibility, supported receiving method, identity and business requirements, currencies, fees, payout timing and refund handling. Record the official source and date, not a guessed green tick. A locally agreed lawful payment route may be more practical than an unavailable global marketplace, but it still needs verification. Outreach must be appropriate, truthful and small enough to personalise. Mention a demonstration as a demonstration; never claim past clients or savings you have not established.",
+      "example": "ORIGINAL OUTREACH EXAMPLE — USE ONLY WHEN TRUE\nHello [name], I noticed [specific publicly visible task relevant to their work]. I made a small demonstration of [bounded deliverable] using fictional data. I do not know whether it fits your process. Would you be open to a brief look and a question about how you handle this now? No problem if not; I will not add you to a sequence.\nBEFORE A PAID OFFER: verify the legitimate receiving route and agree scope.\nLOG: permission, response, objection and next step—not assumed conversion rates.",
+      "steps": [
+        "Verify regional payout and identity rules, then use a small appropriate personalised approach with opt-outs.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Add a 10-unit refund: net becomes 15 and hourly return 3.75.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+        "Complete access-check.csv using dated official sources; prepare one truthful personalised approach and record actual responses or an explicitly untested offer."
+      ],
+      "expected": [
+        "Check access and test the offer — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Add a 10-unit refund: net becomes 15 and hourly return 3.75.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Verify regional payout and identity rules, then use a small appropriate personalised approach with opt-outs.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Verify regional payout and identity rules, then use a small appropriate personalised approach with opt-outs. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Add a 10-unit refund: net becomes 15 and hourly return 3.75. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live. Complete access-check.csv using dated official sources; prepare one truthful personalised approach and record actual responses or an explicitly untested offer.",
+      "resourcePack": "/resources/packs/make-mula-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "make-mula-05",
+      "title": "Deliver ethically and hand over",
+      "estimatedMinutes": 35,
+      "text": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials.\n\nDefine scope, approvals, rights, revisions, accounting boundaries and support. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.\n\nSupporting practice — Ethical records and professional boundaries: Keep revenue, costs, unpaid time and refunds separate. Preserve consent, client approval and conflicts of interest. Do not describe an educational price sheet as accounting, audit or tax advice. Applicable obligations depend on jurisdiction; involve a qualified professional when required. Add a dated cost ledger, confidentiality rule, conflict disclosure and a professional-review boundary.\n\nProject clinic: Delivery requires agreement on inputs, scope, acceptance, revisions, payment and maintenance. Ask permission before sending client data to any cloud service; a client saying 'use AI' is not a blanket data-processing agreement. Keep a private cost ledger and record refunds accurately. Use the offer template to exclude medical, legal, tax, investment, safety and employment decisions. Hand over an exportable result and explain which changes need fresh checking; do not lock a learner or buyer into an undisclosed subscription.",
+      "example": "SCOPE EXAMPLE — NOT A LEGAL CONTRACT\nIncluded: one fictional CSV-to-summary demonstration, checked totals, README and one revision.\nExcluded: bookkeeping, tax filing, live account access, autonomous messages and ongoing hosting.\nAcceptance: source totals reconcile; rejected rows and limitations are visible.\nAuthority: buyer reviews before use; no external action without separate approval.\nSupport boundary: fix agreed defects for the stated period; new requirements are a new scope.\nUse qualified local advice for actual contracts and obligations.",
+      "steps": [
+        "Define scope, approvals, rights, revisions, accounting boundaries and support.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+        "Add a dated cost ledger, confidentiality rule, conflict disclosure and a professional-review boundary.",
+        "Complete offer-template.md and handoff-checklist.md; retain approvals, record conflicts and keep professional advice outside the offer."
+      ],
+      "expected": [
+        "Deliver ethically and hand over — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation.",
+        "Add a dated cost ledger, confidentiality rule, conflict disclosure and a professional-review boundary."
+      ],
+      "commonMistakes": [
+        "No paid order obtained: record zero earned income, not the hypothetical price.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Define scope, approvals, rights, revisions, accounting boundaries and support.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Define scope, approvals, rights, revisions, accounting boundaries and support. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live. Add a dated cost ledger, confidentiality rule, conflict disclosure and a professional-review boundary. Complete offer-template.md and handoff-checklist.md; retain approvals, record conflicts and keep professional advice outside the offer.",
+      "resourcePack": "/resources/packs/make-mula-practice-pack.zip",
+      "supportingInputs": [
+        34
+      ]
+    },
+    {
+      "id": "make-mula-06",
+      "title": "Decide from actual evidence",
+      "estimatedMinutes": 65,
+      "text": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials.\n\nRecord acceptance, refunds and net return if a paid pilot occurred; otherwise report the real market-test result without invention. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.\n\nProject clinic: Decide from evidence rather than the excitement of a launch. Track conversations, relevant interest, offers, paid orders, accepted deliveries, refunds, costs and time as separate stages. A friend praising a demo is not a paid customer. A paid pilot is stronger evidence than an intention to buy, but one sale does not establish typical income or repeatable demand. If no buyer agrees, document the obstacle and choose a smaller test, a different problem or a stop decision. Completion rewards honest work and learning, not earning at any cost.",
+      "example": "CONSTRUCTED DECISION RECORD — NOT ACTUAL RESULTS\nConversations: 3; offer discussions: 1; paid orders: 0.\nWhat is supported: one person agreed to discuss the problem.\nWhat is NOT supported: demand at the proposed price, a repeatable sales channel or any earned income.\nDecision: revise the sample around the observed missing-date problem and retest once.\nIf a real paid pilot occurs: log acceptance, refunds, actual costs and time with permission; redact identifying details.",
+      "steps": [
+        "Record acceptance, refunds and net return if a paid pilot occurred; otherwise report the real market-test result without invention.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+        "Write continue/change/stop with evidence for and against; label real, constructed and untested evidence separately and record zero earned income when no payment occurred."
+      ],
+      "expected": [
+        "Decide from actual evidence — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A marketplace unavailable in the learner region is a stop condition until a legitimate route is verified.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Record acceptance, refunds and net return if a paid pilot occurred; otherwise report the real market-test result without invention.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Record acceptance, refunds and net return if a paid pilot occurred; otherwise report the real market-test result without invention. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live. Write continue/change/stop with evidence for and against; label real, constructed and untested evidence separately and record zero earned income when no payment occurred.",
+      "resourcePack": "/resources/packs/make-mula-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected net_before_tax?",
+    "options": [
+      "25",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Portfolio capstone; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Ask three consenting potential users about their current workaround; keep simulations explicitly labelled.",
+    "Choose checked reports, approved replies, verified content or a tiny web tool.",
+    "Include selling and support time, fees, rework and refund assumptions.",
+    "Verify regional payout and identity rules, then use a small appropriate personalised approach with opt-outs.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "ILO Start and Improve Your Business",
+      "url": "https://www.ilo.org/start-and-improve-your-business-siyb"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected net_before_tax?",
+      "options": [
+        "25",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Decide from actual evidence",
+    "brief": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials. Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/make-mula-handbook.md",
+    "pack": "/resources/packs/make-mula-practice-pack.zip"
+  },
+  "sourceListingNumber": 72,
+  "supportingInputs": [
+    34
+  ],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

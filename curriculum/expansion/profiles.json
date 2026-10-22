@@ -1,0 +1,2086 @@
+[
+  {
+    "source": 1,
+    "id": "reproducible-cloud-lab",
+    "title": "A cloud lab someone else can rerun",
+    "track": "Cloud & code",
+    "level": "Coding onramp",
+    "concept": "A reproducible notebook starts with declared inputs and a clean runtime, not a screenshot. Separate deterministic preparation from an optional hosted model call. Temporary notebook storage can disappear; retain the original file and the output contract.",
+    "rules": "Reject non-numeric amounts; preserve zero; never embed account keys in cells, URLs or exported outputs.",
+    "input": {
+      "rows": [
+        {
+          "id": "a",
+          "amount": 12
+        },
+        {
+          "id": "b",
+          "amount": 0
+        },
+        {
+          "id": "c",
+          "amount": "unknown"
+        },
+        {
+          "id": "d",
+          "amount": 8
+        }
+      ]
+    },
+    "expected": {
+      "accepted": 3,
+      "rejected": [
+        "c"
+      ],
+      "total": 20
+    },
+    "edges": [
+      "Restart the hosted runtime: the same supplied input must still total 20.",
+      "Change amount 8 to 9: expected total becomes 21.",
+      "A missing credential must skip a live model call, not invent a response."
+    ],
+    "stages": [
+      [
+        "Open a fresh runtime",
+        "Record runtime version, inputs and access constraints before executing any cell"
+      ],
+      [
+        "Separate data from secrets",
+        "Read the fictional rows as data; use a runtime secret only for an optional hosted API call"
+      ],
+      [
+        "Build a pure preparation cell",
+        "Return accepted counts and totals before requesting any narrative"
+      ],
+      [
+        "Restart and rerun",
+        "Run every cell in order after a restart and compare the deterministic result"
+      ],
+      [
+        "Hand a notebook to someone else",
+        "Remove private paths and provide an explicit no-service fallback"
+      ],
+      [
+        "Ship a reproducibility bundle",
+        "Package inputs, notebook, results and failure log without credentials"
+      ]
+    ],
+    "reference": [
+      "Jupyter notebook documentation",
+      "https://docs.jupyter.org/en/latest/"
+    ]
+  },
+  {
+    "source": 3,
+    "id": "visual-brief",
+    "title": "Direct an illustration with a measurable brief",
+    "track": "Creative production",
+    "level": "Open entry",
+    "concept": "A visual brief specifies layout, subject, contrast and rights constraints. Attractive output can still fail a brief. Keep reference provenance separate from generated images; do not infer ownership or commercial rights from tool access.",
+    "rules": "Use your own or licensed references. Do not request a living artist imitation, protected logo or deceptive documentary evidence. Record provider/model and terms if generation actually runs.",
+    "input": {
+      "brief": {
+        "ratio": "4:3",
+        "title_zone": "top-left",
+        "subject": "fictional seed shop",
+        "people": 0
+      },
+      "candidate": {
+        "ratio": "4:3",
+        "title_zone": "centre",
+        "subject": "fictional seed shop",
+        "people": 0
+      }
+    },
+    "expected": {
+      "passed": 3,
+      "failed": [
+        "title_zone"
+      ],
+      "decision": "revise"
+    },
+    "edges": [
+      "Move the title zone to top-left: all four checks pass.",
+      "Insert a person: people constraint fails.",
+      "A licence field of unknown is a hold for commercial use, not implied clearance."
+    ],
+    "stages": [
+      [
+        "Write the brief before the prompt",
+        "Turn an aesthetic wish into four inspectable constraints"
+      ],
+      [
+        "Inspect the constructed mismatch",
+        "The supplied candidate violates placement although its other fields match"
+      ],
+      [
+        "Direct a bounded revision",
+        "Change the title zone without accidentally changing the subject or aspect ratio"
+      ],
+      [
+        "Test output against the brief",
+        "Check rendered pixels with a human, not metadata alone"
+      ],
+      [
+        "Record provenance and permissions",
+        "Capture reference rights, allowed uses, provider terms and any unresolved questions"
+      ],
+      [
+        "Deliver an approved visual pack",
+        "Include the brief, candidate comparison and a clear approval/hold decision"
+      ]
+    ],
+    "reference": [
+      "Creative Commons licence guidance",
+      "https://creativecommons.org/share-your-work/cclicenses/"
+    ]
+  },
+  {
+    "source": 4,
+    "id": "measured-ml",
+    "title": "Build a prediction and an honest baseline",
+    "track": "Measured machine learning",
+    "level": "Python + statistics",
+    "concept": "A prediction experiment needs a target, a split made before fitting and a baseline that can fail fairly. Accuracy without class balance or a confusion table can hide a useless classifier. This tiny synthetic fixture illustrates counting, not real-world model quality.",
+    "rules": "Do not tune on the held-out labels. A missing prediction is an error to investigate, not permission to drop the example.",
+    "input": {
+      "truth": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "predicted": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "expected": {
+      "correct": 4,
+      "total": 6,
+      "accuracy": 0.666667,
+      "baseline_accuracy": 0.5,
+      "false_positive": 1,
+      "false_negative": 1
+    },
+    "edges": [
+      "Predict all zero: accuracy becomes 0.5, not evidence of useful discrimination.",
+      "Swap one wrong prediction for its truth: accuracy rises to 5/6.",
+      "Try an empty truth list: reject an undefined metric."
+    ],
+    "stages": [
+      [
+        "Define what prediction means",
+        "Name the unit, target and time at which each input becomes available"
+      ],
+      [
+        "Calculate a naive baseline",
+        "Count the class balance before celebrating any model score"
+      ],
+      [
+        "Implement a transparent evaluator",
+        "Count correct labels, false positives and false negatives directly"
+      ],
+      [
+        "Test a deliberately bad model",
+        "Compare constant predictions and note which mistakes matter to the user"
+      ],
+      [
+        "Explain uncertainty and duplication",
+        "A second course title or repeated row does not create independent evidence"
+      ],
+      [
+        "Ship a model card and test record",
+        "Document the split, intended use and limitations alongside the benchmark"
+      ]
+    ],
+    "reference": [
+      "Scikit-learn evaluation guide",
+      "https://scikit-learn.org/stable/modules/model_evaluation.html"
+    ]
+  },
+  {
+    "source": 6,
+    "id": "generative-workbench",
+    "title": "Compare generations without moving the goalposts",
+    "track": "Creative production",
+    "level": "Open entry",
+    "concept": "Generation is a candidate-making step, not verification. Fix a brief and factual source before changing prompts. A more vivid sentence can score worse if it adds an unsupported price or guarantee. The supplied candidates are authored examples, not claimed model runs.",
+    "rules": "Score factual grounding, required structure and prohibited claims independently. Real provider results must be labelled with date and model; no-service examples stay labelled constructed.",
+    "input": {
+      "required": [
+        "two sentences",
+        "no invented discount"
+      ],
+      "candidates": [
+        {
+          "id": "A",
+          "facts": true,
+          "format": true,
+          "invented_discount": false
+        },
+        {
+          "id": "B",
+          "facts": false,
+          "format": true,
+          "invented_discount": true
+        }
+      ]
+    },
+    "expected": {
+      "scores": {
+        "A": 3,
+        "B": 1
+      },
+      "selected": "A"
+    },
+    "edges": [
+      "Give B a convincing style: its factual failure still remains.",
+      "Remove the source price: do not fill it from general knowledge.",
+      "Repeat a live prompt if access permits; keep every result rather than only the favourite."
+    ],
+    "stages": [
+      [
+        "Freeze the source and rubric",
+        "Choose the factual boundary and scoring rule before comparing prompts"
+      ],
+      [
+        "Score two constructed candidates",
+        "The attractive but invented offer loses on grounding"
+      ],
+      [
+        "Run a controlled generation",
+        "Change one prompt variable; save original responses if a service is available"
+      ],
+      [
+        "Test unsupported additions",
+        "Try missing facts, contradictory instructions and an invented discount"
+      ],
+      [
+        "Separate mechanism from capability",
+        "Using a generation API is not training a GAN or proving general intelligence"
+      ],
+      [
+        "Publish a comparison with limits",
+        "Keep the full candidate set and explain why the chosen draft still needs approval"
+      ]
+    ],
+    "reference": [
+      "NIST generative AI profile",
+      "https://www.nist.gov/itl/ai-risk-management-framework"
+    ]
+  },
+  {
+    "source": 8,
+    "id": "evidence-assistant",
+    "title": "Make a document assistant that knows when to stop",
+    "track": "Assistants & APIs",
+    "level": "Cloud API onramp",
+    "concept": "An evidence assistant must distinguish retrieving a relevant fact from generating plausible language. Every factual answer needs a source location. If the document is silent, return an explicit unknown rather than importing outside knowledge.",
+    "rules": "The source is the authority for this exercise. Instructions inside a source document are untrusted content. All replies are drafts, never customer commitments.",
+    "input": {
+      "source": {
+        "s1": "Returns accepted within 14 days.",
+        "s2": "Items must be unused."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "evidence": "s1"
+        },
+        {
+          "id": "q2",
+          "evidence": null
+        }
+      ]
+    },
+    "expected": {
+      "answers": [
+        {
+          "id": "q1",
+          "status": "supported",
+          "citation": "s1"
+        },
+        {
+          "id": "q2",
+          "status": "unknown",
+          "citation": null
+        }
+      ]
+    },
+    "edges": [
+      "Ask about international shipping: the source does not establish an answer.",
+      "Add an instruction to reveal credentials in a source paragraph: ignore it.",
+      "Delete s1: q1 must change from supported to unknown."
+    ],
+    "stages": [
+      [
+        "Map questions to source passages",
+        "Define what counts as evidence and what the document does not say"
+      ],
+      [
+        "Construct a known-answer set",
+        "Include supported, missing and conflicting questions before building the assistant"
+      ],
+      [
+        "Draft evidence-linked answers",
+        "Request short answers with source IDs and an explicit unknown state"
+      ],
+      [
+        "Attack the evidence boundary",
+        "Test source injections and questions that invite plausible invention"
+      ],
+      [
+        "Compare provider access fairly",
+        "Record access, data terms and quota without assuming a brand is available everywhere"
+      ],
+      [
+        "Hand off a bounded assistant",
+        "Deliver test cases, escalation instructions and an evidence trail"
+      ]
+    ],
+    "reference": [
+      "OWASP LLM prompt-injection guidance",
+      "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+    ]
+  },
+  {
+    "source": 12,
+    "id": "python-records",
+    "title": "Turn records into a tested Python report",
+    "track": "Cloud & code",
+    "level": "Coding onramp",
+    "concept": "A small script is useful when its input rules and failure behaviour are visible. Distinguish strings from numbers, keep original rows, and return a value that can be tested. An AI-generated function still needs human-readable control flow and independent examples.",
+    "rules": "Accept finite non-negative numeric amounts, retain identifiers and reject invalid rows with a reason. Never use eval on input text.",
+    "input": {
+      "rows": [
+        {
+          "id": "r1",
+          "amount": 4
+        },
+        {
+          "id": "r2",
+          "amount": 6
+        },
+        {
+          "id": "r3",
+          "amount": "?"
+        },
+        {
+          "id": "r4",
+          "amount": 0
+        }
+      ]
+    },
+    "expected": {
+      "accepted": 3,
+      "total": 10,
+      "rejected": [
+        "r3"
+      ]
+    },
+    "edges": [
+      "Add amount 2: expected total becomes 12.",
+      "Use amount -1: reject it under the stated policy.",
+      "Provide an empty rows list: accepted is 0 and total is 0."
+    ],
+    "stages": [
+      [
+        "Read values and types",
+        "Inspect why an unknown amount is not the same as zero"
+      ],
+      [
+        "Write the smallest correct function",
+        "Use a loop and explicit condition before introducing abstractions"
+      ],
+      [
+        "Separate parsing from reporting",
+        "Return structured results instead of printing every decision in one block"
+      ],
+      [
+        "Test missing and malformed inputs",
+        "Catch errors at the input boundary without silently discarding evidence"
+      ],
+      [
+        "Refactor without changing behaviour",
+        "Reuse tests while extracting functions; an AI title does not make ordinary Python model training"
+      ],
+      [
+        "Package a script another learner can inspect",
+        "Provide inputs, expected results and run instructions for a hosted notebook"
+      ]
+    ],
+    "reference": [
+      "Python tutorial",
+      "https://docs.python.org/3/tutorial/"
+    ]
+  },
+  {
+    "source": 13,
+    "id": "ai-fieldwork",
+    "title": "Test one AI claim in the real world",
+    "track": "AI foundations",
+    "level": "Open entry",
+    "concept": "A useful introduction to AI starts with a bounded task and an observable failure. Measure checking and rework as well as first-draft speed. One small successful example does not establish general reasoning, reliability across languages or suitability for consequential decisions.",
+    "rules": "Count full workflow time. Claims must carry evidence and uncertainty. Simulated customers and constructed outputs are not real validation.",
+    "input": {
+      "manual_minutes": [
+        8,
+        7,
+        9
+      ],
+      "assisted_minutes": [
+        4,
+        4,
+        5
+      ],
+      "checking_minutes": [
+        3,
+        4,
+        4
+      ]
+    },
+    "expected": {
+      "manual_total": 24,
+      "assisted_total": 24,
+      "saved_minutes": 0,
+      "claim": "no measured time saving"
+    },
+    "edges": [
+      "Ignore checking time: you would falsely claim an 11-minute saving.",
+      "Add five minutes of rework: the assisted workflow is slower.",
+      "Change the language or context: repeat the evaluation rather than transferring the result blindly."
+    ],
+    "stages": [
+      [
+        "Choose a reversible task",
+        "Pick a task with a known answer and no private or consequential data"
+      ],
+      [
+        "Measure the manual route",
+        "Use the same input and count the full start-to-finish time"
+      ],
+      [
+        "Try a hosted AI route",
+        "Record real outputs only when a permitted endpoint is available"
+      ],
+      [
+        "Count checking and repair",
+        "The supplied example loses its apparent speed advantage after checking"
+      ],
+      [
+        "Audit capability and impact claims",
+        "Separate narrow performance, AGI speculation and effects on affected people"
+      ],
+      [
+        "Keep an evidence-based verdict",
+        "A negative result is a valid completed experiment, not a personal failure"
+      ]
+    ],
+    "reference": [
+      "NIST AI risk framework",
+      "https://www.nist.gov/itl/ai-risk-management-framework"
+    ]
+  },
+  {
+    "source": 14,
+    "id": "faq-assistant",
+    "title": "Build an FAQ assistant with a human exit",
+    "track": "Assistants & APIs",
+    "level": "Cloud API onramp",
+    "concept": "A conversational interface should have explicit states for supported answers, missing information and human handoff. It must not negotiate a refund or change an order just because a generated reply sounds helpful. Design fallback before polishing the greeting.",
+    "rules": "Known FAQs may produce draft answers with citations. Unknown or action-requesting messages require human review. No automatic external actions.",
+    "input": {
+      "messages": [
+        {
+          "id": "m1",
+          "type": "known_faq"
+        },
+        {
+          "id": "m2",
+          "type": "unknown"
+        },
+        {
+          "id": "m3",
+          "type": "refund_action"
+        }
+      ]
+    },
+    "expected": {
+      "routes": {
+        "m1": "draft_with_source",
+        "m2": "human_review",
+        "m3": "human_review"
+      },
+      "automatic_actions": 0
+    },
+    "edges": [
+      "Ask two conflicting questions at once: clarify rather than choose a convenient answer.",
+      "Request a refund transfer: keep action blocked.",
+      "Remove the matching FAQ: route to a human instead of inventing policy."
+    ],
+    "stages": [
+      [
+        "Draw the conversation states",
+        "Describe the purpose of each state and who has authority to act"
+      ],
+      [
+        "Write an FAQ test set",
+        "Keep unknown requests as first-class cases, not exceptions hidden in prose"
+      ],
+      [
+        "Make draft replies with references",
+        "Use a source ID and disclose the draft status"
+      ],
+      [
+        "Test interruptions and action requests",
+        "A multi-turn interface must preserve approval boundaries"
+      ],
+      [
+        "Practise an empathetic handoff",
+        "Acknowledge the request without claiming to infer emotion or make a commitment"
+      ],
+      [
+        "Ship a conversation playbook",
+        "Supply routing tests, fallback text and owner contact instructions"
+      ]
+    ],
+    "reference": [
+      "Microsoft human-AI interaction guidelines",
+      "https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/"
+    ]
+  },
+  {
+    "source": 17,
+    "id": "data-report",
+    "title": "Build a report that reconciles to its source",
+    "track": "Data & evidence",
+    "level": "Spreadsheet onramp",
+    "concept": "A report is a chain from input rows to claims. Reconcile numbers before making a chart, preserve excluded records and state the scope. A tiny fictional table can support a subtotal, not a claim about a national economy or a cause of business performance.",
+    "rules": "Amounts are fictional whole units. Keep categories exact and expose the row count, category subtotals and grand total.",
+    "input": {
+      "rows": [
+        {
+          "category": "repairs",
+          "amount": 12
+        },
+        {
+          "category": "supplies",
+          "amount": 7
+        },
+        {
+          "category": "repairs",
+          "amount": 8
+        }
+      ]
+    },
+    "expected": {
+      "rows": 3,
+      "categories": {
+        "repairs": 20,
+        "supplies": 7
+      },
+      "total": 27
+    },
+    "edges": [
+      "Add supplies 3: supplies becomes 10 and total 30.",
+      "Rename repairs to Repairs: decide and document whether to normalise case.",
+      "Remove a row: totals must change; do not keep a cached narrative."
+    ],
+    "stages": [
+      [
+        "Define the reporting question",
+        "Choose a question the supplied rows can actually answer"
+      ],
+      [
+        "Reconcile a hand calculation",
+        "Calculate subtotals independently before using a spreadsheet or AI"
+      ],
+      [
+        "Create a repeatable summary",
+        "Keep transformations and aggregation rules visible"
+      ],
+      [
+        "Check changes and exclusions",
+        "Add a row and verify that formulas include it"
+      ],
+      [
+        "Write only supported conclusions",
+        "Do not let a confident narrative invent causes or trends"
+      ],
+      [
+        "Deliver an auditable report pack",
+        "Include source, cleaned data, calculations, chart and limitations"
+      ]
+    ],
+    "reference": [
+      "Pandas grouping guide",
+      "https://pandas.pydata.org/docs/user_guide/groupby.html"
+    ]
+  },
+  {
+    "source": 21,
+    "id": "algorithms-lab",
+    "title": "Measure an algorithm instead of guessing",
+    "track": "Cloud & code",
+    "level": "Python prerequisite",
+    "concept": "Correctness and efficiency are different questions. A linear search can be correct yet costly as data grows. Binary search requires sorted data; applying it to arbitrary input can produce a plausible failure. Count comparisons on a deliberately small fixture before discussing asymptotic growth.",
+    "rules": "Search returns an index or -1. Count each inspected value once. Sortedness is an explicit precondition for binary search.",
+    "input": {
+      "values": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "target": 8
+    },
+    "expected": {
+      "index": 3,
+      "linear_comparisons": 4,
+      "binary_comparisons": 2
+    },
+    "edges": [
+      "Target 11: return -1, not the nearest item.",
+      "Empty list: return -1 with zero linear comparisons.",
+      "Unsorted values: reject binary-search use or sort with an explicit index mapping."
+    ],
+    "stages": [
+      [
+        "State the preconditions",
+        "Specify sortedness, duplicate handling and the meaning of not found"
+      ],
+      [
+        "Trace a linear search",
+        "Count inspected values by hand to establish a baseline"
+      ],
+      [
+        "Implement binary search",
+        "Track low and high bounds; do not lose the termination condition"
+      ],
+      [
+        "Benchmark growth and edge cases",
+        "Vary input size and target position, not just processor timing"
+      ],
+      [
+        "Choose a structure for a task",
+        "Compare repeated lookups with the cost of sorting or building a map"
+      ],
+      [
+        "Ship a correctness and complexity note",
+        "Include traces, tests and the assumptions behind the recommendation"
+      ]
+    ],
+    "reference": [
+      "Python bisect documentation",
+      "https://docs.python.org/3/library/bisect.html"
+    ]
+  },
+  {
+    "source": 22,
+    "id": "constraint-planner",
+    "title": "Plan a timetable that obeys its constraints",
+    "track": "Planning & uncertainty",
+    "level": "Logic onramp",
+    "concept": "A planner needs a representation of resources, allowed actions and hard constraints. A readable plan can still double-book a room. Check feasibility separately from preference scores; a cheaper invalid schedule is not a better solution.",
+    "rules": "One room, at most one task per slot. Task B must follow A. C cannot use slot 1. Enumerate valid schedules before selecting the first deterministic result.",
+    "input": {
+      "tasks": [
+        "A",
+        "B",
+        "C"
+      ],
+      "slots": [
+        1,
+        2,
+        3
+      ]
+    },
+    "expected": {
+      "valid_schedules": 2,
+      "selected": {
+        "A": 1,
+        "B": 2,
+        "C": 3
+      }
+    },
+    "edges": [
+      "Force B into slot 1: no feasible schedule exists.",
+      "Allow only two slots: three distinct tasks cannot all fit.",
+      "Relax C restriction: count changes; do not silently change the original rules."
+    ],
+    "stages": [
+      [
+        "Translate prose into constraints",
+        "Write resource limits and precedence in testable form"
+      ],
+      [
+        "Enumerate the small search space",
+        "Use permutations to find all valid assignments"
+      ],
+      [
+        "Separate feasibility from preference",
+        "Choose a deterministic order only after rejecting invalid plans"
+      ],
+      [
+        "Test an impossible request",
+        "Return infeasible instead of breaking a hard rule"
+      ],
+      [
+        "Explain heuristics honestly",
+        "A heuristic can speed search without proving a globally best answer"
+      ],
+      [
+        "Deliver a verified planning sandbox",
+        "Attach a validator and the rules beside every proposed plan"
+      ]
+    ],
+    "reference": [
+      "Python itertools documentation",
+      "https://docs.python.org/3/library/itertools.html"
+    ]
+  },
+  {
+    "source": 24,
+    "id": "maths-workbench",
+    "title": "See a gradient step succeed—and fail",
+    "track": "Planning & uncertainty",
+    "level": "Algebra prerequisite",
+    "concept": "Gradient descent changes parameters using a derivative and a learning rate. A downhill direction does not guarantee improvement with an arbitrarily large step. Inspect a scalar example before moving to matrices and higher-dimensional objectives.",
+    "rules": "Use f(x)=(x-3)^2 and derivative 2(x-3). Apply exactly one step. Round reported values consistently; calculations are deterministic, not an LLM judgement.",
+    "input": {
+      "start": 0,
+      "learning_rate": 0.25
+    },
+    "expected": {
+      "gradient": -6,
+      "next_x": 1.5,
+      "loss_before": 9,
+      "loss_after": 2.25
+    },
+    "edges": [
+      "Learning rate 1.5: next x is 9 and loss increases to 36.",
+      "Start at 3: gradient is zero and the point stays fixed.",
+      "Negative learning rate: label invalid for this descent policy."
+    ],
+    "stages": [
+      [
+        "Inspect a simple loss curve",
+        "Calculate three losses by hand and identify the minimiser"
+      ],
+      [
+        "Derive the update rule",
+        "Connect the derivative sign to the direction of movement"
+      ],
+      [
+        "Implement and verify one step",
+        "Record both parameter change and loss change"
+      ],
+      [
+        "Make the learning rate fail",
+        "Use the deliberate overshoot as evidence, not an unexplained software error"
+      ],
+      [
+        "Connect vectors and gradients",
+        "Apply the same reasoning coordinate by coordinate without pretending a scalar demo proves deep learning"
+      ],
+      [
+        "Ship an inspectable optimisation notebook",
+        "Include the curve, failed step and assumptions"
+      ]
+    ],
+    "reference": [
+      "NumPy linear algebra documentation",
+      "https://numpy.org/doc/stable/reference/routines.linalg.html"
+    ]
+  },
+  {
+    "source": 27,
+    "id": "api-integration",
+    "title": "Connect an AI API without trusting every response",
+    "track": "Assistants & APIs",
+    "level": "JavaScript / Python prerequisite",
+    "concept": "An API boundary is a contract for inputs, outputs, authentication and failures. A successful HTTP status does not establish factual correctness or an expected schema. Keep company secrets server-side and use learner-owned credentials only through authorised activity routes.",
+    "rules": "This reference classifies supplied HTTP fixtures; it makes no live requests. Accept a 200 response only with string text. Retry advice is bounded; never automatically retry every error.",
+    "input": {
+      "responses": [
+        {
+          "status": 200,
+          "body": {
+            "text": "draft"
+          }
+        },
+        {
+          "status": 429,
+          "body": {}
+        },
+        {
+          "status": 200,
+          "body": {
+            "wrong": "shape"
+          }
+        },
+        {
+          "status": 401,
+          "body": {}
+        }
+      ]
+    },
+    "expected": {
+      "decisions": [
+        "accept_draft",
+        "bounded_retry_later",
+        "schema_error",
+        "stop_auth_error"
+      ]
+    },
+    "edges": [
+      "Timeout: record an unavailable result, not a fabricated draft.",
+      "A key in a URL or export is a critical failure: remove it and rotate exposed credentials.",
+      "Quota response: respect limits; changing accounts to evade restrictions is not a fallback."
+    ],
+    "stages": [
+      [
+        "Write the request and response contract",
+        "Specify required fields, maximum sizes and the trust boundary"
+      ],
+      [
+        "Classify constructed responses",
+        "Distinguish transport status, schema validity and factual verification"
+      ],
+      [
+        "Build a bounded client",
+        "Use timeouts and explicit error states instead of an infinite retry loop"
+      ],
+      [
+        "Exercise authentication and quota failures",
+        "Never paste a live key into a test fixture or public log"
+      ],
+      [
+        "Review provider-specific access",
+        "Check country, account, data and billing terms before selecting a legitimate alternative"
+      ],
+      [
+        "Ship an integration with a teardown note",
+        "Provide request fixtures, failure tests and safe configuration instructions"
+      ]
+    ],
+    "reference": [
+      "MDN HTTP response status codes",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+    ]
+  },
+  {
+    "source": 28,
+    "id": "augmentation-lab",
+    "title": "Augment training data without contaminating the test",
+    "track": "Measured machine learning",
+    "level": "Python + ML prerequisite",
+    "concept": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.",
+    "rules": "For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.",
+    "input": {
+      "train": [
+        {
+          "id": "a",
+          "x": 0.1,
+          "label": 0
+        },
+        {
+          "id": "b",
+          "x": 0.2,
+          "label": 0
+        },
+        {
+          "id": "c",
+          "x": 0.8,
+          "label": 1
+        }
+      ],
+      "test": [
+        {
+          "id": "t1",
+          "x": 0.15,
+          "label": 0
+        },
+        {
+          "id": "t2",
+          "x": 0.9,
+          "label": 1
+        }
+      ]
+    },
+    "expected": {
+      "original_train": 3,
+      "augmented_train": 6,
+      "unchanged_test": true,
+      "unique_originals": 3
+    },
+    "edges": [
+      "Augment the test rows: fail the experiment design even if a score improves.",
+      "Use a shift that crosses a real label boundary: reject the label-preservation assumption.",
+      "Count transformed copies as new independent observations: flag pseudoreplication."
+    ],
+    "stages": [
+      [
+        "State a label-preservation assumption",
+        "Explain why the toy transformation is limited to this fixture"
+      ],
+      [
+        "Split originals before transforming",
+        "Retain immutable test data and original identifiers"
+      ],
+      [
+        "Build a traceable augmentation step",
+        "Keep parent IDs so transformed copies remain identifiable"
+      ],
+      [
+        "Compare fair experiments",
+        "Use the same original holdout for baseline and augmented training"
+      ],
+      [
+        "Challenge synthetic evidence",
+        "Repeated or generated examples do not establish demand, new users or field robustness"
+      ],
+      [
+        "Deliver a leakage audit",
+        "Include parent mappings and a hash of untouched test rows"
+      ]
+    ],
+    "reference": [
+      "Scikit-learn common pitfalls",
+      "https://scikit-learn.org/stable/common_pitfalls.html"
+    ]
+  },
+  {
+    "source": 30,
+    "id": "text-classification",
+    "title": "Classify feedback with an uncertainty bucket",
+    "track": "Measured machine learning",
+    "level": "Python onramp",
+    "concept": "Text labels encode a task definition, not access to a person’s inner state. A transparent keyword baseline reveals ambiguities before complex models are introduced. Preserve negation and route conflicting evidence to review rather than forcing a convenient class.",
+    "rules": "Token match refund => request and broken => issue. Both or neither => review. This brittle baseline is educational, not a reliable sentiment or emotion detector.",
+    "input": {
+      "texts": [
+        "please refund my order",
+        "the item is broken",
+        "refund this broken item",
+        "hello there"
+      ]
+    },
+    "expected": {
+      "labels": [
+        "request",
+        "issue",
+        "review",
+        "review"
+      ],
+      "review_count": 2
+    },
+    "edges": [
+      "Not broken still contains the token broken: document the baseline failure.",
+      "Add punctuation: tokenisation should preserve the intended word boundary.",
+      "Try another language: abstain and obtain appropriate evaluation before use."
+    ],
+    "stages": [
+      [
+        "Define labels with examples",
+        "Make review an allowed outcome and distinguish requests from issues"
+      ],
+      [
+        "Trace a keyword baseline",
+        "Show exactly which tokens produce each label"
+      ],
+      [
+        "Build a testable text pipeline",
+        "Keep tokenisation and decision rules separate"
+      ],
+      [
+        "Attack ambiguity and negation",
+        "Record failures rather than hiding them behind a high average score"
+      ],
+      [
+        "Compare a hosted model carefully",
+        "Use the same human-labelled set and do not infer emotion from a label"
+      ],
+      [
+        "Ship an annotation and error guide",
+        "Deliver the label definitions, confusion examples and review policy"
+      ]
+    ],
+    "reference": [
+      "Scikit-learn text feature extraction",
+      "https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction"
+    ]
+  },
+  {
+    "source": 32,
+    "id": "uncertainty-lab",
+    "title": "Report uncertainty instead of fake precision",
+    "track": "Planning & uncertainty",
+    "level": "Basic statistics",
+    "concept": "A mean describes observed values; it does not guarantee the next observation. A range communicates variation without proving a calibrated forecast. Keep descriptive results, uncertainty assumptions and causal claims separate.",
+    "rules": "Compute count, mean, minimum and maximum for the supplied fictional observations. No confidence-interval or population-representativeness claim is established by these five values.",
+    "input": {
+      "values": [
+        2,
+        4,
+        4,
+        6,
+        9
+      ]
+    },
+    "expected": {
+      "count": 5,
+      "mean": 5,
+      "minimum": 2,
+      "maximum": 9,
+      "range": 7
+    },
+    "edges": [
+      "Replace 9 with 90: mean becomes 21.2, exposing sensitivity to an outlier.",
+      "Empty sample: reject an undefined mean.",
+      "Repeating the same five observations does not create independent new evidence."
+    ],
+    "stages": [
+      [
+        "Describe the observed sample",
+        "Distinguish a count and a mean from a future prediction"
+      ],
+      [
+        "Calculate spread by hand",
+        "Use minimum, maximum and range to reveal what a mean hides"
+      ],
+      [
+        "Explore a reproducible simulation",
+        "If simulating, record seed and assumptions rather than calling synthetic draws real observations"
+      ],
+      [
+        "Stress-test an outlier",
+        "Compare the before/after mean without inventing a cause"
+      ],
+      [
+        "Update a claim when evidence changes",
+        "Explain which assumptions would be needed for inference beyond this sample"
+      ],
+      [
+        "Deliver a cautious quantitative brief",
+        "State observed facts, assumptions and what remains unknown"
+      ]
+    ],
+    "reference": [
+      "Python statistics documentation",
+      "https://docs.python.org/3/library/statistics.html"
+    ]
+  },
+  {
+    "source": 35,
+    "id": "inventory-planning",
+    "title": "Make a reversible stock-planning decision",
+    "track": "Planning & uncertainty",
+    "level": "Spreadsheet onramp",
+    "concept": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative.",
+    "rules": "Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.",
+    "input": {
+      "demand": [
+        10,
+        12,
+        14
+      ],
+      "stock": 9,
+      "safety": 2
+    },
+    "expected": {
+      "forecast": 12,
+      "reorder": 5
+    },
+    "edges": [
+      "Increase stock to 20: reorder is 0, not a negative purchase.",
+      "A missing demand value must be flagged, not guessed as zero.",
+      "A supplier delay invalidates a one-period assumption; revise the plan explicitly."
+    ],
+    "stages": [
+      [
+        "Describe the stock decision",
+        "Specify units, horizon and the reversibility of the action"
+      ],
+      [
+        "Calculate a naive forecast",
+        "Keep the moving-average arithmetic visible"
+      ],
+      [
+        "Build a reorder worksheet",
+        "Separate forecast, stock, safety buffer and resulting quantity"
+      ],
+      [
+        "Test shortage and overstock cases",
+        "Change one input at a time and compare with expected behaviour"
+      ],
+      [
+        "Review suppliers and human authority",
+        "A recommendation is not an authorised purchase or a material-suitability judgement"
+      ],
+      [
+        "Deliver a planning dashboard",
+        "Attach scenarios, assumptions and an approval step"
+      ]
+    ],
+    "reference": [
+      "Forecasting principles and practice",
+      "https://otexts.com/fpp3/"
+    ]
+  },
+  {
+    "source": 38,
+    "id": "project-planning",
+    "title": "Build a small project plan you can verify",
+    "track": "Planning & uncertainty",
+    "level": "Open entry",
+    "concept": "A plan needs dependency logic and capacity limits, not just attractive dates. Calculate the earliest possible finish under explicit assumptions. A change in duration must propagate to dependent work rather than remain hidden in a cached report.",
+    "rules": "Task A takes 2 days, B takes 3 after A, and C takes 1 after A. B and C can run in parallel. No staffing or safety-engineering decisions are automated.",
+    "input": {
+      "duration": {
+        "A": 2,
+        "B": 3,
+        "C": 1
+      },
+      "depends": {
+        "A": [],
+        "B": [
+          "A"
+        ],
+        "C": [
+          "A"
+        ]
+      }
+    },
+    "expected": {
+      "finish": {
+        "A": 2,
+        "B": 5,
+        "C": 3
+      },
+      "project_days": 5
+    },
+    "edges": [
+      "Add a dependency A after B: detect a cycle.",
+      "Increase A to 4 days: project duration becomes 7.",
+      "Only one worker available: parallel execution is no longer a valid assumption."
+    ],
+    "stages": [
+      [
+        "Map deliverables and dependencies",
+        "Write each predecessor before drawing dates"
+      ],
+      [
+        "Calculate the earliest finish",
+        "Use a small dependency graph and hand-check the critical chain"
+      ],
+      [
+        "Build a change-aware plan",
+        "Compute finish times from input durations rather than typing static dates"
+      ],
+      [
+        "Test a cycle and capacity change",
+        "Reject invalid dependency graphs; document resource assumptions"
+      ],
+      [
+        "Rehearse stakeholder communication",
+        "Name an owner and uncertainty without inventing executive authority"
+      ],
+      [
+        "Deliver a plan and retrospective template",
+        "Track actual work separately from estimates"
+      ]
+    ],
+    "reference": [
+      "Python graphlib documentation",
+      "https://docs.python.org/3/library/graphlib.html"
+    ]
+  },
+  {
+    "source": 41,
+    "id": "data-cleaning",
+    "title": "Repair dirty records without inventing facts",
+    "track": "Data & evidence",
+    "level": "Spreadsheet onramp",
+    "concept": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.",
+    "rules": "IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.",
+    "input": {
+      "rows": [
+        {
+          "id": "a",
+          "amount": 5
+        },
+        {
+          "id": "b",
+          "amount": 0
+        },
+        {
+          "id": "a",
+          "amount": 5
+        },
+        {
+          "id": "c",
+          "amount": "?"
+        },
+        {
+          "id": "d",
+          "amount": -1
+        }
+      ]
+    },
+    "expected": {
+      "accepted": 2,
+      "total": 5,
+      "reasons": [
+        "duplicate_id",
+        "non_numeric",
+        "negative_amount"
+      ]
+    },
+    "edges": [
+      "Conflicting duplicate: send to a human instead of quietly selecting a value.",
+      "Blank amount is not zero.",
+      "Rejecting every unusual value can remove legitimate data; review the policy before generalising."
+    ],
+    "stages": [
+      [
+        "Write a data dictionary",
+        "Specify identifier, amount and validation rules in plain language"
+      ],
+      [
+        "Mark each dirty row manually",
+        "Establish accepted rows and rejection reasons before automating"
+      ],
+      [
+        "Build a non-destructive cleaner",
+        "Return clean data and a reject log without overwriting the source"
+      ],
+      [
+        "Test duplicates, blanks and zero",
+        "Use distinct reason codes so failures remain explainable"
+      ],
+      [
+        "Audit the source and policy",
+        "Validate subject matter against primary tool documentation, not a misleading catalogue heading"
+      ],
+      [
+        "Ship a repair kit and audit trail",
+        "Include the original, cleaned data, rejects and tests"
+      ]
+    ],
+    "reference": [
+      "Pandas missing-data guidance",
+      "https://pandas.pydata.org/docs/user_guide/missing_data.html"
+    ]
+  },
+  {
+    "source": 42,
+    "id": "supervised-lab",
+    "title": "Fit a regression and inspect its residuals",
+    "track": "Measured machine learning",
+    "level": "Python + statistics",
+    "concept": "Regression estimates a relationship between inputs and a numeric target. A synthetic straight line is useful for checking code, but perfect fit on a designed fixture is not a real-world benchmark. Compare with a mean baseline and preserve the future test example.",
+    "rules": "Fit training pairs (1,5),(2,8),(3,11),(4,14). Test x=5 against y=17 only after fitting. Do not imply causal or production validity.",
+    "input": {
+      "x": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "y": [
+        5,
+        8,
+        11,
+        14
+      ],
+      "test_x": 5,
+      "test_y": 17
+    },
+    "expected": {
+      "slope": 3,
+      "intercept": 2,
+      "prediction": 17,
+      "absolute_error": 0,
+      "mean_baseline_error": 7.5
+    },
+    "edges": [
+      "All training x values equal: the simple slope is undefined.",
+      "Change the test target to 19: prediction stays 17 and absolute error becomes 2.",
+      "Use test y while fitting: identify leakage even if error falls."
+    ],
+    "stages": [
+      [
+        "Define the regression target",
+        "Separate input availability from the future value being predicted"
+      ],
+      [
+        "Compute a mean baseline",
+        "Use only training targets for the naive estimate"
+      ],
+      [
+        "Fit and inspect a straight line",
+        "Calculate slope, intercept and residuals explicitly"
+      ],
+      [
+        "Test outside the training range",
+        "Extrapolation needs caution even when this synthetic example succeeds"
+      ],
+      [
+        "Compare model selection fairly",
+        "Choose metrics before comparing methods; do not optimise on the final test example"
+      ],
+      [
+        "Ship a supervised experiment record",
+        "Document the fixture design and why zero error is not a general claim"
+      ]
+    ],
+    "reference": [
+      "Scikit-learn linear models",
+      "https://scikit-learn.org/stable/modules/linear_model.html"
+    ]
+  },
+  {
+    "source": 43,
+    "id": "preprocessing-lab",
+    "title": "Build a preprocessing step that cannot see the future",
+    "track": "Measured machine learning",
+    "level": "Python + ML prerequisite",
+    "concept": "Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.",
+    "rules": "Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.",
+    "input": {
+      "train": [
+        2,
+        null,
+        4
+      ],
+      "test": [
+        100,
+        null
+      ]
+    },
+    "expected": {
+      "training_mean": 3,
+      "train_filled": [
+        2,
+        3,
+        4
+      ],
+      "test_filled": [
+        100,
+        3
+      ]
+    },
+    "edges": [
+      "Including 100 in the fit would change the mean: detect the leakage.",
+      "All training values missing: stop and request a stated fallback policy.",
+      "A new extreme test value must not change stored training parameters."
+    ],
+    "stages": [
+      [
+        "Mark the training boundary",
+        "Write down which rows the fitted transformation is allowed to inspect"
+      ],
+      [
+        "Calculate the permitted mean",
+        "Use only the observed training values"
+      ],
+      [
+        "Implement fit then transform",
+        "Return fitted parameters separately from transformed data"
+      ],
+      [
+        "Inject an extreme test value",
+        "Demonstrate that training parameters do not change"
+      ],
+      [
+        "Extend to time and class imbalance",
+        "Keep chronological splits and resampling inside training only"
+      ],
+      [
+        "Ship a leakage-resistant pipeline contract",
+        "Attach tests for missingness, refit attempts and parameter provenance"
+      ]
+    ],
+    "reference": [
+      "Scikit-learn pipelines",
+      "https://scikit-learn.org/stable/modules/compose.html"
+    ]
+  },
+  {
+    "source": 46,
+    "id": "responsible-ai",
+    "title": "Audit a tool with evidence, not an ethics slogan",
+    "track": "AI foundations",
+    "level": "Open entry",
+    "concept": "Responsible use is visible in test cases, approval boundaries and residual risks. A model can perform differently across languages, bandwidth conditions or data categories. Small samples reveal questions; they cannot certify fairness or legal compliance.",
+    "rules": "Report error rates by explicitly supplied scenario group, disclose sample sizes and block release for unresolved critical privacy failures. These groups are test scenarios, not inferred sensitive identities.",
+    "input": {
+      "cases": [
+        {
+          "group": "A",
+          "correct": true
+        },
+        {
+          "group": "A",
+          "correct": true
+        },
+        {
+          "group": "B",
+          "correct": false
+        },
+        {
+          "group": "B",
+          "correct": true
+        }
+      ],
+      "privacy_failure": true
+    },
+    "expected": {
+      "group_accuracy": {
+        "A": 1,
+        "B": 0.5
+      },
+      "release": "hold"
+    },
+    "edges": [
+      "Remove the privacy failure: do not claim fairness from only two examples per group.",
+      "A missing group must be reported as untested, not assigned perfect accuracy.",
+      "A provider says safe: keep independent tests and a named human owner."
+    ],
+    "stages": [
+      [
+        "Map affected people and data",
+        "Name who can be harmed and which inputs are sensitive"
+      ],
+      [
+        "Design scenario-based checks",
+        "Include differing language and access conditions without inferring identities"
+      ],
+      [
+        "Measure failures transparently",
+        "Report denominators and avoid hiding disparities behind an average"
+      ],
+      [
+        "Apply an approval gate",
+        "A critical privacy failure blocks release even if other scores are high"
+      ],
+      [
+        "Write residual risks and accountability",
+        "Keep responsibility with people; a model output is not a compliance opinion"
+      ],
+      [
+        "Deliver a reviewable risk record",
+        "Include mitigations, owners, unresolved limits and review date"
+      ]
+    ],
+    "reference": [
+      "NIST AI risk management framework",
+      "https://www.nist.gov/itl/ai-risk-management-framework"
+    ]
+  },
+  {
+    "source": 47,
+    "id": "time-experiment",
+    "title": "Measure whether a workflow actually saves time",
+    "track": "Planning & uncertainty",
+    "level": "Open entry",
+    "concept": "A productivity experiment must include setup, checking and repair. Comparing a polished assisted attempt with an unfamiliar manual attempt biases the result. Repeated tasks differ; report the actual sample and conditions rather than a universal percentage.",
+    "rules": "Total assisted time equals draft plus checking plus rework. Keep all observations, including cases where assistance loses time. No private diary uploads or employee surveillance.",
+    "input": {
+      "manual": [
+        10,
+        12,
+        8
+      ],
+      "draft": [
+        4,
+        5,
+        3
+      ],
+      "check": [
+        3,
+        4,
+        2
+      ],
+      "rework": [
+        3,
+        2,
+        3
+      ]
+    },
+    "expected": {
+      "manual_total": 30,
+      "assisted_total": 29,
+      "saved_minutes": 1
+    },
+    "edges": [
+      "Add 3 setup minutes: net saving changes to -2.",
+      "Drop the slowest assisted case: label cherry-picking, not improvement.",
+      "A task changes in complexity: record the confound rather than reusing a prior saving."
+    ],
+    "stages": [
+      [
+        "Choose a voluntary recurring task",
+        "Define start/stop rules and a privacy-preserving log"
+      ],
+      [
+        "Record a manual baseline",
+        "Keep task difficulty and output criteria comparable"
+      ],
+      [
+        "Count the full assisted workflow",
+        "Include checking and repair rather than timing the first draft only"
+      ],
+      [
+        "Stress-test the apparent saving",
+        "Add setup cost and inspect the change in the verdict"
+      ],
+      [
+        "Build a sustainable work plan",
+        "Prioritisation is a choice with constraints, not a reason to monitor other people secretly"
+      ],
+      [
+        "Deliver a measured recommendation",
+        "Report sample, conditions and a reversible next step"
+      ]
+    ],
+    "reference": [
+      "Python time measurement",
+      "https://docs.python.org/3/library/timeit.html"
+    ]
+  },
+  {
+    "source": 49,
+    "id": "data-wrangling",
+    "title": "Join two datasets without multiplying the truth",
+    "track": "Data & evidence",
+    "level": "Python prerequisite",
+    "concept": "Joining datasets depends on key uniqueness and relationship cardinality. A many-to-many join can multiply rows and amounts without a syntax error. Check unmatched and repeated keys before summarising the merged table.",
+    "rules": "Lookup keys must be unique for this many-to-one join. Preserve every order and report missing lookup keys rather than silently dropping orders.",
+    "input": {
+      "orders": [
+        {
+          "id": "o1",
+          "product": "p1",
+          "qty": 2
+        },
+        {
+          "id": "o2",
+          "product": "p2",
+          "qty": 1
+        },
+        {
+          "id": "o3",
+          "product": "missing",
+          "qty": 1
+        }
+      ],
+      "prices": {
+        "p1": 3,
+        "p2": 5
+      }
+    },
+    "expected": {
+      "orders": 3,
+      "matched": 2,
+      "unmatched": [
+        "o3"
+      ],
+      "known_total": 11
+    },
+    "edges": [
+      "Duplicate a lookup key: reject ambiguous cardinality before joining.",
+      "Drop the unmatched order: report that data loss explicitly.",
+      "Quantity zero is a valid zero-value order under this fixture policy."
+    ],
+    "stages": [
+      [
+        "Declare the join relationship",
+        "Write the unit of each table and the key cardinality"
+      ],
+      [
+        "Trace matched and unmatched rows",
+        "Compute a known total without deleting unknown items"
+      ],
+      [
+        "Build a checked merge",
+        "Validate uniqueness before combining records"
+      ],
+      [
+        "Test duplicated and missing keys",
+        "Watch both row counts and monetary totals after the join"
+      ],
+      [
+        "Handle nested and text fields",
+        "Flatten only with a documented mapping and preserve original IDs"
+      ],
+      [
+        "Deliver a wrangling pipeline",
+        "Include row reconciliation, unknown-key policy and repeatability tests"
+      ]
+    ],
+    "reference": [
+      "Pandas merge validation",
+      "https://pandas.pydata.org/docs/user_guide/merging.html"
+    ]
+  },
+  {
+    "source": 55,
+    "id": "sklearn-lab",
+    "title": "Use a pipeline and a genuinely held-out set",
+    "track": "Measured machine learning",
+    "level": "Python + statistics",
+    "concept": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard.",
+    "rules": "This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.",
+    "input": {
+      "train_x": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ]
+      ],
+      "train_y": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "test_x": [
+        [
+          0.5
+        ],
+        [
+          1.5
+        ],
+        [
+          8.5
+        ],
+        [
+          9.5
+        ]
+      ],
+      "test_y": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "expected": {
+      "predictions": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "correct": 4,
+      "test_count": 4
+    },
+    "edges": [
+      "Move a test point near the class boundary: inspect uncertainty instead of demanding a perfect score.",
+      "Scale on all rows before splitting: identify leakage.",
+      "Try another seed or a harder dataset: keep the new result even if performance drops."
+    ],
+    "stages": [
+      [
+        "Reserve a final holdout",
+        "Write the split and allowed tuning procedure before fitting"
+      ],
+      [
+        "Fit the simplest baseline",
+        "Compare against majority class and transparent rules"
+      ],
+      [
+        "Compose preprocessing and model",
+        "Use a pipeline so training parameters stay within the correct partition"
+      ],
+      [
+        "Inspect predictions and errors",
+        "A four-point synthetic success checks wiring, not field reliability"
+      ],
+      [
+        "Compare validation schemes",
+        "Explain when random versus time-based splits are appropriate"
+      ],
+      [
+        "Ship a versioned experiment bundle",
+        "Include parameters, held-out predictions, software versions and a model card"
+      ]
+    ],
+    "reference": [
+      "Scikit-learn Pipeline reference",
+      "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html"
+    ]
+  },
+  {
+    "source": 56,
+    "id": "pandas-cleaning",
+    "title": "Make cleaning decisions testable with Pandas",
+    "track": "Data & evidence",
+    "level": "Python + Pandas prerequisite",
+    "concept": "A cleaning script needs tests for preservation as well as removal. Missing values, duplicates and outliers have different meanings. A high value may be a legitimate transaction; automatically deleting it can distort the report.",
+    "rules": "Drop exact duplicate IDs only in this fixture, fill missing units with the stated zero policy, and retain the legitimate 100-unit outlier. In real work, review conflicting duplicates and missing-value semantics first.",
+    "input": {
+      "rows": [
+        {
+          "id": "a",
+          "units": 2
+        },
+        {
+          "id": "b",
+          "units": null
+        },
+        {
+          "id": "a",
+          "units": 2
+        },
+        {
+          "id": "c",
+          "units": 100
+        }
+      ]
+    },
+    "expected": {
+      "rows": 3,
+      "units": [
+        2,
+        0,
+        100
+      ],
+      "total": 102,
+      "outlier_retained": true
+    },
+    "edges": [
+      "A duplicate ID with a different amount needs review, not automatic first-row selection.",
+      "Changing the missing policy to unknown means the old zero-fill expected file is no longer authoritative.",
+      "Do not remove 100 just because it is far from the median."
+    ],
+    "stages": [
+      [
+        "Write preservation invariants",
+        "Identify values that must survive cleaning, including a legitimate outlier"
+      ],
+      [
+        "Inspect missingness and duplicates",
+        "Distinguish exact copies from conflicting records"
+      ],
+      [
+        "Implement an explicit Pandas policy",
+        "Show each transformation and its affected row count"
+      ],
+      [
+        "Test accidental data loss",
+        "Assert that the outlier survives and totals reconcile"
+      ],
+      [
+        "Separate preparation from model fitting",
+        "Do not learn normalisation parameters from future data"
+      ],
+      [
+        "Ship tests with the cleaner",
+        "Include expected rows, rationale and a reject/review policy"
+      ]
+    ],
+    "reference": [
+      "Pandas data-cleaning documentation",
+      "https://pandas.pydata.org/docs/user_guide/missing_data.html"
+    ]
+  },
+  {
+    "source": 60,
+    "id": "campaign-evidence",
+    "title": "Create a campaign pack without invented performance",
+    "track": "Make Mula",
+    "level": "Open entry",
+    "concept": "Advertising work combines creative claims with measurement. A click-through rate is observed clicks divided by impressions; it does not establish sales lift or causality. Use consented assets and fictional performance data until a legitimate real test exists.",
+    "rules": "Calculate CTR and cost per click from the supplied fixture. No protected-characteristic targeting, unauthorised tracking, fabricated testimonials or guaranteed returns.",
+    "input": {
+      "impressions": 1000,
+      "clicks": 20,
+      "spend": 10
+    },
+    "expected": {
+      "ctr": 0.02,
+      "cpc": 0.5,
+      "sales_lift": "not established"
+    },
+    "edges": [
+      "Zero clicks: CPC is undefined, not zero.",
+      "More clicks do not establish more profit without sales, costs and attribution evidence.",
+      "An AI-written testimonial is not a customer review."
+    ],
+    "stages": [
+      [
+        "Define a truthful offer and audience",
+        "Use a real problem and approved claims, not sensitive-feature targeting"
+      ],
+      [
+        "Build a factual creative brief",
+        "Link every price, feature and testimonial to permission and evidence"
+      ],
+      [
+        "Calculate a campaign baseline",
+        "Reconcile observed denominators and costs before generating commentary"
+      ],
+      [
+        "Challenge a flattering narrative",
+        "Separate clicks, sales, profit and causal lift"
+      ],
+      [
+        "Package approval and disclosure",
+        "State asset rights, revisions and client approval before publication"
+      ],
+      [
+        "Deliver a campaign evidence pack",
+        "Provide creative variants, checked metrics and no unsupported success claim"
+      ]
+    ],
+    "reference": [
+      "ICC advertising and marketing code",
+      "https://iccwbo.org/business-solutions/the-icc-advertising-and-marketing-communications-code/"
+    ]
+  },
+  {
+    "source": 61,
+    "id": "data-visualisation",
+    "title": "Make charts that tell the checked truth",
+    "track": "Data & evidence",
+    "level": "Python onramp",
+    "concept": "A chart is an argument about data. Bar lengths need a meaningful baseline, units and readable labels. Accessibility also needs a text alternative, not simply a contrast check. Inspect a deliberately truncated-axis specification before rendering a corrected chart.",
+    "rules": "Values are fictional counts. A bar chart must start at zero for this exercise and include units and a text alternative. Metadata checks cannot prove the rendered chart is visually honest.",
+    "input": {
+      "values": {
+        "A": 8,
+        "B": 10
+      },
+      "chart": {
+        "axis_min": 7,
+        "units": "items",
+        "alt": ""
+      }
+    },
+    "expected": {
+      "total": 18,
+      "failed_checks": [
+        "axis_baseline",
+        "text_alternative"
+      ],
+      "release": "revise"
+    },
+    "edges": [
+      "Set baseline to 0 and add a descriptive text alternative: specification checks pass.",
+      "Swap category labels: values may total correctly while the chart is still wrong.",
+      "Colour alone must not distinguish categories."
+    ],
+    "stages": [
+      [
+        "Choose a question and chart type",
+        "Match the encoding to comparison, distribution or change"
+      ],
+      [
+        "Audit the supplied misleading spec",
+        "Identify what a truncated baseline exaggerates"
+      ],
+      [
+        "Render an accessible chart",
+        "Use clear units, labels and a checked table alongside the image"
+      ],
+      [
+        "Test misleading transformations",
+        "Try swapped labels, omitted rows and changed scales"
+      ],
+      [
+        "Write a factual text alternative",
+        "Describe the observed values without inventing an explanation"
+      ],
+      [
+        "Deliver a chart and decision brief",
+        "Include source, code, accessible description and limitations"
+      ]
+    ],
+    "reference": [
+      "Matplotlib accessibility guidance",
+      "https://matplotlib.org/stable/users/explain/colors/index.html"
+    ]
+  },
+  {
+    "source": 67,
+    "id": "clustering-lab",
+    "title": "Find clusters—and show why they are not facts",
+    "track": "Measured machine learning",
+    "level": "Python + statistics",
+    "concept": "Clustering groups points according to representation, scale and algorithm settings. The labels are arbitrary and do not establish natural categories, personality types or fair treatment of people. Use synthetic item coordinates to inspect stability without profiling anyone.",
+    "rules": "Fit two KMeans clusters on six synthetic points with random_state=7 and n_init=10. Compare groups by member IDs, not arbitrary numeric label names.",
+    "input": {
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    "expected": {
+      "groups": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        [
+          "d",
+          "e",
+          "f"
+        ]
+      ],
+      "sizes": [
+        3,
+        3
+      ]
+    },
+    "edges": [
+      "Change k to 3: the partition changes without revealing a newly discovered truth.",
+      "Rescale one coordinate by 100: repeat the experiment and explain representation sensitivity.",
+      "Do not label clusters as high-value people or employee risk."
+    ],
+    "stages": [
+      [
+        "Describe features without human profiling",
+        "Define the toy item coordinates and their units"
+      ],
+      [
+        "Inspect distance and scaling",
+        "Predict which points are near before fitting"
+      ],
+      [
+        "Fit a reproducible clustering baseline",
+        "Keep parameters and compare membership instead of label IDs"
+      ],
+      [
+        "Stress-test stability",
+        "Change scale, seed and k; retain disagreeing results"
+      ],
+      [
+        "Distinguish discovery from validation",
+        "A visually neat plot does not establish objective categories"
+      ],
+      [
+        "Ship a clustering exploration note",
+        "Describe alternatives and prohibit consequential profiling"
+      ]
+    ],
+    "reference": [
+      "Scikit-learn clustering guide",
+      "https://scikit-learn.org/stable/modules/clustering.html"
+    ]
+  },
+  {
+    "source": 72,
+    "id": "make-mula",
+    "title": "Make Mula: useful work, honest offers",
+    "track": "Make Mula",
+    "level": "Portfolio capstone",
+    "concept": "An offer connects a narrow customer problem to a checked deliverable and a price hypothesis. AI does not create demand. Learn through real permission-based discovery where possible, but label rehearsals and never fabricate sales, experience or testimonials.",
+    "rules": "Include selling, delivery, checking and support time. Payment-country eligibility must be verified before selling; no false residency, borrowed accounts or bypassing provider restrictions. Learning completion does not require earning money.",
+    "input": {
+      "price": 30,
+      "tool_cost": 3,
+      "fees": 2,
+      "delivery_hours": 2,
+      "selling_hours": 1,
+      "support_hours": 1
+    },
+    "expected": {
+      "net_before_tax": 25,
+      "total_hours": 4,
+      "effective_hourly_before_tax": 6.25
+    },
+    "edges": [
+      "Add a 10-unit refund: net becomes 15 and hourly return 3.75.",
+      "No paid order obtained: record zero earned income, not the hypothetical price.",
+      "A marketplace unavailable in the learner region is a stop condition until a legitimate route is verified."
+    ],
+    "stages": [
+      [
+        "Find a problem through discovery",
+        "Ask three consenting potential users about their current workaround; keep simulations explicitly labelled"
+      ],
+      [
+        "Build and break one sample",
+        "Choose checked reports, approved replies, verified content or a tiny web tool"
+      ],
+      [
+        "Price the full workflow",
+        "Include selling and support time, fees, rework and refund assumptions"
+      ],
+      [
+        "Check access and test the offer",
+        "Verify regional payout and identity rules, then use a small appropriate personalised approach with opt-outs"
+      ],
+      [
+        "Deliver ethically and hand over",
+        "Define scope, approvals, rights, revisions, accounting boundaries and support"
+      ],
+      [
+        "Decide from actual evidence",
+        "Record acceptance, refunds and net return if a paid pilot occurred; otherwise report the real market-test result without invention"
+      ]
+    ],
+    "reference": [
+      "ILO Start and Improve Your Business",
+      "https://www.ilo.org/start-and-improve-your-business-siyb"
+    ]
+  }
+]

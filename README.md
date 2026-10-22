@@ -145,3 +145,19 @@ Catalogue search now keeps an explicitly accepted user query separate from DOM v
 Home cards, both carousel thumbnail rails, curriculum entries and tool cards display large artwork. Every one of the 31 library resources has a cover; the full illustrated library and downloads are also rendered as HTML for JavaScript-free reading. Related downloads deliberately share their build-path artwork; these are not 31 newly generated illustrations.
 
 Shared footer navigation links the privacy policy, cookies/storage explanation, terms, licensing, accessibility statement, about, contact and help pages. These describe the current independent adult pilot and actual features, not legal certification or an audited accessibility guarantee. The contact route is the public repository issue tracker; no private support inbox or contact form is invented.
+
+
+## 0.10.0 — original projects for underserved regions
+
+Thirty original six-activity project courses extend the six existing foundations. All eleven approved supporting inputs are embedded in related lessons; none of the twenty-seven conditional or six held topics is published as a course. The audience is people across regions underserved or excluded by mainstream AI/payment providers, not one country. Access guidance checks lawful country/account eligibility, language, identity, data, cost and connectivity; manual fixtures are never represented as live AI runs.
+
+- **36 paths / 216 path activities**, plus the unchanged **50 standalone activities**: 266 activities in total.
+- **91 library resources**, complete course handbooks and ZIP packs, 30 hosted notebooks, deterministic reference code and independent fixture targets.
+- Full no-JavaScript reading guides: `/builds/index.html`; Make Mula: `/builds/make-mula.html` or `/?course=make-mula`.
+- Make Mula includes original discovery prompts, offer/handoff templates, a regional access worksheet and before-tax economics; no income guarantee or mandatory marketplace.
+- New covers reuse thirty distinct existing original Open Practice illustrations with new course typography; the original six foundation paintings/covers and course sources are unchanged. These are not claimed as thirty newly generated paintings.
+- Exact scope: `curriculum/expansion/scope.json`; topic locators: `topic-index.json`. Subject areas informed the new briefs; no external course lessons were copied and no affiliation is implied.
+- Reference validation: `python scripts/check-expansion.py` after installing test-only dependencies from `curriculum/expansion/requirements-test.txt`. It checks thirty synthetic references and executes 71 notebook code cells; it does not contact external AI providers or validate learner outcomes.
+- End-to-end checks: `scripts/expansion-browser-check.mjs`; existing six regression suites retain coverage. Non-accredited, learner self-reviewed, estimates unvalidated and independent subject review pending.
+
+Builds remain in one repository with the existing same-Worker assets, API and database architecture. Optional hosted learner exercises do not add production platform components.

@@ -1,0 +1,313 @@
+{
+  "id": "augmentation-lab",
+  "num": "20",
+  "title": "Augment training data without contaminating the test",
+  "track": "Measured machine learning",
+  "level": "Python + ML prerequisite",
+  "project": "Deliver a leakage audit with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.",
+  "lessons": [
+    {
+      "id": "augmentation-lab-01",
+      "title": "State a label-preservation assumption",
+      "estimatedMinutes": 35,
+      "text": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.\n\nExplain why the toy transformation is limited to this fixture. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"train\": [\n    {\n      \"id\": \"a\",\n      \"x\": 0.1,\n      \"label\": 0\n    },\n    {\n      \"id\": \"b\",\n      \"x\": 0.2,\n      \"label\": 0\n    },\n    {\n      \"id\": \"c\",\n      \"x\": 0.8,\n      \"label\": 1\n    }\n  ],\n  \"test\": [\n    {\n      \"id\": \"t1\",\n      \"x\": 0.15,\n      \"label\": 0\n    },\n    {\n      \"id\": \"t2\",\n      \"x\": 0.9,\n      \"label\": 1\n    }\n  ]\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"original_train\": 3,\n  \"augmented_train\": 6,\n  \"unchanged_test\": true,\n  \"unique_originals\": 3\n}",
+      "steps": [
+        "Explain why the toy transformation is limited to this fixture.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "State a label-preservation assumption — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Augment the test rows: fail the experiment design even if a score improves.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Explain why the toy transformation is limited to this fixture.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Explain why the toy transformation is limited to this fixture. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/augmentation-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "augmentation-lab-02",
+      "title": "Split originals before transforming",
+      "estimatedMinutes": 35,
+      "text": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.\n\nRetain immutable test data and original identifiers. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"original_train\": 3,\n  \"augmented_train\": 6,\n  \"unchanged_test\": true,\n  \"unique_originals\": 3\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Retain immutable test data and original identifiers.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Split originals before transforming — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Use a shift that crosses a real label boundary: reject the label-preservation assumption.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Retain immutable test data and original identifiers.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Retain immutable test data and original identifiers. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/augmentation-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "augmentation-lab-03",
+      "title": "Build a traceable augmentation step",
+      "estimatedMinutes": 35,
+      "text": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.\n\nKeep parent IDs so transformed copies remain identifiable. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.",
+      "example": "PROJECT CONTRACT:\nFor this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"original_train\": 3,\n  \"augmented_train\": 6,\n  \"unchanged_test\": true,\n  \"unique_originals\": 3\n}",
+      "steps": [
+        "Keep parent IDs so transformed copies remain identifiable.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Count transformed copies as new independent observations: flag pseudoreplication.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Build a traceable augmentation step — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Count transformed copies as new independent observations: flag pseudoreplication.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Keep parent IDs so transformed copies remain identifiable.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Keep parent IDs so transformed copies remain identifiable. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Count transformed copies as new independent observations: flag pseudoreplication. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/augmentation-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "augmentation-lab-04",
+      "title": "Compare fair experiments",
+      "estimatedMinutes": 35,
+      "text": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.\n\nUse the same original holdout for baseline and augmented training. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.",
+      "example": "CHANGE TESTS — predict before running:\n1. Augment the test rows: fail the experiment design even if a score improves.\n2. Use a shift that crosses a real label boundary: reject the label-preservation assumption.\n3. Count transformed copies as new independent observations: flag pseudoreplication.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Use the same original holdout for baseline and augmented training.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Augment the test rows: fail the experiment design even if a score improves.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Compare fair experiments — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Augment the test rows: fail the experiment design even if a score improves.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Use the same original holdout for baseline and augmented training.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Use the same original holdout for baseline and augmented training. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Augment the test rows: fail the experiment design even if a score improves. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/augmentation-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "augmentation-lab-05",
+      "title": "Challenge synthetic evidence",
+      "estimatedMinutes": 35,
+      "text": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.\n\nRepeated or generated examples do not establish demand, new users or field robustness. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "REVIEW BOUNDARY:\nFor this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.\n\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "Repeated or generated examples do not establish demand, new users or field robustness.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Challenge synthetic evidence — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Use a shift that crosses a real label boundary: reject the label-preservation assumption.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Repeated or generated examples do not establish demand, new users or field robustness.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Repeated or generated examples do not establish demand, new users or field robustness. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/augmentation-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "augmentation-lab-06",
+      "title": "Deliver a leakage audit",
+      "estimatedMinutes": 65,
+      "text": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.\n\nInclude parent mappings and a hash of untouched test rows. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Include parent mappings and a hash of untouched test rows.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Deliver a leakage audit — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Count transformed copies as new independent observations: flag pseudoreplication.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Include parent mappings and a hash of untouched test rows.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Include parent mappings and a hash of untouched test rows. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/augmentation-lab-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected original_train?",
+    "options": [
+      "3",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Python + ML prerequisite; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Explain why the toy transformation is limited to this fixture.",
+    "Retain immutable test data and original identifiers.",
+    "Keep parent IDs so transformed copies remain identifiable.",
+    "Use the same original holdout for baseline and augmented training.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Scikit-learn common pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected original_train?",
+      "options": [
+        "3",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Deliver a leakage audit",
+    "brief": "Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance. For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/augmentation-lab-handbook.md",
+    "pack": "/resources/packs/augmentation-lab-practice-pack.zip"
+  },
+  "sourceListingNumber": 28,
+  "supportingInputs": [],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

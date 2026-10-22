@@ -1,0 +1,9 @@
+{
+  "accepted": 2,
+  "total": 5,
+  "reasons": [
+    "duplicate_id",
+    "non_numeric",
+    "negative_amount"
+  ]
+}

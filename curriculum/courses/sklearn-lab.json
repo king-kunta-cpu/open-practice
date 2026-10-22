@@ -1,0 +1,313 @@
+{
+  "id": "sklearn-lab",
+  "num": "31",
+  "title": "Use a pipeline and a genuinely held-out set",
+  "track": "Measured machine learning",
+  "level": "Python + statistics",
+  "project": "Ship a versioned experiment bundle with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard.",
+  "lessons": [
+    {
+      "id": "sklearn-lab-01",
+      "title": "Reserve a final holdout",
+      "estimatedMinutes": 35,
+      "text": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard.\n\nWrite the split and allowed tuning procedure before fitting. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"train_x\": [\n    [\n      0\n    ],\n    [\n      1\n    ],\n    [\n      2\n    ],\n    [\n      8\n    ],\n    [\n      9\n    ],\n    [\n      10\n    ]\n  ],\n  \"train_y\": [\n    0,\n    0,\n    0,\n    1,\n    1,\n    1\n  ],\n  \"test_x\": [\n    [\n      0.5\n    ],\n    [\n      1.5\n    ],\n    [\n      8.5\n    ],\n    [\n      9.5\n    ]\n  ],\n  \"test_y\": [\n    0,\n    0,\n    1,\n    1\n  ]\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"predictions\": [\n    0,\n    0,\n    1,\n    1\n  ],\n  \"correct\": 4,\n  \"test_count\": 4\n}",
+      "steps": [
+        "Write the split and allowed tuning procedure before fitting.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Reserve a final holdout — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Move a test point near the class boundary: inspect uncertainty instead of demanding a perfect score.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Write the split and allowed tuning procedure before fitting.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Write the split and allowed tuning procedure before fitting. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/sklearn-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "sklearn-lab-02",
+      "title": "Fit the simplest baseline",
+      "estimatedMinutes": 35,
+      "text": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard.\n\nCompare against majority class and transparent rules. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"predictions\": [\n    0,\n    0,\n    1,\n    1\n  ],\n  \"correct\": 4,\n  \"test_count\": 4\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Compare against majority class and transparent rules.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Fit the simplest baseline — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Scale on all rows before splitting: identify leakage.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Compare against majority class and transparent rules.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Compare against majority class and transparent rules. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/sklearn-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "sklearn-lab-03",
+      "title": "Compose preprocessing and model",
+      "estimatedMinutes": 35,
+      "text": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard.\n\nUse a pipeline so training parameters stay within the correct partition. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.",
+      "example": "PROJECT CONTRACT:\nThis tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"predictions\": [\n    0,\n    0,\n    1,\n    1\n  ],\n  \"correct\": 4,\n  \"test_count\": 4\n}",
+      "steps": [
+        "Use a pipeline so training parameters stay within the correct partition.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Try another seed or a harder dataset: keep the new result even if performance drops.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Compose preprocessing and model — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Try another seed or a harder dataset: keep the new result even if performance drops.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Use a pipeline so training parameters stay within the correct partition.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Use a pipeline so training parameters stay within the correct partition. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Try another seed or a harder dataset: keep the new result even if performance drops. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/sklearn-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "sklearn-lab-04",
+      "title": "Inspect predictions and errors",
+      "estimatedMinutes": 35,
+      "text": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard.\n\nA four-point synthetic success checks wiring, not field reliability. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.",
+      "example": "CHANGE TESTS — predict before running:\n1. Move a test point near the class boundary: inspect uncertainty instead of demanding a perfect score.\n2. Scale on all rows before splitting: identify leakage.\n3. Try another seed or a harder dataset: keep the new result even if performance drops.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "A four-point synthetic success checks wiring, not field reliability.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Move a test point near the class boundary: inspect uncertainty instead of demanding a perfect score.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Inspect predictions and errors — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Move a test point near the class boundary: inspect uncertainty instead of demanding a perfect score.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "A four-point synthetic success checks wiring, not field reliability.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "A four-point synthetic success checks wiring, not field reliability. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Move a test point near the class boundary: inspect uncertainty instead of demanding a perfect score. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/sklearn-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "sklearn-lab-05",
+      "title": "Compare validation schemes",
+      "estimatedMinutes": 35,
+      "text": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard.\n\nExplain when random versus time-based splits are appropriate. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "REVIEW BOUNDARY:\nThis tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.\n\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "Explain when random versus time-based splits are appropriate.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Compare validation schemes — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Scale on all rows before splitting: identify leakage.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Explain when random versus time-based splits are appropriate.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Explain when random versus time-based splits are appropriate. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/sklearn-lab-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "sklearn-lab-06",
+      "title": "Ship a versioned experiment bundle",
+      "estimatedMinutes": 65,
+      "text": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard.\n\nInclude parameters, held-out predictions, software versions and a model card. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Include parameters, held-out predictions, software versions and a model card.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Ship a versioned experiment bundle — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Try another seed or a harder dataset: keep the new result even if performance drops.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Include parameters, held-out predictions, software versions and a model card.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Include parameters, held-out predictions, software versions and a model card. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/sklearn-lab-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected predictions?",
+    "options": [
+      "[0, 0, 1, 1]",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Python + statistics; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Write the split and allowed tuning procedure before fitting.",
+    "Compare against majority class and transparent rules.",
+    "Use a pipeline so training parameters stay within the correct partition.",
+    "A four-point synthetic success checks wiring, not field reliability.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Scikit-learn Pipeline reference",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected predictions?",
+      "options": [
+        "[0, 0, 1, 1]",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Ship a versioned experiment bundle",
+    "brief": "A library pipeline fits transformations and a predictor together, reducing accidental leakage. Cross-validation belongs inside the training partition. A final holdout is a one-time audit, not a tuning dashboard. This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler and LogisticRegression on six rows; predict four held-out rows. Record versions and do not generalise the resulting score. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/sklearn-lab-handbook.md",
+    "pack": "/resources/packs/sklearn-lab-practice-pack.zip"
+  },
+  "sourceListingNumber": 55,
+  "supportingInputs": [],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

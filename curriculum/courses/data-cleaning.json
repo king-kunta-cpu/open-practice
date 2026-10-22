@@ -1,0 +1,313 @@
+{
+  "id": "data-cleaning",
+  "num": "25",
+  "title": "Repair dirty records without inventing facts",
+  "track": "Data & evidence",
+  "level": "Spreadsheet onramp",
+  "project": "Ship a repair kit and audit trail with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.",
+  "lessons": [
+    {
+      "id": "data-cleaning-01",
+      "title": "Write a data dictionary",
+      "estimatedMinutes": 35,
+      "text": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.\n\nSpecify identifier, amount and validation rules in plain language. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"rows\": [\n    {\n      \"id\": \"a\",\n      \"amount\": 5\n    },\n    {\n      \"id\": \"b\",\n      \"amount\": 0\n    },\n    {\n      \"id\": \"a\",\n      \"amount\": 5\n    },\n    {\n      \"id\": \"c\",\n      \"amount\": \"?\"\n    },\n    {\n      \"id\": \"d\",\n      \"amount\": -1\n    }\n  ]\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"accepted\": 2,\n  \"total\": 5,\n  \"reasons\": [\n    \"duplicate_id\",\n    \"non_numeric\",\n    \"negative_amount\"\n  ]\n}",
+      "steps": [
+        "Specify identifier, amount and validation rules in plain language.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Write a data dictionary — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Conflicting duplicate: send to a human instead of quietly selecting a value.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Specify identifier, amount and validation rules in plain language.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Specify identifier, amount and validation rules in plain language. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/data-cleaning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "data-cleaning-02",
+      "title": "Mark each dirty row manually",
+      "estimatedMinutes": 35,
+      "text": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.\n\nEstablish accepted rows and rejection reasons before automating. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"accepted\": 2,\n  \"total\": 5,\n  \"reasons\": [\n    \"duplicate_id\",\n    \"non_numeric\",\n    \"negative_amount\"\n  ]\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Establish accepted rows and rejection reasons before automating.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Mark each dirty row manually — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Blank amount is not zero.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Establish accepted rows and rejection reasons before automating.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Establish accepted rows and rejection reasons before automating. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/data-cleaning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "data-cleaning-03",
+      "title": "Build a non-destructive cleaner",
+      "estimatedMinutes": 35,
+      "text": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.\n\nReturn clean data and a reject log without overwriting the source. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.",
+      "example": "PROJECT CONTRACT:\nIDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"accepted\": 2,\n  \"total\": 5,\n  \"reasons\": [\n    \"duplicate_id\",\n    \"non_numeric\",\n    \"negative_amount\"\n  ]\n}",
+      "steps": [
+        "Return clean data and a reject log without overwriting the source.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Rejecting every unusual value can remove legitimate data; review the policy before generalising.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Build a non-destructive cleaner — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Rejecting every unusual value can remove legitimate data; review the policy before generalising.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Return clean data and a reject log without overwriting the source.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Return clean data and a reject log without overwriting the source. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Rejecting every unusual value can remove legitimate data; review the policy before generalising. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/data-cleaning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "data-cleaning-04",
+      "title": "Test duplicates, blanks and zero",
+      "estimatedMinutes": 35,
+      "text": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.\n\nUse distinct reason codes so failures remain explainable. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.",
+      "example": "CHANGE TESTS — predict before running:\n1. Conflicting duplicate: send to a human instead of quietly selecting a value.\n2. Blank amount is not zero.\n3. Rejecting every unusual value can remove legitimate data; review the policy before generalising.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Use distinct reason codes so failures remain explainable.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Conflicting duplicate: send to a human instead of quietly selecting a value.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Test duplicates, blanks and zero — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Conflicting duplicate: send to a human instead of quietly selecting a value.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Use distinct reason codes so failures remain explainable.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Use distinct reason codes so failures remain explainable. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Conflicting duplicate: send to a human instead of quietly selecting a value. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/data-cleaning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "data-cleaning-05",
+      "title": "Audit the source and policy",
+      "estimatedMinutes": 35,
+      "text": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.\n\nValidate subject matter against primary tool documentation, not a misleading catalogue heading. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "REVIEW BOUNDARY:\nIDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.\n\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "Validate subject matter against primary tool documentation, not a misleading catalogue heading.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Audit the source and policy — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Blank amount is not zero.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Validate subject matter against primary tool documentation, not a misleading catalogue heading.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Validate subject matter against primary tool documentation, not a misleading catalogue heading. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/data-cleaning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "data-cleaning-06",
+      "title": "Ship a repair kit and audit trail",
+      "estimatedMinutes": 65,
+      "text": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.\n\nInclude the original, cleaned data, rejects and tests. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Include the original, cleaned data, rejects and tests.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Ship a repair kit and audit trail — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Rejecting every unusual value can remove legitimate data; review the policy before generalising.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Include the original, cleaned data, rejects and tests.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Include the original, cleaned data, rejects and tests. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/data-cleaning-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected accepted?",
+    "options": [
+      "2",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Spreadsheet onramp; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Specify identifier, amount and validation rules in plain language.",
+    "Establish accepted rows and rejection reasons before automating.",
+    "Return clean data and a reject log without overwriting the source.",
+    "Use distinct reason codes so failures remain explainable.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Pandas missing-data guidance",
+      "url": "https://pandas.pydata.org/docs/user_guide/missing_data.html"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected accepted?",
+      "options": [
+        "2",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Ship a repair kit and audit trail",
+    "brief": "Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers. IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/data-cleaning-handbook.md",
+    "pack": "/resources/packs/data-cleaning-practice-pack.zip"
+  },
+  "sourceListingNumber": 41,
+  "supportingInputs": [],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

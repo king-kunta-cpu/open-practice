@@ -1,0 +1,313 @@
+{
+  "id": "inventory-planning",
+  "num": "23",
+  "title": "Make a reversible stock-planning decision",
+  "track": "Planning & uncertainty",
+  "level": "Spreadsheet onramp",
+  "project": "Deliver a planning dashboard with inputs, tests and a reproducible handoff.",
+  "time": "4h estimated",
+  "icon": "✦",
+  "description": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative.",
+  "lessons": [
+    {
+      "id": "inventory-planning-01",
+      "title": "Describe the stock decision",
+      "estimatedMinutes": 35,
+      "text": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative.\n\nSpecify units, horizon and the reversibility of the action. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.\n\nPolicy for this project: Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "SOURCE (authored fixture):\n{\n  \"demand\": [\n    10,\n    12,\n    14\n  ],\n  \"stock\": 9,\n  \"safety\": 2\n}\nINDEPENDENT FIXTURE TARGET:\n{\n  \"forecast\": 12,\n  \"reorder\": 5\n}",
+      "steps": [
+        "Specify units, horizon and the reversibility of the action.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record a manual prediction and the relevant rule before consulting the answer key.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Describe the stock decision — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Increase stock to 20: reorder is 0, not a negative purchase.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Specify units, horizon and the reversibility of the action.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Specify units, horizon and the reversibility of the action. Open input.json and expected.json from the practice pack; keep an unmodified original. Record a manual prediction and the relevant rule before consulting the answer key. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/inventory-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "inventory-planning-02",
+      "title": "Calculate a naive forecast",
+      "estimatedMinutes": 35,
+      "text": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative.\n\nKeep the moving-average arithmetic visible. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.\n\nPolicy for this project: Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.",
+      "example": "MANUAL BASELINE / compare every named field\n{\n  \"forecast\": 12,\n  \"reorder\": 5\n}\nKeep a separate observed-result column; the answer key is not a model response.",
+      "steps": [
+        "Keep the moving-average arithmetic visible.",
+        "Open input.json and expected.json from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Calculate a naive forecast — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A missing demand value must be flagged, not guessed as zero.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Keep the moving-average arithmetic visible.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Keep the moving-average arithmetic visible. Open input.json and expected.json from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/inventory-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "inventory-planning-03",
+      "title": "Build a reorder worksheet",
+      "estimatedMinutes": 35,
+      "text": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative.\n\nSeparate forecast, stock, safety buffer and resulting quantity. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.\n\nPolicy for this project: Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.",
+      "example": "PROJECT CONTRACT:\nForecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.\nHOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.\nEXPECTED CONSTRUCTED RESULT:\n{\n  \"forecast\": 12,\n  \"reorder\": 5\n}",
+      "steps": [
+        "Separate forecast, stock, safety buffer and resulting quantity.",
+        "Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform A supplier delay invalidates a one-period assumption; revise the plan explicitly.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Build a reorder worksheet — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A supplier delay invalidates a one-period assumption; revise the plan explicitly.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Separate forecast, stock, safety buffer and resulting quantity.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Separate forecast, stock, safety buffer and resulting quantity. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform A supplier delay invalidates a one-period assumption; revise the plan explicitly. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/inventory-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "inventory-planning-04",
+      "title": "Test shortage and overstock cases",
+      "estimatedMinutes": 35,
+      "text": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative.\n\nChange one input at a time and compare with expected behaviour. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.\n\nPolicy for this project: Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.",
+      "example": "CHANGE TESTS — predict before running:\n1. Increase stock to 20: reorder is 0, not a negative purchase.\n2. A missing demand value must be flagged, not guessed as zero.\n3. A supplier delay invalidates a one-period assumption; revise the plan explicitly.\nKeep the original expected.json unchanged.",
+      "steps": [
+        "Change one input at a time and compare with expected behaviour.",
+        "Open failure-tests.md from the practice pack; keep an unmodified original.",
+        "Record expected and observed values separately; explain every mismatch.",
+        "Perform Increase stock to 20: reorder is 0, not a negative purchase.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Test shortage and overstock cases — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "Increase stock to 20: reorder is 0, not a negative purchase.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Change one input at a time and compare with expected behaviour.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Change one input at a time and compare with expected behaviour. Open failure-tests.md from the practice pack; keep an unmodified original. Record expected and observed values separately; explain every mismatch. Perform Increase stock to 20: reorder is 0, not a negative purchase. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/inventory-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "inventory-planning-05",
+      "title": "Review suppliers and human authority",
+      "estimatedMinutes": 35,
+      "text": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative.\n\nA recommendation is not an authorised purchase or a material-suitability judgement. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.\n\nPolicy for this project: Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.\n\nFor learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.",
+      "example": "REVIEW BOUNDARY:\nForecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.\n\nACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.",
+      "steps": [
+        "A recommendation is not an authorised purchase or a material-suitability judgement.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Review suppliers and human authority — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A missing demand value must be flagged, not guessed as zero.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "A recommendation is not an authorised purchase or a material-suitability judgement.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "A recommendation is not an authorised purchase or a material-suitability judgement. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/inventory-planning-practice-pack.zip",
+      "supportingInputs": []
+    },
+    {
+      "id": "inventory-planning-06",
+      "title": "Deliver a planning dashboard",
+      "estimatedMinutes": 65,
+      "text": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative.\n\nAttach scenarios, assumptions and an approval step. Deliver a reproducible bundle rather than a screenshot alone. Include inputs, rules, output, failure tests, a short README and residual limitations. Ask another person to follow the instructions if possible; self-review and actual external review must be labelled separately.\n\nPolicy for this project: Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.",
+      "example": "HANDOFF MANIFEST:\ninput.json — immutable source\nexpected.json — fixture answer key\nactual.json — result actually observed\nevidence-log.csv — baseline plus three changes\nREADME.md — reproduction and access route\nlimitations.md — unresolved failures, rights, approvals and scope\nNever bundle a credential.",
+      "steps": [
+        "Attach scenarios, assumptions and an approval step.",
+        "Open README.md and your evidence log from the practice pack; keep an unmodified original.",
+        "Record the human decision owner, limitations and any untested service access.",
+        "Perform one small change and predict its effect before rerunning.",
+        "Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live."
+      ],
+      "expected": [
+        "Deliver a planning dashboard — a saved, inspectable artefact tied to the supplied rule.",
+        "A baseline or change-test record with expected/observed results and a limitation."
+      ],
+      "commonMistakes": [
+        "A supplier delay invalidates a one-period assumption; revise the plan explicitly.",
+        "Treating a supplied answer key, an authored example or self-review as independent field validation."
+      ],
+      "selfCheck": "Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?",
+      "offline": "Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.",
+      "outcomes": [
+        "Attach scenarios, assumptions and an approval step.",
+        "Explain and retain a testable result and its limits."
+      ],
+      "task": "Attach scenarios, assumptions and an approval step. Open README.md and your evidence log from the practice pack; keep an unmodified original. Record the human decision owner, limitations and any untested service access. Perform one small change and predict its effect before rerunning. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.",
+      "resourcePack": "/resources/packs/inventory-planning-practice-pack.zip",
+      "supportingInputs": []
+    }
+  ],
+  "quiz": {
+    "question": "For the supplied fixture, what is the expected forecast?",
+    "options": [
+      "12",
+      "It cannot be checked against the supplied input.",
+      "Whatever value the model reports most confidently."
+    ],
+    "answer": 0,
+    "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+  },
+  "prerequisites": [
+    "Spreadsheet onramp; inspect the worked fixture before beginning.",
+    "A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.",
+    "For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory."
+  ],
+  "outcomes": [
+    "Specify units, horizon and the reversibility of the action.",
+    "Keep the moving-average arithmetic visible.",
+    "Separate forecast, stock, safety buffer and resulting quantity.",
+    "Change one input at a time and compare with expected behaviour.",
+    "Keep a reproducible result and disclose safety, rights and regional access limits."
+  ],
+  "references": [
+    {
+      "title": "Forecasting principles and practice",
+      "url": "https://otexts.com/fpp3/"
+    }
+  ],
+  "version": "1.0",
+  "assessmentVersion": 2,
+  "estimatedMinutes": 240,
+  "editorialStatus": "Original authored practice material; deterministic fixtures build-tested. Not independently expert-reviewed or learner-validated. Time estimates unvalidated.",
+  "licence": "CC BY 4.0",
+  "assessment": [
+    {
+      "question": "For the supplied fixture, what is the expected forecast?",
+      "options": [
+        "12",
+        "It cannot be checked against the supplied input.",
+        "Whatever value the model reports most confidently."
+      ],
+      "answer": 0,
+      "explanation": "The independent answer key only validates this constructed fixture. Preserve the source, rerun counterexamples, and disclose what was not tested."
+    },
+    {
+      "question": "How should you handle the project rule: Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.",
+      "options": [
+        "Silently change the rule to fit an attractive output.",
+        "State the rule, test it, and record exceptions or unresolved failures.",
+        "Treat model confidence as proof."
+      ],
+      "answer": 1,
+      "explanation": "Rules, source provenance and counterexamples make an output inspectable; an attractive result does not override policy."
+    },
+    {
+      "question": "If mainstream providers do not serve your region, what is the honest route?",
+      "options": [
+        "Use a false country or borrowed account.",
+        "Claim the supplied fixture was a real API run.",
+        "Check legitimate available alternatives, or label the manual/fixture route and its limits."
+      ],
+      "answer": 2,
+      "explanation": "Access includes country, identity, language, cost and data terms. Do not bypass restrictions or invent a live result."
+    }
+  ],
+  "capstone": {
+    "title": "Deliver a planning dashboard",
+    "brief": "Inventory planning balances shortages and excess stock under uncertainty. A moving average is a transparent baseline, not an oracle. Show how the reorder rule uses forecast demand, current stock and safety stock before inviting an AI narrative. Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control.",
+    "deliverables": [
+      "Input and policy",
+      "Observed result and three change tests",
+      "Reproduction, supporting-practice evidence and limitation notes"
+    ],
+    "rubric": [
+      {
+        "id": "r1",
+        "title": "Defined task and preserved input",
+        "evidence": "Original input and the project policy are retained; the actual question is clear.",
+        "critical": false
+      },
+      {
+        "id": "r2",
+        "title": "Checked baseline",
+        "evidence": "The supplied baseline reconciles field by field; unsupported live-run claims are absent.",
+        "critical": false
+      },
+      {
+        "id": "r3",
+        "title": "Three failure/change tests",
+        "evidence": "All three specified changes have predictions, observed results and explanations.",
+        "critical": false
+      },
+      {
+        "id": "r4",
+        "title": "Repeatable handoff",
+        "evidence": "Another person can follow the README; supporting practice evidence and unresolved limits are included.",
+        "critical": false
+      },
+      {
+        "id": "r5",
+        "title": "Safety, rights and access honesty",
+        "evidence": "Forecast next demand with the arithmetic mean. Reorder max(0, ceiling(forecast + safety - stock)). No live purchasing or warehouse control. Regional access route is legitimate; credentials and private data are absent; manual/constructed work is clearly labelled.",
+        "critical": true
+      }
+    ],
+    "scoring": "Score each criterion 0 (missing), 1 (partial), or 2 (demonstrated). A self-review pass needs at least 8/10 and 2/2 on the critical safety/limits criterion. This is learner practice feedback, not verified assessment."
+  },
+  "downloads": {
+    "handbook": "/resources/handbooks/inventory-planning-handbook.md",
+    "pack": "/resources/packs/inventory-planning-practice-pack.zip"
+  },
+  "sourceListingNumber": 35,
+  "supportingInputs": [],
+  "authorship": "Original project, fixtures and lessons. Public catalogue used only to identify topics; no affiliation or copied course materials."
+}

@@ -25,6 +25,10 @@
       [
         "Follow the work",
         "<a href='https://github.com/king-kunta-cpu/open-practice' target='_blank' rel='noopener noreferrer'>Inspect the source and release history ↗</a> · <a href='/curriculum.html'>Explore the curriculum</a> · <a href='/licensing.html'>Reuse the materials</a>"
+      ],
+      [
+        "Who this is for",
+        "People across regions underserved, excluded or poorly supported by mainstream AI and payment providers—not one country. We teach legitimate available cloud routes, downloadable original materials, honest manual alternatives and explicit access limitations. Country, language, identity, cost and connectivity constraints vary; we do not promise universal provider access or help bypass restrictions."
       ]
     ]
   },
@@ -207,6 +211,10 @@
       [
         "What if the page will not load or a search changes by itself?",
         "Use the alternate reading site for guides and downloads if the main host fails. Report the exact connection error without bypassing warnings. Catalogue filtering should only follow your own search input; report any remaining password-manager interference with browser/extension details and a redacted screenshot, not your password or account export."
+      ],
+      [
+        "What if a provider does not serve my region?",
+        "Check its current country, identity, account, language, data and billing requirements before using it. Choose a legitimate supported alternative if available, or use the labelled manual/fixture route. Do not use false residency, borrowed accounts or restriction bypasses. A fixture result is not a live AI run. Full readable build guides are also available at /builds/index.html; hosted notebooks require their own legitimate account access."
       ]
     ]
   }
