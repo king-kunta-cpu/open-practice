@@ -12,12 +12,22 @@ for page in pages:
  (P/f'{slug}.html').write_text(h+'<main>'+body+'</main>'+footer+'<script type="module" src="/learner.js"></script><script type="module" src="/growth.js"></script></body></html>')
 # The library is usable without JavaScript; filtering progressively enhances it.
 resources=json.loads((P/'resources.json').read_text());cards=''
+# Fail the build rather than publishing duplicate cards or repeated download destinations.
+for key in ['id','title','url']:
+ values=[str(r[key]).strip().casefold() for r in resources]
+ assert len(values)==len(set(values)), 'Duplicate library '+key
+files=[f['url'] for r in resources for f in r.get('downloads',[{'url':r['url']}])]
+assert len(files)==len(set(files)), 'Repeated library download'
+
 for item in resources:
  image=item.get('image');assert image,'Every resource must have a cover: '+item['id']
+ downloads=item.get('downloads',[dict(label='Download free',format=item['format'],url=item['url'])])
+ actions='<div class="library-downloads">'+''.join(f'<a class="primary" href="{e(f["url"])}" download>{e(f["label"] + " · " + f["format"] if item.get("downloads") else f["label"])} ↓</a>' for f in downloads)+'</div>'
  preview=f'<details class="resource-preview"><summary>Preview the downloadable diagram</summary><img src="{e(item["previewImage"])}" alt="{e(item["title"])} — downloadable diagram" loading="lazy"></details>' if item.get('previewImage') else ''
- cards+=f'<article class="resource-card"><a class="resource-art" href="{e(item["url"])}" download aria-label="Download {e(item["title"])}"><img class="resource-cover" src="{e(image)}" alt="{e(item["title"])} — illustrated resource cover" width="410" height="520" loading="lazy"></a><div class="resource-body"><div class="eyebrow">{e(item["kind"])} · {e(item["format"])}</div><h3>{e(item["title"])}</h3><p>{e(item["description"])}</p>{preview}<p>Licence: {e(item["licence"])}</p><a class="primary" href="{e(item["url"])}" download>Download free ↓</a></div></article>'
+ cards+=f'<article class="resource-card"><a class="resource-art" href="{e(item["url"])}" download aria-label="Download {e(item["title"])}"><img class="resource-cover" src="{e(image)}" alt="{e(item["title"])} — illustrated resource cover" width="410" height="520" loading="lazy"></a><div class="resource-body"><div class="eyebrow">{e(item["kind"])} · {e(item["format"])}</div><h3>{e(item["title"])}</h3><p>{e(item["description"])}</p>{preview}<p>Licence: {e(item["licence"])}</p>{actions}</div></article>'
 p=P/'library.html';s=p.read_text();start=s.index('<div id="hub-items"');end=s.index('</main>',start);s=s[:start]+'<div id="hub-items" class="cards hub-grid">'+cards+'</div>'+s[end:]
 if 'id="hub-results"' not in s:s=s.replace('<div id="hub-items"',f'<p id="hub-results" role="status">{len(resources)} illustrated resources</p><div id="hub-items"')
+s=re.sub(r'(<p id="hub-results"[^>]*>).*?(</p>)',lambda m:m[1]+str(len(resources))+' resources · download formats grouped together'+m[2],s)
 s=s.replace('<section class="hub-hero">','<section class="hub-hero library-intro">',1);p.write_text(s)
 # Add policy/help links once to every public page, including rendered activity guides.
 links=[('about','About'),('help','Help & FAQ'),('privacy','Privacy policy'),('cookies','Cookies & storage'),('terms','Terms of use'),('licensing','Licensing'),('accessibility','Accessibility'),('contact','Contact')]

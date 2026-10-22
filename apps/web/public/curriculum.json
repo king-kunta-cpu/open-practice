@@ -9,7 +9,7 @@
   "capstones": 36,
   "rubricCriteria": 180,
   "estimatedMinutes": 8640,
-  "resources": 91,
+  "resources": 55,
   "fixtureFiles": 312,
   "editorialStatus": "Original authored practice material. Estimates are unvalidated; independent subject-matter review remains pending.",
   "roadmap": [
@@ -18,7 +18,7 @@
       "status": "Planned, not yet available"
     }
   ],
-  "foundationResources": 81,
+  "foundationResources": 45,
   "standaloneActivities": 50,
   "totalActivities": 266,
   "standaloneEstimatedMinutes": 1985
