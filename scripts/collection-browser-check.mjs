@@ -20,10 +20,20 @@ try{
  await page.locator('#browse-stage').press('Home');assert.match(await page.locator('#browse-counter').textContent(),/1 OF 36/);
  await page.locator('#browse-stage').press('ArrowRight');assert.match(await page.locator('#browse-counter').textContent(),/2 OF 36/);
  await page.locator('#browse-next').press('End');assert.match(await page.locator('#browse-counter').textContent(),/36 OF 36/);
+ await page.locator('#browse-next').press('ArrowLeft');assert.match(await page.locator('#browse-counter').textContent(),/35 OF 36/);
+ await page.locator('#browse-prev').press('ArrowRight');assert.match(await page.locator('#browse-counter').textContent(),/36 OF 36/);
  await page.locator('#browse-stage').press('Home');
  const download=page.waitForEvent('download');await page.locator('#browse-download').click();assert.match((await download).suggestedFilename(),/\.html$/);
  await page.locator('.public-browser').screenshot({path:dir+'/collection-desktop.png'});
- for(const width of [360,390,768,1024]){
+ async function checkArrowPlacement(){
+  const image=await page.locator('#browse-cover').boundingBox(),left=await page.locator('#browse-prev').boundingBox(),right=await page.locator('#browse-next').boundingBox();
+  assert.ok(left.x+left.width<=image.x,'Previous arrow must be left of the cover without overlap');
+  assert.ok(right.x>=image.x+image.width,'Next arrow must be right of the cover without overlap');
+  for(const button of [left,right]){assert.ok(button.width>=44&&button.height>=44);assert.ok(Math.abs(button.y+button.height/2-(image.y+image.height/2))<2,'Arrow vertically centered on cover')}
+  assert.equal(await page.locator('.public-browser .division-title button').count(),0);
+ }
+ await checkArrowPlacement();
+ for(const width of [320,360,390,768,1024]){
   await page.setViewportSize({width,height:900});
   for(const route of ['/','/dashboard.html','/library.html','/activities.html','/tools.html','/builds/make-mula.html']){
    await page.goto(base+route);await page.locator('main:visible').first().waitFor();
@@ -31,12 +41,13 @@ try{
   }
   await page.goto(base+'/');await page.locator('#cards .card').last().waitFor();
   await page.locator('#browse-cover').evaluate(e=>e.decode());
+  await checkArrowPlacement();
   await page.locator('.public-browser').screenshot({path:dir+'/collection-'+width+'.png'});
  }
  await page.setViewportSize({width:390,height:900});await page.goto(base+'/');await page.locator('#cards .card').last().waitFor();await page.locator('#browse-swipe').scrollIntoViewIfNeeded();
  const rect=await page.locator('#browse-cover').boundingBox();const x=rect.x+rect.width*.8,y=rect.y+rect.height/2;
  await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x-120,y,{steps:8});await page.mouse.up();assert.match(await page.locator('#browse-counter').textContent(),/2 OF 36/);
  await page.locator('#browse-primary').click();await page.locator('#steps button').last().waitFor();assert.equal(await page.locator('#steps button').count(),6);
- assert.deepEqual(errors,[]);await writeFile(dir+'/result.json',JSON.stringify({thumbnailStripRemoved:true,coursesNavigated:36,keyboard:true,swipe:true,offlineDownload:true,courseOpen:true,responsiveWidths:[360,390,768,1024],responsivePages:6,pageErrors:errors},null,2));
- console.log('PASS: no public thumbnails; all 36 paths; arrows, wraparound, keyboard, swipe, offline download and course opening; six pages at four widths.');
+ assert.deepEqual(errors,[]);await writeFile(dir+'/result.json',JSON.stringify({thumbnailStripRemoved:true,coursesNavigated:36,keyboard:true,swipe:true,offlineDownload:true,courseOpen:true,responsiveWidths:[320,360,390,768,1024],coverSideArrows:true,responsivePages:6,pageErrors:errors},null,2));
+ console.log('PASS: no public thumbnails; all 36 paths; arrows, wraparound, keyboard, swipe, offline download and course opening; centered side arrows with no artwork overlap; six pages at five widths.');
 }finally{await browser.close()}
