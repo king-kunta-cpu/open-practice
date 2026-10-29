@@ -19,7 +19,7 @@ PUB = R / 'apps/web/public'
 
 def ahash(im):
     g = im.convert('L').resize((16, 16))
-    px = list(g.getdata()); avg = sum(px) / len(px)
+    px = list(g.tobytes()); avg = sum(px) / len(px)
     return ''.join('1' if p > avg else '0' for p in px)
 
 
