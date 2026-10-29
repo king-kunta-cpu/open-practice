@@ -2,4 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /operator-metrics.html
 Disallow: /api/
+Disallow: /settings/
+
 Sitemap: https://open-practice.zlnew.workers.dev/sitemap.xml

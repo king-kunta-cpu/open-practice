@@ -1,0 +1,6 @@
+// Header navigation: mobile menu toggle and touch-friendly dropdowns. Works without JS via hover/focus.
+const toggle=document.getElementById('nav-toggle'),nav=document.getElementById('main-nav');
+toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
+for(const btn of document.querySelectorAll('.nav-caret')){btn.addEventListener('click',e=>{e.preventDefault();const g=btn.closest('.nav-group'),open=!g.classList.contains('open');document.querySelectorAll('.nav-group.open').forEach(x=>{x.classList.remove('open');x.querySelector('.nav-caret')?.setAttribute('aria-expanded','false')});g.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open))})}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-group'))document.querySelectorAll('.nav-group.open').forEach(x=>{x.classList.remove('open');x.querySelector('.nav-caret')?.setAttribute('aria-expanded','false')})});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.nav-group.open').forEach(x=>{x.classList.remove('open');x.querySelector('.nav-caret')?.focus()})});
