@@ -31,17 +31,20 @@ def config_json(cfg):
     return '<script type="application/json" id="ws-config">' + json.dumps(cfg, ensure_ascii=False).replace('</', '<\\/') + '</script>'
 
 def workshop_write(t):
-    cfg = dict(slug=t['slug'], name=t['name'], kind='write', fields=t['fields'], prompt=t['prompt'], template=t['template'], checks=t['checks'], ext=t.get('ext', 'txt'), system=t.get('system'))
+    cfg = dict(slug=t['slug'], name=t['name'], kind='write', fields=t['fields'], prompt=t['prompt'], template=t['template'], checks=t['checks'], ext=t.get('ext', 'txt'), system=t.get('system'), noAI=bool(t.get('noAI')))
     selfs = ''.join(f'<label><input type="checkbox"> {e(s)}</label>' for s in t.get('selfcheck', []))
-    return (f'<section class="ws" id="workshop" aria-label="{e(t["name"])} workshop">{config_json(cfg)}<div class="ws-keybar" id="ws-keybar"><p><b>No AI key needed.</b> The guided template works for everyone.</p></div><ol class="ws-steps">'
+    noai = bool(t.get('noAI'))
+    keybar = '<p><b>Template only — made for young learners.</b> No AI and no signup: your ideas fill the blanks. Best with a grown-up nearby.</p>' if noai else '<p><b>No AI key needed.</b> The guided template works for everyone.</p>'
+    routes = '<div class="ws-routes"><button type="button" id="ws-run-template" class="primary">Start with the template</button></div>' if noai else '<div class="ws-routes"><button type="button" id="ws-run-template" class="primary">Use the guided template (no AI)</button><button type="button" id="ws-run-ai" class="secondary" disabled>Draft with my AI key</button></div><details class="ws-prompt"><summary>See the exact prompt — copy it into any AI chat you already use</summary><pre id="ws-prompt"></pre><button type="button" id="ws-copy-prompt">Copy prompt</button></details>'
+    revise = '' if noai else '<button type="button" id="ws-revise" class="secondary" disabled>Fix failing items with my AI key</button>'
+    return (f'<section class="ws" id="workshop" aria-label="{e(t["name"])} workshop">{config_json(cfg)}<div class="ws-keybar" id="ws-keybar">{keybar}</div><ol class="ws-steps">'
             '<li class="ws-step"><h2><span>1</span>Brief</h2><p>Specific answers make better results — with or without AI.</p><form id="ws-brief" class="ws-form">' + ''.join(field_html(f) for f in t['fields']) + '<button class="primary">Next: make it ↓</button></form></li>'
-            '<li class="ws-step" id="ws-make"><h2><span>2</span>Make</h2><p>Pick a route. The template gives you a structure with <code>[[blanks]]</code> to fill in yourself. Your own key drafts it for you — then you still check it.</p>'
-            '<div class="ws-routes"><button type="button" id="ws-run-template" class="primary">Use the guided template (no AI)</button><button type="button" id="ws-run-ai" class="secondary" disabled>Draft with my AI key</button></div>'
-            '<details class="ws-prompt"><summary>See the exact prompt — copy it into any AI chat you already use</summary><pre id="ws-prompt"></pre><button type="button" id="ws-copy-prompt">Copy prompt</button></details>'
+            '<li class="ws-step" id="ws-make"><h2><span>2</span>Make</h2><p>' + ('The template gives you a structure with <code>[[blanks]]</code>. Replace each one with your own ideas.' if noai else 'Pick a route. The template gives you a structure with <code>[[blanks]]</code> to fill in yourself. Your own key drafts it for you — then you still check it.') + '</p>'
+            + routes +
             '<p id="ws-status" class="ws-status" role="status" aria-live="polite"></p><label for="ws-draft" class="ws-draft-label">Your draft — edit freely</label><textarea id="ws-draft" rows="16" spellcheck="true"></textarea></li>'
             '<li class="ws-step" id="ws-check"><h2><span>3</span>Check</h2><p>The same rules run on every draft, human or AI. Most first drafts fail something — that is the point.</p><button type="button" id="ws-run-check" class="primary">Check my draft</button><p id="ws-score" class="ws-score"></p><ul id="ws-results" class="ws-results"></ul>'
             + (f'<fieldset class="ws-self"><legend>Self-check — judgement no checker can make</legend>{selfs}</fieldset>' if selfs else '') + '</li>'
-            '<li class="ws-step" id="ws-improve"><h2><span>4</span>Improve</h2><p>Fix one item at a time, then check again. Notice which fixes made it better — that is the skill.</p><ol id="ws-fixes" class="ws-fixes"><li>Run the check first.</li></ol><button type="button" id="ws-revise" class="secondary" disabled>Fix failing items with my AI key</button></li>'
+            '<li class="ws-step" id="ws-improve"><h2><span>4</span>Improve</h2><p>Fix one item at a time, then check again. Notice which fixes made it better — that is the skill.</p><ol id="ws-fixes" class="ws-fixes"><li>Run the check first.</li></ol>' + revise + '</li>'
             f'<li class="ws-step" id="ws-ship"><h2><span>5</span>Ship</h2><p>Use it for real: send it, post it or save it. Record what happened — that is your evidence of learning.</p><div class="ws-routes"><button type="button" id="ws-copy" class="primary">Copy final text</button><button type="button" id="ws-save" class="secondary">Download .{t.get("ext", "txt")}</button></div><p id="ws-shipped" class="ws-shipped" hidden>✓ Added to your tool record on this device. <a href="/free-tools/">See all 39 tools →</a></p></li>'
             '</ol></section>')
 
@@ -76,13 +79,13 @@ def tool_page(t, base='/free-tools/', section='Free tools', all_by_slug=None, co
     kind = 'build' if t.get('builder') else 'util' if t.get('util') else 'write'
     body_ws = workshop_build(t) if kind == 'build' else workshop_util(t) if kind == 'util' else workshop_write(t)
     chips = ''.join(f'<li>{e(s)}</li>' for s in t.get('skills', []))
-    meta = {'build': '⏱ 20–40 min · Download a ZIP · Deploy free', 'util': '⏱ 5–10 min · Runs in your browser', 'write': '⏱ 10–20 min · Works with or without AI'}[kind]
+    meta = '⏱ 10–20 min · Template only, no AI' if t.get('noAI') else {'build': '⏱ 20–40 min · Download a ZIP · Deploy free', 'util': '⏱ 5–10 min · Runs in your browser', 'write': '⏱ 10–20 min · Works with or without AI'}[kind]
     eyebrow = (audience or 'FREE TOOL') + ' · ' + CAT_NAME.get(t['cat'], t['cat']).upper()
     extra = f'<p class="hub-meta">{meta} · No signup</p><div class="hub-skills"><h2>You will practise</h2><ul>{chips}</ul></div>'
     body = hero(eyebrow, t['h1'], t['intro'], extra) + body_ws
     if t.get('tips'):
         body += '<section class="hub-section"><h2>Pro moves</h2><ul class="hub-list">' + ''.join(f'<li>{e(x)}</li>' for x in t['tips']) + '</ul></section>'
-    faq = list(t.get('faq', [])) + ([] if kind == 'util' else SHARED_FAQ)
+    faq = list(t.get('faq', [])) + ([] if kind == 'util' or t.get('noAI') else SHARED_FAQ)
     body += faq_html(faq)
     rel = []
     for s in t.get('related', []):
@@ -100,6 +103,10 @@ def tool_page(t, base='/free-tools/', section='Free tools', all_by_slug=None, co
           faq_ld(faq)]
     scripts = ('/devtools.js',) if kind == 'util' else ('/workshop.js',)
     title = t['name'] + (' — free, learn by doing' if len(t['name']) < 34 else '')
+    if audience == 'SENIORS':
+        body = f'<div class="big-print">{body}</div>'
+    elif audience == 'KIDS':
+        body = f'<div class="kid-friendly">{body}</div>'
     return page(url, title, t['desc'], body, crumbs=[(section, base), (t['name'], None)], ld=ld, scripts=scripts, active='Free Tools' if base == '/free-tools/' else 'Learn', priority=0.8)
 
 def index_page(tools, special):

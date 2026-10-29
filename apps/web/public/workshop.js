@@ -23,7 +23,7 @@ async function init(cfg){
 
  // Key bar reflects whether a learner key exists. No key → template route is the default.
  const keybar=$('#ws-keybar');
- const paintKey=()=>{const r=activeRoute();keybar.innerHTML='';const p=document.createElement('p');
+ const paintKey=()=>{if(cfg.noAI)return;const r=activeRoute();keybar.innerHTML='';const p=document.createElement('p');
   if(r){p.innerHTML='<b>AI route ready:</b> your own '+r.label+' key (kept in this browser). ';const a=document.createElement('a');a.href='/settings/';a.textContent='Change key';p.append(a)}
   else{p.innerHTML='<b>No AI key yet.</b> Use the guided template below — it teaches the same skill. Want AI drafts too? ';const a=document.createElement('a');a.href='/api-keys/';a.textContent='Get a free key in 5 minutes →';p.append(a)}
   keybar.append(p);const ai=$('#ws-run-ai');if(ai){ai.disabled=!r;ai.title=r?'':'Add a free key in Key settings first'}};

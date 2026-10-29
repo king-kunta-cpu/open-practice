@@ -5,7 +5,18 @@
 ## Sections
 - [Free tools (learn by doing)](https://open-practice.zlnew.workers.dev/free-tools/)
 - [Free AI API keys and guides](https://open-practice.zlnew.workers.dev/api-keys/)
+- [Academy courses](https://open-practice.zlnew.workers.dev/academy/)
+- [Learn: beginners, seniors, kids](https://open-practice.zlnew.workers.dev/learn/)
+- [AI glossary](https://open-practice.zlnew.workers.dev/glossary/)
+- [Prompt library](https://open-practice.zlnew.workers.dev/prompts/)
+- [AI tools directory](https://open-practice.zlnew.workers.dev/ai-tools/)
+- [LLM guide](https://open-practice.zlnew.workers.dev/llms/)
+- [Comparisons](https://open-practice.zlnew.workers.dev/compare/)
+- [Tutorials](https://open-practice.zlnew.workers.dev/tutorials/)
+- [Use cases](https://open-practice.zlnew.workers.dev/use-cases/)
+- [Tool finder quiz](https://open-practice.zlnew.workers.dev/tool-finder/)
 - [News](https://open-practice.zlnew.workers.dev/news.html)
+- [Community](https://open-practice.zlnew.workers.dev/community/)
 
 ## Free tools
 - [Chrome Extension Creator](https://open-practice.zlnew.workers.dev/free-tools/chrome-extension-creator/): Free Chrome extension creator: answer 4 questions, get a working Manifest V3 extension ZIP, load it in Chrome and learn what every file does.

@@ -25,7 +25,7 @@ for t in TOOLS:
 pages_keys.build()
 
 import importlib
-for name in ['pages_academy', 'pages_learn', 'pages_directory', 'pages_prompts', 'pages_misc']:
+for name in ['pages_academy', 'pages_learn', 'pages_directory']:
     try:
         mod = importlib.import_module(name)
     except ModuleNotFoundError as err:
@@ -33,6 +33,34 @@ for name in ['pages_academy', 'pages_learn', 'pages_directory', 'pages_prompts',
             continue
         raise
     mod.build(courses=courses, tools=BY_SLUG)
+
+
+# ---- stamp live counts into hand-written pages so they never drift after merges
+def _stamp():
+    import re as _re
+    cs = json.loads((P / 'courses.json').read_text())
+    n = len(cs); hrs = round(sum(c.get('estimatedMinutes', 0) for c in cs) / 60)
+    found = [c for c in cs if not c.get('sourceListingNumber') and c.get('expansionIndex') is None]
+    fl = sum(len(c['lessons']) for c in found)
+    words = {3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six', 7: 'Seven', 8: 'Eight'}
+    subs = {'index.html': [(r'Explore \d+ practical AI build paths', f'Explore {n} practical AI build paths'),
+                           (r'<strong>\d+</strong><span>Build paths', f'<strong>{n}</strong><span>Build paths'),
+                           (r'<strong>~\d+h</strong>', f'<strong>~{hrs}h</strong>'),
+                           (r'BUILD PATH 1 OF \d+', f'BUILD PATH 1 OF {n}'),
+                           (r'\d+ BUILD PATHS / \d+ PRACTICAL ACTIVITIES', f'{len(found):02d} FOUNDATION PATHS / {fl} PRACTICAL ACTIVITIES')],
+            'about.html': [(r'\w+ foundation build paths contain \d+ guided activities', f'{words.get(len(found), str(len(found)))} foundation build paths contain {fl} guided activities')]}
+    for name, rules in subs.items():
+        f = P / name
+        if not f.exists():
+            continue
+        t = f.read_text()
+        for pat, rep in rules:
+            t = _re.sub(pat, rep, t)
+        f.write_text(t)
+_stamp()
+
+if (P / '404/index.html').exists():
+    (P / '404.html').write_text((P / '404/index.html').read_text())
 
 # ---- unify chrome on every other page --------------------------------------
 ACTIVE = {'curriculum.html': 'Academy', 'activities.html': 'Academy', 'library.html': 'Academy', 'dashboard.html': 'Academy', 'tools.html': 'Tools', 'news.html': 'News'}

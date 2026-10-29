@@ -1,0 +1,2 @@
+// Copy buttons: <button data-copy="element-id">. Falls back to selecting the text.
+for(const b of document.querySelectorAll('[data-copy]'))b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.copy);if(!el)return;const label=b.textContent;try{await navigator.clipboard.writeText(el.textContent);b.textContent='Copied ✓'}catch{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected — press Ctrl+C'}setTimeout(()=>{b.textContent=label},1800)});

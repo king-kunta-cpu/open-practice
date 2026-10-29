@@ -44,4 +44,4 @@ p=P/'sitemap.xml';s=p.read_text();urls=['/builds/index.html']+['/builds/'+c['id'
 for url in urls:
  if 'https://open-practice.zlnew.workers.dev'+url not in s:s=s.replace('</urlset>','<url><loc>https://open-practice.zlnew.workers.dev'+url+'</loc></url></urlset>')
 p.write_text(s)
-print('Built 30 illustrated covers using existing original artwork, 36 complete readable courses, directory, regional access guidance and accurate public counts.')
+print(f'Built {len(courses)} readable build paths, directory, regional access guidance and accurate public counts.')
