@@ -21,6 +21,12 @@ BY_SLUG = {t['slug']: t for t in TOOLS + SPECIAL}
 # ---- sections ------------------------------------------------------------
 import covers
 print("tool covers:", covers.write_tool_covers(TOOLS + SPECIAL, pages_tools.CAT_NAME), "of", len(TOOLS) + len(SPECIAL))
+# 0.11.5: a library item with its own illustration (branding/library-art/<id>.webp) points its image at
+# /brand/library/<id>.svg in curriculum/library-base.json; the SVG is written here, and a pointer with no art fails.
+_lib = [r for r in json.loads((HERE.parent / 'curriculum/library-base.json').read_text()) if str(r.get('image', '')).startswith('/brand/library/')]
+for _r in _lib:
+    assert covers._art('library', _r['id']), 'library item points at art that does not exist: ' + _r['id']
+print("library covers:", covers.write_library_covers(_lib), "of", len(json.loads((HERE.parent / 'curriculum/library-base.json').read_text())))
 pages_tools.index_page(TOOLS, SPECIAL)
 for t in TOOLS:
     pages_tools.tool_page(t, all_by_slug=BY_SLUG, courses=courses)
