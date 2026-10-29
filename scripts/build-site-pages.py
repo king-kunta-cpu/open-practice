@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """Render supporting pages, the illustrated library and shared footer links; no network."""
 from pathlib import Path
-import html,json,re
+import html,json,re,sys
+sys.path.insert(0,str(Path(__file__).resolve().parent/'hub'))
+import social
 R=Path(__file__).resolve().parent.parent;P=R/'apps/web/public';BASE='https://open-practice.zlnew.workers.dev';e=lambda s:html.escape(str(s),quote=True)
 pages=json.loads((R/'curriculum/site-pages.json').read_text());template=(P/'library.html').read_text();head=template.split('<main>')[0];footer='<footer>'+template.split('<footer>',1)[1].split('</footer>',1)[0]+'</footer>'
 for page in pages:
  slug=page['slug'];h=re.sub(r'<title>.*?</title>','<title>'+e(page['label'])+' · Open Practice</title>',head);h=h.replace(' aria-current="page"','');h=h.replace('</head>',f'<meta name="description" content="{e(page["intro"])}"><link rel="canonical" href="{BASE}/{slug}.html"></head>')
  body=f'<article class="reading-page"><section class="info-hero"><div><div class="eyebrow">OPEN PRACTICE / {e(page["label"].upper())}</div><h1>{e(page["title"])}</h1><p>{e(page["intro"])}</p><p class="info-updated">Published 21 October 2026 · current independent pilot</p></div><img src="/brand/covers/{page["cover"]}.svg?v=illustrated-20261021" alt="{e(page["label"])} — original AI-generated editorial illustration" width="410" height="520"></section>'
- for title,text in page['sections']:body+='<section><h2>'+e(title)+'</h2>'+('<div>'+text+'</div>' if '<' in text else '<p>'+e(text)+'</p>')+'</section>'
+ for i,(title,text) in enumerate(page['sections']):
+  body+='<section><h2>'+e(title)+'</h2>'+('<div>'+text+'</div>' if '<' in text else '<p>'+e(text)+'</p>')+'</section>'
+  # Contact: social icons right after the public feedback route (links live in curriculum/social-links.json).
+  if slug=='contact' and i==0:body+='<section class="contact-social"><h2>Find Open Practice on social media</h2><p>Follow along, join a free community or send a message where you already are. Greyed icons are opening soon.</p>'+social.social_icons()+'<p class="social-note">Never send passwords, API keys or recovery codes in a message on any platform.</p></section>'
  body+='</article>'
  (P/f'{slug}.html').write_text(h+'<main>'+body+'</main>'+footer+'<script type="module" src="/learner.js"></script><script type="module" src="/growth.js"></script></body></html>')
 # The library is usable without JavaScript; filtering progressively enhances it.

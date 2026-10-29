@@ -1,5 +1,6 @@
 """Glossary, prompts, AI tools, LLMs, comparisons, use cases, tutorials, tool finder, community, 404."""
 import json
+import social
 from layout import page, hero, card, grid, faq_html, faq_ld, e, slugify, BASE
 from reference import G, CATS, P
 from directory import AI_TOOLS, TOOL_CATS, LLMS, COMPARE, USE_CASES, TUTORIALS, CHECKED
@@ -132,13 +133,16 @@ def tool_finder():
     page('/tool-finder/', 'AI tool finder quiz: what should I use?', 'Answer four quick questions to find the right free AI tool, lesson and next step for your goal, skill level and time — no signup.', body, crumbs=[('Tool finder', None)], scripts=('/finder.js',), active='Tools', priority=0.75)
 
 def community():
-    body = hero('COMMUNITY', 'Learn together, build in public', 'Open Practice is free and open. The community is how it gets better: share what you built, help someone stuck, run a session, or improve the lessons themselves.')
-    body += grid([card('/starter.html', 'Starter challenge', 'A 120-minute challenge to run alone or with friends.', 'DO IT', '🏁'),
+    # Two halves, lengthwise: left = what you can do here (challenge, kit, contribute, ship + guidelines);
+    # right = join buttons for the free communities (curriculum/social-links.json; empty link = "Opening soon").
+    left = hero('COMMUNITY', 'Learn together, build in public', 'Open Practice is free and open. The community is how it gets better: share what you built, help someone stuck, run a session, or improve the lessons themselves.')
+    left += grid([card('/starter.html', 'Starter challenge', 'A 120-minute challenge to run alone or with friends.', 'DO IT', '🏁'),
                   card('/facilitators.html', 'Facilitator kit', 'Run a free session for your class, club or team.', 'TEACH', '🧑‍🏫'),
                   card('https://github.com/king-kunta-cpu/open-practice', 'Improve the lessons', 'Report a mistake or suggest a lesson on GitHub.', 'CONTRIBUTE', '🛠️'),
-                  card('/free-tools/', 'Ship something this week', 'Pick one tool, finish it, share the link.', 'SHIP', '🚀')])
-    body += '<section class="hub-section"><h2>Community guidelines</h2><ul class="hub-list"><li>Share real work and honest results — including what did not work.</li><li>Never share API keys, passwords or other people’s private data.</li><li>Credit sources and tools you used.</li><li>Be kind to beginners; everyone started at lesson one.</li></ul></section>'
-    page('/community/', 'Open Practice community: learn and build together', 'Join the Open Practice community: starter challenges, facilitator kits for free sessions, and ways to improve open AI lessons together.', body, crumbs=[('Community', None)], active='Community', priority=0.6)
+                  card('/free-tools/', 'Ship something this week', 'Pick one tool, finish it, share the link.', 'SHIP', '🚀')], 'hub-grid-2')
+    left += '<section class="hub-section"><h2>Community guidelines</h2><ul class="hub-list"><li>Share real work and honest results — including what did not work.</li><li>Never share API keys, passwords or other people’s private data.</li><li>Credit sources and tools you used.</li><li>Be kind to beginners; everyone started at lesson one.</li></ul></section>'
+    body = '<div class="community-split"><div class="community-main">' + left + '</div>' + social.community_panel() + '</div>'
+    page('/community/', 'Open Practice community: learn and build together', 'Join the free Open Practice communities on Whop, Discord, Telegram and Facebook: starter challenges, facilitator kits and ways to improve open AI lessons together.', body, crumbs=[('Community', None)], active='Community', priority=0.6, wide=True)
 
 def not_found():
     body = hero('404 · PAGE NOT FOUND', 'That page has moved or never existed', 'Some courses were merged and old links now redirect. If you followed a link here, try one of these:')

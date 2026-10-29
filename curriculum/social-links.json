@@ -1,0 +1,89 @@
+{
+ "_how_to": "Paste a full https:// link into a platform's url to switch its button on, then rebuild (npm run build:assets). An empty url is shown as 'Opening soon' and is not clickable. The build refuses a link whose host does not belong to that platform.",
+ "community": [
+  "whop",
+  "discord",
+  "telegram",
+  "facebook"
+ ],
+ "platforms": [
+  {
+   "id": "whop",
+   "name": "Whop",
+   "url": "",
+   "blurb": "Free community on Whop: weekly build challenges, templates and member wins."
+  },
+  {
+   "id": "discord",
+   "name": "Discord",
+   "url": "",
+   "blurb": "Live help channels: post what you are building and get unstuck fast."
+  },
+  {
+   "id": "telegram",
+   "name": "Telegram",
+   "url": "",
+   "blurb": "Daily practice prompts and new free tools, straight to your phone."
+  },
+  {
+   "id": "facebook",
+   "name": "Facebook",
+   "url": "",
+   "blurb": "A friendly group for beginners: share your first project and ask anything."
+  },
+  {
+   "id": "x",
+   "name": "X",
+   "url": "",
+   "blurb": ""
+  },
+  {
+   "id": "linkedin",
+   "name": "LinkedIn",
+   "url": "",
+   "blurb": ""
+  },
+  {
+   "id": "youtube",
+   "name": "YouTube",
+   "url": "",
+   "blurb": ""
+  },
+  {
+   "id": "instagram",
+   "name": "Instagram",
+   "url": "",
+   "blurb": ""
+  },
+  {
+   "id": "tiktok",
+   "name": "TikTok",
+   "url": "",
+   "blurb": ""
+  },
+  {
+   "id": "threads",
+   "name": "Threads",
+   "url": "",
+   "blurb": ""
+  },
+  {
+   "id": "bluesky",
+   "name": "Bluesky",
+   "url": "",
+   "blurb": ""
+  },
+  {
+   "id": "reddit",
+   "name": "Reddit",
+   "url": "",
+   "blurb": ""
+  },
+  {
+   "id": "github",
+   "name": "GitHub",
+   "url": "https://github.com/king-kunta-cpu/open-practice",
+   "blurb": ""
+  }
+ ]
+}
