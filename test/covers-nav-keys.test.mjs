@@ -20,3 +20,14 @@ test('0.11.1 API keys: every provider row has a real Sign up button that opens s
   const h=await read('api-keys/index.html');const rows=h.match(/<tr data-cat=/g).length;const btns=[...h.matchAll(/<a class="key-signup" href="https:\/\/[^"]+" rel="noopener nofollow" target="_blank" aria-label="Sign up for [^"]+ \(opens in a new tab\)">Sign up ↗<\/a>/g)];
   assert.equal(btns.length,rows);assert.match(await read('api-keys/groq/index.html'),/class="key-signup"[^>]*>Sign up ↗</);assert.match(await read('hub.css'),/\.key-signup\{display:inline-flex/);
 });
+test('0.11.6 covers: every library item and every info page with its own art shows it, and none share',async()=>{
+  const {existsSync}=await import('node:fs');
+  const lib=JSON.parse(await readFile(new URL('../curriculum/library-base.json',import.meta.url),'utf8'));
+  const libHtml=await read('library.html');
+  for(const it of lib)if(existsSync(new URL(`../branding/library-art/${it.id}.webp`,import.meta.url))){
+    assert.ok(it.image.startsWith(`/brand/library/${it.id}.svg`),`${it.id} points at its own cover`);
+    assert.ok(libHtml.includes(`/brand/library/${it.id}.svg`),`${it.id} cover shown in the library`)}
+  const pages=JSON.parse(await readFile(new URL('../curriculum/site-pages.json',import.meta.url),'utf8'));
+  for(const pg of pages)if(existsSync(new URL(`../apps/web/public/brand/pages/${pg.slug}.webp`,import.meta.url)))
+    assert.match(await read(`${pg.slug}.html`),new RegExp(`class="info-hero">[\\s\\S]*?<img src="/brand/pages/${pg.slug}\\.webp`),`${pg.slug} shows its own art`);
+});

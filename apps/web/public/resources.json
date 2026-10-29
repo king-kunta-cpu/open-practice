@@ -18,8 +18,8 @@
     "url": "/resources/sample-expenses.csv",
     "licence": "CC BY 4.0",
     "format": "CSV",
-    "image": "/brand/covers/sheets.svg?v=illustrated-20261021",
-    "imageAlt": "Fictional expenses dataset"
+    "image": "/brand/library/expenses.svg?v=cover-20261029",
+    "imageAlt": "Fictional expenses dataset: original illustrated cover for this library item"
   },
   {
     "id": "provider-check",
@@ -29,8 +29,8 @@
     "url": "/resources/provider-review.md",
     "licence": "CC BY 4.0",
     "format": "MD",
-    "image": "/brand/covers/cloud.svg?v=illustrated-20261021",
-    "imageAlt": "Cloud provider evaluation worksheet"
+    "image": "/brand/library/provider-check.svg?v=cover-20261029",
+    "imageAlt": "Cloud provider evaluation worksheet: original illustrated cover for this library item"
   },
   {
     "id": "build-log",
@@ -40,8 +40,8 @@
     "url": "/resources/build-log.md",
     "licence": "CC BY 4.0",
     "format": "MD",
-    "image": "/brand/covers/web.svg?v=illustrated-20261021",
-    "imageAlt": "Practical project build log"
+    "image": "/brand/library/build-log.svg?v=cover-20261029",
+    "imageAlt": "Practical project build log: original illustrated cover for this library item"
   },
   {
     "id": "starter",
@@ -51,8 +51,8 @@
     "url": "/resources/quote-calculator.html",
     "licence": "CC BY 4.0",
     "format": "HTML",
-    "image": "/brand/covers/web.svg?v=illustrated-20261021",
-    "imageAlt": "Offline quote calculator starter"
+    "image": "/brand/library/starter.svg?v=cover-20261029",
+    "imageAlt": "Offline quote calculator starter: original illustrated cover for this library item"
   },
   {
     "id": "safety",
@@ -62,8 +62,8 @@
     "url": "/resources/automation-checklist.md",
     "licence": "CC BY 4.0",
     "format": "MD",
-    "image": "/brand/covers/automation.svg?v=illustrated-20261021",
-    "imageAlt": "Approval-first automation checklist"
+    "image": "/brand/library/safety.svg?v=cover-20261029",
+    "imageAlt": "Approval-first automation checklist: original illustrated cover for this library item"
   },
   {
     "id": "build-cycle",
@@ -71,10 +71,10 @@
     "kind": "Visual asset",
     "description": "Reusable original SVG diagram for your learning notes, projects, and presentations.",
     "url": "/assets/build-cycle.svg",
-    "image": "/brand/covers/web.svg?v=illustrated-20261021",
+    "image": "/brand/library/build-cycle.svg?v=cover-20261029",
     "licence": "CC BY 4.0",
     "format": "SVG",
-    "imageAlt": "Build → test → improve",
+    "imageAlt": "Build → test → improve: original illustrated cover for this library item",
     "previewImage": "/assets/build-cycle.svg"
   },
   {
@@ -83,10 +83,10 @@
     "kind": "Visual asset",
     "description": "Reusable original SVG diagram for your learning notes, projects, and presentations.",
     "url": "/assets/key-boundary.svg",
-    "image": "/brand/covers/cloud.svg?v=illustrated-20261021",
+    "image": "/brand/library/key-boundary.svg?v=cover-20261029",
     "licence": "CC BY 4.0",
     "format": "SVG",
-    "imageAlt": "Keep your AI keys out of exports",
+    "imageAlt": "Keep your AI keys out of exports: original illustrated cover for this library item",
     "previewImage": "/assets/key-boundary.svg"
   },
   {
@@ -95,10 +95,10 @@
     "kind": "Visual asset",
     "description": "Reusable original SVG diagram for your learning notes, projects, and presentations.",
     "url": "/assets/offline-flow.svg",
-    "image": "/brand/covers/prompt.svg?v=illustrated-20261021",
+    "image": "/brand/library/offline-flow.svg?v=cover-20261029",
     "licence": "CC BY 4.0",
     "format": "SVG",
-    "imageAlt": "Take your learning offline",
+    "imageAlt": "Take your learning offline: original illustrated cover for this library item",
     "previewImage": "/assets/offline-flow.svg"
   },
   {
