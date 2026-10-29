@@ -13,11 +13,10 @@ URLS = []  # (url, priority) collected for the sitemap
 
 NAV = [
     ('Academy', '/academy/', [('All courses', '/academy/', 'Project-based AI courses'), ('Curriculum map', '/curriculum.html', 'How the paths connect'), ('50 activities', '/activities.html', 'Short guided experiments'), ('Free library', '/library.html', 'Handbooks and practice packs'), ('My learning', '/dashboard.html', 'Your saved work')]),
-    ('Tools', '/tools.html', [('Tool field desk', '/tools.html', 'Pick a task, get a practice prompt'), ('AI tools directory', '/ai-tools/', 'What each tool is good for'), ('LLM guide', '/llms/', 'Language models explained'), ('Comparisons', '/compare/', 'Side-by-side, honest'), ('Tool finder quiz', '/tool-finder/', 'Find a tool in 5 questions'), ('Prompt library', '/prompts/', '60 prompts to practise')]),
+    ('Tools', '/free-tools/', [('39 free tools', '/free-tools/', 'Learn-by-doing workshops, no signup'), ('Tool field desk', '/tools.html', 'Pick a task, get a practice prompt'), ('AI tools directory', '/ai-tools/', 'What each tool is good for'), ('LLM guide', '/llms/', 'Language models explained'), ('Comparisons', '/compare/', 'Side-by-side, honest'), ('Tool finder quiz', '/tool-finder/', 'Find a tool in 5 questions'), ('Prompt library', '/prompts/', '60 prompts to practise')]),
     ('Learn', '/learn/', [('Start here', '/learn/beginners/', 'AI from zero'), ('AI for seniors', '/learn/seniors/', 'Large print, safe steps'), ('AI for kids', '/learn/kids/', 'Make things with a grown-up'), ('Glossary', '/glossary/', 'AI words in plain language'), ('Tutorials', '/tutorials/', 'Step-by-step builds'), ('Use cases', '/use-cases/', 'AI for your kind of work')]),
     ('API Keys ✦', '/api-keys/', None),
     ('News', '/news.html', None),
-    ('Free Tools', '/free-tools/', None),
     ('Community', '/community/', None),
 ]
 

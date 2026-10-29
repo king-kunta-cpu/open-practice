@@ -19,6 +19,8 @@ assert len(slugs) == len(set(slugs)), 'duplicate tool slug'
 BY_SLUG = {t['slug']: t for t in TOOLS + SPECIAL}
 
 # ---- sections ------------------------------------------------------------
+import covers
+print("tool covers:", covers.write_tool_covers(TOOLS + SPECIAL, pages_tools.CAT_NAME), "of", len(TOOLS) + len(SPECIAL))
 pages_tools.index_page(TOOLS, SPECIAL)
 for t in TOOLS:
     pages_tools.tool_page(t, all_by_slug=BY_SLUG, courses=courses)

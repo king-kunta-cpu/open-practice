@@ -14,6 +14,8 @@ SHARED_FAQ = [
     ('Where is my work saved?', 'In this browser only (local storage), until you copy or download it. Nothing you type is sent to Open Practice.'),
 ]
 
+from covers import tool_cover, tool_og
+
 def field_html(f):
     req = ' required' if f['required'] else ''
     label = e(f['label']) + ('' if f['required'] or 'optional' in f['label'].lower() else ' <small>(optional)</small>')
@@ -82,7 +84,10 @@ def tool_page(t, base='/free-tools/', section='Free tools', all_by_slug=None, co
     meta = '⏱ 10–20 min · Template only, no AI' if t.get('noAI') else {'build': '⏱ 20–40 min · Download a ZIP · Deploy free', 'util': '⏱ 5–10 min · Runs in your browser', 'write': '⏱ 10–20 min · Works with or without AI'}[kind]
     eyebrow = (audience or 'FREE TOOL') + ' · ' + CAT_NAME.get(t['cat'], t['cat']).upper()
     extra = f'<p class="hub-meta">{meta} · No signup</p><div class="hub-skills"><h2>You will practise</h2><ul>{chips}</ul></div>'
-    body = hero(eyebrow, t['h1'], t['intro'], extra) + body_ws
+    cov = tool_cover(t['slug'])
+    if cov:
+        extra += f'<img class="tool-cover" src="{cov}" width="600" height="720" alt="" loading="eager" decoding="async">'
+    body = hero(eyebrow, t['h1'], t['intro'], extra).replace('class="hub-hero"', 'class="hub-hero has-cover"' if cov else 'class="hub-hero"', 1) + body_ws
     if t.get('tips'):
         body += '<section class="hub-section"><h2>Pro moves</h2><ul class="hub-list">' + ''.join(f'<li>{e(x)}</li>' for x in t['tips']) + '</ul></section>'
     faq = list(t.get('faq', [])) + ([] if kind == 'util' or t.get('noAI') else SHARED_FAQ)
@@ -107,7 +112,15 @@ def tool_page(t, base='/free-tools/', section='Free tools', all_by_slug=None, co
         body = f'<div class="big-print">{body}</div>'
     elif audience == 'KIDS':
         body = f'<div class="kid-friendly">{body}</div>'
-    return page(url, title, t['desc'], body, crumbs=[(section, base), (t['name'], None)], ld=ld, scripts=scripts, active='Free Tools' if base == '/free-tools/' else 'Learn', priority=0.8)
+    return page(url, title, t['desc'], body, crumbs=[(section, base), (t['name'], None)], ld=ld, scripts=scripts, active='Tools' if base == '/free-tools/' else 'Learn', priority=0.8, og=tool_og(t['slug']))
+
+def _cover_card(t):
+    """Index card: the tool's own cover when its art exists, otherwise the emoji card (never a borrowed image)."""
+    c = card(t.get('href') or f'/free-tools/{t["slug"]}/', t['name'], t['desc'] if t.get('href') else t['h1'], '', '' if tool_cover(t['slug']) else t.get('emoji', ''))
+    cov = tool_cover(t['slug'])
+    if cov:
+        c = c.replace('">', f'"><img class="hub-card-cover" src="{cov}" width="600" height="720" alt="" loading="lazy" decoding="async">', 1)
+    return c.replace('class="hub-card"', f'class="hub-card{" has-cover" if cov else ""}" data-tool="{t["slug"]}"', 1)
 
 def index_page(tools, special):
     total = len(tools) + len(special)
@@ -116,9 +129,9 @@ def index_page(tools, special):
     body += '<section class="hub-how"><ol><li><b>Brief</b>Say what you need</li><li><b>Make</b>Template or your own AI</li><li><b>Check</b>Automatic rubric</li><li><b>Improve</b>One fix at a time</li><li><b>Ship</b>Copy, download, deploy</li></ol></section>'
     for cat, name, blurb in CATS:
         items = [t for t in tools if t['cat'] == cat] + [s for s in special if s['cat'] == cat]
-        cards = [card(t.get('href') or f'/free-tools/{t["slug"]}/', t['name'], t['desc'] if t.get('href') else t['h1'], '', t.get('emoji', '')).replace('class="hub-card"', f'class="hub-card" data-tool="{t["slug"]}"') for t in items]
+        cards = [_cover_card(t) for t in items]
         body += f'<section class="hub-section" id="{cat}"><h2>{e(name)} <small>{len(items)}</small></h2><p>{e(blurb)}</p>' + grid(cards) + '</section>'
     faq = [('Are these tools really free?', 'Yes. There is no signup and no paywall. AI drafting uses your own free key from a provider such as Groq or Google, so you are never billed by us.'), ('Why “learn by doing” instead of one-click generation?', 'One-click output teaches nothing and is often wrong. Each tool makes you brief, check and improve — the skills that transfer to any AI tool.'), *SHARED_FAQ]
     body += faq_html(faq)
     ld = [{'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'Free AI tools', 'numberOfItems': total, 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': BASE + (t.get('href') or f'/free-tools/{t["slug"]}/'), 'name': t['name']} for i, t in enumerate(tools + special)]}, faq_ld(faq)]
-    page('/free-tools/', f'{total} Free AI Tools — learn by doing, no signup', f'{total} free AI tools that teach as you use them: writing, social, business, developer and app builders. Bring your own free key or use guided templates.', body, crumbs=[('Free tools', None)], ld=ld, scripts=('/tools-index.js',), active='Free Tools', priority=0.95)
+    page('/free-tools/', f'{total} Free AI Tools — learn by doing, no signup', f'{total} free AI tools that teach as you use them: writing, social, business, developer and app builders. Bring your own free key or use guided templates.', body, crumbs=[('Free tools', None)], ld=ld, scripts=('/tools-index.js',), active='Tools', priority=0.95)
