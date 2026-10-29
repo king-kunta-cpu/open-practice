@@ -2,14 +2,14 @@
   "version": "3.0",
   "identity": "Open Practice",
   "descriptor": "Practical AI Engineering",
-  "paths": 36,
-  "lessons": 216,
-  "workedExamples": 216,
-  "reviewQuestions": 108,
-  "capstones": 36,
-  "rubricCriteria": 180,
-  "estimatedMinutes": 8640,
-  "resources": 55,
+  "paths": 20,
+  "lessons": 200,
+  "workedExamples": 200,
+  "reviewQuestions": 60,
+  "capstones": 20,
+  "rubricCriteria": 100,
+  "estimatedMinutes": 7610,
+  "resources": 39,
   "fixtureFiles": 312,
   "editorialStatus": "Original authored practice material. Estimates are unvalidated; independent subject-matter review remains pending.",
   "roadmap": [
@@ -18,8 +18,8 @@
       "status": "Planned, not yet available"
     }
   ],
-  "foundationResources": 45,
+  "foundationResources": 29,
   "standaloneActivities": 50,
-  "totalActivities": 266,
+  "totalActivities": 250,
   "standaloneEstimatedMinutes": 1985
 }

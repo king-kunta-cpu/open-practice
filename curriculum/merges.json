@@ -1,0 +1,15 @@
+{
+  "_note": "Overlapping build paths merged into one primary path. Absorbed paths become modules (their own capstone lesson removed). Learner progress is remapped by course-aliases.js; old URLs 301 to the primary.",
+  "ai-fieldwork": ["time-experiment"],
+  "replies": ["faq-assistant"],
+  "api-integration": ["cloud"],
+  "sheets": ["data-cleaning", "pandas-cleaning"],
+  "data-report": ["data-visualisation"],
+  "python-records": ["algorithms-lab"],
+  "measured-ml": ["supervised-lab", "maths-workbench"],
+  "sklearn-lab": ["preprocessing-lab", "augmentation-lab"],
+  "text-classification": ["uncertainty-lab"],
+  "project-planning": ["constraint-planner", "inventory-planning"],
+  "visual-brief": ["generative-workbench"],
+  "make-mula": ["campaign-evidence"]
+}

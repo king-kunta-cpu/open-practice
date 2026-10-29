@@ -1,3 +1,4 @@
+import {COURSE_ALIASES} from './redirects.mjs';
 import {configuredProviders,generate} from '../ai/router.mjs';
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 export function createAPI({loadCourses,limit,generateAnswer=generate}){
@@ -16,7 +17,7 @@ export function createAPI({loadCourses,limit,generateAnswer=generate}){
   const bytes=new Uint8Array(size);let offset=0;for(const p of parts){bytes.set(p,offset);offset+=p.length}
   let body;try{body=JSON.parse(new TextDecoder().decode(bytes))}catch{return json({error:'Invalid JSON'},400)}
   if(!body||typeof body.question!=='string'||!body.question.trim()||body.question.length>1200)return json({error:'Ask a question of 1–1200 characters.'},400);
-  const courses=await loadCourses(request);const course=courses.find(c=>c.id===body.course);if(!course)return json({error:'Unknown course'},400);
+  const courses=await loadCourses(request);const course=courses.find(c=>c.id===(COURSE_ALIASES[body.course]||body.course));if(!course)return json({error:'Unknown course'},400);
   if(!await limit(request))return json({error:'Tutor limit reached. Try again later.'},429);
   const lessonIndex=Number.isInteger(body.lesson)&&body.lesson>=0&&body.lesson<course.lessons.length?body.lesson:0;
   const context={path:course.title,activity:course.lessons[lessonIndex],reviewType:'self-reported practice, not verified assessment'};

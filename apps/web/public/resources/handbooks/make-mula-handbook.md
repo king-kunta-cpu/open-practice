@@ -2,7 +2,7 @@
 
 Open Practice / Make Mula / curriculum 1.0
 
-Estimated guided practice: 4h estimated. This estimate has not been learner-tested.
+Estimated guided practice: 6h 55m estimated. This estimate has not been learner-tested.
 
 Original practice material · CC BY 4.0 · Non-degree and non-accredited.
 
@@ -18,6 +18,8 @@ Decide from actual evidence with inputs, tests and a reproducible handoff.
 
 - For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory.
 
+- Open entry; inspect the worked fixture before beginning.
+
 ## Learning outcomes
 
 - Ask three consenting potential users about their current workaround; keep simulations explicitly labelled.
@@ -29,6 +31,10 @@ Decide from actual evidence with inputs, tests and a reproducible handoff.
 - Verify regional payout and identity rules, then use a small appropriate personalised approach with opt-outs.
 
 - Keep a reproducible result and disclose safety, rights and regional access limits.
+
+- Use a real problem and approved claims, not sensitive-feature targeting.
+
+- Link every price, feature and testimonial to permission and evidence.
 
 ## Activity 1: Find a problem through discovery
 
@@ -366,7 +372,325 @@ Which exact input, rule and expected value would let another learner falsify you
 
 Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
 
-## Activity 6: Decide from actual evidence
+## Activity 6: Define a truthful offer and audience
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Use a real problem and approved claims, not sensitive-feature targeting.
+
+- Explain and retain a testable result and its limits.
+
+Module 2: Create a campaign pack without invented performance. Advertising work combines creative claims with measurement. A click-through rate is observed clicks divided by impressions; it does not establish sales lift or causality. Use consented assets and fictional performance data until a legitimate real test exists.
+
+Advertising work combines creative claims with measurement. A click-through rate is observed clicks divided by impressions; it does not establish sales lift or causality. Use consented assets and fictional performance data until a legitimate real test exists.
+
+Use a real problem and approved claims, not sensitive-feature targeting. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: Calculate CTR and cost per click from the supplied fixture. No protected-characteristic targeting, unauthorised tracking, fabricated testimonials or guaranteed returns.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "impressions": 1000,
+  "clicks": 20,
+  "spend": 10
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "ctr": 0.02,
+  "cpc": 0.5,
+  "sales_lift": "not established"
+}
+
+```
+
+### Guided activity
+
+1. Use a real problem and approved claims, not sensitive-feature targeting.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Define a truthful offer and audience — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Zero clicks: CPC is undefined, not zero.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 7: Build a factual creative brief
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Link every price, feature and testimonial to permission and evidence.
+
+- Explain and retain a testable result and its limits.
+
+Advertising work combines creative claims with measurement. A click-through rate is observed clicks divided by impressions; it does not establish sales lift or causality. Use consented assets and fictional performance data until a legitimate real test exists.
+
+Link every price, feature and testimonial to permission and evidence. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: Calculate CTR and cost per click from the supplied fixture. No protected-characteristic targeting, unauthorised tracking, fabricated testimonials or guaranteed returns.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "ctr": 0.02,
+  "cpc": 0.5,
+  "sales_lift": "not established"
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Link every price, feature and testimonial to permission and evidence.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Build a factual creative brief — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- More clicks do not establish more profit without sales, costs and attribution evidence.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 8: Calculate a campaign baseline
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Reconcile observed denominators and costs before generating commentary.
+
+- Explain and retain a testable result and its limits.
+
+Advertising work combines creative claims with measurement. A click-through rate is observed clicks divided by impressions; it does not establish sales lift or causality. Use consented assets and fictional performance data until a legitimate real test exists.
+
+Reconcile observed denominators and costs before generating commentary. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: Calculate CTR and cost per click from the supplied fixture. No protected-characteristic targeting, unauthorised tracking, fabricated testimonials or guaranteed returns.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+Calculate CTR and cost per click from the supplied fixture. No protected-characteristic targeting, unauthorised tracking, fabricated testimonials or guaranteed returns.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "ctr": 0.02,
+  "cpc": 0.5,
+  "sales_lift": "not established"
+}
+
+```
+
+### Guided activity
+
+1. Reconcile observed denominators and costs before generating commentary.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform An AI-written testimonial is not a customer review.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Calculate a campaign baseline — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- An AI-written testimonial is not a customer review.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 9: Challenge a flattering narrative
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Separate clicks, sales, profit and causal lift.
+
+- Explain and retain a testable result and its limits.
+
+Advertising work combines creative claims with measurement. A click-through rate is observed clicks divided by impressions; it does not establish sales lift or causality. Use consented assets and fictional performance data until a legitimate real test exists.
+
+Separate clicks, sales, profit and causal lift. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: Calculate CTR and cost per click from the supplied fixture. No protected-characteristic targeting, unauthorised tracking, fabricated testimonials or guaranteed returns.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. Zero clicks: CPC is undefined, not zero.
+2. More clicks do not establish more profit without sales, costs and attribution evidence.
+3. An AI-written testimonial is not a customer review.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Separate clicks, sales, profit and causal lift.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Zero clicks: CPC is undefined, not zero.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Challenge a flattering narrative — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Zero clicks: CPC is undefined, not zero.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 10: Package approval and disclosure
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- State asset rights, revisions and client approval before publication.
+
+- Explain and retain a testable result and its limits.
+
+Advertising work combines creative claims with measurement. A click-through rate is observed clicks divided by impressions; it does not establish sales lift or causality. Use consented assets and fictional performance data until a legitimate real test exists.
+
+State asset rights, revisions and client approval before publication. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: Calculate CTR and cost per click from the supplied fixture. No protected-characteristic targeting, unauthorised tracking, fabricated testimonials or guaranteed returns.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+Calculate CTR and cost per click from the supplied fixture. No protected-characteristic targeting, unauthorised tracking, fabricated testimonials or guaranteed returns.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. State asset rights, revisions and client approval before publication.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Package approval and disclosure — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- More clicks do not establish more profit without sales, costs and attribution evidence.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 11: Decide from actual evidence
 
 Estimated time: 65 minutes.
 
@@ -410,6 +734,8 @@ If a real paid pilot occurs: log acceptance, refunds, actual costs and time with
 5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
 
 6. Write continue/change/stop with evidence for and against; label real, constructed and untested evidence separately and record zero earned income when no payment occurred.
+
+7. Combined capstone: include one checked artefact from each extra module (“Create a campaign pack without invented performance”) and say what it proved.
 
 ### Expected evidence
 
@@ -498,6 +824,8 @@ Include selling, delivery, checking and support time. Payment-country eligibilit
 ## References
 
 - [ILO Start and Improve Your Business](https://www.ilo.org/start-and-improve-your-business-siyb)
+
+- [ICC advertising and marketing code](https://iccwbo.org/business-solutions/the-icc-advertising-and-marketing-communications-code/)
 
 ## Editorial boundary
 

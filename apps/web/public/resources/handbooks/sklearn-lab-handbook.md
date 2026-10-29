@@ -2,7 +2,7 @@
 
 Open Practice / Measured machine learning / curriculum 1.0
 
-Estimated guided practice: 4h estimated. This estimate has not been learner-tested.
+Estimated guided practice: 9h 50m estimated. This estimate has not been learner-tested.
 
 Original practice material · CC BY 4.0 · Non-degree and non-accredited.
 
@@ -18,6 +18,8 @@ Ship a versioned experiment bundle with inputs, tests and a reproducible handoff
 
 - For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory.
 
+- Python + ML prerequisite; inspect the worked fixture before beginning.
+
 ## Learning outcomes
 
 - Write the split and allowed tuning procedure before fitting.
@@ -29,6 +31,14 @@ Ship a versioned experiment bundle with inputs, tests and a reproducible handoff
 - A four-point synthetic success checks wiring, not field reliability.
 
 - Keep a reproducible result and disclose safety, rights and regional access limits.
+
+- Write down which rows the fitted transformation is allowed to inspect.
+
+- Use only the observed training values.
+
+- Explain why the toy transformation is limited to this fixture.
+
+- Retain immutable test data and original identifiers.
 
 ## Activity 1: Reserve a final holdout
 
@@ -406,7 +416,699 @@ Which exact input, rule and expected value would let another learner falsify you
 
 Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
 
-## Activity 6: Ship a versioned experiment bundle
+## Activity 6: Mark the training boundary
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Write down which rows the fitted transformation is allowed to inspect.
+
+- Explain and retain a testable result and its limits.
+
+Module 2: Build a preprocessing step that cannot see the future. Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.
+
+Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.
+
+Write down which rows the fitted transformation is allowed to inspect. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "train": [
+    2,
+    null,
+    4
+  ],
+  "test": [
+    100,
+    null
+  ]
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "training_mean": 3,
+  "train_filled": [
+    2,
+    3,
+    4
+  ],
+  "test_filled": [
+    100,
+    3
+  ]
+}
+
+```
+
+### Guided activity
+
+1. Write down which rows the fitted transformation is allowed to inspect.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Mark the training boundary — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Including 100 in the fit would change the mean: detect the leakage.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 7: Calculate the permitted mean
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Use only the observed training values.
+
+- Explain and retain a testable result and its limits.
+
+Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.
+
+Use only the observed training values. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "training_mean": 3,
+  "train_filled": [
+    2,
+    3,
+    4
+  ],
+  "test_filled": [
+    100,
+    3
+  ]
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Use only the observed training values.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Calculate the permitted mean — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- All training values missing: stop and request a stated fallback policy.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 8: Implement fit then transform
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Return fitted parameters separately from transformed data.
+
+- Explain and retain a testable result and its limits.
+
+Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.
+
+Return fitted parameters separately from transformed data. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "training_mean": 3,
+  "train_filled": [
+    2,
+    3,
+    4
+  ],
+  "test_filled": [
+    100,
+    3
+  ]
+}
+
+```
+
+### Guided activity
+
+1. Return fitted parameters separately from transformed data.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform A new extreme test value must not change stored training parameters.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Implement fit then transform — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- A new extreme test value must not change stored training parameters.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 9: Inject an extreme test value
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Demonstrate that training parameters do not change.
+
+- Explain and retain a testable result and its limits.
+
+Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.
+
+Demonstrate that training parameters do not change. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. Including 100 in the fit would change the mean: detect the leakage.
+2. All training values missing: stop and request a stated fallback policy.
+3. A new extreme test value must not change stored training parameters.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Demonstrate that training parameters do not change.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Including 100 in the fit would change the mean: detect the leakage.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Inject an extreme test value — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Including 100 in the fit would change the mean: detect the leakage.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 10: Extend to time and class imbalance
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Keep chronological splits and resampling inside training only.
+
+- Explain and retain a testable result and its limits.
+
+Preprocessing learns parameters such as means from training data. Including test values in that calculation leaks information before fitting a predictor. Keep fitted parameters explicit so the boundary can be checked even in a tiny fixture.
+
+Keep chronological splits and resampling inside training only. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+Fit a mean imputer on training values only, ignoring null. Transform train and test using that one mean; never refit on the test set.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Keep chronological splits and resampling inside training only.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Extend to time and class imbalance — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- All training values missing: stop and request a stated fallback policy.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 11: State a label-preservation assumption
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Explain why the toy transformation is limited to this fixture.
+
+- Explain and retain a testable result and its limits.
+
+Module 3: Augment training data without contaminating the test. Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.
+
+Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.
+
+Explain why the toy transformation is limited to this fixture. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "train": [
+    {
+      "id": "a",
+      "x": 0.1,
+      "label": 0
+    },
+    {
+      "id": "b",
+      "x": 0.2,
+      "label": 0
+    },
+    {
+      "id": "c",
+      "x": 0.8,
+      "label": 1
+    }
+  ],
+  "test": [
+    {
+      "id": "t1",
+      "x": 0.15,
+      "label": 0
+    },
+    {
+      "id": "t2",
+      "x": 0.9,
+      "label": 1
+    }
+  ]
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "original_train": 3,
+  "augmented_train": 6,
+  "unchanged_test": true,
+  "unique_originals": 3
+}
+
+```
+
+### Guided activity
+
+1. Explain why the toy transformation is limited to this fixture.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- State a label-preservation assumption — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Augment the test rows: fail the experiment design even if a score improves.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 12: Split originals before transforming
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Retain immutable test data and original identifiers.
+
+- Explain and retain a testable result and its limits.
+
+Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.
+
+Retain immutable test data and original identifiers. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "original_train": 3,
+  "augmented_train": 6,
+  "unchanged_test": true,
+  "unique_originals": 3
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Retain immutable test data and original identifiers.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Split originals before transforming — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Use a shift that crosses a real label boundary: reject the label-preservation assumption.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 13: Build a traceable augmentation step
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Keep parent IDs so transformed copies remain identifiable.
+
+- Explain and retain a testable result and its limits.
+
+Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.
+
+Keep parent IDs so transformed copies remain identifiable. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "original_train": 3,
+  "augmented_train": 6,
+  "unchanged_test": true,
+  "unique_originals": 3
+}
+
+```
+
+### Guided activity
+
+1. Keep parent IDs so transformed copies remain identifiable.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Count transformed copies as new independent observations: flag pseudoreplication.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Build a traceable augmentation step — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Count transformed copies as new independent observations: flag pseudoreplication.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 14: Compare fair experiments
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Use the same original holdout for baseline and augmented training.
+
+- Explain and retain a testable result and its limits.
+
+Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.
+
+Use the same original holdout for baseline and augmented training. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. Augment the test rows: fail the experiment design even if a score improves.
+2. Use a shift that crosses a real label boundary: reject the label-preservation assumption.
+3. Count transformed copies as new independent observations: flag pseudoreplication.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Use the same original holdout for baseline and augmented training.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Augment the test rows: fail the experiment design even if a score improves.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Compare fair experiments — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Augment the test rows: fail the experiment design even if a score improves.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 15: Challenge synthetic evidence
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Repeated or generated examples do not establish demand, new users or field robustness.
+
+- Explain and retain a testable result and its limits.
+
+Augmentation creates transformed training examples under a stated assumption about label preservation. It does not create independent real-world evidence. Transforming the held-out set or splitting near-duplicates across sets can inflate apparent performance.
+
+Repeated or generated examples do not establish demand, new users or field robustness. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+For this toy brightness feature, add 0.01 to training x only and preserve labels. Test rows must be unchanged. This small numerical shift is not valid for arbitrary domains.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Repeated or generated examples do not establish demand, new users or field robustness.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Challenge synthetic evidence — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Use a shift that crosses a real label boundary: reject the label-preservation assumption.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 16: Ship a versioned experiment bundle
 
 Estimated time: 65 minutes.
 
@@ -448,6 +1150,8 @@ Never bundle a credential.
 4. Perform one small change and predict its effect before rerunning.
 
 5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+6. Combined capstone: include one checked artefact from each extra module (“Build a preprocessing step that cannot see the future”; “Augment training data without contaminating the test”) and say what it proved.
 
 ### Expected evidence
 
@@ -536,6 +1240,10 @@ This tiny separable synthetic fixture is a wiring test only. Fit StandardScaler 
 ## References
 
 - [Scikit-learn Pipeline reference](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html)
+
+- [Scikit-learn pipelines](https://scikit-learn.org/stable/modules/compose.html)
+
+- [Scikit-learn common pitfalls](https://scikit-learn.org/stable/common_pitfalls.html)
 
 ## Editorial boundary
 

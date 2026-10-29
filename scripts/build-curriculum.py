@@ -6,6 +6,8 @@ ROOT=Path(__file__).resolve().parent.parent
 PUBLIC=ROOT/'apps/web/public'
 courses=sorted((json.loads(p.read_text()) for p in (ROOT/'curriculum/courses').glob('*.json')),key=lambda c:c['num'])
 resources=json.loads((ROOT/'curriculum/library-base.json').read_text())
+import sys;sys.path.insert(0,str(ROOT/'scripts'));from course_merge import merge
+all_courses={c['id']:c for c in courses};courses,aliases=merge(courses)
 def handbook(c):
  lines=[f"# {c['title']}",f"Open Practice / {c['track']} / curriculum {c['version']}",f"Estimated guided practice: {c['time']}. This estimate has not been learner-tested.","Original practice material · CC BY 4.0 · Non-degree and non-accredited.","## What you will build",c['project'],"## Before you start"]
  lines += ['- '+x for x in c['prerequisites']]+['## Learning outcomes']+['- '+x for x in c['outcomes']]
@@ -19,17 +21,23 @@ def handbook(c):
  lines+=['## References']+[f"- [{x['title']}]({x['url']})" for x in c['references']]+['## Editorial boundary',c['editorialStatus'],'Use fictional/redacted data and your own authorised provider credentials. Never include credentials in this pack or public work.']
  return '\n\n'.join(lines)+'\n'
 for c in courses:
- assert len(c['lessons'])==6 and len(c['assessment'])==3 and len(c['capstone']['rubric'])==5
+ assert len(c['lessons'])>=6 and len(c['assessment'])==3 and len(c['capstone']['rubric'])==5
  target=PUBLIC/'resources/curriculum'/c['id'];target.mkdir(parents=True,exist_ok=True)
  for source in (ROOT/'curriculum/fixtures'/c['id']).iterdir():
   if source.is_file():shutil.copyfile(source,target/source.name)
  c['fixtureFiles']=[{'title':p.name,'url':'/resources/curriculum/'+c['id']+'/'+p.name} for p in sorted(target.iterdir()) if p.is_file()]
+ extra={}
+ for a in c.get('mergedFrom',[]):
+  sub=PUBLIC/'resources/curriculum'/a;sub.mkdir(parents=True,exist_ok=True)
+  for source in sorted((ROOT/'curriculum/fixtures'/a).iterdir()):
+   if source.is_file():shutil.copyfile(source,sub/source.name);extra['fixtures/'+a+'/'+source.name]=source.read_bytes();c['fixtureFiles'].append({'title':a+'/'+source.name,'url':'/resources/curriculum/'+a+'/'+source.name})
  text=handbook(c)
  book=PUBLIC/'resources/handbooks'/f"{c['id']}-handbook.md";book.parent.mkdir(parents=True,exist_ok=True);book.write_text(text)
  pack=PUBLIC/'resources/packs'/f"{c['id']}-practice-pack.zip";pack.parent.mkdir(parents=True,exist_ok=True)
  contents={'WORKBOOK.md':text.encode(),'course.json':json.dumps(c,indent=2,ensure_ascii=False).encode()}
  for p in sorted(target.iterdir()):
   if p.is_file():contents['fixtures/'+p.name]=p.read_bytes()
+ contents.update(extra)
  buffer=io.BytesIO()
  with zipfile.ZipFile(buffer,'w',zipfile.ZIP_DEFLATED) as archive:
   for name,data in contents.items():

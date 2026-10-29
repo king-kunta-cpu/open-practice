@@ -2,7 +2,7 @@
 
 Open Practice / Measured machine learning / curriculum 1.0
 
-Estimated guided practice: 4h estimated. This estimate has not been learner-tested.
+Estimated guided practice: 6h 55m estimated. This estimate has not been learner-tested.
 
 Original practice material · CC BY 4.0 · Non-degree and non-accredited.
 
@@ -18,6 +18,8 @@ Ship an annotation and error guide with inputs, tests and a reproducible handoff
 
 - For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory.
 
+- Basic statistics; inspect the worked fixture before beginning.
+
 ## Learning outcomes
 
 - Make review an allowed outcome and distinguish requests from issues.
@@ -29,6 +31,10 @@ Ship an annotation and error guide with inputs, tests and a reproducible handoff
 - Record failures rather than hiding them behind a high average score.
 
 - Keep a reproducible result and disclose safety, rights and regional access limits.
+
+- Distinguish a count and a mean from a future prediction.
+
+- Use minimum, maximum and range to reveal what a mean hides.
 
 ## Activity 1: Define labels with examples
 
@@ -361,7 +367,335 @@ Which exact input, rule and expected value would let another learner falsify you
 
 Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
 
-## Activity 6: Ship an annotation and error guide
+## Activity 6: Describe the observed sample
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Distinguish a count and a mean from a future prediction.
+
+- Explain and retain a testable result and its limits.
+
+Module 2: Report uncertainty instead of fake precision. A mean describes observed values; it does not guarantee the next observation. A range communicates variation without proving a calibrated forecast. Keep descriptive results, uncertainty assumptions and causal claims separate.
+
+A mean describes observed values; it does not guarantee the next observation. A range communicates variation without proving a calibrated forecast. Keep descriptive results, uncertainty assumptions and causal claims separate.
+
+Distinguish a count and a mean from a future prediction. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: Compute count, mean, minimum and maximum for the supplied fictional observations. No confidence-interval or population-representativeness claim is established by these five values.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "values": [
+    2,
+    4,
+    4,
+    6,
+    9
+  ]
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "count": 5,
+  "mean": 5,
+  "minimum": 2,
+  "maximum": 9,
+  "range": 7
+}
+
+```
+
+### Guided activity
+
+1. Distinguish a count and a mean from a future prediction.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Describe the observed sample — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Replace 9 with 90: mean becomes 21.2, exposing sensitivity to an outlier.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 7: Calculate spread by hand
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Use minimum, maximum and range to reveal what a mean hides.
+
+- Explain and retain a testable result and its limits.
+
+A mean describes observed values; it does not guarantee the next observation. A range communicates variation without proving a calibrated forecast. Keep descriptive results, uncertainty assumptions and causal claims separate.
+
+Use minimum, maximum and range to reveal what a mean hides. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: Compute count, mean, minimum and maximum for the supplied fictional observations. No confidence-interval or population-representativeness claim is established by these five values.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "count": 5,
+  "mean": 5,
+  "minimum": 2,
+  "maximum": 9,
+  "range": 7
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Use minimum, maximum and range to reveal what a mean hides.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Calculate spread by hand — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Empty sample: reject an undefined mean.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 8: Explore a reproducible simulation
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- If simulating, record seed and assumptions rather than calling synthetic draws real observations.
+
+- Explain and retain a testable result and its limits.
+
+A mean describes observed values; it does not guarantee the next observation. A range communicates variation without proving a calibrated forecast. Keep descriptive results, uncertainty assumptions and causal claims separate.
+
+If simulating, record seed and assumptions rather than calling synthetic draws real observations. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: Compute count, mean, minimum and maximum for the supplied fictional observations. No confidence-interval or population-representativeness claim is established by these five values.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+Compute count, mean, minimum and maximum for the supplied fictional observations. No confidence-interval or population-representativeness claim is established by these five values.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "count": 5,
+  "mean": 5,
+  "minimum": 2,
+  "maximum": 9,
+  "range": 7
+}
+
+```
+
+### Guided activity
+
+1. If simulating, record seed and assumptions rather than calling synthetic draws real observations.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Repeating the same five observations does not create independent new evidence.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Explore a reproducible simulation — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Repeating the same five observations does not create independent new evidence.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 9: Stress-test an outlier
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Compare the before/after mean without inventing a cause.
+
+- Explain and retain a testable result and its limits.
+
+A mean describes observed values; it does not guarantee the next observation. A range communicates variation without proving a calibrated forecast. Keep descriptive results, uncertainty assumptions and causal claims separate.
+
+Compare the before/after mean without inventing a cause. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: Compute count, mean, minimum and maximum for the supplied fictional observations. No confidence-interval or population-representativeness claim is established by these five values.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. Replace 9 with 90: mean becomes 21.2, exposing sensitivity to an outlier.
+2. Empty sample: reject an undefined mean.
+3. Repeating the same five observations does not create independent new evidence.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Compare the before/after mean without inventing a cause.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Replace 9 with 90: mean becomes 21.2, exposing sensitivity to an outlier.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Stress-test an outlier — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Replace 9 with 90: mean becomes 21.2, exposing sensitivity to an outlier.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 10: Update a claim when evidence changes
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Explain which assumptions would be needed for inference beyond this sample.
+
+- Explain and retain a testable result and its limits.
+
+A mean describes observed values; it does not guarantee the next observation. A range communicates variation without proving a calibrated forecast. Keep descriptive results, uncertainty assumptions and causal claims separate.
+
+Explain which assumptions would be needed for inference beyond this sample. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: Compute count, mean, minimum and maximum for the supplied fictional observations. No confidence-interval or population-representativeness claim is established by these five values.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+Compute count, mean, minimum and maximum for the supplied fictional observations. No confidence-interval or population-representativeness claim is established by these five values.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Explain which assumptions would be needed for inference beyond this sample.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Update a claim when evidence changes — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Empty sample: reject an undefined mean.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 11: Ship an annotation and error guide
 
 Estimated time: 65 minutes.
 
@@ -403,6 +737,8 @@ Never bundle a credential.
 4. Perform one small change and predict its effect before rerunning.
 
 5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+6. Combined capstone: include one checked artefact from each extra module (“Report uncertainty instead of fake precision”) and say what it proved.
 
 ### Expected evidence
 
@@ -491,6 +827,8 @@ Token match refund => request and broken => issue. Both or neither => review. Th
 ## References
 
 - [Scikit-learn text feature extraction](https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction)
+
+- [Python statistics documentation](https://docs.python.org/3/library/statistics.html)
 
 ## Editorial boundary
 

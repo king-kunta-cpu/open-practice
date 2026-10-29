@@ -217,29 +217,6 @@
     "image": "/brand/covers/automation.svg?v=illustrated-20261021"
   },
   {
-    "id": "cloud-resources",
-    "courseId": "cloud",
-    "title": "Understand the AI plumbing",
-    "kind": "Build path resources",
-    "description": "Build an endpoint evaluation checklist. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/cloud-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/cloud-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/cloud-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/cloud.svg?v=illustrated-20261021"
-  },
-  {
     "id": "reproducible-cloud-lab-resources",
     "courseId": "reproducible-cloud-lab",
     "title": "A cloud lab someone else can rerun",
@@ -307,29 +284,6 @@
     "licence": "CC BY 4.0",
     "format": "MD + ZIP",
     "image": "/brand/covers/measured-ml.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "generative-workbench-resources",
-    "courseId": "generative-workbench",
-    "title": "Compare generations without moving the goalposts",
-    "kind": "Build path resources",
-    "description": "Publish a comparison with limits with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/generative-workbench-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/generative-workbench-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/generative-workbench-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/generative-workbench.svg?v=illustrated-20261021"
   },
   {
     "id": "evidence-assistant-resources",
@@ -401,29 +355,6 @@
     "image": "/brand/covers/ai-fieldwork.svg?v=illustrated-20261021"
   },
   {
-    "id": "faq-assistant-resources",
-    "courseId": "faq-assistant",
-    "title": "Build an FAQ assistant with a human exit",
-    "kind": "Build path resources",
-    "description": "Ship a conversation playbook with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/faq-assistant-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/faq-assistant-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/faq-assistant-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/faq-assistant.svg?v=illustrated-20261021"
-  },
-  {
     "id": "data-report-resources",
     "courseId": "data-report",
     "title": "Build a report that reconciles to its source",
@@ -445,75 +376,6 @@
     "licence": "CC BY 4.0",
     "format": "MD + ZIP",
     "image": "/brand/covers/data-report.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "algorithms-lab-resources",
-    "courseId": "algorithms-lab",
-    "title": "Measure an algorithm instead of guessing",
-    "kind": "Build path resources",
-    "description": "Ship a correctness and complexity note with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/algorithms-lab-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/algorithms-lab-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/algorithms-lab-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/algorithms-lab.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "constraint-planner-resources",
-    "courseId": "constraint-planner",
-    "title": "Plan a timetable that obeys its constraints",
-    "kind": "Build path resources",
-    "description": "Deliver a verified planning sandbox with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/constraint-planner-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/constraint-planner-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/constraint-planner-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/constraint-planner.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "maths-workbench-resources",
-    "courseId": "maths-workbench",
-    "title": "See a gradient step succeed—and fail",
-    "kind": "Build path resources",
-    "description": "Ship an inspectable optimisation notebook with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/maths-workbench-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/maths-workbench-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/maths-workbench-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/maths-workbench.svg?v=illustrated-20261021"
   },
   {
     "id": "api-integration-resources",
@@ -539,29 +401,6 @@
     "image": "/brand/covers/api-integration.svg?v=illustrated-20261021"
   },
   {
-    "id": "augmentation-lab-resources",
-    "courseId": "augmentation-lab",
-    "title": "Augment training data without contaminating the test",
-    "kind": "Build path resources",
-    "description": "Deliver a leakage audit with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/augmentation-lab-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/augmentation-lab-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/augmentation-lab-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/augmentation-lab.svg?v=illustrated-20261021"
-  },
-  {
     "id": "text-classification-resources",
     "courseId": "text-classification",
     "title": "Classify feedback with an uncertainty bucket",
@@ -583,52 +422,6 @@
     "licence": "CC BY 4.0",
     "format": "MD + ZIP",
     "image": "/brand/covers/text-classification.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "uncertainty-lab-resources",
-    "courseId": "uncertainty-lab",
-    "title": "Report uncertainty instead of fake precision",
-    "kind": "Build path resources",
-    "description": "Deliver a cautious quantitative brief with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/uncertainty-lab-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/uncertainty-lab-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/uncertainty-lab-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/uncertainty-lab.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "inventory-planning-resources",
-    "courseId": "inventory-planning",
-    "title": "Make a reversible stock-planning decision",
-    "kind": "Build path resources",
-    "description": "Deliver a planning dashboard with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/inventory-planning-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/inventory-planning-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/inventory-planning-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/inventory-planning.svg?v=illustrated-20261021"
   },
   {
     "id": "project-planning-resources",
@@ -654,75 +447,6 @@
     "image": "/brand/covers/project-planning.svg?v=illustrated-20261021"
   },
   {
-    "id": "data-cleaning-resources",
-    "courseId": "data-cleaning",
-    "title": "Repair dirty records without inventing facts",
-    "kind": "Build path resources",
-    "description": "Ship a repair kit and audit trail with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/data-cleaning-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/data-cleaning-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/data-cleaning-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/data-cleaning.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "supervised-lab-resources",
-    "courseId": "supervised-lab",
-    "title": "Fit a regression and inspect its residuals",
-    "kind": "Build path resources",
-    "description": "Ship a supervised experiment record with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/supervised-lab-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/supervised-lab-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/supervised-lab-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/supervised-lab.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "preprocessing-lab-resources",
-    "courseId": "preprocessing-lab",
-    "title": "Build a preprocessing step that cannot see the future",
-    "kind": "Build path resources",
-    "description": "Ship a leakage-resistant pipeline contract with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/preprocessing-lab-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/preprocessing-lab-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/preprocessing-lab-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/preprocessing-lab.svg?v=illustrated-20261021"
-  },
-  {
     "id": "responsible-ai-resources",
     "courseId": "responsible-ai",
     "title": "Audit a tool with evidence, not an ethics slogan",
@@ -744,29 +468,6 @@
     "licence": "CC BY 4.0",
     "format": "MD + ZIP",
     "image": "/brand/covers/responsible-ai.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "time-experiment-resources",
-    "courseId": "time-experiment",
-    "title": "Measure whether a workflow actually saves time",
-    "kind": "Build path resources",
-    "description": "Deliver a measured recommendation with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/time-experiment-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/time-experiment-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/time-experiment-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/time-experiment.svg?v=illustrated-20261021"
   },
   {
     "id": "data-wrangling-resources",
@@ -813,75 +514,6 @@
     "licence": "CC BY 4.0",
     "format": "MD + ZIP",
     "image": "/brand/covers/sklearn-lab.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "pandas-cleaning-resources",
-    "courseId": "pandas-cleaning",
-    "title": "Make cleaning decisions testable with Pandas",
-    "kind": "Build path resources",
-    "description": "Ship tests with the cleaner with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/pandas-cleaning-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/pandas-cleaning-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/pandas-cleaning-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/pandas-cleaning.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "campaign-evidence-resources",
-    "courseId": "campaign-evidence",
-    "title": "Create a campaign pack without invented performance",
-    "kind": "Build path resources",
-    "description": "Deliver a campaign evidence pack with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/campaign-evidence-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/campaign-evidence-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/campaign-evidence-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/campaign-evidence.svg?v=illustrated-20261021"
-  },
-  {
-    "id": "data-visualisation-resources",
-    "courseId": "data-visualisation",
-    "title": "Make charts that tell the checked truth",
-    "kind": "Build path resources",
-    "description": "Deliver a chart and decision brief with inputs, tests and a reproducible handoff.. Includes the complete handbook and a practice pack with inputs, reference outputs and test fixtures.",
-    "url": "/resources/handbooks/data-visualisation-handbook.md",
-    "downloads": [
-      {
-        "label": "Handbook",
-        "format": "MD",
-        "url": "/resources/handbooks/data-visualisation-handbook.md"
-      },
-      {
-        "label": "Practice pack",
-        "format": "ZIP",
-        "url": "/resources/packs/data-visualisation-practice-pack.zip"
-      }
-    ],
-    "licence": "CC BY 4.0",
-    "format": "MD + ZIP",
-    "image": "/brand/covers/data-visualisation.svg?v=illustrated-20261021"
   },
   {
     "id": "clustering-lab-resources",

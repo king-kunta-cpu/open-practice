@@ -2,7 +2,7 @@
 
 Open Practice / Cloud & code / curriculum 1.0
 
-Estimated guided practice: 4h estimated. This estimate has not been learner-tested.
+Estimated guided practice: 6h 55m estimated. This estimate has not been learner-tested.
 
 Original practice material · CC BY 4.0 · Non-degree and non-accredited.
 
@@ -18,6 +18,8 @@ Package a script another learner can inspect with inputs, tests and a reproducib
 
 - For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory.
 
+- Python prerequisite; inspect the worked fixture before beginning.
+
 ## Learning outcomes
 
 - Inspect why an unknown amount is not the same as zero.
@@ -29,6 +31,10 @@ Package a script another learner can inspect with inputs, tests and a reproducib
 - Catch errors at the input boundary without silently discarding evidence.
 
 - Keep a reproducible result and disclose safety, rights and regional access limits.
+
+- Specify sortedness, duplicate handling and the meaning of not found.
+
+- Count inspected values by hand to establish a baseline.
 
 ## Activity 1: Read values and types
 
@@ -373,7 +379,330 @@ Which exact input, rule and expected value would let another learner falsify you
 
 Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
 
-## Activity 6: Package a script another learner can inspect
+## Activity 6: State the preconditions
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Specify sortedness, duplicate handling and the meaning of not found.
+
+- Explain and retain a testable result and its limits.
+
+Module 2: Measure an algorithm instead of guessing. Correctness and efficiency are different questions. A linear search can be correct yet costly as data grows. Binary search requires sorted data; applying it to arbitrary input can produce a plausible failure. Count comparisons on a deliberately small fixture before discussing asymptotic growth.
+
+Correctness and efficiency are different questions. A linear search can be correct yet costly as data grows. Binary search requires sorted data; applying it to arbitrary input can produce a plausible failure. Count comparisons on a deliberately small fixture before discussing asymptotic growth.
+
+Specify sortedness, duplicate handling and the meaning of not found. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: Search returns an index or -1. Count each inspected value once. Sortedness is an explicit precondition for binary search.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "values": [
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "target": 8
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "index": 3,
+  "linear_comparisons": 4,
+  "binary_comparisons": 2
+}
+
+```
+
+### Guided activity
+
+1. Specify sortedness, duplicate handling and the meaning of not found.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- State the preconditions — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Target 11: return -1, not the nearest item.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 7: Trace a linear search
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Count inspected values by hand to establish a baseline.
+
+- Explain and retain a testable result and its limits.
+
+Correctness and efficiency are different questions. A linear search can be correct yet costly as data grows. Binary search requires sorted data; applying it to arbitrary input can produce a plausible failure. Count comparisons on a deliberately small fixture before discussing asymptotic growth.
+
+Count inspected values by hand to establish a baseline. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: Search returns an index or -1. Count each inspected value once. Sortedness is an explicit precondition for binary search.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "index": 3,
+  "linear_comparisons": 4,
+  "binary_comparisons": 2
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Count inspected values by hand to establish a baseline.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Trace a linear search — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Empty list: return -1 with zero linear comparisons.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 8: Implement binary search
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Track low and high bounds; do not lose the termination condition.
+
+- Explain and retain a testable result and its limits.
+
+Correctness and efficiency are different questions. A linear search can be correct yet costly as data grows. Binary search requires sorted data; applying it to arbitrary input can produce a plausible failure. Count comparisons on a deliberately small fixture before discussing asymptotic growth.
+
+Track low and high bounds; do not lose the termination condition. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: Search returns an index or -1. Count each inspected value once. Sortedness is an explicit precondition for binary search.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+Search returns an index or -1. Count each inspected value once. Sortedness is an explicit precondition for binary search.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "index": 3,
+  "linear_comparisons": 4,
+  "binary_comparisons": 2
+}
+
+```
+
+### Guided activity
+
+1. Track low and high bounds; do not lose the termination condition.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Unsorted values: reject binary-search use or sort with an explicit index mapping.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Implement binary search — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Unsorted values: reject binary-search use or sort with an explicit index mapping.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 9: Benchmark growth and edge cases
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Vary input size and target position, not just processor timing.
+
+- Explain and retain a testable result and its limits.
+
+Correctness and efficiency are different questions. A linear search can be correct yet costly as data grows. Binary search requires sorted data; applying it to arbitrary input can produce a plausible failure. Count comparisons on a deliberately small fixture before discussing asymptotic growth.
+
+Vary input size and target position, not just processor timing. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: Search returns an index or -1. Count each inspected value once. Sortedness is an explicit precondition for binary search.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. Target 11: return -1, not the nearest item.
+2. Empty list: return -1 with zero linear comparisons.
+3. Unsorted values: reject binary-search use or sort with an explicit index mapping.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Vary input size and target position, not just processor timing.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Target 11: return -1, not the nearest item.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Benchmark growth and edge cases — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Target 11: return -1, not the nearest item.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 10: Choose a structure for a task
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Compare repeated lookups with the cost of sorting or building a map.
+
+- Explain and retain a testable result and its limits.
+
+Correctness and efficiency are different questions. A linear search can be correct yet costly as data grows. Binary search requires sorted data; applying it to arbitrary input can produce a plausible failure. Count comparisons on a deliberately small fixture before discussing asymptotic growth.
+
+Compare repeated lookups with the cost of sorting or building a map. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: Search returns an index or -1. Count each inspected value once. Sortedness is an explicit precondition for binary search.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+Search returns an index or -1. Count each inspected value once. Sortedness is an explicit precondition for binary search.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Compare repeated lookups with the cost of sorting or building a map.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Choose a structure for a task — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Empty list: return -1 with zero linear comparisons.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 11: Package a script another learner can inspect
 
 Estimated time: 65 minutes.
 
@@ -415,6 +744,8 @@ Never bundle a credential.
 4. Perform one small change and predict its effect before rerunning.
 
 5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+6. Combined capstone: include one checked artefact from each extra module (“Measure an algorithm instead of guessing”) and say what it proved.
 
 ### Expected evidence
 
@@ -503,6 +834,8 @@ Accept finite non-negative numeric amounts, retain identifiers and reject invali
 ## References
 
 - [Python tutorial](https://docs.python.org/3/tutorial/)
+
+- [Python bisect documentation](https://docs.python.org/3/library/bisect.html)
 
 ## Editorial boundary
 

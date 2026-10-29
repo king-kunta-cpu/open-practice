@@ -48,6 +48,7 @@ for path in sorted(P.rglob('*.html')):
     active = ACTIVE.get(rel, 'Academy' if rel.startswith(('builds/', 'activities/')) else '')
     text = re.sub(r'<header[^>]*>.*?</header>', lambda m: header(active), text, count=1, flags=re.S)
     text = re.sub(r'<footer[^>]*>.*?</footer>', lambda m: FOOTER, text, count=1, flags=re.S)
+    text = re.sub(r'Browse all \d+ paths', f'Browse all {len(courses)} paths', text)
     if '/hub.css' not in text:
         text = text.replace('<link rel="stylesheet" href="/style.css">', '<link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/hub.css">', 1)
     if '/nav.js' not in text:

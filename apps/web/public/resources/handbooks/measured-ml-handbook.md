@@ -2,7 +2,7 @@
 
 Open Practice / Measured machine learning / curriculum 1.0
 
-Estimated guided practice: 4h estimated. This estimate has not been learner-tested.
+Estimated guided practice: 9h 50m estimated. This estimate has not been learner-tested.
 
 Original practice material · CC BY 4.0 · Non-degree and non-accredited.
 
@@ -18,6 +18,8 @@ Ship a model card and test record with inputs, tests and a reproducible handoff.
 
 - For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory.
 
+- Algebra prerequisite; inspect the worked fixture before beginning.
+
 ## Learning outcomes
 
 - Name the unit, target and time at which each input becomes available.
@@ -29,6 +31,14 @@ Ship a model card and test record with inputs, tests and a reproducible handoff.
 - Compare constant predictions and note which mistakes matter to the user.
 
 - Keep a reproducible result and disclose safety, rights and regional access limits.
+
+- Separate input availability from the future value being predicted.
+
+- Use only training targets for the naive estimate.
+
+- Calculate three losses by hand and identify the minimiser.
+
+- Connect the derivative sign to the direction of movement.
 
 ## Activity 1: Define what prediction means
 
@@ -374,7 +384,662 @@ Which exact input, rule and expected value would let another learner falsify you
 
 Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
 
-## Activity 6: Ship a model card and test record
+## Activity 6: Define the regression target
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Separate input availability from the future value being predicted.
+
+- Explain and retain a testable result and its limits.
+
+Module 2: Fit a regression and inspect its residuals. Regression estimates a relationship between inputs and a numeric target. A synthetic straight line is useful for checking code, but perfect fit on a designed fixture is not a real-world benchmark. Compare with a mean baseline and preserve the future test example.
+
+Regression estimates a relationship between inputs and a numeric target. A synthetic straight line is useful for checking code, but perfect fit on a designed fixture is not a real-world benchmark. Compare with a mean baseline and preserve the future test example.
+
+Separate input availability from the future value being predicted. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: Fit training pairs (1,5),(2,8),(3,11),(4,14). Test x=5 against y=17 only after fitting. Do not imply causal or production validity.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "x": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "y": [
+    5,
+    8,
+    11,
+    14
+  ],
+  "test_x": 5,
+  "test_y": 17
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "slope": 3,
+  "intercept": 2,
+  "prediction": 17,
+  "absolute_error": 0,
+  "mean_baseline_error": 7.5
+}
+
+```
+
+### Guided activity
+
+1. Separate input availability from the future value being predicted.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Define the regression target — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- All training x values equal: the simple slope is undefined.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 7: Compute a mean baseline
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Use only training targets for the naive estimate.
+
+- Explain and retain a testable result and its limits.
+
+Regression estimates a relationship between inputs and a numeric target. A synthetic straight line is useful for checking code, but perfect fit on a designed fixture is not a real-world benchmark. Compare with a mean baseline and preserve the future test example.
+
+Use only training targets for the naive estimate. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: Fit training pairs (1,5),(2,8),(3,11),(4,14). Test x=5 against y=17 only after fitting. Do not imply causal or production validity.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "slope": 3,
+  "intercept": 2,
+  "prediction": 17,
+  "absolute_error": 0,
+  "mean_baseline_error": 7.5
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Use only training targets for the naive estimate.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Compute a mean baseline — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Change the test target to 19: prediction stays 17 and absolute error becomes 2.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 8: Fit and inspect a straight line
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Calculate slope, intercept and residuals explicitly.
+
+- Explain and retain a testable result and its limits.
+
+Regression estimates a relationship between inputs and a numeric target. A synthetic straight line is useful for checking code, but perfect fit on a designed fixture is not a real-world benchmark. Compare with a mean baseline and preserve the future test example.
+
+Calculate slope, intercept and residuals explicitly. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: Fit training pairs (1,5),(2,8),(3,11),(4,14). Test x=5 against y=17 only after fitting. Do not imply causal or production validity.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+Fit training pairs (1,5),(2,8),(3,11),(4,14). Test x=5 against y=17 only after fitting. Do not imply causal or production validity.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "slope": 3,
+  "intercept": 2,
+  "prediction": 17,
+  "absolute_error": 0,
+  "mean_baseline_error": 7.5
+}
+
+```
+
+### Guided activity
+
+1. Calculate slope, intercept and residuals explicitly.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Use test y while fitting: identify leakage even if error falls.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Fit and inspect a straight line — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Use test y while fitting: identify leakage even if error falls.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 9: Test outside the training range
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Extrapolation needs caution even when this synthetic example succeeds.
+
+- Explain and retain a testable result and its limits.
+
+Regression estimates a relationship between inputs and a numeric target. A synthetic straight line is useful for checking code, but perfect fit on a designed fixture is not a real-world benchmark. Compare with a mean baseline and preserve the future test example.
+
+Extrapolation needs caution even when this synthetic example succeeds. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: Fit training pairs (1,5),(2,8),(3,11),(4,14). Test x=5 against y=17 only after fitting. Do not imply causal or production validity.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. All training x values equal: the simple slope is undefined.
+2. Change the test target to 19: prediction stays 17 and absolute error becomes 2.
+3. Use test y while fitting: identify leakage even if error falls.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Extrapolation needs caution even when this synthetic example succeeds.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform All training x values equal: the simple slope is undefined.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Test outside the training range — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- All training x values equal: the simple slope is undefined.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 10: Compare model selection fairly
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Choose metrics before comparing methods; do not optimise on the final test example.
+
+- Explain and retain a testable result and its limits.
+
+Regression estimates a relationship between inputs and a numeric target. A synthetic straight line is useful for checking code, but perfect fit on a designed fixture is not a real-world benchmark. Compare with a mean baseline and preserve the future test example.
+
+Choose metrics before comparing methods; do not optimise on the final test example. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: Fit training pairs (1,5),(2,8),(3,11),(4,14). Test x=5 against y=17 only after fitting. Do not imply causal or production validity.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+Fit training pairs (1,5),(2,8),(3,11),(4,14). Test x=5 against y=17 only after fitting. Do not imply causal or production validity.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Choose metrics before comparing methods; do not optimise on the final test example.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Compare model selection fairly — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Change the test target to 19: prediction stays 17 and absolute error becomes 2.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 11: Inspect a simple loss curve
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Calculate three losses by hand and identify the minimiser.
+
+- Explain and retain a testable result and its limits.
+
+Module 3: See a gradient step succeed—and fail. Gradient descent changes parameters using a derivative and a learning rate. A downhill direction does not guarantee improvement with an arbitrarily large step. Inspect a scalar example before moving to matrices and higher-dimensional objectives.
+
+Gradient descent changes parameters using a derivative and a learning rate. A downhill direction does not guarantee improvement with an arbitrarily large step. Inspect a scalar example before moving to matrices and higher-dimensional objectives.
+
+Calculate three losses by hand and identify the minimiser. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: Use f(x)=(x-3)^2 and derivative 2(x-3). Apply exactly one step. Round reported values consistently; calculations are deterministic, not an LLM judgement.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "start": 0,
+  "learning_rate": 0.25
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "gradient": -6,
+  "next_x": 1.5,
+  "loss_before": 9,
+  "loss_after": 2.25
+}
+
+```
+
+### Guided activity
+
+1. Calculate three losses by hand and identify the minimiser.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Inspect a simple loss curve — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Learning rate 1.5: next x is 9 and loss increases to 36.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 12: Derive the update rule
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Connect the derivative sign to the direction of movement.
+
+- Explain and retain a testable result and its limits.
+
+Gradient descent changes parameters using a derivative and a learning rate. A downhill direction does not guarantee improvement with an arbitrarily large step. Inspect a scalar example before moving to matrices and higher-dimensional objectives.
+
+Connect the derivative sign to the direction of movement. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: Use f(x)=(x-3)^2 and derivative 2(x-3). Apply exactly one step. Round reported values consistently; calculations are deterministic, not an LLM judgement.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "gradient": -6,
+  "next_x": 1.5,
+  "loss_before": 9,
+  "loss_after": 2.25
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Connect the derivative sign to the direction of movement.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Derive the update rule — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Start at 3: gradient is zero and the point stays fixed.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 13: Implement and verify one step
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Record both parameter change and loss change.
+
+- Explain and retain a testable result and its limits.
+
+Gradient descent changes parameters using a derivative and a learning rate. A downhill direction does not guarantee improvement with an arbitrarily large step. Inspect a scalar example before moving to matrices and higher-dimensional objectives.
+
+Record both parameter change and loss change. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: Use f(x)=(x-3)^2 and derivative 2(x-3). Apply exactly one step. Round reported values consistently; calculations are deterministic, not an LLM judgement.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+Use f(x)=(x-3)^2 and derivative 2(x-3). Apply exactly one step. Round reported values consistently; calculations are deterministic, not an LLM judgement.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "gradient": -6,
+  "next_x": 1.5,
+  "loss_before": 9,
+  "loss_after": 2.25
+}
+
+```
+
+### Guided activity
+
+1. Record both parameter change and loss change.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Negative learning rate: label invalid for this descent policy.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Implement and verify one step — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Negative learning rate: label invalid for this descent policy.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 14: Make the learning rate fail
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Use the deliberate overshoot as evidence, not an unexplained software error.
+
+- Explain and retain a testable result and its limits.
+
+Gradient descent changes parameters using a derivative and a learning rate. A downhill direction does not guarantee improvement with an arbitrarily large step. Inspect a scalar example before moving to matrices and higher-dimensional objectives.
+
+Use the deliberate overshoot as evidence, not an unexplained software error. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: Use f(x)=(x-3)^2 and derivative 2(x-3). Apply exactly one step. Round reported values consistently; calculations are deterministic, not an LLM judgement.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. Learning rate 1.5: next x is 9 and loss increases to 36.
+2. Start at 3: gradient is zero and the point stays fixed.
+3. Negative learning rate: label invalid for this descent policy.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Use the deliberate overshoot as evidence, not an unexplained software error.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Learning rate 1.5: next x is 9 and loss increases to 36.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Make the learning rate fail — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Learning rate 1.5: next x is 9 and loss increases to 36.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 15: Connect vectors and gradients
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Apply the same reasoning coordinate by coordinate without pretending a scalar demo proves deep learning.
+
+- Explain and retain a testable result and its limits.
+
+Gradient descent changes parameters using a derivative and a learning rate. A downhill direction does not guarantee improvement with an arbitrarily large step. Inspect a scalar example before moving to matrices and higher-dimensional objectives.
+
+Apply the same reasoning coordinate by coordinate without pretending a scalar demo proves deep learning. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: Use f(x)=(x-3)^2 and derivative 2(x-3). Apply exactly one step. Round reported values consistently; calculations are deterministic, not an LLM judgement.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+Use f(x)=(x-3)^2 and derivative 2(x-3). Apply exactly one step. Round reported values consistently; calculations are deterministic, not an LLM judgement.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Apply the same reasoning coordinate by coordinate without pretending a scalar demo proves deep learning.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Connect vectors and gradients — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Start at 3: gradient is zero and the point stays fixed.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 16: Ship a model card and test record
 
 Estimated time: 65 minutes.
 
@@ -416,6 +1081,8 @@ Never bundle a credential.
 4. Perform one small change and predict its effect before rerunning.
 
 5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+6. Combined capstone: include one checked artefact from each extra module (“Fit a regression and inspect its residuals”; “See a gradient step succeed—and fail”) and say what it proved.
 
 ### Expected evidence
 
@@ -504,6 +1171,10 @@ Do not tune on the held-out labels. A missing prediction is an error to investig
 ## References
 
 - [Scikit-learn evaluation guide](https://scikit-learn.org/stable/modules/model_evaluation.html)
+
+- [Scikit-learn linear models](https://scikit-learn.org/stable/modules/linear_model.html)
+
+- [NumPy linear algebra documentation](https://numpy.org/doc/stable/reference/routines.linalg.html)
 
 ## Editorial boundary
 

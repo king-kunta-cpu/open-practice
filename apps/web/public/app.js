@@ -1,14 +1,14 @@
 import {guardSearch} from './search-input.js';
 import {mountCollection} from './collection.js';
 import {normaliseRecord,assessmentPassed,capstonePassed,renderLesson,renderAssessment,renderRubric,questions} from './learning.js';
-import {getLearner,saveCloud,track,call} from './learner.js';
+import {getLearner,saveCloud,track,call} from './learner.js';import {migrateLocal,resolveCourse,LAYOUT} from './course-aliases.js';
 import {workspaceHTML} from './offline.js';
 const $=s=>document.querySelector(s);
 const courses=await(await fetch('/courses.json')).json();
-let progress={};try{progress=JSON.parse(localStorage.getItem('op-progress')||'{}');if(!progress||typeof progress!=='object'||Array.isArray(progress))progress={};}catch{}
+let progress={};try{progress=JSON.parse(localStorage.getItem('op-progress')||'{}');if(!progress||typeof progress!=='object'||Array.isArray(progress))progress={};if(migrateLocal(progress))try{localStorage.setItem('op-progress',JSON.stringify(progress))}catch{};}catch{}
 let filter='All builds',current=null,step=0,myOnly=false;
 function persist(){try{localStorage.setItem('op-progress',JSON.stringify(progress));return true}catch{alert('Browser storage is unavailable. Export your record before leaving.');return false}}
-function record(c){progress[c.id]=normaliseRecord(c,progress[c.id]);return progress[c.id]}
+function record(c){progress[c.id]=normaliseRecord(c,progress[c.id]);progress[c.id].layout=LAYOUT;return progress[c.id]}
 function done(c){return record(c).done.length===c.lessons.length&&assessmentPassed(c,record(c))&&capstonePassed(c,record(c))}
 function updateCount(){$('#count').textContent=courses.filter(done).length}
 const categories=['All builds',...new Set(courses.map(c=>c.track))];
@@ -41,4 +41,4 @@ $('#workspace-import').onchange=async e=>{const file=e.target.files[0];if(!file|
 $('#practice-clear').onclick=()=>{$('#practice-key').value='';$('#practice-answer').textContent='Key cleared.'};window.addEventListener('op-signout',()=>{$('#practice-key').value='';$('#practice-prompt').value='';$('#practice-answer').textContent=''});
 $('#practice-form').onsubmit=async e=>{e.preventDefault();const button=e.submitter;button.disabled=true;$('#practice-answer').textContent='Running with your selected provider…';try{if(!getLearner())throw Error('Sign in before using your provider key.');const d=await call('/api/practice',{provider:$('#practice-provider').value,model:$('#practice-model').value.trim(),key:$('#practice-key').value.trim(),account:$('#practice-account').value.trim(),prompt:$('#practice-prompt').value});$('#practice-answer').textContent=d.text+'\n\nAI-generated · '+d.provider+' / '+d.model+' · Verify important claims.'}catch(err){$('#practice-answer').textContent=err.message}finally{$('#practice-key').value='';button.disabled=false}};
 
-const requestedCourse=new URL(location.href).searchParams.get('course');if(requestedCourse){const selected=courses.find(c=>c.id===requestedCourse);if(selected)open(selected)}
+const requestedCourse=new URL(location.href).searchParams.get('course');if(requestedCourse){const selected=courses.find(c=>c.id===resolveCourse(requestedCourse));if(selected)open(selected)}

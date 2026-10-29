@@ -2,7 +2,7 @@
 
 Open Practice / Data & spreadsheets / curriculum 2.0
 
-Estimated guided practice: 4h estimated. This estimate has not been learner-tested.
+Estimated guided practice: 9h 50m estimated. This estimate has not been learner-tested.
 
 Original practice material · CC BY 4.0 · Non-degree and non-accredited.
 
@@ -16,6 +16,14 @@ Create a checked expense summary
 
 - A spreadsheet is helpful; manual completion is supported.
 
+- Spreadsheet onramp; inspect the worked fixture before beginning.
+
+- A text editor/spreadsheet for the manual route. Hosted Python/Jupyter for code exercises; applicable dependencies are in requirements.txt.
+
+- For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory.
+
+- Python + Pandas prerequisite; inspect the worked fixture before beginning.
+
 ## Learning outcomes
 
 - Structure fictional expense data and calculate known totals.
@@ -25,6 +33,14 @@ Create a checked expense summary
 - Validate dirty data without silently guessing or deleting evidence.
 
 - Deliver a reconciled summary and reproducible reject log.
+
+- Specify identifier, amount and validation rules in plain language.
+
+- Establish accepted rows and rejection reasons before automating.
+
+- Identify values that must survive cleaning, including a legitimate outlier.
+
+- Distinguish exact copies from conflicting records.
 
 ## Activity 1: Start with clean sample data
 
@@ -321,7 +337,704 @@ Which sentence in your report would require evidence beyond this dataset?
 
 Draw a text bar chart and write the checked totals directly from the expected file.
 
-## Activity 6: Capstone: ship a checked expense pipeline
+## Activity 6: Write a data dictionary
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Specify identifier, amount and validation rules in plain language.
+
+- Explain and retain a testable result and its limits.
+
+Module 2: Repair dirty records without inventing facts. Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.
+
+Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.
+
+Specify identifier, amount and validation rules in plain language. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "rows": [
+    {
+      "id": "a",
+      "amount": 5
+    },
+    {
+      "id": "b",
+      "amount": 0
+    },
+    {
+      "id": "a",
+      "amount": 5
+    },
+    {
+      "id": "c",
+      "amount": "?"
+    },
+    {
+      "id": "d",
+      "amount": -1
+    }
+  ]
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "accepted": 2,
+  "total": 5,
+  "reasons": [
+    "duplicate_id",
+    "non_numeric",
+    "negative_amount"
+  ]
+}
+
+```
+
+### Guided activity
+
+1. Specify identifier, amount and validation rules in plain language.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Write a data dictionary — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Conflicting duplicate: send to a human instead of quietly selecting a value.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 7: Mark each dirty row manually
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Establish accepted rows and rejection reasons before automating.
+
+- Explain and retain a testable result and its limits.
+
+Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.
+
+Establish accepted rows and rejection reasons before automating. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "accepted": 2,
+  "total": 5,
+  "reasons": [
+    "duplicate_id",
+    "non_numeric",
+    "negative_amount"
+  ]
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Establish accepted rows and rejection reasons before automating.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Mark each dirty row manually — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Blank amount is not zero.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 8: Build a non-destructive cleaner
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Return clean data and a reject log without overwriting the source.
+
+- Explain and retain a testable result and its limits.
+
+Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.
+
+Return clean data and a reject log without overwriting the source. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "accepted": 2,
+  "total": 5,
+  "reasons": [
+    "duplicate_id",
+    "non_numeric",
+    "negative_amount"
+  ]
+}
+
+```
+
+### Guided activity
+
+1. Return clean data and a reject log without overwriting the source.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Rejecting every unusual value can remove legitimate data; review the policy before generalising.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Build a non-destructive cleaner — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Rejecting every unusual value can remove legitimate data; review the policy before generalising.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 9: Test duplicates, blanks and zero
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Use distinct reason codes so failures remain explainable.
+
+- Explain and retain a testable result and its limits.
+
+Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.
+
+Use distinct reason codes so failures remain explainable. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. Conflicting duplicate: send to a human instead of quietly selecting a value.
+2. Blank amount is not zero.
+3. Rejecting every unusual value can remove legitimate data; review the policy before generalising.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Use distinct reason codes so failures remain explainable.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Conflicting duplicate: send to a human instead of quietly selecting a value.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Test duplicates, blanks and zero — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Conflicting duplicate: send to a human instead of quietly selecting a value.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 10: Audit the source and policy
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Validate subject matter against primary tool documentation, not a misleading catalogue heading.
+
+- Explain and retain a testable result and its limits.
+
+Cleaning is a policy decision with an audit trail. Duplicate IDs, blanks and invalid types are different problems. Preserve the original and reject ambiguous values rather than making a complete-looking table with invented numbers.
+
+Validate subject matter against primary tool documentation, not a misleading catalogue heading. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+IDs must be unique, amounts finite and non-negative; zero is valid. First occurrence wins only in this fixture; real conflicting records require review.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Validate subject matter against primary tool documentation, not a misleading catalogue heading.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Audit the source and policy — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Blank amount is not zero.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 11: Write preservation invariants
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Identify values that must survive cleaning, including a legitimate outlier.
+
+- Explain and retain a testable result and its limits.
+
+Module 3: Make cleaning decisions testable with Pandas. A cleaning script needs tests for preservation as well as removal. Missing values, duplicates and outliers have different meanings. A high value may be a legitimate transaction; automatically deleting it can distort the report.
+
+A cleaning script needs tests for preservation as well as removal. Missing values, duplicates and outliers have different meanings. A high value may be a legitimate transaction; automatically deleting it can distort the report.
+
+Identify values that must survive cleaning, including a legitimate outlier. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: Drop exact duplicate IDs only in this fixture, fill missing units with the stated zero policy, and retain the legitimate 100-unit outlier. In real work, review conflicting duplicates and missing-value semantics first.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "rows": [
+    {
+      "id": "a",
+      "units": 2
+    },
+    {
+      "id": "b",
+      "units": null
+    },
+    {
+      "id": "a",
+      "units": 2
+    },
+    {
+      "id": "c",
+      "units": 100
+    }
+  ]
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "rows": 3,
+  "units": [
+    2,
+    0,
+    100
+  ],
+  "total": 102,
+  "outlier_retained": true
+}
+
+```
+
+### Guided activity
+
+1. Identify values that must survive cleaning, including a legitimate outlier.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Write preservation invariants — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- A duplicate ID with a different amount needs review, not automatic first-row selection.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 12: Inspect missingness and duplicates
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Distinguish exact copies from conflicting records.
+
+- Explain and retain a testable result and its limits.
+
+A cleaning script needs tests for preservation as well as removal. Missing values, duplicates and outliers have different meanings. A high value may be a legitimate transaction; automatically deleting it can distort the report.
+
+Distinguish exact copies from conflicting records. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: Drop exact duplicate IDs only in this fixture, fill missing units with the stated zero policy, and retain the legitimate 100-unit outlier. In real work, review conflicting duplicates and missing-value semantics first.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "rows": 3,
+  "units": [
+    2,
+    0,
+    100
+  ],
+  "total": 102,
+  "outlier_retained": true
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Distinguish exact copies from conflicting records.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Inspect missingness and duplicates — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Changing the missing policy to unknown means the old zero-fill expected file is no longer authoritative.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 13: Implement an explicit Pandas policy
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Show each transformation and its affected row count.
+
+- Explain and retain a testable result and its limits.
+
+A cleaning script needs tests for preservation as well as removal. Missing values, duplicates and outliers have different meanings. A high value may be a legitimate transaction; automatically deleting it can distort the report.
+
+Show each transformation and its affected row count. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: Drop exact duplicate IDs only in this fixture, fill missing units with the stated zero policy, and retain the legitimate 100-unit outlier. In real work, review conflicting duplicates and missing-value semantics first.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+Drop exact duplicate IDs only in this fixture, fill missing units with the stated zero policy, and retain the legitimate 100-unit outlier. In real work, review conflicting duplicates and missing-value semantics first.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "rows": 3,
+  "units": [
+    2,
+    0,
+    100
+  ],
+  "total": 102,
+  "outlier_retained": true
+}
+
+```
+
+### Guided activity
+
+1. Show each transformation and its affected row count.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Do not remove 100 just because it is far from the median.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Implement an explicit Pandas policy — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Do not remove 100 just because it is far from the median.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 14: Test accidental data loss
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Assert that the outlier survives and totals reconcile.
+
+- Explain and retain a testable result and its limits.
+
+A cleaning script needs tests for preservation as well as removal. Missing values, duplicates and outliers have different meanings. A high value may be a legitimate transaction; automatically deleting it can distort the report.
+
+Assert that the outlier survives and totals reconcile. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: Drop exact duplicate IDs only in this fixture, fill missing units with the stated zero policy, and retain the legitimate 100-unit outlier. In real work, review conflicting duplicates and missing-value semantics first.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. A duplicate ID with a different amount needs review, not automatic first-row selection.
+2. Changing the missing policy to unknown means the old zero-fill expected file is no longer authoritative.
+3. Do not remove 100 just because it is far from the median.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Assert that the outlier survives and totals reconcile.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform A duplicate ID with a different amount needs review, not automatic first-row selection.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Test accidental data loss — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- A duplicate ID with a different amount needs review, not automatic first-row selection.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 15: Separate preparation from model fitting
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Do not learn normalisation parameters from future data.
+
+- Explain and retain a testable result and its limits.
+
+A cleaning script needs tests for preservation as well as removal. Missing values, duplicates and outliers have different meanings. A high value may be a legitimate transaction; automatically deleting it can distort the report.
+
+Do not learn normalisation parameters from future data. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: Drop exact duplicate IDs only in this fixture, fill missing units with the stated zero policy, and retain the legitimate 100-unit outlier. In real work, review conflicting duplicates and missing-value semantics first.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+Drop exact duplicate IDs only in this fixture, fill missing units with the stated zero policy, and retain the legitimate 100-unit outlier. In real work, review conflicting duplicates and missing-value semantics first.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Do not learn normalisation parameters from future data.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Separate preparation from model fitting — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Changing the missing policy to unknown means the old zero-fill expected file is no longer authoritative.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 16: Capstone: ship a checked expense pipeline
 
 Estimated time: 60 minutes.
 
@@ -355,6 +1068,8 @@ ACCEPTANCE: 7 accepted; 5 rejected; total 72.50; category totals reconcile; reru
 4. Score the capstone rubric and document unresolved limitations.
 
 5. Export the files with a README that another learner can follow.
+
+6. Combined capstone: include one checked artefact from each extra module (“Repair dirty records without inventing facts”; “Make cleaning decisions testable with Pandas”) and say what it proved.
 
 ### Expected evidence
 
@@ -447,6 +1162,8 @@ Only fictional data; financial limitations and exclusions are clear.
 - [Google Sheets function reference](https://support.google.com/docs/table/25273)
 
 - [LibreOffice Calc guidance](https://help.libreoffice.org/latest/en-US/text/scalc/main0000.html)
+
+- [Pandas missing-data guidance](https://pandas.pydata.org/docs/user_guide/missing_data.html)
 
 ## Editorial boundary
 

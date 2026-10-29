@@ -1,7 +1,8 @@
+import {migrateRows} from './course-aliases.js';
 const $=s=>document.querySelector(s);let learner=null;const versions={};
 export function getLearner(){return learner}
 export async function call(path,body,method='POST'){
- const r=await fetch(path,{signal:AbortSignal.timeout(15000),method,headers:body?{'Content-Type':'application/json'}:{},...(body?{body:JSON.stringify(body)}:{})});const d=await r.json();if(!r.ok)throw Error(d.error||'Request failed');return d;
+ const r=await fetch(path,{signal:AbortSignal.timeout(15000),method,headers:body?{'Content-Type':'application/json'}:{},...(body?{body:JSON.stringify(body)}:{})});const d=await r.json();if(!r.ok)throw Error(d.error||'Request failed');if(path==='/api/workspaces'&&method==='GET'&&Array.isArray(d.workspaces))d.workspaces=migrateRows(d.workspaces);return d;
 }
 export async function track(event,course=''){if(!learner)return;try{await call('/api/events',{event,course})}catch{/* Tracking failure must not block learning. */}}
 function download(name,text,type){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([text],{type}));a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}

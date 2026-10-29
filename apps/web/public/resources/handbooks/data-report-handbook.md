@@ -2,7 +2,7 @@
 
 Open Practice / Data & evidence / curriculum 1.0
 
-Estimated guided practice: 4h estimated. This estimate has not been learner-tested.
+Estimated guided practice: 6h 55m estimated. This estimate has not been learner-tested.
 
 Original practice material · CC BY 4.0 · Non-degree and non-accredited.
 
@@ -18,6 +18,8 @@ Deliver an auditable report pack with inputs, tests and a reproducible handoff.
 
 - For actual AI calls, a legitimate available cloud service and authorised learner credentials; no particular provider or country is mandatory.
 
+- Python onramp; inspect the worked fixture before beginning.
+
 ## Learning outcomes
 
 - Choose a question the supplied rows can actually answer.
@@ -29,6 +31,10 @@ Deliver an auditable report pack with inputs, tests and a reproducible handoff.
 - Add a row and verify that formulas include it.
 
 - Keep a reproducible result and disclose safety, rights and regional access limits.
+
+- Match the encoding to comparison, distribution or change.
+
+- Identify what a truncated baseline exaggerates.
 
 ## Activity 1: Define the reporting question
 
@@ -366,7 +372,340 @@ Which exact input, rule and expected value would let another learner falsify you
 
 Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
 
-## Activity 6: Deliver an auditable report pack
+## Activity 6: Choose a question and chart type
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Match the encoding to comparison, distribution or change.
+
+- Explain and retain a testable result and its limits.
+
+Module 2: Make charts that tell the checked truth. A chart is an argument about data. Bar lengths need a meaningful baseline, units and readable labels. Accessibility also needs a text alternative, not simply a contrast check. Inspect a deliberately truncated-axis specification before rendering a corrected chart.
+
+A chart is an argument about data. Bar lengths need a meaningful baseline, units and readable labels. Accessibility also needs a text alternative, not simply a contrast check. Inspect a deliberately truncated-axis specification before rendering a corrected chart.
+
+Match the encoding to comparison, distribution or change. Inspect the supplied input before using any tool. Write the decision rules in your own words and calculate one small result independently. The reference output is an answer key for this deliberately bounded fixture, not proof of general capability.
+
+Policy for this project: Values are fictional counts. A bar chart must start at zero for this exercise and include units and a text alternative. Metadata checks cannot prove the rendered chart is visually honest.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+SOURCE (authored fixture):
+{
+  "values": {
+    "A": 8,
+    "B": 10
+  },
+  "chart": {
+    "axis_min": 7,
+    "units": "items",
+    "alt": ""
+  }
+}
+INDEPENDENT FIXTURE TARGET:
+{
+  "total": 18,
+  "failed_checks": [
+    "axis_baseline",
+    "text_alternative"
+  ],
+  "release": "revise"
+}
+
+```
+
+### Guided activity
+
+1. Match the encoding to comparison, distribution or change.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record a manual prediction and the relevant rule before consulting the answer key.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Choose a question and chart type — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Set baseline to 0 and add a descriptive text alternative: specification checks pass.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 7: Audit the supplied misleading spec
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Identify what a truncated baseline exaggerates.
+
+- Explain and retain a testable result and its limits.
+
+A chart is an argument about data. Bar lengths need a meaningful baseline, units and readable labels. Accessibility also needs a text alternative, not simply a contrast check. Inspect a deliberately truncated-axis specification before rendering a corrected chart.
+
+Identify what a truncated baseline exaggerates. Establish a baseline before changing prompts or code. Keep the original input immutable. Record expected values, observed values and whether each comparison passed. If the expected file conflicts with a justified policy, investigate rather than forcing a convenient match.
+
+Policy for this project: Values are fictional counts. A bar chart must start at zero for this exercise and include units and a text alternative. Metadata checks cannot prove the rendered chart is visually honest.
+
+### Worked example
+
+```text
+
+MANUAL BASELINE / compare every named field
+{
+  "total": 18,
+  "failed_checks": [
+    "axis_baseline",
+    "text_alternative"
+  ],
+  "release": "revise"
+}
+Keep a separate observed-result column; the answer key is not a model response.
+
+```
+
+### Guided activity
+
+1. Identify what a truncated baseline exaggerates.
+
+2. Open input.json and expected.json from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Audit the supplied misleading spec — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Swap category labels: values may total correctly while the chart is still wrong.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 8: Render an accessible chart
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Use clear units, labels and a checked table alongside the image.
+
+- Explain and retain a testable result and its limits.
+
+A chart is an argument about data. Bar lengths need a meaningful baseline, units and readable labels. Accessibility also needs a text alternative, not simply a contrast check. Inspect a deliberately truncated-axis specification before rendering a corrected chart.
+
+Use clear units, labels and a checked table alongside the image. Build one inspectable transformation or bounded AI prompt. Keep calculation and validation deterministic where possible. If you make a permitted hosted call, save the actual response separately from the authored examples and verify its material claims; the supplied reference never simulates a live model.
+
+Policy for this project: Values are fictional counts. A bar chart must start at zero for this exercise and include units and a text alternative. Metadata checks cannot prove the rendered chart is visually honest.
+
+### Worked example
+
+```text
+
+PROJECT CONTRACT:
+Values are fictional counts. A bar chart must start at zero for this exercise and include units and a text alternative. Metadata checks cannot prove the rendered chart is visually honest.
+HOSTED REFERENCE: open hosted-lab.ipynb or run reference.py with all fixture files together.
+EXPECTED CONSTRUCTED RESULT:
+{
+  "total": 18,
+  "failed_checks": [
+    "axis_baseline",
+    "text_alternative"
+  ],
+  "release": "revise"
+}
+
+```
+
+### Guided activity
+
+1. Use clear units, labels and a checked table alongside the image.
+
+2. Open hosted-lab.ipynb and the reference code from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Colour alone must not distinguish categories.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Render an accessible chart — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Colour alone must not distinguish categories.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 9: Test misleading transformations
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Try swapped labels, omitted rows and changed scales.
+
+- Explain and retain a testable result and its limits.
+
+A chart is an argument about data. Bar lengths need a meaningful baseline, units and readable labels. Accessibility also needs a text alternative, not simply a contrast check. Inspect a deliberately truncated-axis specification before rendering a corrected chart.
+
+Try swapped labels, omitted rows and changed scales. Change one assumption at a time and predict the result first. Retain the failure, the revision and the rerun evidence. A failure is useful information: hiding a bad output or editing a test target after seeing the answer destroys the value of the experiment.
+
+Policy for this project: Values are fictional counts. A bar chart must start at zero for this exercise and include units and a text alternative. Metadata checks cannot prove the rendered chart is visually honest.
+
+### Worked example
+
+```text
+
+CHANGE TESTS — predict before running:
+1. Set baseline to 0 and add a descriptive text alternative: specification checks pass.
+2. Swap category labels: values may total correctly while the chart is still wrong.
+3. Colour alone must not distinguish categories.
+Keep the original expected.json unchanged.
+
+```
+
+### Guided activity
+
+1. Try swapped labels, omitted rows and changed scales.
+
+2. Open failure-tests.md from the practice pack; keep an unmodified original.
+
+3. Record expected and observed values separately; explain every mismatch.
+
+4. Perform Set baseline to 0 and add a descriptive text alternative: specification checks pass.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Test misleading transformations — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Set baseline to 0 and add a descriptive text alternative: specification checks pass.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 10: Write a factual text alternative
+
+Estimated time: 35 minutes.
+
+### Outcomes
+
+- Describe the observed values without inventing an explanation.
+
+- Explain and retain a testable result and its limits.
+
+A chart is an argument about data. Bar lengths need a meaningful baseline, units and readable labels. Accessibility also needs a text alternative, not simply a contrast check. Inspect a deliberately truncated-axis specification before rendering a corrected chart.
+
+Describe the observed values without inventing an explanation. Review what the fixture cannot establish. Explain who owns the decision, where human approval is needed and which access or professional constraints remain. Do not describe a small educational success as production readiness, certification, legal compliance or a guarantee.
+
+Policy for this project: Values are fictional counts. A bar chart must start at zero for this exercise and include units and a text alternative. Metadata checks cannot prove the rendered chart is visually honest.
+
+For learners across regions underserved or excluded by mainstream providers: verify country eligibility, language, account/identity requirements, data terms, cost, quota and connectivity before choosing a cloud service. Use only legitimate available alternatives; never bypass restrictions or invent a country/account. No service access? Complete the labelled manual/fixture route without claiming a live AI run.
+
+### Worked example
+
+```text
+
+REVIEW BOUNDARY:
+Values are fictional counts. A bar chart must start at zero for this exercise and include units and a text alternative. Metadata checks cannot prove the rendered chart is visually honest.
+
+ACCESS / NOT TESTED: unavailable provider, unsupported language and absent external feedback must remain explicit.
+
+```
+
+### Guided activity
+
+1. Describe the observed values without inventing an explanation.
+
+2. Open README.md and your evidence log from the practice pack; keep an unmodified original.
+
+3. Record the human decision owner, limitations and any untested service access.
+
+4. Perform one small change and predict its effect before rerunning.
+
+5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+### Expected evidence
+
+- Write a factual text alternative — a saved, inspectable artefact tied to the supplied rule.
+
+- A baseline or change-test record with expected/observed results and a limitation.
+
+### Common mistakes
+
+- Swap category labels: values may total correctly while the chart is still wrong.
+
+- Treating a supplied answer key, an authored example or self-review as independent field validation.
+
+### Check your understanding
+
+Which exact input, rule and expected value would let another learner falsify your conclusion in this activity, and what remains untested?
+
+### Offline route
+
+Use the supplied fictional JSON, expected results and paper/text evidence log without a provider account. Manual or constructed completion is labelled; it is not a live cloud integration or trained-model run.
+
+## Activity 11: Deliver an auditable report pack
 
 Estimated time: 65 minutes.
 
@@ -408,6 +747,8 @@ Never bundle a credential.
 4. Perform one small change and predict its effect before rerunning.
 
 5. Keep the result and your reasoning in the lesson notes; do not mark a simulated run as live.
+
+6. Combined capstone: include one checked artefact from each extra module (“Make charts that tell the checked truth”) and say what it proved.
 
 ### Expected evidence
 
@@ -496,6 +837,8 @@ Amounts are fictional whole units. Keep categories exact and expose the row coun
 ## References
 
 - [Pandas grouping guide](https://pandas.pydata.org/docs/user_guide/groupby.html)
+
+- [Matplotlib accessibility guidance](https://matplotlib.org/stable/users/explain/colors/index.html)
 
 ## Editorial boundary
 
